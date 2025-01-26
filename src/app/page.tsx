@@ -43,13 +43,13 @@ export default function Home() {
             <div className="pt-20 pb-12">
               <div className="text-center space-y-8">
                 <div className="relative mx-auto h-40 w-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                  <Image
-                    src="C:/Users/santh/portfolio/public/prof.jpg"
-                    alt="Lahari Karrotu"
-                    sizes="160px"
-                    fill
-                    className="object-cover"
-                    priority
+                <Image
+                       src="https://avatars.githubusercontent.com/laharikarrotu"
+                       alt="Lahari Karrotu"
+                       fill
+                       sizes="160px"
+                       className="rounded-full object-cover"
+                       priority
                   />
                 </div>
                 <div>
