@@ -1,6 +1,5 @@
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS with your user ID
 emailjs.init("YOUR_USER_ID");
 
 export const sendEmail = async (formData: {
@@ -21,7 +20,8 @@ export const sendEmail = async (formData: {
       }
     );
     return response;
-  } catch (error) {
+  } catch (err) {
+    console.error('Email sending failed:', err);
     throw new Error('Failed to send email');
   }
 };

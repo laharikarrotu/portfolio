@@ -65,7 +65,6 @@ export default function ContactPage() {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
@@ -92,7 +91,7 @@ export default function ContactPage() {
         subject: '',
         message: ''
       });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -100,53 +99,17 @@ export default function ContactPage() {
     }
   };
 
-  const renderField = (
-    fieldName: keyof FormData,
-    label: string,
-    type: string = 'text',
-    isTextarea: boolean = false
-  ) => {
-    const Component = isTextarea ? 'textarea' : 'input';
-    
-    return (
-      <div>
-        <label htmlFor={fieldName} className="block text-sm font-medium text-gray-700 mb-1">
-          {label}
-        </label>
-        <Component
-          id={fieldName}
-          name={fieldName}
-          type={type}
-          value={formData[fieldName]}
-          onChange={handleChange}
-          className={`block w-full rounded-md shadow-sm transition-colors
-            ${errors[fieldName] 
-              ? 'border-red-300 focus:border-red-500 focus:ring-red-500' 
-              : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
-            }`}
-          {...(isTextarea ? { rows: 4 } : {})}
-        />
-        {errors[fieldName] && (
-          <p className="mt-1 text-sm text-red-600">{errors[fieldName]}</p>
-        )}
-      </div>
-    );
-  };
-
   return (
     <div className="bg-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        {/* Page Header */}
         <div className="text-center mb-16">
           <h1 className="text-3xl font-bold text-gray-900">Get in Touch</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Have a project in mind? Let's discuss how I can help you with your data engineering needs.
+            Have a project in mind? Let&apos;s discuss how I can help you with your data engineering needs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Information */}
-        <div className="bg-gray-50 p-8 rounded-lg">
           <div className="bg-gray-50 p-8 rounded-lg">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">Contact Information</h2>
             
@@ -176,7 +139,6 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-              </div>
 
               <div className="flex items-center">
                 <MapPin className="w-6 h-6 text-blue-600 mr-4" />
@@ -187,7 +149,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Social Links */}
             <div className="mt-8">
               <h3 className="text-lg font-medium text-gray-900 mb-4">Connect with me</h3>
               <div className="flex space-x-4">
@@ -211,15 +172,93 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-white rounded-lg shadow-sm p-8 border border-gray-100">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">Send a Message</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
-              {renderField('name', 'Name')}
-              {renderField('email', 'Email', 'email')}
-              {renderField('subject', 'Subject')}
-              {renderField('message', 'Message', 'text', true)}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={`block w-full rounded-md shadow-sm transition-colors ${
+                    errors.name 
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500' 
+                      : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
+                  }`}
+                />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`block w-full rounded-md shadow-sm transition-colors ${
+                    errors.email 
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500' 
+                      : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
+                  }`}
+                />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className={`block w-full rounded-md shadow-sm transition-colors ${
+                    errors.subject 
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500' 
+                      : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
+                  }`}
+                />
+                {errors.subject && (
+                  <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`block w-full rounded-md shadow-sm transition-colors ${
+                    errors.message 
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500' 
+                      : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
+                  }`}
+                />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                )}
+              </div>
 
               <button
                 type="submit"
@@ -233,10 +272,9 @@ export default function ContactPage() {
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
 
-              {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="mt-4 p-4 bg-green-50 text-green-700 rounded-md">
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </div>
               )}
               

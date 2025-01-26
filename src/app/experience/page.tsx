@@ -8,11 +8,11 @@ export default function ExperiencePage() {
       location: "Atlanta",
       period: "August 2024 – Present",
       achievements: [
-        "Developed and deployed AI-powered voice assistants using GPT-based NLP models",
-        "Engineered scalable data pipelines integrating AWS S3 and Redshift",
-        "Designed and deployed serverless microservices using AWS Lambda",
-        "Built custom APIs for secure communication between data processing systems",
-        "Implemented cost optimization strategies in AWS environments"
+        "Developed and deployed AI-powered voice assistants using GPT-based NLP models for medical SOP form filling, streamlining automation and enhancing accuracy",
+        "Engineered scalable data pipelines integrating AWS S3 and Redshift, automating data flow and enabling real-time reporting",
+        "Designed and deployed serverless microservices using AWS Lambda, optimizing backend workflows and reducing response time by 30%",
+        "Built custom APIs to support secure communication between data processing systems and application layers",
+        "Implemented cost optimization strategies in AWS environments while maintaining high system availability"
       ]
     },
     {
@@ -21,11 +21,11 @@ export default function ExperiencePage() {
       location: "Hyderabad, India",
       period: "2022–2023",
       achievements: [
-        "Designed and implemented ETL pipelines using AWS services",
-        "Integrated BI tools for visualizing key business metrics",
-        "Optimized Redshift performance with complex SQL queries",
-        "Generated and implemented SQL scripts for database changes",
-        "Created new FACT and Dimension Tables for existing Models"
+        "Designed and implemented ETL pipelines using AWS services such as S3, Glue, and Redshift for efficient data processing",
+        "Integrated BI tools like Tableau to visualize key business metrics and real-time analytics",
+        "Optimized Redshift performance with complex SQL queries, improving query speed and reducing data retrieval times",
+        "Generated and implemented SQL scripts for database changes including table updates and view creation",
+        "Designed new FACT and Dimension Tables to enhance existing data models"
       ]
     },
     {
@@ -34,19 +34,24 @@ export default function ExperiencePage() {
       location: "Remote, India",
       period: "2021–2022",
       achievements: [
-        "Reduced data processing time by 30% through Data Ingestion framework",
-        "Configured AWS Data Pipeline for S3 to Redshift data loading",
-        "Utilized AWS EMR for large data transformations",
-        "Automated scripts using Apache Airflow and shell scripting",
-        "Developed Spark Python modules for machine learning"
+        "Reduced data processing time by 30% through development of Data Ingestion framework functionalities in Python",
+        "Configured AWS Data Pipeline to load data efficiently from S3 to Redshift",
+        "Utilized AWS EMR for large-scale data transformations between Amazon S3 and DynamoDB",
+        "Automated scripts and workflows using Apache Airflow and shell scripting for daily production execution",
+        "Developed Spark Python modules for machine learning and predictive analytics in Hadoop environments"
       ]
     }
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Professional Experience</h1>
+        <div className="text-center mb-16">
+          <h1 className="text-3xl font-bold text-gray-900">Professional Experience</h1>
+          <p className="mt-4 text-lg text-gray-600">
+            A track record of delivering innovative data solutions and driving operational efficiency
+          </p>
+        </div>
         
         <div className="space-y-12">
           {experiences.map((exp, index) => (
@@ -57,7 +62,7 @@ export default function ExperiencePage() {
               <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full" />
               
               <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">{exp.title}</h2>
                     <h3 className="text-lg text-gray-700">{exp.company}</h3>
@@ -85,6 +90,21 @@ export default function ExperiencePage() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <div className="inline-block bg-blue-50 rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Looking for a Data Engineering Expert?</h2>
+            <p className="text-gray-600 mb-4">
+              I&apos;m available for freelance projects and full-time opportunities.
+            </p>
+            <a
+              href="/contact"
+              className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Get in Touch
+            </a>
+          </div>
         </div>
       </div>
     </div>
