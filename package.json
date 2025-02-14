@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@google/generative-ai": "^0.21.0",
+    "@google-cloud/speech": "^6.1.0",
+    "@google/generative-ai": "^0.2.0",
     "@headlessui/react": "^2.2.0",
     "@react-spring/web": "^9.7.5",
     "framer-motion": "^10.16.4",

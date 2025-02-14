@@ -10,6 +10,8 @@ import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import AnimatedCard from '@/components/AnimatedCard';
 import { MotionDiv } from '@/components/MotionDiv';
+import ThemeToggle from '@/components/ThemeToggle';
+import VoiceAssistant from '@/components/VoiceAssistant';
 
 const Home: React.FC = () => {
   const skills: string[] = [
@@ -90,11 +92,56 @@ const Home: React.FC = () => {
       imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692",
       link: "https://github.com/laharikarrotu/data-quality",
       tags: ["dbt", "Great Expectations", "Python"]
+    },
+    {
+      title: "PetsmartAI",
+      description: "Developed an AI-powered pet care assistant using GPT models and Next.js. Features personalized pet care recommendations, diet planning, and behavior analysis.",
+      imageUrl: "https://images.unsplash.com/photo-1450778869180-41d0601e046e",
+      link: "https://github.com/laharikarrotu/PetsmartAI",
+      tags: ["AI/ML", "Next.js", "GPT", "TypeScript"]
     }
   ];
 
+  // Add these tool configurations with their icons
+  const toolsConfig = {
+    dataProcessing: [
+      { name: 'Apache Spark', icon: '🔥' },
+      { name: 'Apache Kafka', icon: '📊' },
+      { name: 'Apache Airflow', icon: '🔄' },
+      { name: 'Databricks', icon: '⚡' },
+      { name: 'Apache Hadoop', icon: '🐘' },
+      { name: 'Apache NiFi', icon: '🔁' }
+    ],
+    cloudInfra: [
+      { name: 'AWS S3', icon: '☁️' },
+      { name: 'AWS Glue', icon: '🔧' },
+      { name: 'AWS Redshift', icon: '💫' },
+      { name: 'AWS Lambda', icon: 'λ' },
+      { name: 'Docker', icon: '🐳' },
+      { name: 'Kubernetes', icon: '⎈' }
+    ],
+    dataStorage: [
+      { name: 'PostgreSQL', icon: '🐘' },
+      { name: 'MongoDB', icon: '🍃' },
+      { name: 'Snowflake', icon: '❄️' },
+      { name: 'Amazon DynamoDB', icon: '📦' },
+      { name: 'Apache Cassandra', icon: '💾' },
+      { name: 'Redis', icon: '🔴' }
+    ],
+    languagesTools: [
+      { name: 'Python', icon: '🐍' },
+      { name: 'SQL', icon: '📝' },
+      { name: 'dbt', icon: '🔨' },
+      { name: 'Git', icon: '📚' },
+      { name: 'Shell Scripting', icon: '💻' },
+      { name: 'Terraform', icon: '🌍' }
+    ]
+  };
+
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen text-gray-800 relative">
+    <main className="gradient-background min-h-screen text-gray-800 relative">
+      <ThemeToggle />
+      <VoiceAssistant />
       <Navigation />
       <AnimatedBackground />
       <ScrollToTop />
@@ -560,6 +607,254 @@ const Home: React.FC = () => {
             </div>
           </MotionDiv>
         </section>
+
+        <section className="tools-section py-20" id="tools">
+          <SectionHeader 
+            title="Tools & Technologies" 
+            subtitle="The tech stack I use to build robust data solutions"
+          />
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto px-4"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+              >
+                <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                  <span className="text-2xl">⚡</span>
+                  Data Processing
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.dataProcessing.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+              >
+                <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                  <span className="text-2xl">☁️</span>
+                  Cloud & Infrastructure
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.cloudInfra.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+              >
+                <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                  <span className="text-2xl">💾</span>
+                  Data Storage
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.dataStorage.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+              >
+                <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🛠️</span>
+                  Languages & Tools
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.languagesTools.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
+            </div>
+          </MotionDiv>
+        </section>
+
+        {/* Add a Certifications Section */}
+        <section className="certifications-section py-20" id="certifications">
+          <SectionHeader 
+            title="Certifications" 
+            subtitle="Professional certifications and achievements"
+          />
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4"
+          >
+            {[
+              {
+                name: "AWS Certified Solutions Architect",
+                issuer: "Amazon Web Services",
+                date: "2023",
+                icon: "☁️"
+              },
+              {
+                name: "Azure Data Engineer Associate",
+                issuer: "Microsoft",
+                date: "2023",
+                icon: "📊"
+              },
+              {
+                name: "Databricks Certified Associate",
+                issuer: "Databricks",
+                date: "2023",
+                icon: "⚡"
+              }
+            ].map((cert, index) => (
+              <MotionDiv
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg
+                          hover:transform hover:scale-105 transition-all duration-300"
+              >
+                <span className="text-3xl mb-4 block">{cert.icon}</span>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{cert.name}</h3>
+                <p className="text-gray-600">{cert.issuer}</p>
+                <p className="text-gray-500 text-sm">{cert.date}</p>
+              </MotionDiv>
+            ))}
+          </MotionDiv>
+        </section>
+
+        {/* Add a Publications/Blog Section */}
+        <section className="publications-section py-20" id="publications">
+          <SectionHeader 
+            title="Technical Writing" 
+            subtitle="Articles and publications about data engineering and cloud technologies"
+          />
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto px-4"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "Building Scalable Data Pipelines with AWS",
+                  description: "Learn how to architect and implement robust ETL pipelines using AWS services like Glue, Lambda, and S3. This comprehensive guide covers best practices, common pitfalls, and optimization techniques.",
+                  link: "https://medium.com/@laharikarrotu/building-scalable-data-pipelines-aws-comprehensive-guide-123",
+                  date: "March 2024",
+                  readTime: "10 min read",
+                  tags: ["AWS", "ETL", "Data Engineering"]
+                },
+                {
+                  title: "Real-time Stream Processing: Apache Kafka vs. AWS Kinesis",
+                  description: "A detailed comparison of two popular stream processing solutions. Explore the pros and cons of each platform, with real-world use cases and performance benchmarks.",
+                  link: "https://medium.com/@laharikarrotu/kafka-vs-kinesis-stream-processing-comparison-456",
+                  date: "February 2024",
+                  readTime: "8 min read",
+                  tags: ["Kafka", "Kinesis", "Stream Processing"]
+                }
+              ].map((article, index) => (
+                <Link 
+                  href={article.link}
+                  key={index}
+                  className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg
+                            hover:transform hover:scale-105 transition-all duration-300 block"
+                >
+                  <h3 className="text-xl font-semibold text-purple-600 mb-2">{article.title}</h3>
+                  <p className="text-gray-700 mb-4">{article.description}</p>
+                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                    <span>{article.date}</span>
+                    <span>•</span>
+                    <span>{article.readTime}</span>
+                  </div>
+                  <div className="flex gap-2 mt-4">
+                    {article.tags.map((tag, tagIndex) => (
+                      <span 
+                        key={tagIndex}
+                        className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </MotionDiv>
+        </section>
+
+        {/* Update the Download Resume Button */}
+        <div className="fixed bottom-24 right-8 z-50">
+          <a
+            href="/resume.pdf"
+            download="Lahari_Karrotu_Resume.pdf"
+            className="bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg
+                      hover:bg-purple-700 transition-all duration-300 flex items-center gap-2
+                      hover:scale-105 backdrop-blur-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Download Resume</span>
+            <svg 
+              className="w-5 h-5" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" 
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </main>
   );
