@@ -6,9 +6,10 @@ import Navigation from '@/components/Navigation';
 import ScrollToTop from '@/components/ScrollToTop';
 import TypeWriter from '@/components/TypeWriter';
 import { Github, Linkedin, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import AnimatedCard from '@/components/AnimatedCard';
+import { MotionDiv } from '@/components/MotionDiv';
 
 const Home: React.FC = () => {
   const skills: string[] = [
@@ -232,7 +233,7 @@ const Home: React.FC = () => {
               
               <div className="space-y-12">
                 {/* Current Role */}
-                <motion.div 
+                <MotionDiv
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -261,10 +262,10 @@ const Home: React.FC = () => {
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-2xl text-white">🚀</span>
                   </div>
-                </motion.div>
+                </MotionDiv>
 
                 {/* Previous Role */}
-                <motion.div 
+                <MotionDiv
                   initial={{ opacity: 0, x: 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -289,10 +290,10 @@ const Home: React.FC = () => {
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-2xl text-white">💼</span>
                   </div>
-                </motion.div>
+                </MotionDiv>
 
                 {/* Earlier Role */}
-                <motion.div 
+                <MotionDiv
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -317,10 +318,10 @@ const Home: React.FC = () => {
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-2xl text-white">📊</span>
                   </div>
-                </motion.div>
+                </MotionDiv>
 
                 {/* Education */}
-                <motion.div 
+                <MotionDiv
                   initial={{ opacity: 0, x: 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -345,7 +346,7 @@ const Home: React.FC = () => {
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-2xl text-white">🎓</span>
                   </div>
-                </motion.div>
+                </MotionDiv>
               </div>
             </div>
           </div>
@@ -403,7 +404,7 @@ const Home: React.FC = () => {
             title="Featured Projects" 
             subtitle="A showcase of my recent work in data engineering and cloud solutions"
           />
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -470,7 +471,7 @@ const Home: React.FC = () => {
                 </Link>
               ))}
             </div>
-          </motion.div>
+          </MotionDiv>
         </section>
 
         <section className="contact-section py-20" id="contact">
@@ -519,7 +520,7 @@ const Home: React.FC = () => {
             title="Key Achievements" 
             subtitle="Milestones and impacts from my professional journey"
           />
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -557,7 +558,7 @@ const Home: React.FC = () => {
               </div>
               <p className="text-gray-700">Improved system performance by 40% using advanced SQL optimization</p>
             </div>
-          </motion.div>
+          </MotionDiv>
         </section>
       </div>
     </main>

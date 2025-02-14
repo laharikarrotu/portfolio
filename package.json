@@ -13,11 +13,11 @@
     "@google/generative-ai": "^0.21.0",
     "@headlessui/react": "^2.2.0",
     "@react-spring/web": "^9.7.5",
-    "framer-motion": "^12.4.2",
+    "framer-motion": "^10.16.4",
     "lucide-react": "^0.474.0",
     "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.15.1"
   },
   "devDependencies": {

@@ -4,9 +4,7 @@ const nextConfig = {
     domains: ['avatars.githubusercontent.com', 'images.unsplash.com'],
     unoptimized: true,
   },
-  env: {
-    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
-  },
+  reactStrictMode: true,
 }
 
 module.exports = nextConfig
