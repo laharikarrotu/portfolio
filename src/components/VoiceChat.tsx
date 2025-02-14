@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Mic, MicOff, Loader2 } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 
-interface ChatMessage {
+interface Message {
   text: string;
   isUser: boolean;
-  timestamp: Date;
 }
 
 interface SpeechRecognitionResult {
@@ -53,13 +52,55 @@ interface IWindow extends Window {
   SpeechRecognition: new () => ISpeechRecognition;
 }
 
+interface APIError {
+  error: string;
+  retryAfter?: number;
+}
+
 const VoiceChat = () => {
   const [isListening, setIsListening] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [recognition, setRecognition] = useState<ISpeechRecognition | null>(null);
+
+  const getAIResponse = useCallback(async (userMessage: string) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userMessage }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        if (response.status === 429) {
+          const errorData = data as APIError;
+          setError(`Rate limit exceeded. ${errorData.retryAfter ? `Please try again in ${errorData.retryAfter} seconds.` : 'Please try again later.'}`);
+          setTimeout(() => {
+            setError('');
+          }, (errorData.retryAfter || 60) * 1000);
+        } else {
+          setError((data as APIError).error || 'Failed to get AI response');
+        }
+        return null;
+      }
+      
+      setError('');
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Failed to communicate with AI service');
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -94,7 +135,7 @@ const VoiceChat = () => {
         setRecognition(recognition);
       }
     }
-  }, []);
+  }, [getAIResponse]);
 
   useEffect(() => {
     scrollToBottom();
@@ -108,60 +149,17 @@ const VoiceChat = () => {
     setMessages(prev => [...prev, {
       text,
       isUser,
-      timestamp: new Date()
     }]);
   };
 
-  const speakResponse = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      
-      const voices = window.speechSynthesis.getVoices();
-      const preferredVoice = voices.find(voice => 
-        voice.name.includes('Google') || voice.name.includes('Natural')
-      );
-      if (preferredVoice) {
-        utterance.voice = preferredVoice;
+  useEffect(() => {
+    if (messages && messages.length > 0) {
+      const lastMessage = messages[messages.length - 1];
+      if (lastMessage && lastMessage.text) {
+        getAIResponse(lastMessage.text);
       }
-
-      window.speechSynthesis.speak(utterance);
     }
-  };
-
-  const getAIResponse = async (userInput: string) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userInput }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to get AI response');
-      }
-
-      const data = await response.json();
-      
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      addMessage(data.response, false);
-      speakResponse(data.response);
-    } catch (error) {
-      console.error('Error getting AI response:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Failed to get AI response';
-      setError(errorMessage);
-      addMessage('Sorry, I encountered an error. Please try again.', false);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [messages, getAIResponse]);
 
   const toggleListening = () => {
     if (!recognition) {

@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Lahari Karrotu - Data Engineer & Cloud Specialist',
   description: 'Professional portfolio showcasing expertise in data engineering, cloud architecture, and AWS services.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -17,8 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head />
       <body className={inter.className} suppressHydrationWarning>
         {children}
+      
       </body>
     </html>
   );

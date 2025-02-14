@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
+  --foreground: #ffffff;
+  --background: #0a0a0a;
   --card: #ffffff;
   --card-foreground: #000000;
 }
@@ -22,6 +22,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 /* Base Animations */
@@ -181,4 +183,311 @@ body {
 /* Smooth Scroll */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* This accounts for the fixed navigation */
+}
+
+/* Voice Assistant Animation */
+.voice-assistant {
+  display: none;
+  opacity: 0;
+  transform: scale(0.8);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Mobile width */
+  max-width: 350px;
+  background: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.voice-assistant.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: voiceAssistantShow 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Mic Button Styling */
+.mic-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--foreground);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mic-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mic-button:active {
+  transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes voiceAssistantShow {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Backdrop when voice assistant is active */
+.voice-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.voice-backdrop.active {
+  display: block;
+  animation: backdropShow 0.3s ease forwards;
+}
+
+@keyframes backdropShow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tablet Breakpoint */
+@media (min-width: 768px) {
+  .voice-assistant {
+    width: 80%;
+    max-width: 450px;
+    padding: 1.5rem;
+  }
+
+  .mic-button {
+    bottom: 3rem;
+    right: 3rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 1024px) {
+  .voice-assistant {
+    width: 70%;
+    max-width: 550px;
+    padding: 2rem;
+  }
+}
+
+/* Ensure accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .voice-assistant,
+  .voice-backdrop,
+  .mic-button {
+    animation: none;
+    transition: none;
+  }
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.landing-page {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f0f0f0; /* Adjust as needed */
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Remove duplicate project-card rules and combine them */
+.project-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-section {
+  background-color: #f8fafc; /* Light background for hero section */
+  background-size: cover;
+  background-position: center;
+}
+
+.skills-section {
+  background-color: #ffffff; /* White background for skills section */
+}
+
+.projects-section {
+  background-color: #ffffff; /* White background for projects section */
+}
+
+.contact-section {
+  background-color: #f8fafc; /* Light background for contact section */
+}
+
+/* Add this if you want to hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Add these new styles */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Optional: Add smooth scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 3));
+  }
+}
+
+/* Add a subtle gradient overlay for better text readability */
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  pointer-events: none;
+}
+
+/* Update gradient text styles with all necessary prefixes */
+[class*="bg-clip-text"],
+.prose h2,
+.text-transparent {
+  background: linear-gradient(to right, #60a5fa, #8b5cf6);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  display: inline-block;
+}
+
+.prose ul {
+  border-left: 2px solid rgba(139, 92, 246, 0.3);
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  position: relative;
+}
+
+.prose li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #8b5cf6;
+  border-radius: 50%;
+}
+
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shine {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shine 3s infinite;
+}
+
+.animate-glow {
+  animation: glow 3s infinite;
+}
+
+.glass-effect {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-border {
+  position: relative;
+  border: double 1px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
+                    linear-gradient(to right, #818cf8, #c084fc);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
