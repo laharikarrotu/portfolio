@@ -594,26 +594,82 @@ html {
   background-clip: padding-box, border-box;
 }
 
-/* Ensure theme toggle is always clickable */
+/* Mobile-first theme toggle styles */
 button[aria-label*="Switch to"] {
   position: relative;
   z-index: 100;
   pointer-events: auto;
-}
-
-/* Add this to ensure the container is also clickable */
-[role="button"],
-button {
-  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-/* Improve button interaction states */
-button:focus-visible {
-  outline: 2px solid #7c3aed;
-  outline-offset: 2px;
+/* Improved touch target size for mobile */
+@media (max-width: 640px) {
+  button[aria-label*="Switch to"] {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Adjust position for mobile to avoid conflicts with other fixed elements */
+  .fixed.bottom-24 {
+    bottom: 5rem;
+  }
 }
 
-button:active {
-  transform: scale(0.95);
+/* Better hover states for non-touch devices */
+@media (hover: hover) {
+  button[aria-label*="Switch to"]:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  button[aria-label*="Switch to"],
+  .transition-all {
+    transition: none !important;
+  }
+}
+
+/* Mobile menu styles */
+.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* Ensure proper z-index stacking */
+.mobile-nav {
+  z-index: 100;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  .mobile-nav button {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Prevent scrolling when menu is open */
+  body.mobile-menu-open {
+    position: fixed;
+    width: 100%;
+  }
+}
+
+/* Add smooth scrolling to the whole document */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure proper spacing for fixed elements */
+@media (max-width: 640px) {
+  .fixed.top-6 {
+    top: 1rem;
+  }
+  
+  .fixed.left-6 {
+    left: 1rem;
+  }
 }

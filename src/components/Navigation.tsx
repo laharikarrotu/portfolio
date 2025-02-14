@@ -1,58 +1,122 @@
 'use client';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import { MotionDiv } from './MotionDiv';
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  const menuItems = [
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#certifications', label: 'Certifications' },
+    { href: '#contact', label: 'Contact' }
+  ];
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const scrollToSection = (sectionId: string) => {
+    setIsOpen(false);
+    const element = document.querySelector(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-gray-900/90 backdrop-blur-md' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-            Lahari K
-          </Link>
-          
-          <div className="hidden md:flex space-x-8">
-            <Link href="/#about" className="text-gray-300 hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/#skills" className="text-gray-300 hover:text-white transition-colors">
-              Skills
-            </Link>
-            <Link href="/#projects" className="text-gray-300 hover:text-white transition-colors">
-              Projects
-            </Link>
-            <Link href="/#contact" className="text-gray-300 hover:text-white transition-colors">
-              Contact
-            </Link>
-            <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">
-              Blog
-            </Link>
-          </div>
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed top-6 left-6 z-50 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 
+                  backdrop-blur-sm shadow-lg border border-purple-100 dark:border-purple-900
+                  hover:scale-110 transition-all duration-300 sm:hidden"
+        aria-label="Toggle menu"
+      >
+        {isOpen ? (
+          <X className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+        ) : (
+          <Menu className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+        )}
+      </button>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button className="text-gray-300 hover:text-white">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
+      {/* Desktop Navigation */}
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden sm:block">
+        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg 
+                      border border-purple-100 dark:border-purple-900 p-2">
+          <ul className="flex items-center gap-2">
+            {menuItems.map((item) => (
+              <li key={item.href}>
+                <button
+                  onClick={() => scrollToSection(item.href)}
+                  className="px-4 py-2 rounded-full text-gray-600 dark:text-gray-300 
+                            hover:text-purple-600 dark:hover:text-purple-400 
+                            hover:bg-white/50 dark:hover:bg-gray-700/50 
+                            transition-all duration-300"
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <MotionDiv
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 sm:hidden"
+            >
+              <div 
+                className="absolute inset-0" 
+                onClick={() => setIsOpen(false)}
+                role="button"
+                tabIndex={0}
+                aria-label="Close menu"
+              />
+            </MotionDiv>
+
+            {/* Menu */}
+            <MotionDiv
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
+              className="fixed top-0 left-0 bottom-0 w-3/4 max-w-xs bg-white dark:bg-gray-800 
+                        shadow-2xl z-50 sm:hidden"
+            >
+              <div className="flex flex-col h-full overflow-y-auto">
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6">
+                    Menu
+                  </h2>
+                  <ul className="space-y-4">
+                    {menuItems.map((item) => (
+                      <li key={item.href}>
+                        <button
+                          onClick={() => scrollToSection(item.href)}
+                          className="w-full text-left px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300
+                                    hover:bg-purple-50 dark:hover:bg-gray-700/50 
+                                    hover:text-purple-600 dark:hover:text-purple-400
+                                    transition-all duration-300"
+                        >
+                          {item.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </MotionDiv>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
