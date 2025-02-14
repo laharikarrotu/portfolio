@@ -6,7 +6,7 @@ import Navigation from '@/components/Navigation';
 import ScrollToTop from '@/components/ScrollToTop';
 import TypeWriter from '@/components/TypeWriter';
 import { Github, Linkedin, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import AnimatedCard from '@/components/AnimatedCard';
 import { MotionDiv } from '@/components/MotionDiv';

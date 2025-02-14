@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { MotionDiv } from './MotionDiv';
 
 interface SectionHeaderProps {
   title: string;
@@ -8,7 +8,7 @@ interface SectionHeaderProps {
 
 const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -24,7 +24,7 @@ const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
           {subtitle}
         </p>
       )}
-    </motion.div>
+    </MotionDiv>
   );
 };
 
