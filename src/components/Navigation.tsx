@@ -1,25 +1,79 @@
 'use client';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, Briefcase, Award, BookOpen, Mail } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { MotionDiv } from './MotionDiv';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const menuItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#certifications', label: 'Certifications' },
-    { href: '#contact', label: 'Contact' }
+  // Organized menu structure with categories
+  const menuCategories = [
+    {
+      id: 'main',
+      label: 'Main',
+      icon: Home,
+      items: [
+        { href: '#home', label: 'Home' },
+        { href: '#about', label: 'About' },
+        { href: '#skills', label: 'Skills' }
+      ]
+    },
+    {
+      id: 'work',
+      label: 'Work',
+      icon: Briefcase,
+      items: [
+        { href: '#projects', label: 'Projects' },
+        { href: '/experience', label: 'Experience' },
+        { href: '#case-studies', label: 'Case Studies' }
+      ]
+    },
+    {
+      id: 'achievements',
+      label: 'Achievements',
+      icon: Award,
+      items: [
+        { href: '#certifications', label: 'Certifications' },
+        { href: '#social-proof', label: 'Recognition' },
+        { href: '#testimonials', label: 'Testimonials' }
+      ]
+    },
+    {
+      id: 'knowledge',
+      label: 'Knowledge',
+      icon: BookOpen,
+      items: [
+        { href: '#research', label: 'Research' },
+        { href: '#speaking', label: 'Speaking' }
+      ]
+    },
+    {
+      id: 'contact',
+      label: 'Contact',
+      icon: Mail,
+      items: [
+        { href: '#contact', label: 'Get In Touch' }
+      ]
+    }
   ];
 
   const scrollToSection = (sectionId: string) => {
     setIsOpen(false);
-    const element = document.querySelector(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    setActiveDropdown(null);
+    if (sectionId.startsWith('/')) {
+      // External link - navigate to page
+      window.location.href = sectionId;
+    } else {
+      // Internal section - scroll to element
+      const element = document.querySelector(sectionId);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const toggleDropdown = (categoryId: string) => {
+    setActiveDropdown(activeDropdown === categoryId ? null : categoryId);
   };
 
   return (
@@ -43,18 +97,56 @@ const Navigation = () => {
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden sm:block">
         <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg 
                       border border-purple-100 dark:border-purple-900 p-2">
-          <ul className="flex items-center gap-2">
-            {menuItems.map((item) => (
-              <li key={item.href}>
+          <ul className="flex items-center gap-1">
+            {menuCategories.map((category) => (
+              <li key={category.id} className="relative">
                 <button
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => toggleDropdown(category.id)}
+                  onMouseEnter={() => setActiveDropdown(category.id)}
+                  onMouseLeave={() => setActiveDropdown(null)}
                   className="px-4 py-2 rounded-full text-gray-600 dark:text-gray-300 
                             hover:text-purple-600 dark:hover:text-purple-400 
                             hover:bg-white/50 dark:hover:bg-gray-700/50 
-                            transition-all duration-300"
+                            transition-all duration-300 flex items-center gap-1 group"
                 >
-                  {item.label}
+                  <category.icon className="w-4 h-4" />
+                  <span>{category.label}</span>
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${
+                    activeDropdown === category.id ? 'rotate-180' : ''
+                  }`} />
                 </button>
+
+                {/* Dropdown Menu */}
+                <AnimatePresence>
+                  {activeDropdown === category.id && (
+                    <MotionDiv
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      onMouseEnter={() => setActiveDropdown(category.id)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                      className="absolute top-full left-0 mt-2 min-w-48 bg-white dark:bg-gray-800 
+                                rounded-xl shadow-xl border border-purple-100 dark:border-purple-900 
+                                backdrop-blur-sm overflow-hidden"
+                    >
+                      <div className="p-2">
+                        {category.items.map((item) => (
+                          <button
+                            key={item.href}
+                            onClick={() => scrollToSection(item.href)}
+                            className="w-full text-left px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300
+                                      hover:bg-purple-50 dark:hover:bg-gray-700/50 
+                                      hover:text-purple-600 dark:hover:text-purple-400
+                                      transition-all duration-200 flex items-center gap-3"
+                          >
+                            {item.label}
+                          </button>
+                        ))}
+                      </div>
+                    </MotionDiv>
+                  )}
+                </AnimatePresence>
               </li>
             ))}
           </ul>
@@ -95,21 +187,35 @@ const Navigation = () => {
                   <h2 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6">
                     Menu
                   </h2>
-                  <ul className="space-y-4">
-                    {menuItems.map((item) => (
-                      <li key={item.href}>
-                        <button
-                          onClick={() => scrollToSection(item.href)}
-                          className="w-full text-left px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300
-                                    hover:bg-purple-50 dark:hover:bg-gray-700/50 
-                                    hover:text-purple-600 dark:hover:text-purple-400
-                                    transition-all duration-300"
-                        >
-                          {item.label}
-                        </button>
-                      </li>
+                  
+                  {/* Mobile Menu Categories */}
+                  <div className="space-y-6">
+                    {menuCategories.map((category) => (
+                      <div key={category.id}>
+                        <div className="flex items-center gap-2 mb-3">
+                          <category.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                            {category.label}
+                          </h3>
+                        </div>
+                        <ul className="space-y-2 ml-7">
+                          {category.items.map((item) => (
+                            <li key={item.href}>
+                              <button
+                                onClick={() => scrollToSection(item.href)}
+                                className="w-full text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300
+                                          hover:bg-purple-50 dark:hover:bg-gray-700/50 
+                                          hover:text-purple-600 dark:hover:text-purple-400
+                                          transition-all duration-300 text-sm"
+                              >
+                                {item.label}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </MotionDiv>

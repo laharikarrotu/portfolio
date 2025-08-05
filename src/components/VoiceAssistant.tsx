@@ -88,7 +88,7 @@ const VoiceAssistant = () => {
           document.getElementById(data.action.target)?.scrollIntoView({ behavior: 'smooth' });
           break;
         case 'download':
-          window.open('/resume.pdf', '_blank');
+          window.open('/Resume_LahariKarrotu.docx', '_blank');
           break;
       }
     }

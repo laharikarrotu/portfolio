@@ -1,60 +1,84 @@
 'use client';
 
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 
 export default function ExperiencePage() {
   const experiences = [{
-    title: "Data Engineer Intern",
+    title: "Full Stack AI Engineer",
+    company: "Arkatech Solutions",
+    location: "Remote",
+    period: "May 2025 – Present",
+    achievements: [
+      "Building SmartBuy eCommerce Platform with React frontend and FastAPI backend, featuring AI-powered product recommendations",
+      "Developing Auto Loan AI Plugin using AWS Textract OCR and voice assistants, reducing processing time by 40%",
+      "Implementing infrastructure automation with Terraform, cutting deployment cycles by 40%",
+      "Integrating AWS Lambda and Gemini API for intelligent automation and cost optimization",
+      "Designing scalable microservices architecture for high-performance applications"
+    ]
+  },
+  {
+    title: "AI/ML Full Stack Developer",
     company: "Anguliyam",
     location: "Atlanta",
-    period: "August 2024 – Present",
+    period: "August 2024 – May 2025",
     achievements: [
-      "Developed and deployed AI-powered voice assistants using GPT-based NLP models for medical SOP form filling, streamlining automation and enhancing accuracy",
-      "Engineered scalable data pipelines integrating AWS S3 and Redshift, automating data flow and enabling real-time reporting",
-      "Designed and deployed serverless microservices using AWS Lambda, optimizing backend workflows and reducing response time by 30%",
-      "Built custom APIs to support secure communication between data processing systems and application layers",
-      "Implemented cost optimization strategies in AWS environments while maintaining high system availability"
+      "Developed Railway Predictive Maintenance system using TensorFlow, reducing equipment downtime by 30%",
+      "Created real-time monitoring dashboards with React for system analytics and alert management",
+      "Integrated LLM APIs for voice-powered fitness app recommendations and navigation",
+      "Built proprietary enterprise applications with advanced AI capabilities and computer vision",
+      "Implemented voice navigation systems using Google Cloud Speech and AI models"
     ]
   },
   {
-    title: "Data Engineering Intern",
+    title: "Big Data Engineer",
     company: "Cognizant",
     location: "Hyderabad, India",
-    period: "2022–2023",
+    period: "January 2022 – August 2022",
     achievements: [
-      "Designed and implemented ETL pipelines using AWS services such as S3, Glue, and Redshift for efficient data processing",
-      "Integrated BI tools like Tableau to visualize key business metrics and real-time analytics",
-      "Optimized Redshift performance with complex SQL queries, improving query speed and reducing data retrieval times",
-      "Generated and implemented SQL scripts for database changes including table updates and view creation",
-      "Designed new FACT and Dimension Tables to enhance existing data models"
+      "Built ETL pipelines processing 5TB+ monthly data using Apache Spark and Kafka",
+      "Reduced query latency by 30% through SQL/NoSQL database tuning and optimization",
+      "Developed Java and Python APIs supporting 15+ projects with scalable architecture",
+      "Implemented data quality frameworks and automated testing for production pipelines",
+      "Designed and optimized data warehouse solutions using AWS Redshift and S3"
     ]
   },
   {
-    title: "Data Analyst Intern",
-    company: "EPAM Solutions",
-    location: "Remote, India",
-    period: "2021–2022",
+    title: "Data Analyst",
+    company: "EPAM Systems",
+    location: "Hyderabad, India",
+    period: "December 2020 – March 2021",
     achievements: [
-      "Reduced data processing time by 30% through development of Data Ingestion framework functionalities in Python",
-      "Configured AWS Data Pipeline to load data efficiently from S3 to Redshift",
-      "Utilized AWS EMR for large-scale data transformations between Amazon S3 and DynamoDB",
-      "Automated scripts and workflows using Apache Airflow and shell scripting for daily production execution",
-      "Developed Spark Python modules for machine learning and predictive analytics in Hadoop environments"
+      "Reduced data processing time by 30% through development of Data Ingestion framework in Python",
+      "Configured AWS Data Pipeline for efficient data loading from S3 to Redshift",
+      "Utilized AWS EMR for large-scale data transformations between S3 and DynamoDB",
+      "Automated workflows using Apache Airflow and shell scripting for production execution",
+      "Developed Spark Python modules for machine learning and predictive analytics"
     ]
   }
 ];
 
-  return (
-    <div className="bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30 min-h-screen transition-all duration-500">
-      <div className="max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+     return (
+     <div className="bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30 min-h-screen transition-all duration-500">
+       <div className="max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+         <div className="mb-8">
+           <Link
+             href="/"
+             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 
+                       transition-colors duration-300 hover:translate-x-[-4px]"
+           >
+             <ArrowLeft className="w-5 h-5" />
+             <span>Back to Home</span>
+           </Link>
+         </div>
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Professional Experience
           </h1>
-          <p className="mt-4 text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            A track record of delivering innovative data solutions and driving operational efficiency
-          </p>
+                     <p className="mt-4 text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+             A track record of delivering innovative full-stack and AI/ML solutions and driving operational efficiency
+           </p>
         </div>
         
         <div className="space-y-12">
@@ -104,18 +128,18 @@ export default function ExperiencePage() {
 
         <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
           <div className="inline-block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              Looking for a Data Engineering Expert?
-            </h2>
-            <p className="text-gray-600 mb-4">
-              I&apos;m available for freelance projects and full-time opportunities.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Get in Touch
-            </a>
+                         <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+               Looking for a Full Stack AI Engineer?
+             </h2>
+             <p className="text-gray-600 mb-4">
+               I&apos;m available for freelance projects and full-time opportunities in AI/ML and full-stack development.
+             </p>
+                         <Link
+               href="/#contact"
+               className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+             >
+               Get in Touch
+             </Link>
           </div>
         </div>
       </div>
