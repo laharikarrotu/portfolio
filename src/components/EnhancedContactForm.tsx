@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { MotionDiv } from './MotionDiv';
+import emailjs from 'emailjs-com';
 
 const EnhancedContactForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,11 @@ const EnhancedContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("Ig5SXM2Q8_MIXaZCz");
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -52,17 +58,29 @@ const EnhancedContactForm = () => {
     setSubmitStatus('idle');
     
     try {
-      // Simulate API call - replace with actual EmailJS or backend call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // EmailJS configuration with basic template
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        title: formData.subject,
+        message: formData.message
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_h0781h5',
+        'template_phqwaai',
+        templateParams
+      );
       
-      // For now, we'll simulate success
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
       
-    } catch {
+    } catch (error) {
+      console.error('Email sending failed:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
@@ -239,12 +257,12 @@ const EnhancedContactForm = () => {
         <div className="mt-8 pt-6 border-t border-gray-200 text-center">
           <p className="text-sm text-gray-600">
             Or email me directly at{' '}
-            <a 
-              href="mailto:laharikarrotu@gmail.com" 
-              className="text-purple-600 hover:text-purple-700 font-medium"
-            >
-              laharikarrotu@gmail.com
-            </a>
+                         <a 
+               href="mailto:laharikarrothu@gmail.com" 
+               className="text-purple-600 hover:text-purple-700 font-medium"
+             >
+               laharikarrothu@gmail.com
+             </a>
           </p>
         </div>
       </div>

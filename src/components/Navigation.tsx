@@ -54,7 +54,8 @@ const Navigation = () => {
       label: 'Contact',
       icon: Mail,
       items: [
-        { href: '#contact', label: 'Get In Touch' }
+        { href: '#contact', label: 'Get In Touch' },
+        { href: '/messages', label: 'Messages' }
       ]
     }
   ];
