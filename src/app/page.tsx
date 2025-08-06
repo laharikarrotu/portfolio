@@ -240,7 +240,7 @@ const Home: React.FC = () => {
                    <Linkedin className="w-6 h-6 text-gray-700" />
                  </Link>
                  <Link
-                   href="mailto:laharikarrotu@gmail.com"
+                   href="mailto:laharikarrothu@gmail.com"
                    className="p-2 bg-white/50 rounded-full hover:bg-white/70 
                             transition-all duration-300 transform hover:scale-110"
                  >
@@ -724,7 +724,7 @@ const Home: React.FC = () => {
                  <span>GitHub</span>
                </Link>
                <Link 
-                 href="mailto:laharikarrotu@gmail.com" 
+                 href="mailto:laharikarrothu@gmail.com" 
                  className="group flex items-center gap-3 bg-white/50 px-8 py-4 rounded-xl hover:bg-white/70 
                            transition-all duration-300 backdrop-blur-sm border border-purple-100
                            hover:scale-105 shadow-lg hover:shadow-purple-200/50"
@@ -1367,7 +1367,7 @@ const Home: React.FC = () => {
          <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
            {/* Quick Contact Button */}
            <Link
-             href="mailto:laharikarrotu@gmail.com"
+             href="mailto:laharikarrothu@gmail.com"
              className="bg-green-600 text-white p-4 rounded-full shadow-lg
                       hover:bg-green-700 transition-all duration-300 flex items-center gap-2
                       hover:scale-105 backdrop-blur-sm group"

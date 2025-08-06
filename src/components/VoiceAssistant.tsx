@@ -33,7 +33,7 @@ const VoiceAssistant = () => {
     },
     {
       title: "Let's Connect",
-      text: "I'm always excited to discuss new opportunities and collaborate on interesting projects. Whether you're looking for a Full Stack AI Engineer, need help with data engineering solutions, or want to explore AI integration possibilities, I'd love to hear from you. Feel free to reach out through my contact form or email me directly at laharikarrotu@gmail.com. Let's build something amazing together!",
+      text: "I'm always excited to discuss new opportunities and collaborate on interesting projects. Whether you're looking for a Full Stack AI Engineer, need help with data engineering solutions, or want to explore AI integration possibilities, I'd love to hear from you. Feel free to reach out through my contact form or email me directly at laharikarrothu@gmail.com. Let's build something amazing together!",
       action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
     }
   ];

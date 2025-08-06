@@ -63,15 +63,26 @@ const EnhancedContactForm = () => {
         name: formData.name,
         email: formData.email,
         title: formData.subject,
-        message: formData.message
+        message: formData.message,
+        time: new Date().toLocaleString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
       };
 
+      console.log('Sending email with params:', templateParams);
+
       // Send email using EmailJS
-      await emailjs.send(
+      const result = await emailjs.send(
         'service_h0781h5',
-        'template_phqwaai',
+        'template_83u75a7',
         templateParams
       );
+      
+      console.log('Email sent successfully:', result);
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
