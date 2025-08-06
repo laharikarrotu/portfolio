@@ -60,9 +60,9 @@ const Home: React.FC = () => {
       title: "Auto Loan AI Plugin",
       description: "AI-powered loan processing system using AWS Textract OCR and voice assistants, reducing processing time by 40%.",
       imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
-      link: "https://github.com/laharikarrotu/auto-loan-ai-plugin",
+      link: "https://auto-loan-processing.vercel.app/",
       tags: ["AWS Textract", "Voice AI", "Lambda", "Python"],
-      status: "In Development"
+      status: "Live"
     },
     {
       title: "Fitness Transformation App",
