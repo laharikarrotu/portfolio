@@ -1,5 +1,8 @@
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
 
 /* Light theme (default) styles */
@@ -7,13 +10,31 @@
   background: linear-gradient(to bottom right, #f8fafc, #eef2ff, #faf5ff);
 }
 
+/* Dark theme styles */
+.dark .gradient-background {
+  background: #111827 !important;
+}
+
+.dark body {
+  background-color: #111827 !important;
+}
+
 .glass-effect {
   background-color: rgba(255, 255, 255, 0.7);
   border-color: rgba(139, 92, 246, 0.2);
 }
 
+.dark .glass-effect {
+  background-color: rgba(31, 41, 55, 0.7) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
 .bg-white\/50 {
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .bg-white\/50 {
+  background-color: rgba(31, 41, 55, 0.7) !important;
 }
 
 .border-purple-100 {
@@ -45,8 +66,74 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+.dark .project-card {
+  background-color: rgba(31, 41, 55, 0.9) !important;
+}
+
 .hover\:bg-white\/70:hover {
   background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .hover\:bg-white\/70:hover {
+  background-color: rgba(31, 41, 55, 0.9) !important;
+}
+
+.dark .bg-white\/80 {
+  background-color: rgba(31, 41, 55, 0.8) !important;
+}
+
+.dark .bg-white\/30 {
+  background-color: rgba(31, 41, 55, 0.3) !important;
+}
+
+.dark .hover\:bg-white:hover {
+  background-color: rgba(31, 41, 55, 1) !important;
+}
+
+/* Hero section container styling */
+.hero-section {
+  background-color: rgba(243, 244, 246, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.dark .hero-section {
+  background-color: rgba(31, 41, 55, 0.5) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+/* All section containers styling */
+.about-section,
+.experience-section,
+.skills-section,
+.projects-section,
+.social-proof-section,
+.contact-section,
+.testimonials-section,
+.achievements-section,
+.research-section,
+.case-studies-section,
+.tools-section,
+.certifications-section,
+.speaking-section {
+  background-color: rgba(243, 244, 246, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.dark .about-section,
+.dark .experience-section,
+.dark .skills-section,
+.dark .projects-section,
+.dark .social-proof-section,
+.dark .contact-section,
+.dark .testimonials-section,
+.dark .achievements-section,
+.dark .research-section,
+.dark .case-studies-section,
+.dark .tools-section,
+.dark .certifications-section,
+.dark .speaking-section {
+  background-color: rgba(31, 41, 55, 0.5) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
 }
 
 /* Dark theme styles */
@@ -54,13 +141,32 @@
   color-scheme: dark;
 }
 
+/* Force dark theme on all elements */
+.dark * {
+  color-scheme: dark;
+}
+
+/* Override any white backgrounds in dark mode */
+.dark .bg-white,
+.dark .bg-white\/10,
+.dark .bg-white\/20,
+.dark .bg-white\/30,
+.dark .bg-white\/40,
+.dark .bg-white\/50,
+.dark .bg-white\/60,
+.dark .bg-white\/70,
+.dark .bg-white\/80,
+.dark .bg-white\/90 {
+  background-color: rgba(31, 41, 55, 0.8) !important;
+}
+
 .dark body {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: #111827;
+  color: #f3f4f6;
 }
 
 .dark .gradient-background {
-  background: linear-gradient(to bottom right, #1a1a1a, #2d1a4a, #1a1a1a);
+  background: #111827;
 }
 
 .dark .glass-effect {
@@ -499,6 +605,43 @@ html {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+/* RevealFx Animation Styles - Based on mhhnr.com */
+.reveal-fx {
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 25%, transparent 50%);
+  mask-image: linear-gradient(90deg, #000 0, #000 25%, transparent 50%);
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+  transition: all var(--transition-duration, 2s) ease-in-out;
+  transition-delay: var(--transition-delay, 0s);
+  filter: blur(2px);
+}
+
+.reveal-fx.revealed {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  filter: blur(0);
+}
+
+.reveal-fx-line {
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 25%, transparent 50%);
+  mask-image: linear-gradient(90deg, #000 0, #000 25%, transparent 50%);
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+  transition: all var(--transition-duration, 1.2s) ease-in-out;
+  transition-delay: var(--transition-delay, 0s);
+  filter: blur(1px);
+}
+
+.reveal-fx-line.revealed {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  filter: blur(0);
 }
 
 /* Optional: Add smooth scrolling animation */

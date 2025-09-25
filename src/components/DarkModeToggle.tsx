@@ -4,7 +4,7 @@ import { Sun, Moon } from 'lucide-react';
 import { MotionDiv } from './MotionDiv';
 
 const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
