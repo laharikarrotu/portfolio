@@ -9,7 +9,6 @@ import TypeWriter from '@/components/TypeWriter';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
-import AnimatedCard from '@/components/AnimatedCard';
 import { MotionDiv } from '@/components/MotionDiv';
 import { RevealText, RevealParagraph, RevealHeading } from '@/components/RevealText';
 
@@ -21,21 +20,6 @@ import SkillsDisplay from '@/components/SkillsDisplay';
 import { projects } from '@/data/projects';
 
 const Home: React.FC = () => {
-  const skills: string[] = [
-    "Full-Stack Development",
-    "Data Engineering & Big Data",
-    "Generative AI & RAG",
-    "React & TypeScript",
-    "Python (FastAPI/Django)",
-    "Java & Spring Boot",
-    "Apache Spark & Kafka",
-    "AWS & Azure Cloud",
-    "MLOps & TensorFlow",
-    "System Design",
-    "DevOps & Terraform",
-    "Real-time ML Systems"
-  ];
-
   // Technical skills (no levels, just animated display)
   const techSkills = [
     // Frontend
@@ -338,7 +322,7 @@ const Home: React.FC = () => {
                 <div className="text-4xl mb-4">🔄</div>
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Continuous Learning</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  I'm committed to learning and improving. I stay current with best practices and technologies, and I'm always looking to grow my skills and contribute more effectively.
+                  I&apos;m committed to learning and improving. I stay current with best practices and technologies, and I&apos;m always looking to grow my skills and contribute more effectively.
                 </p>
               </MotionDiv>
 
@@ -369,7 +353,7 @@ const Home: React.FC = () => {
                 Long-Term Commitment
               </h3>
               <p className="text-gray-700 dark:text-gray-300 text-lg text-center max-w-3xl mx-auto leading-relaxed">
-                I'm looking for opportunities where I can grow with the company and contribute over the long term. I want to understand the business, work on meaningful problems, and be part of the team's success. I'm committed to being a reliable team member who adds value consistently.
+                I&apos;m looking for opportunities where I can grow with the company and contribute over the long term. I want to understand the business, work on meaningful problems, and be part of the team&apos;s success. I&apos;m committed to being a reliable team member who adds value consistently.
               </p>
             </MotionDiv>
           </div>

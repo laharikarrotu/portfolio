@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { MotionDiv } from './MotionDiv';
-import { ExternalLink, Github, ChevronLeft, ChevronRight, X, TrendingUp, Zap, Target, BarChart3 } from 'lucide-react';
+import { ExternalLink, Github, ChevronLeft, ChevronRight, X, TrendingUp, BarChart3 } from 'lucide-react';
 import { Project, ProjectScreenshot } from '@/data/projects';
 
 interface ProjectShowcaseProps {

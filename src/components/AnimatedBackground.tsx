@@ -24,10 +24,6 @@ const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Black hole center (center of screen)
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-
     // Single subtle color - using a soft blue
     const starColor = 'rgba(59, 130, 246, 0.5)'; // Subtle blue
     const darkStarColor = 'rgba(96, 165, 250, 0.6)'; // Slightly brighter for dark mode
@@ -59,11 +55,9 @@ const AnimatedBackground = () => {
     }
 
     let animationId: number;
-    let time = 0;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      time += 0.016; // ~60fps
 
       // Update center if window resized
       const currentCenterX = canvas.width / 2;
