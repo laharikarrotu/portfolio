@@ -24,33 +24,59 @@ const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Single subtle color - using a soft blue
-    const starColor = 'rgba(59, 130, 246, 0.5)'; // Subtle blue
-    const darkStarColor = 'rgba(96, 165, 250, 0.6)'; // Slightly brighter for dark mode
+    // Code snippets to display as particles
+    const codeSnippets = [
+      'const', 'function', '=>', '{}', '()', '[]', 'import', 'export',
+      'async', 'await', 'return', 'if', 'else', 'for', 'while', 'class',
+      'interface', 'type', 'let', 'var', 'null', 'undefined', 'true', 'false',
+      'React', 'useState', 'useEffect', 'props', 'state', 'API', 'fetch',
+      'try', 'catch', 'finally', 'throw', 'new', 'this', 'super',
+      'extends', 'implements', 'public', 'private', 'static', 'void',
+      '<div>', '</div>', '<span>', '</span>', 'className', 'onClick',
+      'useCallback', 'useMemo', 'useRef', 'memo', 'forwardRef',
+      'Promise', 'resolve', 'reject', 'then', 'catch', 'finally',
+      'map', 'filter', 'reduce', 'forEach', 'find', 'some', 'every',
+      'JSON', 'parse', 'stringify', 'localStorage', 'sessionStorage',
+      'axios', 'fetch', 'GET', 'POST', 'PUT', 'DELETE', 'PATCH',
+      'CSS', 'HTML', 'JS', 'TS', 'TSX', 'JSX', 'npm', 'yarn',
+      'git', 'commit', 'push', 'pull', 'branch', 'merge', 'PR',
+      'Docker', 'K8s', 'AWS', 'Azure', 'GCP', 'CI/CD', 'DevOps',
+      'SQL', 'NoSQL', 'MongoDB', 'PostgreSQL', 'Redis', 'Elasticsearch',
+      'Node', 'Express', 'FastAPI', 'Django', 'Flask', 'Spring',
+      'TensorFlow', 'PyTorch', 'ML', 'AI', 'NLP', 'CV', 'RAG'
+    ];
 
-    // Create stars/dots that will spiral into the black hole
-    interface Star {
-      angle: number; // Current angle in spiral
-      distance: number; // Distance from center
-      radius: number; // Star size
+    // Color options - visible but not overwhelming
+    const lightModeColor = 'rgba(59, 130, 246, 0.7)'; // Blue
+    const darkModeColor = 'rgba(96, 165, 250, 0.8)'; // Brighter blue for dark mode
+
+    interface CodeParticle {
+      text: string;
+      x: number;
+      y: number;
+      vx: number; // velocity x
+      vy: number; // velocity y
+      fontSize: number;
       opacity: number;
-      speed: number; // Rotation speed
-      spiralSpeed: number; // Speed of spiraling inward
+      rotation: number;
+      rotationSpeed: number;
     }
 
-    const stars: Star[] = [];
-    const starCount = 300; // More stars for better effect
+    const particles: CodeParticle[] = [];
+    const particleCount = 80; // Good balance of visibility
 
-    for (let i = 0; i < starCount; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const maxDistance = Math.max(canvas.width, canvas.height) * 0.8;
-      stars.push({
-        angle: angle,
-        distance: Math.random() * maxDistance + 50, // Start at various distances
-        radius: Math.random() * 1.5 + 0.5, // 0.5-2px
-        opacity: Math.random() * 0.6 + 0.4, // 0.4-1.0
-        speed: (Math.random() - 0.5) * 0.02 + 0.05, // Rotation speed
-        spiralSpeed: Math.random() * 0.5 + 0.3, // Speed of spiraling inward
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        text: codeSnippets[Math.floor(Math.random() * codeSnippets.length)],
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5, // Slow horizontal movement
+        vy: (Math.random() - 0.5) * 0.5, // Slow vertical movement
+        fontSize: Math.random() * 8 + 10, // 10-18px
+        opacity: Math.random() * 0.4 + 0.5, // 0.5-0.9
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
       });
     }
 
@@ -59,72 +85,48 @@ const AnimatedBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update center if window resized
-      const currentCenterX = canvas.width / 2;
-      const currentCenterY = canvas.height / 2;
-
       // Check if dark mode
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const currentColor = isDark ? darkStarColor : starColor;
+      const textColor = isDark ? darkModeColor : lightModeColor;
 
-      // Extract RGB from color string
-      const colorMatch = currentColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      // Extract RGB from color
+      const colorMatch = textColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
       const r = colorMatch ? parseInt(colorMatch[1]) : 59;
       const g = colorMatch ? parseInt(colorMatch[2]) : 130;
       const b = colorMatch ? parseInt(colorMatch[3]) : 246;
+      const baseOpacity = colorMatch ? parseFloat(textColor.match(/,\s*([\d.]+)\)/)?.[1] || '0.7') : 0.7;
 
-      // Draw and animate stars in spiral pattern
-      stars.forEach((star) => {
-        // Update angle (rotation)
-        star.angle += star.speed;
+      // Update and draw particles
+      particles.forEach((particle) => {
+        // Update position
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.rotation += particle.rotationSpeed;
 
-        // Spiral inward (decrease distance)
-        star.distance -= star.spiralSpeed;
+        // Wrap around edges
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+        if (particle.y > canvas.height) particle.y = 0;
 
-        // Reset star if it gets too close to center (recycle it)
-        if (star.distance < 20) {
-          star.distance = Math.max(canvas.width, canvas.height) * 0.8;
-          star.angle = Math.random() * Math.PI * 2;
-          star.opacity = Math.random() * 0.6 + 0.4;
-        }
-
-        // Calculate position based on angle and distance
-        const x = currentCenterX + Math.cos(star.angle) * star.distance;
-        const y = currentCenterY + Math.sin(star.angle) * star.distance;
-
-        // Increase opacity as it gets closer (like being pulled in)
-        const distanceRatio = star.distance / (Math.max(canvas.width, canvas.height) * 0.8);
-        const currentOpacity = star.opacity * (1 - distanceRatio * 0.3);
-
-        // Draw star
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentOpacity})`;
-        ctx.beginPath();
-        ctx.arc(x, y, star.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Add subtle glow/trail for stars closer to center
-        if (star.distance < 200) {
-          const gradient = ctx.createRadialGradient(x, y, 0, x, y, star.radius * 4);
-          gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${currentOpacity * 0.4})`);
-          gradient.addColorStop(1, 'transparent');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(x, y, star.radius * 4, 0, Math.PI * 2);
-          ctx.fill();
-        }
+        // Draw code snippet
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotation);
+        
+        // Set font and color
+        ctx.font = `${particle.fontSize}px 'Monaco', 'Menlo', 'Courier New', monospace`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${particle.opacity * baseOpacity})`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Draw text with subtle glow
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = `rgba(${r}, ${g}, ${b}, ${particle.opacity * baseOpacity * 0.5})`;
+        ctx.fillText(particle.text, 0, 0);
+        
+        ctx.restore();
       });
-
-      // Draw subtle black hole center (optional - very subtle)
-      const centerGradient = ctx.createRadialGradient(
-        currentCenterX, currentCenterY, 0,
-        currentCenterX, currentCenterY, 30
-      );
-      centerGradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.1)`);
-      centerGradient.addColorStop(1, 'transparent');
-      ctx.fillStyle = centerGradient;
-      ctx.beginPath();
-      ctx.arc(currentCenterX, currentCenterY, 30, 0, Math.PI * 2);
-      ctx.fill();
 
       animationId = requestAnimationFrame(animate);
     };
@@ -157,7 +159,7 @@ const AnimatedBackground = () => {
         }}
       />
 
-      {/* Animated black hole canvas */}
+      {/* Animated code particles canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
