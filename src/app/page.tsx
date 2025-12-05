@@ -201,14 +201,17 @@ const Home: React.FC = () => {
 
             <div className="flex-1 relative flex items-center justify-center">
               <RevealText delay={1.1} duration={0.8}>
-                <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+                  {/* Modern subtle background pattern */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-100 via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800"></div>
+                  {/* Modern border with subtle shadow */}
+                  <div className="absolute inset-0 rounded-full border-4 border-gray-200 dark:border-gray-700 shadow-lg"></div>
                   <Image
                     src="https://avatars.githubusercontent.com/laharikarrotu"
                     alt="Lahari Karrotu"
                     width={400}
                     height={400}
-                    className="rounded-full object-cover shadow-2xl relative z-10 w-full h-full"
+                    className="rounded-full object-cover relative z-10 w-full h-full"
                     style={{ borderRadius: '50%' }}
                     priority
                     unoptimized
