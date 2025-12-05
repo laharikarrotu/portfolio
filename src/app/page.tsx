@@ -206,6 +206,35 @@ const Home: React.FC = () => {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-100 via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800"></div>
                   {/* Modern border with subtle shadow */}
                   <div className="absolute inset-0 rounded-full border-4 border-gray-200 dark:border-gray-700 shadow-lg"></div>
+                  
+                  {/* Animated rotating ring around photo */}
+                  <div 
+                    className="absolute inset-0 rounded-full border-2 border-transparent animate-spin-slow"
+                    style={{
+                      backgroundImage: 'conic-gradient(from 0deg, rgba(59, 130, 246, 0.4), rgba(96, 165, 250, 0.6), rgba(59, 130, 246, 0.4), transparent 60%, transparent)',
+                      transform: 'scale(1.15)',
+                      zIndex: 5,
+                      animation: 'spin 10s linear infinite'
+                    }}
+                  ></div>
+                  
+                  {/* Animated particles around photo */}
+                  <div className="absolute inset-0 rounded-full" style={{ zIndex: 4 }}>
+                    {[...Array(12)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-2 h-2 bg-blue-400 dark:bg-blue-500 rounded-full opacity-70"
+                        style={{
+                          top: '50%',
+                          left: '50%',
+                          transform: `translate(-50%, -50%) rotate(${i * 30}deg) translateY(-180px)`,
+                          animation: `orbit 8s linear infinite`,
+                          animationDelay: `${i * 0.15}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                  
                   <Image
                     src="https://avatars.githubusercontent.com/laharikarrotu"
                     alt="Lahari Karrotu"

@@ -47,36 +47,34 @@ const AnimatedBackground = () => {
     ];
 
     // Color options - visible but not overwhelming
-    const lightModeColor = 'rgba(59, 130, 246, 0.7)'; // Blue
-    const darkModeColor = 'rgba(96, 165, 250, 0.8)'; // Brighter blue for dark mode
+    const lightModeColor = 'rgba(59, 130, 246, 0.8)'; // Blue
+    const darkModeColor = 'rgba(96, 165, 250, 0.9)'; // Brighter blue for dark mode
 
     interface CodeParticle {
       text: string;
-      x: number;
-      y: number;
-      vx: number; // velocity x
-      vy: number; // velocity y
+      angle: number; // Current angle in spiral
+      distance: number; // Distance from center
       fontSize: number;
       opacity: number;
-      rotation: number;
-      rotationSpeed: number;
+      speed: number; // Rotation speed
+      spiralSpeed: number; // Speed of spiraling inward
     }
 
     const particles: CodeParticle[] = [];
-    const particleCount = 80; // Good balance of visibility
+    const particleCount = 120; // More particles for better effect
 
-    // Initialize particles
+    // Initialize particles in spiral pattern
     for (let i = 0; i < particleCount; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const maxDistance = Math.max(canvas.width, canvas.height) * 0.8;
       particles.push({
         text: codeSnippets[Math.floor(Math.random() * codeSnippets.length)],
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5, // Slow horizontal movement
-        vy: (Math.random() - 0.5) * 0.5, // Slow vertical movement
-        fontSize: Math.random() * 8 + 10, // 10-18px
-        opacity: Math.random() * 0.4 + 0.5, // 0.5-0.9
-        rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.02,
+        angle: angle,
+        distance: Math.random() * maxDistance + 50, // Start at various distances
+        fontSize: Math.random() * 6 + 10, // 10-16px
+        opacity: Math.random() * 0.5 + 0.5, // 0.5-1.0
+        speed: (Math.random() - 0.5) * 0.03 + 0.05, // Rotation speed
+        spiralSpeed: Math.random() * 0.8 + 0.4, // Speed of spiraling inward
       });
     }
 
@@ -84,6 +82,10 @@ const AnimatedBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update center if window resized
+      const currentCenterX = canvas.width / 2;
+      const currentCenterY = canvas.height / 2;
 
       // Check if dark mode
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -94,39 +96,64 @@ const AnimatedBackground = () => {
       const r = colorMatch ? parseInt(colorMatch[1]) : 59;
       const g = colorMatch ? parseInt(colorMatch[2]) : 130;
       const b = colorMatch ? parseInt(colorMatch[3]) : 246;
-      const baseOpacity = colorMatch ? parseFloat(textColor.match(/,\s*([\d.]+)\)/)?.[1] || '0.7') : 0.7;
+      const baseOpacity = colorMatch ? parseFloat(textColor.match(/,\s*([\d.]+)\)/)?.[1] || '0.8') : 0.8;
 
-      // Update and draw particles
+      // Draw and animate code snippets in spiral pattern
       particles.forEach((particle) => {
-        // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.rotation += particle.rotationSpeed;
+        // Update angle (rotation)
+        particle.angle += particle.speed;
 
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
+        // Spiral inward (decrease distance)
+        particle.distance -= particle.spiralSpeed;
+
+        // Reset particle if it gets too close to center (recycle it)
+        if (particle.distance < 30) {
+          particle.distance = Math.max(canvas.width, canvas.height) * 0.8;
+          particle.angle = Math.random() * Math.PI * 2;
+          particle.opacity = Math.random() * 0.5 + 0.5;
+          particle.text = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+        }
+
+        // Calculate position based on angle and distance
+        const x = currentCenterX + Math.cos(particle.angle) * particle.distance;
+        const y = currentCenterY + Math.sin(particle.angle) * particle.distance;
+
+        // Increase opacity and size as it gets closer (like being pulled in)
+        const distanceRatio = particle.distance / (Math.max(canvas.width, canvas.height) * 0.8);
+        const currentOpacity = particle.opacity * (1 - distanceRatio * 0.4) * baseOpacity;
+        const currentSize = particle.fontSize * (1.5 - distanceRatio * 0.5); // Gets bigger as it approaches
 
         // Draw code snippet
         ctx.save();
-        ctx.translate(particle.x, particle.y);
-        ctx.rotate(particle.rotation);
+        ctx.translate(x, y);
+        ctx.rotate(particle.angle + Math.PI / 2); // Rotate text along spiral
         
         // Set font and color
-        ctx.font = `${particle.fontSize}px 'Monaco', 'Menlo', 'Courier New', monospace`;
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${particle.opacity * baseOpacity})`;
+        ctx.font = `${currentSize}px 'Monaco', 'Menlo', 'Courier New', monospace`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentOpacity})`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Draw text with subtle glow
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = `rgba(${r}, ${g}, ${b}, ${particle.opacity * baseOpacity * 0.5})`;
+        // Draw text with glow that increases as it gets closer
+        ctx.shadowBlur = 15 * (1 - distanceRatio);
+        ctx.shadowColor = `rgba(${r}, ${g}, ${b}, ${currentOpacity * 0.6})`;
         ctx.fillText(particle.text, 0, 0);
         
         ctx.restore();
       });
+
+      // Draw black hole center with gradient
+      const centerGradient = ctx.createRadialGradient(
+        currentCenterX, currentCenterY, 0,
+        currentCenterX, currentCenterY, 50
+      );
+      centerGradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.3)`);
+      centerGradient.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, 0.1)`);
+      centerGradient.addColorStop(1, 'transparent');
+      ctx.fillStyle = centerGradient;
+      ctx.beginPath();
+      ctx.arc(currentCenterX, currentCenterY, 50, 0, Math.PI * 2);
+      ctx.fill();
 
       animationId = requestAnimationFrame(animate);
     };

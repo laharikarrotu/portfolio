@@ -887,3 +887,18 @@ html {
     left: 1rem;
   }
 }
+
+/* Profile photo animations */
+@keyframes spin {
+  from { transform: scale(1.1) rotate(0deg); }
+  to { transform: scale(1.1) rotate(360deg); }
+}
+
+@keyframes orbit {
+  from { 
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-180px) rotate(0deg);
+  }
+  to { 
+    transform: translate(-50%, -50%) rotate(360deg) translateY(-180px) rotate(-360deg);
+  }
+}
