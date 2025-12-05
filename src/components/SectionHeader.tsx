@@ -13,14 +13,13 @@ const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="text-center mb-16"
+      className="text-center mb-20"
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent 
-                     bg-gradient-to-r from-indigo-600 to-purple-600">
+      <h2 className="text-5xl md:text-6xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto font-light">
           {subtitle}
         </p>
       )}

@@ -45,8 +45,7 @@ const Navigation = () => {
       label: 'Knowledge',
       icon: BookOpen,
       items: [
-        { href: '#research', label: 'Research' },
-        { href: '#speaking', label: 'Speaking' }
+        { href: '#research', label: 'Research' }
       ]
     },
     {
@@ -82,22 +81,22 @@ const Navigation = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-6 left-6 z-50 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 
-                  backdrop-blur-sm shadow-lg border border-purple-100 dark:border-purple-900
-                  hover:scale-110 transition-all duration-300 sm:hidden"
+        className="fixed top-6 left-6 z-50 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 
+                  backdrop-blur-sm shadow-md border border-gray-200 dark:border-gray-700
+                  hover:scale-110 transition-all duration-200 sm:hidden"
         aria-label="Toggle menu"
       >
         {isOpen ? (
-          <X className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+          <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
         ) : (
-          <Menu className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+          <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
         )}
       </button>
 
       {/* Desktop Navigation */}
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden sm:block">
-        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg 
-                      border border-purple-100 dark:border-purple-900 p-2">
+        <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-md 
+                      border border-gray-200 dark:border-gray-700 p-2">
           <ul className="flex items-center gap-1">
             {menuCategories.map((category) => (
               <li key={category.id} className="relative">
@@ -106,9 +105,9 @@ const Navigation = () => {
                   onMouseEnter={() => setActiveDropdown(category.id)}
                   onMouseLeave={() => setActiveDropdown(null)}
                   className="px-4 py-2 rounded-full text-gray-600 dark:text-gray-300 
-                            hover:text-purple-600 dark:hover:text-purple-400 
-                            hover:bg-white/50 dark:hover:bg-gray-700/50 
-                            transition-all duration-300 flex items-center gap-1 group"
+                            hover:text-gray-900 dark:hover:text-white 
+                            hover:bg-gray-100 dark:hover:bg-gray-700 
+                            transition-all duration-200 flex items-center gap-1 group"
                 >
                   <category.icon className="w-4 h-4" />
                   <span>{category.label}</span>
@@ -128,7 +127,7 @@ const Navigation = () => {
                       onMouseEnter={() => setActiveDropdown(category.id)}
                       onMouseLeave={() => setActiveDropdown(null)}
                       className="absolute top-full left-0 mt-2 min-w-48 bg-white dark:bg-gray-800 
-                                rounded-xl shadow-xl border border-purple-100 dark:border-purple-900 
+                                rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 
                                 backdrop-blur-sm overflow-hidden"
                     >
                       <div className="p-2">
@@ -136,9 +135,9 @@ const Navigation = () => {
                           <button
                             key={item.href}
                             onClick={() => scrollToSection(item.href)}
-                            className="w-full text-left px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300
-                                      hover:bg-purple-50 dark:hover:bg-gray-700/50 
-                                      hover:text-purple-600 dark:hover:text-purple-400
+                            className="w-full text-left px-4 py-3 rounded-md text-gray-600 dark:text-gray-300
+                                      hover:bg-gray-100 dark:hover:bg-gray-700 
+                                      hover:text-gray-900 dark:hover:text-white
                                       transition-all duration-200 flex items-center gap-3"
                           >
                             {item.label}
@@ -185,7 +184,7 @@ const Navigation = () => {
             >
               <div className="flex flex-col h-full overflow-y-auto">
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6">
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                     Menu
                   </h2>
                   
@@ -194,8 +193,8 @@ const Navigation = () => {
                     {menuCategories.map((category) => (
                       <div key={category.id}>
                         <div className="flex items-center gap-2 mb-3">
-                          <category.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                          <category.icon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                          <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
                             {category.label}
                           </h3>
                         </div>
@@ -204,10 +203,10 @@ const Navigation = () => {
                             <li key={item.href}>
                               <button
                                 onClick={() => scrollToSection(item.href)}
-                                className="w-full text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300
-                                          hover:bg-purple-50 dark:hover:bg-gray-700/50 
-                                          hover:text-purple-600 dark:hover:text-purple-400
-                                          transition-all duration-300 text-sm"
+                                className="w-full text-left px-3 py-2 rounded-md text-gray-600 dark:text-gray-300
+                                          hover:bg-gray-100 dark:hover:bg-gray-700 
+                                          hover:text-gray-900 dark:hover:text-white
+                                          transition-all duration-200 text-sm"
                               >
                                 {item.label}
                               </button>

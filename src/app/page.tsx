@@ -4,8 +4,9 @@ import Link from 'next/link';
 import AnimatedBackground from '../components/AnimatedBackground';
 import Navigation from '@/components/Navigation';
 import ScrollToTop from '@/components/ScrollToTop';
+import ScrollProgress from '@/components/ScrollProgress';
 import TypeWriter from '@/components/TypeWriter';
-import { Github, Linkedin, Mail, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import AnimatedCard from '@/components/AnimatedCard';
@@ -13,10 +14,11 @@ import { MotionDiv } from '@/components/MotionDiv';
 import { RevealText, RevealParagraph, RevealHeading } from '@/components/RevealText';
 
 import VoiceAssistant from '@/components/VoiceAssistant';
-import VisitorTracker from '@/components/VisitorTracker';
-import SkillsMatrix from '@/components/SkillsMatrix';
 import DarkModeToggle from '@/components/DarkModeToggle';
 import EnhancedContactForm from '@/components/EnhancedContactForm';
+import ProjectShowcase from '@/components/ProjectShowcase';
+import SkillsDisplay from '@/components/SkillsDisplay';
+import { projects } from '@/data/projects';
 
 const Home: React.FC = () => {
   const skills: string[] = [
@@ -34,72 +36,53 @@ const Home: React.FC = () => {
     "Real-time ML Systems"
   ];
 
-  const projects = [
-    {
-      title: "Virtual Try-On Application (Blinds & Boundaries)",
-      description: "Production-grade AI application on Microsoft Azure serving as a 'virtual try-on' tool for window blinds visualization. Features 70% increase in user interactivity.",
-      imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
-      link: "https://blinds-boundaries-online.vercel.app",
-      tags: ["React", "TypeScript", "FastAPI", "Azure", "AI"],
-      status: "Live"
-    },
-    {
-      title: "SmartBuy AI eCommerce",
-      description: "Full-stack eCommerce application with RAG-powered AI agent providing personalized shopping assistance. Improved AI agent accuracy by 40%.",
-      imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5",
-      link: "https://smart-buy-v2.vercel.app",
-      tags: ["React", "FastAPI", "RAG", "LLM", "AI Agent"],
-      status: "Live"
-    },
-    {
-      title: "Railway Predictive Maintenance",
-      description: "End-to-end ML system for real-time anomaly detection predicting equipment failures. Mission-critical application with fault-tolerant architecture.",
-      imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
-      link: "https://github.com/laharikarrotu/railway-predictive-maintenance",
-      tags: ["TensorFlow", "Apache Spark", "AWS Lambda", "Real-time ML"],
-      status: "Production"
-    },
-    {
-      title: "Auto Loan AI Plugin",
-      description: "AI-powered loan processing system using AWS Textract OCR and voice assistants, reducing processing time by 40%.",
-      imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
-      link: "https://auto-loan-processing.vercel.app/",
-      tags: ["AWS Textract", "Voice AI", "Lambda", "Python"],
-      status: "Live"
-    },
-    {
-      title: "Fitness Transformation App",
-      description: "AI-driven fitness application with personalized recommendations and voice navigation using LLM APIs.",
-      imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
-      link: "https://github.com/laharikarrotu/fitness-transformation-app",
-      tags: ["React", "LLM APIs", "Voice Navigation", "AI"],
-      status: "Completed"
-    },
-    {
-      title: "Taskify Pro",
-      description: "Smart task management web application with real-time collaboration, notifications, and AI-powered task prioritization.",
-      imageUrl: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
-      link: "https://github.com/laharikarrotu/Taskify-pro",
-      tags: ["JavaScript", "Real-time", "Collaboration", "AI"],
-      status: "Completed"
-    },
-    {
-      title: "AUTH0-Amplify-AWS",
-      description: "Implementation of secure authentication using AUTH0 with AWS Amplify, demonstrating cloud security best practices.",
-      imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-      link: "https://github.com/laharikarrotu/AUTH0-Amplify-aws",
-      tags: ["AWS Amplify", "AUTH0", "Security", "Cloud"],
-      status: "Completed"
-    },
-    {
-      title: "Machine Learning Projects",
-      description: "Collection of machine learning projects focusing on data analytics, predictive modeling, and computer vision applications.",
-      imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
-      link: "https://github.com/laharikarrotu/Machine_learning",
-      tags: ["Machine Learning", "Python", "Data Analytics", "AI"],
-      status: "Ongoing"
-    }
+  // Technical skills (no levels, just animated display)
+  const techSkills = [
+    // Frontend
+    { name: 'React', category: 'frontend', icon: '⚛️' },
+    { name: 'TypeScript', category: 'frontend', icon: '📘' },
+    { name: 'Next.js', category: 'frontend', icon: '▲' },
+    { name: 'JavaScript', category: 'frontend', icon: '🟨' },
+    { name: 'Tailwind CSS', category: 'frontend', icon: '🎨' },
+    { name: 'HTML/CSS', category: 'frontend', icon: '🌐' },
+    
+    // Backend
+    { name: 'Python', category: 'backend', icon: '🐍' },
+    { name: 'FastAPI', category: 'backend', icon: '⚡' },
+    { name: 'Django', category: 'backend', icon: '🎯' },
+    { name: 'Java', category: 'backend', icon: '☕' },
+    { name: 'Spring Boot', category: 'backend', icon: '🌱' },
+    { name: 'Node.js', category: 'backend', icon: '🟢' },
+    { name: 'REST APIs', category: 'backend', icon: '🔗' },
+    
+    // AI/ML
+    { name: 'TensorFlow', category: 'ai-ml', icon: '🧠' },
+    { name: 'PyTorch', category: 'ai-ml', icon: '🔥' },
+    { name: 'Generative AI', category: 'ai-ml', icon: '🤖' },
+    { name: 'RAG Systems', category: 'ai-ml', icon: '🔍' },
+    { name: 'OpenAI API', category: 'ai-ml', icon: '✨' },
+    { name: 'LangChain', category: 'ai-ml', icon: '⛓️' },
+    { name: 'MLOps', category: 'ai-ml', icon: '⚙️' },
+    
+    // Data Engineering
+    { name: 'Apache Spark', category: 'data', icon: '⚡' },
+    { name: 'Apache Kafka', category: 'data', icon: '📊' },
+    { name: 'Pandas', category: 'data', icon: '🐼' },
+    { name: 'SQL', category: 'data', icon: '🗄️' },
+    { name: 'PostgreSQL', category: 'data', icon: '🐘' },
+    { name: 'MongoDB', category: 'data', icon: '🍃' },
+    
+    // Cloud & DevOps
+    { name: 'AWS', category: 'cloud', icon: '☁️' },
+    { name: 'Azure', category: 'cloud', icon: '🔷' },
+    { name: 'Docker', category: 'cloud', icon: '🐳' },
+    { name: 'Kubernetes', category: 'cloud', icon: '⎈' },
+    { name: 'Terraform', category: 'cloud', icon: '🌍' },
+    { name: 'CI/CD', category: 'cloud', icon: '🔄' },
+    { name: 'AWS Lambda', category: 'cloud', icon: 'λ' },
   ];
+
+  // Projects are now imported from @/data/projects
 
            // Add these tool configurations with their icons
     const toolsConfig = {
@@ -147,31 +130,23 @@ const Home: React.FC = () => {
     };
 
   return (
-    <main className="gradient-background min-h-screen text-gray-800 dark:text-gray-100 dark:bg-gray-900 relative">
+    <main className="gradient-background min-h-screen text-gray-800 dark:text-gray-100 relative">
       <DarkModeToggle />
       <VoiceAssistant />
       <Navigation />
       <AnimatedBackground />
+      <ScrollProgress />
       <ScrollToTop />
-      <VisitorTracker />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="hero-section min-h-screen flex flex-col justify-center items-center py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8">
+      <div className="relative z-10">
+        <div className="hero-section min-h-screen flex flex-col justify-center items-center py-32">
           <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-6xl mx-auto">
             <div className="flex-1 text-center md:text-left">
-              <RevealText delay={0.1} duration={0.8}>
-                <div className="mb-4 inline-block">
-                  <span className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm font-medium px-4 py-1 rounded-full">
-                    Welcome to my portfolio
-                  </span>
-                </div>
-              </RevealText>
-              
-              <RevealHeading delay={0.2} duration={1.0} className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-                Hi! I&apos;m Lahari
+              <RevealHeading delay={0.1} duration={0.8} className="text-6xl md:text-8xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
+                Hi, I&apos;m Lahari
               </RevealHeading>
               
-              <RevealText delay={0.4} duration={0.8}>
-                <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+              <RevealText delay={0.3} duration={0.8}>
+                <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   I&apos;m a{' '}
                   <TypeWriter 
                     texts={[
@@ -185,127 +160,103 @@ const Home: React.FC = () => {
               </RevealText>
 
               <RevealParagraph 
-                text="Versatile and results-driven Software Engineer with over 4 years of experience architecting, building, and deploying large-scale, distributed systems. I specialize in Data Engineering pipelines, scalable AI/ML systems with Generative AI & RAG, and full-stack applications. Completed MS in Computer Science from Florida Institute of Technology, with expertise in cloud-native solutions and mission-critical ML systems."
-                className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl"
-                delay={0.6}
-                duration={1.2}
+                text="Full Stack Software Engineer with 4+ years of experience building and maintaining production systems. I work with distributed systems, data engineering pipelines, and full-stack applications."
+                className="text-gray-600 dark:text-gray-400 mb-12 max-w-2xl text-lg leading-relaxed"
+                delay={0.5}
+                duration={1.0}
                 stagger={0.1}
               />
 
-              <RevealText delay={0.8} duration={0.8}>
-                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              <RevealText delay={0.7} duration={0.8}>
+                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   <Link
                     href="#contact"
-                    className="px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 
-                             transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="px-6 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-md hover:bg-gray-800 dark:hover:bg-gray-100 
+                             transition-all duration-200 text-sm font-medium"
                   >
                     Get in Touch
                   </Link>
                   <Link
                     href="#projects"
-                    className="px-8 py-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-purple-200 dark:border-purple-700
-                             rounded-lg hover:bg-white/70 dark:hover:bg-gray-700/70 transition-all duration-300 
-                             transform hover:scale-105 shadow-lg"
+                    className="px-6 py-2.5 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300
+                             rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 
+                             text-sm font-medium"
                   >
                     View Projects
                   </Link>
-                  <Link
-                    href="/experience"
-                    className="px-8 py-3 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 border border-purple-200 dark:border-purple-700
-                             rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition-all duration-300 
-                             transform hover:scale-105 shadow-lg"
-                  >
-                    View Experience
-                  </Link>
                 </div>
               </RevealText>
 
-              {/* Currently Working On */}
-              <RevealText delay={1.0} duration={0.8}>
-                <div className="mt-8 p-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl border border-purple-200 dark:border-purple-700">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-purple-700 dark:text-purple-300">Currently Working On</span>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    🚀 Building SmartBuy AI eCommerce Platform with RAG-powered AI agent | 
-                    🏦 Developing Auto Loan AI Plugin with AWS Textract OCR | 
-                    ☁️ Infrastructure automation with Terraform
-                  </p>
-                </div>
-              </RevealText>
-
-              <RevealText delay={1.2} duration={0.8}>
-                <div className="flex gap-4 mt-8 justify-center md:justify-start">
+              <RevealText delay={0.9} duration={0.8}>
+                <div className="flex gap-4 mt-12 justify-center md:justify-start">
                   <Link
                     href="https://github.com/laharikarrotu"
                     target="_blank"
-                    className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-full hover:bg-white/70 dark:hover:bg-gray-700/70
-                             transition-all duration-300 transform hover:scale-110"
+                    className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
+                             transition-all duration-200"
                   >
-                    <Github className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                    <Github className="w-5 h-5" />
                   </Link>
                   <Link
                     href="https://www.linkedin.com/in/laharikarrotu/"
                     target="_blank"
-                    className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-full hover:bg-white/70 dark:hover:bg-gray-700/70
-                             transition-all duration-300 transform hover:scale-110"
+                    className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
+                             transition-all duration-200"
                   >
-                    <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                    <Linkedin className="w-5 h-5" />
                   </Link>
                   <Link
                     href="mailto:laharikarrothu@gmail.com"
-                    className="p-2 bg-white/50 dark:bg-gray-800/50 rounded-full hover:bg-white/70 dark:hover:bg-gray-700/70
-                             transition-all duration-300 transform hover:scale-110"
+                    className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
+                             transition-all duration-200"
                   >
-                    <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                    <Mail className="w-5 h-5" />
                   </Link>
                 </div>
               </RevealText>
             </div>
 
-            <div className="flex-1 relative">
-              <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full 
-                              animate-pulse blur-2xl opacity-30" />
-                <Image
-                  src="https://avatars.githubusercontent.com/laharikarrotu"
-                  alt="Lahari Karrotu"
-                  width={400}
-                  height={400}
-                  className="rounded-full object-cover border-4 border-white dark:border-gray-700 shadow-xl relative z-10"
-                  priority
-                  unoptimized
-                />
-                                 <div className="absolute -bottom-4 -right-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-3 
-                               shadow-lg transform rotate-3">
-                   <span className="text-purple-600 dark:text-purple-400 font-semibold">Full Stack AI Engineer</span>
-                 </div>
-              </div>
+            <div className="flex-1 relative flex items-center justify-center">
+              <RevealText delay={1.1} duration={0.8}>
+                <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                  <Image
+                    src="https://avatars.githubusercontent.com/laharikarrotu"
+                    alt="Lahari Karrotu"
+                    width={400}
+                    height={400}
+                    className="rounded-full object-cover shadow-2xl relative z-10 w-full h-full"
+                    style={{ borderRadius: '50%' }}
+                    priority
+                    unoptimized
+                  />
+                </div>
+              </RevealText>
             </div>
           </div>
 
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-purple-600 dark:border-purple-400 rounded-full p-1">
-              <div className="w-1.5 h-3 bg-purple-600 dark:bg-purple-400 rounded-full mx-auto animate-scroll" />
+            <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full p-1">
+              <div className="w-1.5 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mx-auto animate-scroll" />
             </div>
           </div>
         </div>
 
-        <section id="about" className="py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8">
-          <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-            About Me
-          </RevealHeading>
-          <div className="max-w-4xl mx-auto px-4">
+        <section id="about" className="py-32">
+          <SectionHeader 
+            title="About Me"
+            subtitle="Building reliable systems for production environments"
+          />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-              text="I am a versatile and results-driven Software Engineer with over 4 years of experience architecting, building, and deploying large-scale, distributed systems. My expertise spans the full technology stack, with a specialization in building robust Data Engineering pipelines using Python, Spark, and Kafka; scalable AI/ML systems featuring Generative AI, RAG, and MLOps; and engaging Full-Stack applications with Java, Python, and React."
+              text="I'm a Full Stack Software Engineer with 4+ years of experience building and maintaining production systems. My work includes data engineering pipelines, AI/ML systems, and full-stack web applications. I focus on building reliable, maintainable systems and have experience working with distributed systems, cloud infrastructure, and modern web technologies."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I excel at solving complex challenges in cloud-native environments (AWS, Azure) and leading projects through the entire Software Development Lifecycle (SDLC). With an MS in Computer Science from Florida Institute of Technology, I've achieved significant impacts including 70% increase in user interactivity, 40% improvement in AI agent accuracy, and mission-critical ML systems that predict equipment failures in real-time."
+              text="I believe in writing clean, maintainable code and building systems that can evolve over time. I've worked on systems that have grown from initial prototypes to production applications serving real users. I'm committed to continuous learning and contributing to team success. I'm looking for opportunities where I can grow with the company, work on meaningful problems, and contribute to long-term success."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.5}
               duration={1.2}
@@ -314,15 +265,125 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="experience-section py-20 relative overflow-hidden bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8">
+        {/* Professional Values & Commitment Section */}
+        <section className="values-section py-20">
+          <SectionHeader 
+            title="Professional Values & Commitment" 
+            subtitle="What I bring to your organization for long-term success"
+          />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="text-4xl mb-4">🏗️</div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Production Experience</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Experience building and maintaining production systems. Worked with distributed systems, microservices, and cloud infrastructure. Comfortable working in complex codebases and large team environments.
+                </p>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="text-4xl mb-4">🔧</div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Ownership & Maintenance</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  I take responsibility for the systems I work on, from development through deployment and maintenance. I focus on writing maintainable code, proper documentation, and building systems that can evolve over time.
+                </p>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="text-4xl mb-4">📈</div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Problem Solving</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  I focus on understanding the problem before jumping to solutions. I consider the broader context, maintainability, and how technical decisions impact the team and product long-term.
+                </p>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="text-4xl mb-4">🤝</div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Team Collaboration</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  I work well in team environments, contribute to code reviews, and collaborate with others. I believe in sharing knowledge and helping teammates grow.
+                </p>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="text-4xl mb-4">🔄</div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Continuous Learning</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  I'm committed to learning and improving. I stay current with best practices and technologies, and I'm always looking to grow my skills and contribute more effectively.
+                </p>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="text-4xl mb-4">⚡</div>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Quality & Reliability</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  I focus on writing quality code and building reliable systems. I pay attention to performance, monitoring, and making sure systems work well for users.
+                </p>
+              </MotionDiv>
+            </div>
+
+            {/* Long-term Commitment Statement */}
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="mt-12 bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
+                Long-Term Commitment
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 text-lg text-center max-w-3xl mx-auto leading-relaxed">
+                I'm looking for opportunities where I can grow with the company and contribute over the long term. I want to understand the business, work on meaningful problems, and be part of the team's success. I'm committed to being a reliable team member who adds value consistently.
+              </p>
+            </MotionDiv>
+          </div>
+        </section>
+
+        <section className="experience-section py-20 relative overflow-hidden">
                      <SectionHeader 
              title="Professional Journey" 
              subtitle="Over 4 years of expertise in Full Stack AI Engineering and Cloud Solutions"
            />
           
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative">
-              <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 h-full w-1 bg-purple-200" />
+              <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 dark:bg-gray-700" />
               
               <div className="space-y-12">
                 {/* Current Role */}
@@ -333,26 +394,26 @@ const Home: React.FC = () => {
                   className="relative flex flex-col md:flex-row items-center md:justify-between"
                 >
                   <div className="flex-1 md:pr-12 mb-4 md:mb-0">
-                    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                      <h3 className="text-xl font-bold text-purple-600 mb-2">Full Stack AI Engineer</h3>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Full Stack AI Engineer</h3>
                       <p className="text-gray-600 dark:text-gray-400 mb-4">Arkatech Solutions | May 2025 – Present</p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Building SmartBuy eCommerce Platform with React and FastAPI</p>
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Building and maintaining eCommerce platform with React and FastAPI</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Developing Auto Loan AI Plugin with AWS Textract OCR</p>
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Developing AI solutions with AWS services including Textract OCR</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Infrastructure automation with Terraform</p>
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Working on infrastructure automation with Terraform</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                     <span className="text-2xl text-white">🚀</span>
                   </div>
                 </MotionDiv>
@@ -365,22 +426,22 @@ const Home: React.FC = () => {
                   className="relative flex flex-col md:flex-row-reverse items-center md:justify-between"
                 >
                   <div className="flex-1 md:pl-12 mb-4 md:mb-0">
-                    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                      <h3 className="text-xl font-bold text-purple-600 mb-2">AI/ML Full Stack Developer</h3>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">AI/ML Full Stack Developer</h3>
                       <p className="text-gray-600 dark:text-gray-400 mb-4">Anguliyam | August 2024 – May 2025</p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Railway predictive maintenance with TensorFlow</p>
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Developed railway predictive maintenance system using TensorFlow</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Real-time dashboards and voice navigation</p>
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Built real-time monitoring dashboards and voice navigation features</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                     <span className="text-2xl text-white">💼</span>
                   </div>
                 </MotionDiv>
@@ -393,22 +454,22 @@ const Home: React.FC = () => {
                   className="relative flex flex-col md:flex-row items-center md:justify-between"
                 >
                   <div className="flex-1 md:pr-12 mb-4 md:mb-0">
-                    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                      <h3 className="text-xl font-bold text-purple-600 mb-2">Big Data Engineer</h3>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Big Data Engineer</h3>
                       <p className="text-gray-600 dark:text-gray-400 mb-4">Cognizant, Hyderabad | January 2022 – August 2022</p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
                           <p className="text-gray-700 dark:text-gray-300">Built ETL pipelines processing 5TB+ monthly data</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Reduced query latency by 30% through optimization</p>
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Optimized queries and reduced latency by 30%</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                     <span className="text-2xl text-white">📊</span>
                   </div>
                 </MotionDiv>
@@ -421,22 +482,22 @@ const Home: React.FC = () => {
                    className="relative flex flex-col md:flex-row-reverse items-center md:justify-between"
                  >
                    <div className="flex-1 md:pl-12 mb-4 md:mb-0">
-                     <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                       <h3 className="text-xl font-bold text-purple-600 mb-2">Data Analyst</h3>
+                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Data Analyst</h3>
                        <p className="text-gray-600 dark:text-gray-400 mb-4">EPAM Systems, Hyderabad | December 2020 – March 2021</p>
                        <div className="space-y-2">
                          <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
                            <p className="text-gray-700 dark:text-gray-300">Reduced data processing time by 30% through Python frameworks</p>
                          </div>
                          <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
                            <p className="text-gray-700 dark:text-gray-300">Configured AWS Data Pipeline for S3 to Redshift loading</p>
                          </div>
                        </div>
                      </div>
                    </div>
-                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                   <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                      <span className="text-2xl text-white">📈</span>
                    </div>
                  </MotionDiv>
@@ -449,8 +510,8 @@ const Home: React.FC = () => {
                    className="relative flex flex-col md:flex-row items-center md:justify-between"
                  >
                   <div className="flex-1 md:pl-12 mb-4 md:mb-0">
-                    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                      <h3 className="text-xl font-bold text-purple-600 mb-2">Education</h3>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Education</h3>
                       <div className="space-y-4">
                         <div>
                           <p className="font-semibold text-gray-800 dark:text-gray-200">MS in Computer Science</p>
@@ -464,7 +525,7 @@ const Home: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                     <span className="text-2xl text-white">🎓</span>
                   </div>
                 </MotionDiv>
@@ -473,219 +534,28 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="skills-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="skills">
-                     <SectionHeader 
-             title="Technical Expertise" 
-             subtitle="Specialized in modern full-stack development, AI/ML integration, and cloud solutions"
-           />
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="mb-16">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <h3 className="text-2xl font-semibold mb-8 text-gray-700 dark:text-gray-300">Core Technologies</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {skills.slice(0, 8).map((skill, index) => (
-                    <AnimatedCard key={index} delay={index * 0.1}>
-                      <div className="gradient-border rounded-xl p-4 text-center">
-                        <span className="font-medium text-gray-700 dark:text-gray-300">{skill}</span>
-                      </div>
-                    </AnimatedCard>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-semibold mb-8 text-gray-700 dark:text-gray-300">Additional Expertise</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {skills.slice(8).map((skill, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl text-center 
-                             hover:bg-white/70 dark:hover:bg-gray-700/70 transition-all duration-300 transform hover:scale-105 
-                             border border-purple-100 dark:border-purple-700 shadow-lg hover:shadow-purple-100/50 dark:hover:shadow-purple-700/50
-                             group relative overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10 
-                                  opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="relative z-10 font-medium text-gray-700 dark:text-gray-300">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <section className="skills-section py-32" id="skills">
+          <SectionHeader 
+            title="Technical Expertise" 
+            subtitle="Technologies and tools I work with"
+          />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SkillsDisplay skills={techSkills} />
           </div>
-
-          {/* Skills Progress Section */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-semibold mb-8 text-gray-700 dark:text-gray-300">Expertise Levels</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Full-Stack Development</span>
-                    <span className="text-purple-600 font-semibold">95%</span>
-                  </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '95%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">AI/ML & Data Engineering</span>
-                    <span className="text-purple-600 font-semibold">90%</span>
-                  </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '90%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Cloud & DevOps</span>
-                    <span className="text-purple-600 font-semibold">85%</span>
-                  </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '85%' }}></div>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">System Design</span>
-                    <span className="text-purple-600 font-semibold">88%</span>
-                  </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '88%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Generative AI & RAG</span>
-                    <span className="text-purple-600 font-semibold">92%</span>
-                  </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '92%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Real-time ML Systems</span>
-                    <span className="text-purple-600 font-semibold">87%</span>
-                  </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '87%' }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Interactive Skills Matrix */}
-          <MotionDiv
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-12"
-          >
-            <SkillsMatrix />
-          </MotionDiv>
         </section>
 
-        <section className="projects-section py-20 overflow-hidden bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="projects">
+        <section className="projects-section py-32 overflow-hidden" id="projects">
                      <SectionHeader 
-             title="Featured Projects" 
-             subtitle="A showcase of my recent work in full-stack development, AI/ML integration, and cloud solutions"
-           />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="relative w-full"
-          >
-            <button 
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full
-                         shadow-lg hover:bg-white dark:hover:bg-gray-700 hover:scale-110 transition-all duration-300
-                         backdrop-blur-sm border border-purple-100 dark:border-purple-700 group md:left-8"
-              onClick={() => document.querySelector('.projects-container')?.scrollBy(-400, 0)}
-              aria-label="Previous projects"
-            >
-              <ChevronLeft className="w-6 h-6 text-purple-600 group-hover:text-purple-700" />
-            </button>
-
-            <button 
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full
-                         shadow-lg hover:bg-white dark:hover:bg-gray-700 hover:scale-110 transition-all duration-300
-                         backdrop-blur-sm border border-purple-100 dark:border-purple-700 group md:right-8"
-              onClick={() => document.querySelector('.projects-container')?.scrollBy(400, 0)}
-              aria-label="Next projects"
-            >
-              <ChevronRight className="w-6 h-6 text-purple-600 group-hover:text-purple-700" />
-            </button>
-
-            <div className="projects-container flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar
-                            scroll-smooth px-4 md:px-8">
-              {projects.map((project, index) => (
-                <Link 
-                  href={project.link} 
-                  key={index} 
-                  target="_blank"
-                  className="group flex-none w-[300px] md:w-[400px] snap-center"
-                >
-                  <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden 
-                                hover:transform hover:scale-105 transition-all duration-300
-                                border border-purple-100 dark:border-purple-700 shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-700/50 h-full">
-                    <div className="relative h-48 md:h-56">
-                      <Image
-                        src={project.imageUrl}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:opacity-80 transition-opacity"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent" />
-                                             <div className="absolute bottom-0 left-0 p-6">
-                         <div className="flex items-center gap-2 mb-2">
-                           <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                           {project.status && (
-                             <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                               project.status === 'Live' ? 'bg-green-500 text-white' :
-                               project.status === 'Production' ? 'bg-blue-500 text-white' :
-                               project.status === 'In Development' ? 'bg-yellow-500 text-white' :
-                               project.status === 'Completed' ? 'bg-purple-500 text-white' :
-                               'bg-gray-500 text-white'
-                             }`}>
-                               {project.status}
-                             </span>
-                           )}
+            title="Professional Projects Portfolio" 
+            subtitle="Production-grade applications demonstrating expertise in full-stack development, AI/ML integration, and cloud solutions. Each project includes detailed metrics, screenshots, and technical documentation."
+          />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ProjectShowcase projects={projects} />
                          </div>
-                         <p className="text-gray-200 text-sm">{project.description}</p>
-                       </div>
-                    </div>
-                    <div className="p-6 bg-white/30 dark:bg-gray-800/30">
-                      <div className="flex gap-2 flex-wrap">
-                        {project.tags.map((tag, tagIndex) => (
-                          <span 
-                            key={tagIndex}
-                            className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-sm"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </MotionDiv>
         </section>
 
                  {/* Social Proof Section */}
-         <section className="social-proof-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="social-proof">
+         <section className="social-proof-section py-20" id="social-proof">
            <SectionHeader 
              title="Social Proof & Recognition" 
              subtitle="Community engagement and professional recognition"
@@ -696,29 +566,29 @@ const Home: React.FC = () => {
              viewport={{ once: true }}
              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
            >
-             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg text-center">
+             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center">
                <div className="text-4xl mb-4">📊</div>
                <h3 className="text-xl font-semibold text-gray-800 mb-2">GitHub Activity</h3>
                <p className="text-gray-600">Active contributor with 20+ repositories</p>
-               <p className="text-purple-600 font-semibold mt-2">100+ commits this year</p>
+               <p className="text-gray-700 dark:text-gray-300 font-semibold mt-2">100+ commits this year</p>
              </div>
-             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg text-center">
+             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center">
                <div className="text-4xl mb-4">🤝</div>
                <h3 className="text-xl font-semibold text-gray-800 mb-2">LinkedIn Network</h3>
                <p className="text-gray-600">500+ professional connections</p>
-               <p className="text-purple-600 font-semibold mt-2">Endorsed for key skills</p>
+               <p className="text-gray-700 dark:text-gray-300 font-semibold mt-2">Endorsed for key skills</p>
              </div>
-             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg text-center">
+             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center">
                <div className="text-4xl mb-4">🏆</div>
                <h3 className="text-xl font-semibold text-gray-800 mb-2">Professional Impact</h3>
                <p className="text-gray-600">4+ years of proven results</p>
-               <p className="text-purple-600 font-semibold mt-2">70% user engagement increase</p>
+               <p className="text-gray-700 dark:text-gray-300 font-semibold mt-2">70% user engagement increase</p>
              </div>
            </MotionDiv>
          </section>
 
-         <section className="contact-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="contact">
-           <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+         <section className="contact-section py-32" id="contact">
+           <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
              Let&apos;s Connect!
            </RevealHeading>
            <RevealText delay={0.3} duration={0.8}>
@@ -741,30 +611,30 @@ const Home: React.FC = () => {
                <Link 
                  href="https://www.linkedin.com/in/laharikarrotu/" 
                  className="group flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 px-8 py-4 rounded-xl hover:bg-white/70 dark:hover:bg-gray-700/70
-                           transition-all duration-300 backdrop-blur-sm border border-purple-100 dark:border-purple-700
-                           hover:scale-105 shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-700/50"
+                           transition-all duration-300 border border-gray-200 dark:border-gray-700
+                           shadow-sm"
                  target="_blank"
                >
-                 <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 transition-colors" />
+                 <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" />
                  <span>LinkedIn</span>
                </Link>
                <Link 
                  href="https://github.com/laharikarrotu" 
                  className="group flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 px-8 py-4 rounded-xl hover:bg-white/70 dark:hover:bg-gray-700/70
-                           transition-all duration-300 backdrop-blur-sm border border-purple-100 dark:border-purple-700
-                           hover:scale-105 shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-700/50"
+                           transition-all duration-300 border border-gray-200 dark:border-gray-700
+                           shadow-sm"
                  target="_blank"
                >
-                 <Github className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 transition-colors" />
+                 <Github className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" />
                  <span>GitHub</span>
                </Link>
                <Link 
                  href="mailto:laharikarrothu@gmail.com" 
                  className="group flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 px-8 py-4 rounded-xl hover:bg-white/70 dark:hover:bg-gray-700/70
-                           transition-all duration-300 backdrop-blur-sm border border-purple-100 dark:border-purple-700
-                           hover:scale-105 shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-700/50"
+                           transition-all duration-300 border border-gray-200 dark:border-gray-700
+                           shadow-sm"
                >
-                 <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 transition-colors" />
+                 <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" />
                  <span>Email</span>
                </Link>
                </div>
@@ -773,7 +643,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* Testimonials Section */}
-        <section className="testimonials-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="testimonials">
+        <section className="testimonials-section py-20" id="testimonials">
           <SectionHeader 
             title="What People Say" 
             subtitle="Feedback from colleagues and clients"
@@ -784,10 +654,10 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
           >
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-purple-600">S</span>
+                <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-xl font-bold text-gray-700 dark:text-gray-300">S</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Senior Tech Lead</h4>
@@ -799,10 +669,10 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-purple-600">M</span>
+                <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-xl font-bold text-gray-700 dark:text-gray-300">M</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Project Manager</h4>
@@ -814,10 +684,10 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-purple-600">A</span>
+                <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-xl font-bold text-gray-700 dark:text-gray-300">A</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Data Engineering Lead</h4>
@@ -831,7 +701,7 @@ const Home: React.FC = () => {
           </MotionDiv>
         </section>
 
-        <section className="achievements-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="achievements">
+        <section className="achievements-section py-20" id="achievements">
           <SectionHeader 
             title="Key Achievements" 
             subtitle="Milestones and impacts from my professional journey"
@@ -842,32 +712,32 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4"
           >
-                                                   <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-purple-100 shadow-lg
-                              hover:transform hover:scale-105 transition-all duration-300">
+                                                   <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
+                              transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-3xl">🪟</span>
                   <h3 className="text-xl font-semibold text-gray-800">Virtual Try-On App</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">70% increase in user interactivity and purchasing confidence for window blinds visualization</p>
               </div>
-              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-purple-100 shadow-lg
-                              hover:transform hover:scale-105 transition-all duration-300">
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
+                              transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-3xl">🤖</span>
                   <h3 className="text-xl font-semibold text-gray-800">SmartBuy AI Agent</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">40% improvement in AI agent accuracy through RAG pipeline implementation</p>
               </div>
-              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-purple-100 shadow-lg
-                              hover:transform hover:scale-105 transition-all duration-300">
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
+                              transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-3xl">🚂</span>
                   <h3 className="text-xl font-semibold text-gray-800">Railway ML System</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">Mission-critical real-time anomaly detection system for equipment failure prediction</p>
               </div>
-              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-purple-100 shadow-lg
-                              hover:transform hover:scale-105 transition-all duration-300">
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
+                              transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-3xl">🏦</span>
                   <h3 className="text-xl font-semibold text-gray-800">Auto Loan AI</h3>
@@ -878,7 +748,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* Research & Publications Section */}
-        <section className="research-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="research">
+        <section className="research-section py-20" id="research">
           <SectionHeader 
             title="Research & Publications" 
             subtitle="Academic contributions and technical insights"
@@ -889,68 +759,51 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto px-4"
           >
-            <div className="bg-white/50 backdrop-blur-sm p-8 rounded-xl border border-purple-100 shadow-lg mb-8">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm mb-8">
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl">🎓</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">Master&apos;s Thesis</h3>
-                  <p className="text-purple-600 font-medium mb-2">Florida Institute of Technology</p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">Florida Institute of Technology</p>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
                     &ldquo;Advanced Machine Learning Techniques for Predictive Analytics in Industrial IoT Systems&rdquo;
                   </p>
                   <div className="flex gap-2 flex-wrap">
-                    <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-sm">Machine Learning</span>
-                    <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-sm">IoT</span>
-                    <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-sm">Predictive Analytics</span>
+                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Machine Learning</span>
+                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">IoT</span>
+                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Predictive Analytics</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
                 <h4 className="text-lg font-semibold text-gray-800 mb-3">Technical Blog Posts</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                     <span className="text-gray-700">&ldquo;Building RAG Systems with Modern AI&rdquo;</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                     <span className="text-gray-700">&ldquo;Real-time ML Systems Architecture&rdquo;</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                    <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                     <span className="text-gray-700">&ldquo;Cloud-Native Data Engineering Patterns&rdquo;</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">Conference Presentations</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    <span className="text-gray-700">AWS re:Invent 2024 - AI/ML Track</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    <span className="text-gray-700">Data Engineering Summit 2024</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    <span className="text-gray-700">Full-Stack Development Conference</span>
-                  </li>
-                </ul>
-              </div>
             </div>
           </MotionDiv>
         </section>
 
         {/* Case Studies Section */}
-        <section className="case-studies-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="case-studies">
+        <section className="case-studies-section py-20" id="case-studies">
           <SectionHeader 
             title="Case Studies" 
             subtitle="Detailed breakdown of major project implementations"
@@ -962,29 +815,29 @@ const Home: React.FC = () => {
             className="max-w-6xl mx-auto px-4 space-y-8"
           >
             {/* SmartBuy AI eCommerce Case Study */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 shadow-lg overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                     <span className="text-2xl text-white">🛒</span>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-800">SmartBuy AI eCommerce Platform</h3>
-                    <p className="text-purple-600">Full-Stack AI Integration | 2024</p>
+                    <p className="text-gray-600 dark:text-gray-400">Full-Stack AI Integration | 2024</p>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">40%</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">40%</div>
                     <div className="text-gray-600">AI Agent Accuracy Improvement</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">70%</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">70%</div>
                     <div className="text-gray-600">Faster Product Discovery</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">5TB+</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">5TB+</div>
                     <div className="text-gray-600">Data Processed Daily</div>
                   </div>
                 </div>
@@ -993,19 +846,19 @@ const Home: React.FC = () => {
                   <h4 className="text-lg font-semibold text-gray-800">Technical Implementation</h4>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       RAG-powered AI agent using LangChain and OpenAI GPT-4
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       Real-time product recommendations with Apache Kafka
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       Microservices architecture with FastAPI and React
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       AWS deployment with auto-scaling and load balancing
                     </li>
                   </ul>
@@ -1014,29 +867,29 @@ const Home: React.FC = () => {
             </div>
 
             {/* Railway Predictive Maintenance Case Study */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 shadow-lg overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
                     <span className="text-2xl text-white">🚂</span>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-800">Railway Predictive Maintenance System</h3>
-                    <p className="text-purple-600">Real-time ML System | 2024</p>
+                    <p className="text-gray-600 dark:text-gray-400">Real-time ML System | 2024</p>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">95%</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">95%</div>
                     <div className="text-gray-600">Prediction Accuracy</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">30%</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">30%</div>
                     <div className="text-gray-600">Maintenance Cost Reduction</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">24/7</div>
                     <div className="text-gray-600">Real-time Monitoring</div>
                   </div>
                 </div>
@@ -1045,19 +898,19 @@ const Home: React.FC = () => {
                   <h4 className="text-lg font-semibold text-gray-800">Technical Implementation</h4>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       TensorFlow-based anomaly detection with LSTM networks
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       Apache Spark for real-time data processing
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       AWS Lambda for serverless ML inference
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
                       Real-time dashboards with WebSocket connections
                     </li>
                   </ul>
@@ -1068,7 +921,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* Blog & Technical Articles Section */}
-        <section className="blog-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="blog">
+        <section className="blog-section py-20" id="blog">
           <SectionHeader 
             title="Technical Articles & Insights" 
             subtitle="Thought leadership and technical deep-dives in AI/ML and full-stack development"
@@ -1080,13 +933,13 @@ const Home: React.FC = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
           >
             {/* Article 1 */}
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm">🤖</span>
                   </div>
-                  <span className="text-purple-600 dark:text-purple-400 text-sm font-medium">AI/ML</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">AI/ML</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
                   Building Production-Ready AI Applications
@@ -1098,7 +951,7 @@ const Home: React.FC = () => {
                   <span className="text-gray-500 dark:text-gray-500 text-xs">Dec 2024</span>
                   <Link 
                     href="#"
-                    className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-sm font-medium flex items-center gap-1"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium flex items-center gap-1"
                   >
                     Read More
                     <ArrowRight className="w-3 h-3" />
@@ -1108,10 +961,10 @@ const Home: React.FC = () => {
             </div>
 
             {/* Article 2 */}
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm">☁️</span>
                   </div>
                   <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">Cloud</span>
@@ -1136,10 +989,10 @@ const Home: React.FC = () => {
             </div>
 
             {/* Article 3 */}
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm">🔍</span>
                   </div>
                   <span className="text-green-600 dark:text-green-400 text-sm font-medium">RAG</span>
@@ -1164,10 +1017,10 @@ const Home: React.FC = () => {
             </div>
 
             {/* Article 4 */}
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm">⚡</span>
                   </div>
                   <span className="text-orange-600 dark:text-orange-400 text-sm font-medium">Performance</span>
@@ -1192,10 +1045,10 @@ const Home: React.FC = () => {
             </div>
 
             {/* Article 5 */}
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm">🔧</span>
                   </div>
                   <span className="text-indigo-600 dark:text-indigo-400 text-sm font-medium">DevOps</span>
@@ -1220,10 +1073,10 @@ const Home: React.FC = () => {
             </div>
 
             {/* Article 6 */}
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm">🎯</span>
                   </div>
                   <span className="text-pink-600 dark:text-pink-400 text-sm font-medium">Career</span>
@@ -1249,7 +1102,7 @@ const Home: React.FC = () => {
           </MotionDiv>
         </section>
 
-        <section className="tools-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="tools">
+        <section className="tools-section py-20" id="tools">
                      <SectionHeader 
              title="Tools & Technologies" 
              subtitle="The tech stack I use to build robust full-stack and AI/ML solutions"
@@ -1265,9 +1118,9 @@ const Home: React.FC = () => {
                  initial={{ opacity: 0, y: 20 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
-                 className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
                >
-                 <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                    <span className="text-2xl">⚛️</span>
                    Frontend Development
                  </h3>
@@ -1289,9 +1142,9 @@ const Home: React.FC = () => {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: 0.2 }}
-                 className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
                >
-                 <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                    <span className="text-2xl">🐍</span>
                    Backend Development
                  </h3>
@@ -1313,9 +1166,9 @@ const Home: React.FC = () => {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: 0.4 }}
-                 className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
                >
-                 <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                    <span className="text-2xl">🧠</span>
                    AI/ML & Data
                  </h3>
@@ -1337,9 +1190,9 @@ const Home: React.FC = () => {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: 0.6 }}
-                 className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg"
+                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
                >
-                 <h3 className="text-xl font-semibold text-purple-600 mb-4 flex items-center gap-2">
+                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                    <span className="text-2xl">☁️</span>
                    Cloud & DevOps
                  </h3>
@@ -1360,7 +1213,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* Enhanced Certifications Section with Credly Badges */}
-        <section className="certifications-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="certifications">
+        <section className="certifications-section py-20" id="certifications">
           <SectionHeader 
             title="Certifications & Badges" 
             subtitle="Professional certifications and verified achievements"
@@ -1381,14 +1234,14 @@ const Home: React.FC = () => {
               <Link 
                 href="https://www.credly.com/badges/454b6f57-2586-48bd-a854-1317ee4a6fdd/public_url"
                 target="_blank"
-                className="block bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg text-center hover:transform hover:scale-105 transition-all duration-300 group"
+                className="block bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform">
                   <span className="text-2xl text-white">☁️</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">AWS Certified Solutions Architect – Associate</h3>
-                <p className="text-gray-600 text-sm">Amazon Web Services</p>
-                <div className="mt-3 flex items-center justify-center gap-2 text-purple-600 text-sm">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 transition-colors">AWS Certified Solutions Architect – Associate</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Amazon Web Services</p>
+                <div className="mt-3 flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 text-sm">
                   <span>View Credly Badge</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -1405,14 +1258,14 @@ const Home: React.FC = () => {
               <Link 
                 href="https://www.youracclaim.com/badges/09bfbaf8-6538-4b48-a9ea-49b9bc39414a?source=linked_in_profile"
                 target="_blank"
-                className="block bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg text-center hover:transform hover:scale-105 transition-all duration-300 group"
+                className="block bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform">
                   <span className="text-2xl text-white">🌐</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">Cisco Certified Network Associate (CCNA)</h3>
-                <p className="text-gray-600 text-sm">Cisco Systems</p>
-                <div className="mt-3 flex items-center justify-center gap-2 text-purple-600 text-sm">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 transition-colors">Cisco Certified Network Associate (CCNA)</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Cisco Systems</p>
+                <div className="mt-3 flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 text-sm">
                   <span>View Credly Badge</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -1425,14 +1278,14 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg text-center hover:transform hover:scale-105 transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl text-white">⚙️</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">ServiceNow Certified Application Developer</h3>
-              <p className="text-gray-600 text-sm">ServiceNow</p>
-              <div className="mt-3 text-purple-600 text-sm font-medium">Verified</div>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">ServiceNow Certified Application Developer</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">ServiceNow</p>
+              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">Verified</div>
             </MotionDiv>
 
             {/* Oracle Certification */}
@@ -1441,14 +1294,14 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg text-center hover:transform hover:scale-105 transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl text-white">🗄️</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Oracle Database SQL Certified Associate</h3>
-              <p className="text-gray-600 text-sm">Oracle Corporation</p>
-              <div className="mt-3 text-purple-600 text-sm font-medium">Verified</div>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Oracle Database SQL Certified Associate</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Oracle Corporation</p>
+              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">Verified</div>
             </MotionDiv>
 
             {/* Google Cloud ML Engineer */}
@@ -1457,14 +1310,14 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg text-center hover:transform hover:scale-105 transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl text-white">🤖</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Google Cloud Professional ML Engineer</h3>
-              <p className="text-gray-600 text-sm">Google Cloud</p>
-              <div className="mt-3 text-purple-600 text-sm font-medium">In Progress</div>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Google Cloud Professional ML Engineer</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Google Cloud</p>
+              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">In Progress</div>
             </MotionDiv>
 
             {/* Kubernetes Administrator */}
@@ -1473,122 +1326,26 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="bg-white/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 shadow-lg text-center hover:transform hover:scale-105 transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl text-white">🚀</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Kubernetes Administrator (CKA)</h3>
-              <p className="text-gray-600 text-sm">Cloud Native Computing Foundation</p>
-              <div className="mt-3 text-purple-600 text-sm font-medium">Planned</div>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Kubernetes Administrator (CKA)</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Cloud Native Computing Foundation</p>
+              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">Planned</div>
             </MotionDiv>
           </MotionDiv>
         </section>
 
-        {/* Speaking Engagements Section */}
-        <section className="speaking-section py-20 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl mx-4 my-8" id="speaking">
-          <SectionHeader 
-            title="Speaking & Events" 
-            subtitle="Professional presentations and community engagement"
-          />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto px-4"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                    <span className="text-xl text-white">🎤</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">AWS re:Invent 2024</h3>
-                    <p className="text-purple-600 text-sm">AI/ML Track Speaker</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-3">
-                  &ldquo;Building Production-Ready RAG Systems with AWS Bedrock and LangChain&rdquo;
-                </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">RAG Systems</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">AWS Bedrock</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">LangChain</span>
-                </div>
-              </div>
-
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                    <span className="text-xl text-white">📊</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Data Engineering Summit 2024</h3>
-                    <p className="text-purple-600 text-sm">Featured Speaker</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-3">
-                  &ldquo;Real-time ML Systems: From Concept to Production at Scale&rdquo;
-                </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Real-time ML</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Apache Spark</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Production</span>
-                </div>
-              </div>
-
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                    <span className="text-xl text-white">💻</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Full-Stack Development Conference</h3>
-                    <p className="text-purple-600 text-sm">Panel Discussion</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-3">
-                  &ldquo;The Future of AI-Integrated Full-Stack Applications&rdquo;
-                </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Full-Stack</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">AI Integration</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Future Tech</span>
-                </div>
-              </div>
-
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-100 dark:border-purple-700 shadow-lg">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                    <span className="text-xl text-white">🏆</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Tech Community Meetups</h3>
-                    <p className="text-purple-600 text-sm">Regular Speaker</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-3">
-                  &ldquo;Building Scalable AI Solutions: Lessons from Production&rdquo;
-                </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Community</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Best Practices</span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200 rounded-full text-xs">Mentorship</span>
-                </div>
-              </div>
-            </div>
-          </MotionDiv>
-        </section>
 
                  {/* Floating Action Buttons */}
          <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
            {/* Quick Contact Button */}
            <Link
              href="mailto:laharikarrothu@gmail.com"
-             className="bg-green-600 text-white p-4 rounded-full shadow-lg
-                      hover:bg-green-700 transition-all duration-300 flex items-center gap-2
-                      hover:scale-105 backdrop-blur-sm group"
+             className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 p-4 rounded-full shadow-sm
+                      hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 flex items-center gap-2 group"
              title="Quick Contact"
            >
              <Mail className="w-5 h-5" />
@@ -1599,9 +1356,8 @@ const Home: React.FC = () => {
            <a
              href="/Resume_LahariKarrotu.docx"
              download="Lahari_Karrotu_Full_Stack_AI_Engineer_Resume.docx"
-             className="bg-purple-600 text-white p-4 rounded-full shadow-lg
-                      hover:bg-purple-700 transition-all duration-300 flex items-center gap-2
-                      hover:scale-105 backdrop-blur-sm group"
+             className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 p-4 rounded-full shadow-sm
+                      hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 flex items-center gap-2 group"
              target="_blank"
              rel="noopener noreferrer"
              title="Download Resume"
