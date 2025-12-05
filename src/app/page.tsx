@@ -7,7 +7,6 @@ import ScrollToTop from '@/components/ScrollToTop';
 import ScrollProgress from '@/components/ScrollProgress';
 import TypeWriter from '@/components/TypeWriter';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import { MotionDiv } from '@/components/MotionDiv';
 import { RevealText, RevealParagraph, RevealHeading } from '@/components/RevealText';
