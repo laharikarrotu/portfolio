@@ -51,15 +51,13 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = ({ skills }) => {
                     rotate: [0, -5, 5, -5, 0],
                     transition: { duration: 0.5 }
                   }}
-                  className="group"
                 >
-                  <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-2.5 
+                  <div className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-2.5 
                                 hover:border-gray-400 dark:hover:border-gray-600 
                                 hover:shadow-md transition-all duration-300 cursor-default
                                 flex items-center gap-2">
                     {skill.icon && (
                       <motion.span 
-                        className="text-lg"
                         animate={{ 
                           rotate: [0, 10, -10, 0],
                         }}
@@ -70,7 +68,7 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = ({ skills }) => {
                           delay: index * 0.1
                         }}
                       >
-                        {skill.icon}
+                        <span className="text-lg">{skill.icon}</span>
                       </motion.span>
                     )}
                     <span className="font-medium text-gray-900 dark:text-white text-sm">
