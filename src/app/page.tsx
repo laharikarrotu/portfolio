@@ -15,102 +15,64 @@ import VoiceAssistant from '@/components/VoiceAssistant';
 import DarkModeToggle from '@/components/DarkModeToggle';
 import EnhancedContactForm from '@/components/EnhancedContactForm';
 import ProjectShowcase from '@/components/ProjectShowcase';
-import SkillsDisplay from '@/components/SkillsDisplay';
 import { projects } from '@/data/projects';
 
 const Home: React.FC = () => {
-  // Technical skills (no levels, just animated display)
-  const techSkills = [
-    // Frontend
-    { name: 'React', category: 'frontend', icon: '⚛️' },
-    { name: 'TypeScript', category: 'frontend', icon: '📘' },
-    { name: 'Next.js', category: 'frontend', icon: '▲' },
-    { name: 'JavaScript', category: 'frontend', icon: '🟨' },
-    { name: 'Tailwind CSS', category: 'frontend', icon: '🎨' },
-    { name: 'HTML/CSS', category: 'frontend', icon: '🌐' },
-    
-    // Backend
-    { name: 'Python', category: 'backend', icon: '🐍' },
-    { name: 'FastAPI', category: 'backend', icon: '⚡' },
-    { name: 'Django', category: 'backend', icon: '🎯' },
-    { name: 'Java', category: 'backend', icon: '☕' },
-    { name: 'Spring Boot', category: 'backend', icon: '🌱' },
-    { name: 'Node.js', category: 'backend', icon: '🟢' },
-    { name: 'REST APIs', category: 'backend', icon: '🔗' },
-    
-    // AI/ML
-    { name: 'TensorFlow', category: 'ai-ml', icon: '🧠' },
-    { name: 'PyTorch', category: 'ai-ml', icon: '🔥' },
-    { name: 'Generative AI', category: 'ai-ml', icon: '🤖' },
-    { name: 'RAG Systems', category: 'ai-ml', icon: '🔍' },
-    { name: 'OpenAI API', category: 'ai-ml', icon: '✨' },
-    { name: 'LangChain', category: 'ai-ml', icon: '⛓️' },
-    { name: 'MLOps', category: 'ai-ml', icon: '⚙️' },
-    
-    // Data Engineering
-    { name: 'Apache Spark', category: 'data', icon: '⚡' },
-    { name: 'Apache Kafka', category: 'data', icon: '📊' },
-    { name: 'Pandas', category: 'data', icon: '🐼' },
-    { name: 'SQL', category: 'data', icon: '🗄️' },
-    { name: 'PostgreSQL', category: 'data', icon: '🐘' },
-    { name: 'MongoDB', category: 'data', icon: '🍃' },
-    
-    // Cloud & DevOps
-    { name: 'AWS', category: 'cloud', icon: '☁️' },
-    { name: 'Azure', category: 'cloud', icon: '🔷' },
-    { name: 'Docker', category: 'cloud', icon: '🐳' },
-    { name: 'Kubernetes', category: 'cloud', icon: '⎈' },
-    { name: 'Terraform', category: 'cloud', icon: '🌍' },
-    { name: 'CI/CD', category: 'cloud', icon: '🔄' },
-    { name: 'AWS Lambda', category: 'cloud', icon: 'λ' },
-  ];
-
   // Projects are now imported from @/data/projects
 
-           // Add these tool configurations with their icons
-    const toolsConfig = {
-      frontend: [
-        { name: 'React', icon: '⚛️' },
-        { name: 'TypeScript', icon: '📘' },
-        { name: 'Next.js', icon: '▲' },
-        { name: 'Tailwind CSS', icon: '🎨' },
-        { name: 'HTML5/CSS3', icon: '🌐' },
-        { name: 'Astro', icon: '⭐' }
-      ],
-            backend: [
-         { name: 'Python (FastAPI)', icon: '🐍' },
-         { name: 'Django', icon: '🎯' },
-         { name: 'Java (Spring Boot)', icon: '☕' },
-         { name: 'Node.js', icon: '🟢' },
-         { name: 'REST APIs', icon: '🔗' },
-         { name: 'Microservices', icon: '🏗️' },
-         { name: 'PostgreSQL', icon: '🐘' },
-         { name: 'MongoDB', icon: '🍃' },
-         { name: 'Cassandra', icon: '📊' }
-       ],
-            aiMl: [
-         { name: 'TensorFlow', icon: '🧠' },
-         { name: 'PyTorch', icon: '🔥' },
-         { name: 'Generative AI', icon: '🤖' },
-         { name: 'RAG Pipelines', icon: '🔍' },
-         { name: 'MLOps', icon: '⚙️' },
-         { name: 'Apache Spark', icon: '⚡' },
-         { name: 'Apache Kafka', icon: '📊' },
-         { name: 'Apache Airflow', icon: '🌪️' },
-         { name: 'Hugging Face', icon: '🤗' }
-       ],
-            cloudDevOps: [
-         { name: 'AWS Services', icon: '☁️' },
-         { name: 'Azure', icon: '🔷' },
-         { name: 'GCP', icon: '🌤️' },
-         { name: 'Docker', icon: '🐳' },
-         { name: 'Kubernetes', icon: '⎈' },
-         { name: 'Terraform', icon: '🌍' },
-         { name: 'CI/CD (Jenkins)', icon: '🔄' },
-         { name: 'AWS Lambda', icon: 'λ' },
-         { name: 'AWS S3/Glue', icon: '💾' }
-       ]
-    };
+  // Merged and deduplicated tools configuration
+  const toolsConfig = {
+    frontend: [
+      { name: 'React', icon: '⚛️' },
+      { name: 'TypeScript', icon: '📘' },
+      { name: 'Next.js', icon: '▲' },
+      { name: 'JavaScript', icon: '🟨' },
+      { name: 'Tailwind CSS', icon: '🎨' },
+      { name: 'HTML/CSS', icon: '🌐' },
+      { name: 'Astro', icon: '⭐' }
+    ],
+    backend: [
+      { name: 'Python', icon: '🐍' },
+      { name: 'FastAPI', icon: '⚡' },
+      { name: 'Django', icon: '🎯' },
+      { name: 'Java', icon: '☕' },
+      { name: 'Spring Boot', icon: '🌱' },
+      { name: 'Node.js', icon: '🟢' },
+      { name: 'REST APIs', icon: '🔗' },
+      { name: 'Microservices', icon: '🏗️' },
+      { name: 'PostgreSQL', icon: '🐘' },
+      { name: 'MongoDB', icon: '🍃' },
+      { name: 'Cassandra', icon: '📊' }
+    ],
+    aiMl: [
+      { name: 'TensorFlow', icon: '🧠' },
+      { name: 'PyTorch', icon: '🔥' },
+      { name: 'Generative AI', icon: '🤖' },
+      { name: 'RAG Systems', icon: '🔍' },
+      { name: 'OpenAI API', icon: '✨' },
+      { name: 'LangChain', icon: '⛓️' },
+      { name: 'MLOps', icon: '⚙️' },
+      { name: 'Apache Spark', icon: '⚡' },
+      { name: 'Apache Kafka', icon: '📊' },
+      { name: 'Apache Airflow', icon: '🌪️' },
+      { name: 'Hugging Face', icon: '🤗' }
+    ],
+    data: [
+      { name: 'Pandas', icon: '🐼' },
+      { name: 'SQL', icon: '🗄️' }
+    ],
+    cloudDevOps: [
+      { name: 'AWS', icon: '☁️' },
+      { name: 'Azure', icon: '🔷' },
+      { name: 'GCP', icon: '🌤️' },
+      { name: 'Docker', icon: '🐳' },
+      { name: 'Kubernetes', icon: '⎈' },
+      { name: 'Terraform', icon: '🌍' },
+      { name: 'CI/CD', icon: '🔄' },
+      { name: 'AWS Lambda', icon: 'λ' },
+      { name: 'AWS S3/Glue', icon: '💾' }
+    ]
+  };
 
   return (
     <main className="gradient-background min-h-screen text-gray-800 dark:text-gray-100 relative">
@@ -549,15 +511,6 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="skills-section py-32" id="skills">
-          <SectionHeader 
-            title="Technical Expertise" 
-            subtitle="Technologies and tools I work with"
-          />
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SkillsDisplay skills={techSkills} />
-          </div>
-        </section>
 
         <section className="projects-section py-32 overflow-hidden" id="projects">
                      <SectionHeader 
@@ -1117,112 +1070,136 @@ const Home: React.FC = () => {
           </MotionDiv>
         </section>
 
-        <section className="tools-section py-20" id="tools">
-                     <SectionHeader 
-             title="Tools & Technologies" 
-             subtitle="The tech stack I use to build robust full-stack and AI/ML solutions"
-           />
+        <section className="tools-section py-32" id="skills">
+          <SectionHeader 
+            title="Technical Expertise" 
+            subtitle="Technologies and tools I work with"
+          />
           <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="max-w-6xl mx-auto px-4"
           >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                             <MotionDiv
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-               >
-                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                   <span className="text-2xl">⚛️</span>
-                   Frontend Development
-                 </h3>
-                 <div className="space-y-3">
-                   {toolsConfig.frontend.map((tool, index) => (
-                     <div 
-                       key={index}
-                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
-                     >
-                       <span className="text-xl">{tool.icon}</span>
-                       <span className="text-gray-700">{tool.name}</span>
-                     </div>
-                   ))}
-                 </div>
-               </MotionDiv>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl">⚛️</span>
+                  Frontend
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.frontend.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
 
-               <MotionDiv
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.2 }}
-                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-               >
-                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                   <span className="text-2xl">🐍</span>
-                   Backend Development
-                 </h3>
-                 <div className="space-y-3">
-                   {toolsConfig.backend.map((tool, index) => (
-                     <div 
-                       key={index}
-                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
-                     >
-                       <span className="text-xl">{tool.icon}</span>
-                       <span className="text-gray-700">{tool.name}</span>
-                     </div>
-                   ))}
-                 </div>
-               </MotionDiv>
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🐍</span>
+                  Backend
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.backend.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
 
-               <MotionDiv
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.4 }}
-                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-               >
-                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                   <span className="text-2xl">🧠</span>
-                   AI/ML & Data
-                 </h3>
-                 <div className="space-y-3">
-                   {toolsConfig.aiMl.map((tool, index) => (
-                     <div 
-                       key={index}
-                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
-                     >
-                       <span className="text-xl">{tool.icon}</span>
-                       <span className="text-gray-700">{tool.name}</span>
-                     </div>
-                   ))}
-                 </div>
-               </MotionDiv>
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🧠</span>
+                  AI/ML
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.aiMl.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
 
-               <MotionDiv
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.6 }}
-                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-               >
-                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                   <span className="text-2xl">☁️</span>
-                   Cloud & DevOps
-                 </h3>
-                 <div className="space-y-3">
-                   {toolsConfig.cloudDevOps.map((tool, index) => (
-                     <div 
-                       key={index}
-                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 transition-colors"
-                     >
-                       <span className="text-xl">{tool.icon}</span>
-                       <span className="text-gray-700">{tool.name}</span>
-                     </div>
-                   ))}
-                 </div>
-               </MotionDiv>
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl">📊</span>
+                  Data
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.data.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl">☁️</span>
+                  Cloud & DevOps
+                </h3>
+                <div className="space-y-3">
+                  {toolsConfig.cloudDevOps.map((tool, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </MotionDiv>
             </div>
           </MotionDiv>
         </section>
