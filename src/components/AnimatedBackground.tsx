@@ -1,13 +1,113 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const AnimatedBackground = () => {
   const [isClient, setIsClient] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    if (!isClient || !canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Network nodes representing full-stack connectivity
+    interface Node {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+    }
+
+    const nodes: Node[] = [];
+    const nodeCount = 25; // Moderate number for subtle effect
+    const connectionDistance = 200; // Distance to draw connections
+
+    // Initialize nodes
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 2 + 1,
+      });
+    }
+
+    let animationId: number;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Check if dark mode
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const nodeColor = isDark ? 'rgba(96, 165, 250, 0.4)' : 'rgba(59, 130, 246, 0.3)';
+
+      // Update and draw nodes
+      nodes.forEach((node) => {
+        // Update position
+        node.x += node.vx;
+        node.y += node.vy;
+
+        // Bounce off edges
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+        // Keep within bounds
+        node.x = Math.max(0, Math.min(canvas.width, node.x));
+        node.y = Math.max(0, Math.min(canvas.height, node.y));
+
+        // Draw connections to nearby nodes (representing full-stack connectivity)
+        nodes.forEach((otherNode) => {
+          const dx = node.x - otherNode.x;
+          const dy = node.y - otherNode.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < connectionDistance && node !== otherNode) {
+            // Draw connection line with opacity based on distance
+            const opacity = (1 - distance / connectionDistance) * 0.3;
+            ctx.strokeStyle = isDark 
+              ? `rgba(96, 165, 250, ${opacity})` 
+              : `rgba(59, 130, 246, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(otherNode.x, otherNode.y);
+            ctx.stroke();
+          }
+        });
+
+        // Draw node (representing services/components)
+        ctx.fillStyle = nodeColor;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationId);
+    };
+  }, [isClient]);
 
   if (!isClient) {
     return null;
@@ -19,109 +119,32 @@ const AnimatedBackground = () => {
       <div 
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(249, 250, 251, 0.5) 0%, rgba(243, 244, 246, 0.3) 100%)',
+          background: 'linear-gradient(135deg, rgba(249, 250, 251, 0.6) 0%, rgba(243, 244, 246, 0.4) 100%)',
         }}
       />
       <div 
         className="absolute inset-0 hidden dark:block"
         style={{
-          background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.5) 0%, rgba(31, 41, 55, 0.3) 100%)',
+          background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.6) 0%, rgba(31, 41, 55, 0.4) 100%)',
         }}
       />
 
-      {/* Professional geometric pattern overlay */}
-      <div className="absolute inset-0" style={{ opacity: 0.15 }}>
-        <svg className="absolute inset-0 w-full h-full">
-          {/* Large rotating hexagons */}
-          <g style={{ animation: 'spin 30s linear infinite', transformOrigin: '50% 50%' }}>
-            <polygon
-              points="50,10 90,30 90,70 50,90 10,70 10,30"
-              fill="none"
-              stroke="rgba(59, 130, 246, 0.2)"
-              strokeWidth="1"
-              transform="translate(20%, 20%) scale(3)"
-            />
-            <polygon
-              points="50,15 80,30 80,70 50,85 20,70 20,30"
-              fill="none"
-              stroke="rgba(96, 165, 250, 0.15)"
-              strokeWidth="0.8"
-              transform="translate(20%, 20%) scale(2.5)"
-            />
-          </g>
-          
-          {/* Counter-rotating triangles */}
-          <g style={{ animation: 'spin-reverse 25s linear infinite', transformOrigin: '50% 50%' }}>
-            <polygon
-              points="50,10 85,70 15,70"
-              fill="none"
-              stroke="rgba(59, 130, 246, 0.18)"
-              strokeWidth="1"
-              transform="translate(80%, 30%) scale(2.5)"
-            />
-            <polygon
-              points="50,15 75,65 25,65"
-              fill="none"
-              stroke="rgba(96, 165, 250, 0.12)"
-              strokeWidth="0.8"
-              transform="translate(80%, 30%) scale(2)"
-            />
-          </g>
-          
-          {/* Rotating circles with dashes */}
-          <circle
-            cx="15%"
-            cy="70%"
-            r="15%"
-            fill="none"
-            stroke="rgba(156, 163, 175, 0.1)"
-            strokeWidth="1"
-            strokeDasharray="6 6"
-            style={{ animation: 'spin 35s linear infinite', transformOrigin: '15% 70%' }}
-          />
-          <circle
-            cx="85%"
-            cy="80%"
-            r="12%"
-            fill="none"
-            stroke="rgba(59, 130, 246, 0.12)"
-            strokeWidth="1"
-            strokeDasharray="4 4"
-            style={{ animation: 'spin-reverse 28s linear infinite', transformOrigin: '85% 80%' }}
-          />
-          
-          {/* Additional geometric elements */}
-          <g style={{ animation: 'spin 40s linear infinite', transformOrigin: '70% 20%' }}>
-            <polygon
-              points="50,10 90,30 90,70 50,90 10,70 10,30"
-              fill="none"
-              stroke="rgba(96, 165, 250, 0.1)"
-              strokeWidth="0.8"
-              transform="translate(70%, 20%) scale(2)"
-            />
-          </g>
-          
-          <g style={{ animation: 'spin-reverse 32s linear infinite', transformOrigin: '30% 80%' }}>
-            <polygon
-              points="50,10 85,70 15,70"
-              fill="none"
-              stroke="rgba(59, 130, 246, 0.15)"
-              strokeWidth="1"
-              transform="translate(30%, 80%) scale(2.2)"
-            />
-          </g>
-        </svg>
-      </div>
+      {/* Animated network pattern canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+        style={{ opacity: 1 }}
+      />
 
-      {/* Subtle grid pattern overlay */}
+      {/* Subtle grid overlay */}
       <div 
-        className="absolute inset-0 opacity-10 dark:opacity-5"
+        className="absolute inset-0 opacity-8 dark:opacity-4"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(156, 163, 175, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(156, 163, 175, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(156, 163, 175, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(156, 163, 175, 0.08) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px',
+          backgroundSize: '50px 50px',
         }}
       />
     </div>
