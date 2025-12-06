@@ -169,6 +169,50 @@ const Home: React.FC = () => {
                   {/* Modern border with subtle shadow */}
                   <div className="absolute inset-0 rounded-full border-4 border-gray-200 dark:border-gray-700 shadow-lg"></div>
                   
+                  {/* Professional geometric animation */}
+                  <div className="absolute inset-0 rounded-full" style={{ zIndex: 5 }}>
+                    <svg className="absolute inset-0 w-full h-full" style={{ transform: 'scale(1.2)' }}>
+                      {/* Rotating geometric hexagon */}
+                      <g style={{ animation: 'spin 20s linear infinite', transformOrigin: '50% 50%' }}>
+                        <polygon
+                          points="50,5 90,25 90,65 50,85 10,65 10,25"
+                          fill="none"
+                          stroke="rgba(59, 130, 246, 0.3)"
+                          strokeWidth="1.5"
+                          transform="translate(50%, 50%) translate(-50, -50)"
+                        />
+                        <polygon
+                          points="50,15 80,30 80,60 50,75 20,60 20,30"
+                          fill="none"
+                          stroke="rgba(96, 165, 250, 0.2)"
+                          strokeWidth="1"
+                          transform="translate(50%, 50%) translate(-50, -50)"
+                        />
+                      </g>
+                      {/* Counter-rotating triangle */}
+                      <g style={{ animation: 'spin-reverse 15s linear infinite', transformOrigin: '50% 50%' }}>
+                        <polygon
+                          points="50,10 85,70 15,70"
+                          fill="none"
+                          stroke="rgba(59, 130, 246, 0.25)"
+                          strokeWidth="1.5"
+                          transform="translate(50%, 50%) translate(-50, -50)"
+                        />
+                      </g>
+                      {/* Outer geometric circle pattern */}
+                      <circle
+                        cx="50%"
+                        cy="50%"
+                        r="45%"
+                        fill="none"
+                        stroke="rgba(156, 163, 175, 0.15)"
+                        strokeWidth="1"
+                        strokeDasharray="4 4"
+                        style={{ animation: 'spin 25s linear infinite', transformOrigin: '50% 50%' }}
+                      />
+                    </svg>
+                  </div>
+                  
                   <Image
                     src="https://avatars.githubusercontent.com/laharikarrotu"
                     alt="Lahari Karrotu"

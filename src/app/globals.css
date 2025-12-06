@@ -888,17 +888,13 @@ html {
   }
 }
 
-/* Profile photo animations */
+/* Profile photo geometric animations */
 @keyframes spin {
-  from { transform: scale(1.1) rotate(0deg); }
-  to { transform: scale(1.1) rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes orbit {
-  from { 
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-180px) rotate(0deg);
-  }
-  to { 
-    transform: translate(-50%, -50%) rotate(360deg) translateY(-180px) rotate(-360deg);
-  }
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
