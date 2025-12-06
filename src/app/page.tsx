@@ -21,58 +21,58 @@ const Home: React.FC = () => {
   // Projects are now imported from @/data/projects
 
   // Merged and deduplicated tools configuration
-  const toolsConfig = {
-    frontend: [
-      { name: 'React', icon: '⚛️' },
-      { name: 'TypeScript', icon: '📘' },
-      { name: 'Next.js', icon: '▲' },
+    const toolsConfig = {
+      frontend: [
+        { name: 'React', icon: '⚛️' },
+        { name: 'TypeScript', icon: '📘' },
+        { name: 'Next.js', icon: '▲' },
       { name: 'JavaScript', icon: '🟨' },
-      { name: 'Tailwind CSS', icon: '🎨' },
+        { name: 'Tailwind CSS', icon: '🎨' },
       { name: 'HTML/CSS', icon: '🌐' },
-      { name: 'Astro', icon: '⭐' }
-    ],
-    backend: [
+        { name: 'Astro', icon: '⭐' }
+      ],
+            backend: [
       { name: 'Python', icon: '🐍' },
       { name: 'FastAPI', icon: '⚡' },
-      { name: 'Django', icon: '🎯' },
+         { name: 'Django', icon: '🎯' },
       { name: 'Java', icon: '☕' },
       { name: 'Spring Boot', icon: '🌱' },
-      { name: 'Node.js', icon: '🟢' },
-      { name: 'REST APIs', icon: '🔗' },
-      { name: 'Microservices', icon: '🏗️' },
-      { name: 'PostgreSQL', icon: '🐘' },
-      { name: 'MongoDB', icon: '🍃' },
-      { name: 'Cassandra', icon: '📊' }
-    ],
-    aiMl: [
-      { name: 'TensorFlow', icon: '🧠' },
-      { name: 'PyTorch', icon: '🔥' },
-      { name: 'Generative AI', icon: '🤖' },
+         { name: 'Node.js', icon: '🟢' },
+         { name: 'REST APIs', icon: '🔗' },
+         { name: 'Microservices', icon: '🏗️' },
+         { name: 'PostgreSQL', icon: '🐘' },
+         { name: 'MongoDB', icon: '🍃' },
+         { name: 'Cassandra', icon: '📊' }
+       ],
+            aiMl: [
+         { name: 'TensorFlow', icon: '🧠' },
+         { name: 'PyTorch', icon: '🔥' },
+         { name: 'Generative AI', icon: '🤖' },
       { name: 'RAG Systems', icon: '🔍' },
       { name: 'OpenAI API', icon: '✨' },
       { name: 'LangChain', icon: '⛓️' },
-      { name: 'MLOps', icon: '⚙️' },
-      { name: 'Apache Spark', icon: '⚡' },
-      { name: 'Apache Kafka', icon: '📊' },
-      { name: 'Apache Airflow', icon: '🌪️' },
-      { name: 'Hugging Face', icon: '🤗' }
-    ],
+         { name: 'MLOps', icon: '⚙️' },
+         { name: 'Apache Spark', icon: '⚡' },
+         { name: 'Apache Kafka', icon: '📊' },
+         { name: 'Apache Airflow', icon: '🌪️' },
+         { name: 'Hugging Face', icon: '🤗' }
+       ],
     data: [
       { name: 'Pandas', icon: '🐼' },
       { name: 'SQL', icon: '🗄️' }
     ],
-    cloudDevOps: [
+            cloudDevOps: [
       { name: 'AWS', icon: '☁️' },
-      { name: 'Azure', icon: '🔷' },
-      { name: 'GCP', icon: '🌤️' },
-      { name: 'Docker', icon: '🐳' },
-      { name: 'Kubernetes', icon: '⎈' },
-      { name: 'Terraform', icon: '🌍' },
+         { name: 'Azure', icon: '🔷' },
+         { name: 'GCP', icon: '🌤️' },
+         { name: 'Docker', icon: '🐳' },
+         { name: 'Kubernetes', icon: '⎈' },
+         { name: 'Terraform', icon: '🌍' },
       { name: 'CI/CD', icon: '🔄' },
-      { name: 'AWS Lambda', icon: 'λ' },
-      { name: 'AWS S3/Glue', icon: '💾' }
-    ]
-  };
+         { name: 'AWS Lambda', icon: 'λ' },
+         { name: 'AWS S3/Glue', icon: '💾' }
+       ]
+    };
 
   return (
     <main className="gradient-background min-h-screen text-gray-800 dark:text-gray-100 relative">
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
 
             <div className="flex-1 relative flex items-center justify-center">
               <RevealText delay={1.1} duration={0.8}>
-                <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+              <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
                   {/* Modern subtle background pattern */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-100 via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800"></div>
                   {/* Modern border with subtle shadow */}
@@ -213,17 +213,17 @@ const Home: React.FC = () => {
                     </svg>
                   </div>
                   
-                  <Image
-                    src="https://avatars.githubusercontent.com/laharikarrotu"
-                    alt="Lahari Karrotu"
-                    width={400}
-                    height={400}
+                <Image
+                  src="https://avatars.githubusercontent.com/laharikarrotu"
+                  alt="Lahari Karrotu"
+                  width={400}
+                  height={400}
                     className="rounded-full object-cover relative z-10 w-full h-full"
                     style={{ borderRadius: '50%' }}
-                    priority
-                    unoptimized
-                  />
-                </div>
+                  priority
+                  unoptimized
+                />
+                 </div>
               </RevealText>
             </div>
           </div>
@@ -249,122 +249,12 @@ const Home: React.FC = () => {
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I believe in writing clean, maintainable code and building systems that can evolve over time. I've worked on systems that have grown from initial prototypes to production applications serving real users. I'm committed to continuous learning and contributing to team success. I'm looking for opportunities where I can grow with the company, work on meaningful problems, and contribute to long-term success."
+              text="I believe in writing clean, maintainable code and building systems that can evolve over time. I take ownership of systems from development through deployment and maintenance. I work well in team environments, contribute to code reviews, and focus on understanding problems before jumping to solutions. I'm committed to continuous learning and looking for opportunities where I can grow with the company and contribute to long-term success."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.5}
               duration={1.2}
               stagger={0.1}
             />
-          </div>
-        </section>
-
-        {/* Professional Values & Commitment Section */}
-        <section className="values-section py-20">
-          <SectionHeader 
-            title="Professional Values & Commitment" 
-            subtitle="What I bring to your organization for long-term success"
-          />
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <div className="text-4xl mb-4">🏗️</div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Production Experience</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Experience building and maintaining production systems. Worked with distributed systems, microservices, and cloud infrastructure. Comfortable working in complex codebases and large team environments.
-                </p>
-              </MotionDiv>
-
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <div className="text-4xl mb-4">🔧</div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Ownership & Maintenance</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  I take responsibility for the systems I work on, from development through deployment and maintenance. I focus on writing maintainable code, proper documentation, and building systems that can evolve over time.
-                </p>
-              </MotionDiv>
-
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <div className="text-4xl mb-4">📈</div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Problem Solving</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  I focus on understanding the problem before jumping to solutions. I consider the broader context, maintainability, and how technical decisions impact the team and product long-term.
-                </p>
-              </MotionDiv>
-
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <div className="text-4xl mb-4">🤝</div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Team Collaboration</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  I work well in team environments, contribute to code reviews, and collaborate with others. I believe in sharing knowledge and helping teammates grow.
-                </p>
-              </MotionDiv>
-
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <div className="text-4xl mb-4">🔄</div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Continuous Learning</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  I&apos;m committed to learning and improving. I stay current with best practices and technologies, and I&apos;m always looking to grow my skills and contribute more effectively.
-                </p>
-              </MotionDiv>
-
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Quality & Reliability</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  I focus on writing quality code and building reliable systems. I pay attention to performance, monitoring, and making sure systems work well for users.
-                </p>
-              </MotionDiv>
-            </div>
-
-            {/* Long-term Commitment Statement */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="mt-12 bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700"
-            >
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
-                Long-Term Commitment
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 text-lg text-center max-w-3xl mx-auto leading-relaxed">
-                I&apos;m looking for opportunities where I can grow with the company and contribute over the long term. I want to understand the business, work on meaningful problems, and be part of the team&apos;s success. I&apos;m committed to being a reliable team member who adds value consistently.
-              </p>
-            </MotionDiv>
           </div>
         </section>
 
@@ -538,39 +428,6 @@ const Home: React.FC = () => {
                          </div>
         </section>
 
-                 {/* Social Proof Section */}
-         <section className="social-proof-section py-20" id="social-proof">
-           <SectionHeader 
-             title="Social Proof & Recognition" 
-             subtitle="Community engagement and professional recognition"
-           />
-           <MotionDiv
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
-           >
-             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-               <div className="text-4xl mb-4">📊</div>
-               <h3 className="text-xl font-semibold text-gray-800 mb-2">GitHub Activity</h3>
-               <p className="text-gray-600">Active contributor with 20+ repositories</p>
-               <p className="text-gray-700 dark:text-gray-300 font-semibold mt-2">100+ commits this year</p>
-             </div>
-             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-               <div className="text-4xl mb-4">🤝</div>
-               <h3 className="text-xl font-semibold text-gray-800 mb-2">LinkedIn Network</h3>
-               <p className="text-gray-600">500+ professional connections</p>
-               <p className="text-gray-700 dark:text-gray-300 font-semibold mt-2">Endorsed for key skills</p>
-             </div>
-             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-               <div className="text-4xl mb-4">🏆</div>
-               <h3 className="text-xl font-semibold text-gray-800 mb-2">Professional Impact</h3>
-               <p className="text-gray-600">4+ years of proven results</p>
-               <p className="text-gray-700 dark:text-gray-300 font-semibold mt-2">70% user engagement increase</p>
-             </div>
-           </MotionDiv>
-         </section>
-
          <section className="contact-section py-32" id="contact">
            <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
              Let&apos;s Connect!
@@ -626,466 +483,6 @@ const Home: React.FC = () => {
            </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="testimonials-section py-20" id="testimonials">
-          <SectionHeader 
-            title="What People Say" 
-            subtitle="Feedback from colleagues and clients"
-          />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
-          >
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-gray-700 dark:text-gray-300">S</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Senior Tech Lead</h4>
-                  <p className="text-sm text-gray-600">Arkatech Solutions</p>
-                </div>
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 italic">
-                &ldquo;Lahari consistently delivers high-quality, scalable solutions. Her expertise in AI/ML and full-stack development has been invaluable to our team.&rdquo;
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-gray-700 dark:text-gray-300">M</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Project Manager</h4>
-                  <p className="text-sm text-gray-600">Anguliyam</p>
-                </div>
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 italic">
-                &ldquo;Exceptional problem-solving skills and deep technical knowledge. Lahari transformed our railway maintenance system with innovative ML solutions.&rdquo;
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-gray-700 dark:text-gray-300">A</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">Data Engineering Lead</h4>
-                  <p className="text-sm text-gray-600">Cognizant</p>
-                </div>
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 italic">
-                &ldquo;Outstanding performance in building ETL pipelines and optimizing data processing. A true asset to any data engineering team.&rdquo;
-              </p>
-            </div>
-          </MotionDiv>
-        </section>
-
-        <section className="achievements-section py-20" id="achievements">
-          <SectionHeader 
-            title="Key Achievements" 
-            subtitle="Milestones and impacts from my professional journey"
-          />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4"
-          >
-                                                   <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
-                              transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-3xl">🪟</span>
-                  <h3 className="text-xl font-semibold text-gray-800">Virtual Try-On App</h3>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300">70% increase in user interactivity and purchasing confidence for window blinds visualization</p>
-              </div>
-              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
-                              transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-3xl">🤖</span>
-                  <h3 className="text-xl font-semibold text-gray-800">SmartBuy AI Agent</h3>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300">40% improvement in AI agent accuracy through RAG pipeline implementation</p>
-              </div>
-              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
-                              transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-3xl">🚂</span>
-                  <h3 className="text-xl font-semibold text-gray-800">Railway ML System</h3>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300">Mission-critical real-time anomaly detection system for equipment failure prediction</p>
-              </div>
-              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm
-                              transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-3xl">🏦</span>
-                  <h3 className="text-xl font-semibold text-gray-800">Auto Loan AI</h3>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300">40% reduction in loan processing time using AWS Textract OCR and voice AI</p>
-              </div>
-          </MotionDiv>
-        </section>
-
-        {/* Research & Publications Section */}
-        <section className="research-section py-20" id="research">
-          <SectionHeader 
-            title="Research & Publications" 
-            subtitle="Academic contributions and technical insights"
-          />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto px-4"
-          >
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm mb-8">
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Master&apos;s Thesis</h3>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">Florida Institute of Technology</p>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    &ldquo;Advanced Machine Learning Techniques for Predictive Analytics in Industrial IoT Systems&rdquo;
-                  </p>
-                  <div className="flex gap-2 flex-wrap">
-                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Machine Learning</span>
-                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">IoT</span>
-                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Predictive Analytics</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">Technical Blog Posts</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                    <span className="text-gray-700">&ldquo;Building RAG Systems with Modern AI&rdquo;</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                    <span className="text-gray-700">&ldquo;Real-time ML Systems Architecture&rdquo;</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                    <span className="text-gray-700">&ldquo;Cloud-Native Data Engineering Patterns&rdquo;</span>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-          </MotionDiv>
-        </section>
-
-        {/* Case Studies Section */}
-        <section className="case-studies-section py-20" id="case-studies">
-          <SectionHeader 
-            title="Case Studies" 
-            subtitle="Detailed breakdown of major project implementations"
-          />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto px-4 space-y-8"
-          >
-            {/* SmartBuy AI eCommerce Case Study */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                    <span className="text-2xl text-white">🛒</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800">SmartBuy AI eCommerce Platform</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Full-Stack AI Integration | 2024</p>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">40%</div>
-                    <div className="text-gray-600">AI Agent Accuracy Improvement</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">70%</div>
-                    <div className="text-gray-600">Faster Product Discovery</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">5TB+</div>
-                    <div className="text-gray-600">Data Processed Daily</div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-gray-800">Technical Implementation</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      RAG-powered AI agent using LangChain and OpenAI GPT-4
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      Real-time product recommendations with Apache Kafka
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      Microservices architecture with FastAPI and React
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      AWS deployment with auto-scaling and load balancing
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Railway Predictive Maintenance Case Study */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                    <span className="text-2xl text-white">🚂</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800">Railway Predictive Maintenance System</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Real-time ML System | 2024</p>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">95%</div>
-                    <div className="text-gray-600">Prediction Accuracy</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">30%</div>
-                    <div className="text-gray-600">Maintenance Cost Reduction</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">24/7</div>
-                    <div className="text-gray-600">Real-time Monitoring</div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-gray-800">Technical Implementation</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      TensorFlow-based anomaly detection with LSTM networks
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      Apache Spark for real-time data processing
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      AWS Lambda for serverless ML inference
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></span>
-                      Real-time dashboards with WebSocket connections
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </MotionDiv>
-        </section>
-
-        {/* Blog & Technical Articles Section */}
-        <section className="blog-section py-20" id="blog">
-          <SectionHeader 
-            title="Technical Articles & Insights" 
-            subtitle="Thought leadership and technical deep-dives in AI/ML and full-stack development"
-          />
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
-          >
-            {/* Article 1 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-sm">🤖</span>
-                  </div>
-                  <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">AI/ML</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
-                  Building Production-Ready AI Applications
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  A comprehensive guide to deploying AI models in production environments, covering scalability, monitoring, and best practices for enterprise applications.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">Dec 2024</span>
-                  <Link 
-                    href="#"
-                    className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm font-medium flex items-center gap-1"
-                  >
-                    Read More
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Article 2 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-sm">☁️</span>
-                  </div>
-                  <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">Cloud</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
-                  AWS vs Azure: A Developer&apos;s Perspective
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  Comparing cloud platforms from a full-stack developer&apos;s perspective, including pricing, services, and real-world implementation experiences.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">Nov 2024</span>
-                  <Link 
-                    href="#"
-                    className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium flex items-center gap-1"
-                  >
-                    Read More
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Article 3 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-sm">🔍</span>
-                  </div>
-                  <span className="text-green-600 dark:text-green-400 text-sm font-medium">RAG</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
-                  RAG Implementation Best Practices
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  Deep dive into Retrieval-Augmented Generation systems, covering vector databases, embedding strategies, and performance optimization techniques.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">Oct 2024</span>
-                  <Link 
-                    href="#"
-                    className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 text-sm font-medium flex items-center gap-1"
-                  >
-                    Read More
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Article 4 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-sm">⚡</span>
-                  </div>
-                  <span className="text-orange-600 dark:text-orange-400 text-sm font-medium">Performance</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
-                  Optimizing React Applications for Scale
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  Performance optimization strategies for large-scale React applications, including code splitting, lazy loading, and state management best practices.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">Sep 2024</span>
-                  <Link 
-                    href="#"
-                    className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 text-sm font-medium flex items-center gap-1"
-                  >
-                    Read More
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Article 5 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-sm">🔧</span>
-                  </div>
-                  <span className="text-indigo-600 dark:text-indigo-400 text-sm font-medium">DevOps</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
-                  CI/CD Pipelines for ML Applications
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  Setting up continuous integration and deployment pipelines specifically for machine learning applications, including model versioning and testing strategies.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">Aug 2024</span>
-                  <Link 
-                    href="#"
-                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium flex items-center gap-1"
-                  >
-                    Read More
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Article 6 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-gray-700 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-sm">🎯</span>
-                  </div>
-                  <span className="text-pink-600 dark:text-pink-400 text-sm font-medium">Career</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
-                  Full-Stack Development in 2024
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  The evolving landscape of full-stack development, emerging technologies, and skills needed to stay competitive in the modern tech industry.
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">Jul 2024</span>
-                  <Link 
-                    href="#"
-                    className="text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-medium flex items-center gap-1"
-                  >
-                    Read More
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </MotionDiv>
-        </section>
-
         <section className="tools-section py-32" id="skills">
           <SectionHeader 
             title="Technical Expertise" 
@@ -1098,10 +495,10 @@ const Home: React.FC = () => {
             className="max-w-6xl mx-auto px-4"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              <MotionDiv
+          <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+            viewport={{ once: true }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
@@ -1116,106 +513,106 @@ const Home: React.FC = () => {
                     >
                       <span className="text-xl">{tool.icon}</span>
                       <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                    </div>
-                  ))}
                 </div>
-              </MotionDiv>
+                  ))}
+            </div>
+          </MotionDiv>
 
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                             <MotionDiv
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">🐍</span>
                   Backend
-                </h3>
-                <div className="space-y-3">
+                 </h3>
+                 <div className="space-y-3">
                   {toolsConfig.backend.map((tool, index) => (
-                    <div 
-                      key={index}
+                     <div 
+                       key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <span className="text-xl">{tool.icon}</span>
+                     >
+                       <span className="text-xl">{tool.icon}</span>
                       <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </MotionDiv>
+                     </div>
+                   ))}
+                 </div>
+               </MotionDiv>
 
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+               <MotionDiv
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ delay: 0.2 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">🧠</span>
                   AI/ML
-                </h3>
-                <div className="space-y-3">
+                 </h3>
+                 <div className="space-y-3">
                   {toolsConfig.aiMl.map((tool, index) => (
-                    <div 
-                      key={index}
+                     <div 
+                       key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <span className="text-xl">{tool.icon}</span>
+                     >
+                       <span className="text-xl">{tool.icon}</span>
                       <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </MotionDiv>
+                     </div>
+                   ))}
+                 </div>
+               </MotionDiv>
 
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+               <MotionDiv
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">📊</span>
                   Data
-                </h3>
-                <div className="space-y-3">
+                 </h3>
+                 <div className="space-y-3">
                   {toolsConfig.data.map((tool, index) => (
-                    <div 
-                      key={index}
+                     <div 
+                       key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <span className="text-xl">{tool.icon}</span>
+                     >
+                       <span className="text-xl">{tool.icon}</span>
                       <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </MotionDiv>
+                     </div>
+                   ))}
+                 </div>
+               </MotionDiv>
 
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+               <MotionDiv
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
+               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">☁️</span>
-                  Cloud & DevOps
-                </h3>
-                <div className="space-y-3">
-                  {toolsConfig.cloudDevOps.map((tool, index) => (
-                    <div 
-                      key={index}
+                   <span className="text-2xl">☁️</span>
+                   Cloud & DevOps
+                 </h3>
+                 <div className="space-y-3">
+                   {toolsConfig.cloudDevOps.map((tool, index) => (
+                     <div 
+                       key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <span className="text-xl">{tool.icon}</span>
+                     >
+                       <span className="text-xl">{tool.icon}</span>
                       <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </MotionDiv>
+                     </div>
+                   ))}
+                 </div>
+               </MotionDiv>
             </div>
           </MotionDiv>
         </section>
