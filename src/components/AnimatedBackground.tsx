@@ -34,8 +34,8 @@ const AnimatedBackground = () => {
     }
 
     const nodes: Node[] = [];
-    const nodeCount = 25; // Moderate number for subtle effect
-    const connectionDistance = 200; // Distance to draw connections
+    const nodeCount = 35; // Increased for better visibility
+    const connectionDistance = 220; // Slightly increased connection range
 
     // Initialize nodes
     for (let i = 0; i < nodeCount; i++) {
@@ -44,7 +44,7 @@ const AnimatedBackground = () => {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 2 + 1,
+        radius: Math.random() * 2.5 + 1.5, // Slightly larger nodes
       });
     }
 
@@ -55,7 +55,7 @@ const AnimatedBackground = () => {
 
       // Check if dark mode
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const nodeColor = isDark ? 'rgba(96, 165, 250, 0.4)' : 'rgba(59, 130, 246, 0.3)';
+      const nodeColor = isDark ? 'rgba(96, 165, 250, 0.6)' : 'rgba(59, 130, 246, 0.5)';
 
       // Update and draw nodes
       nodes.forEach((node) => {
@@ -79,11 +79,11 @@ const AnimatedBackground = () => {
 
           if (distance < connectionDistance && node !== otherNode) {
             // Draw connection line with opacity based on distance
-            const opacity = (1 - distance / connectionDistance) * 0.3;
+            const opacity = (1 - distance / connectionDistance) * 0.5;
             ctx.strokeStyle = isDark 
               ? `rgba(96, 165, 250, ${opacity})` 
               : `rgba(59, 130, 246, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(otherNode.x, otherNode.y);

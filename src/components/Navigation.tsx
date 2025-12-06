@@ -1,67 +1,25 @@
 'use client';
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Home, Briefcase, Award, BookOpen, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { MotionDiv } from './MotionDiv';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  // Organized menu structure with categories
-  const menuCategories = [
-    {
-      id: 'main',
-      label: 'Main',
-      icon: Home,
-      items: [
-        { href: '#home', label: 'Home' },
-        { href: '#about', label: 'About' },
-        { href: '#skills', label: 'Skills' }
-      ]
-    },
-    {
-      id: 'work',
-      label: 'Work',
-      icon: Briefcase,
-      items: [
-        { href: '#projects', label: 'Projects' },
-        { href: '/experience', label: 'Experience' },
-        { href: '#case-studies', label: 'Case Studies' }
-      ]
-    },
-    {
-      id: 'achievements',
-      label: 'Achievements',
-      icon: Award,
-      items: [
-        { href: '#certifications', label: 'Certifications' },
-        { href: '#social-proof', label: 'Recognition' },
-        { href: '#testimonials', label: 'Testimonials' }
-      ]
-    },
-    {
-      id: 'knowledge',
-      label: 'Knowledge',
-      icon: BookOpen,
-      items: [
-        { href: '#research', label: 'Research' }
-      ]
-    },
-    {
-      id: 'contact',
-      label: 'Contact',
-      icon: Mail,
-      items: [
-        { href: '#contact', label: 'Get In Touch' },
-        { href: '/messages', label: 'Messages' }
-      ]
-    }
+  // Simplified menu structure - only existing sections
+  const menuItems = [
+    { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#github', label: 'GitHub' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#certifications', label: 'Certifications' },
+    { href: '#contact', label: 'Contact' }
   ];
 
   const scrollToSection = (sectionId: string) => {
     setIsOpen(false);
-    setActiveDropdown(null);
     if (sectionId.startsWith('/')) {
       // External link - navigate to page
       window.location.href = sectionId;
@@ -70,10 +28,6 @@ const Navigation = () => {
       const element = document.querySelector(sectionId);
       element?.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const toggleDropdown = (categoryId: string) => {
-    setActiveDropdown(activeDropdown === categoryId ? null : categoryId);
   };
 
   return (
@@ -98,55 +52,17 @@ const Navigation = () => {
         <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-md 
                       border border-gray-200 dark:border-gray-700 p-2">
           <ul className="flex items-center gap-1">
-            {menuCategories.map((category) => (
-              <li key={category.id} className="relative">
+            {menuItems.map((item) => (
+              <li key={item.href}>
                 <button
-                  onClick={() => toggleDropdown(category.id)}
-                  onMouseEnter={() => setActiveDropdown(category.id)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onClick={() => scrollToSection(item.href)}
                   className="px-4 py-2 rounded-full text-gray-600 dark:text-gray-300 
                             hover:text-gray-900 dark:hover:text-white 
                             hover:bg-gray-100 dark:hover:bg-gray-700 
-                            transition-all duration-200 flex items-center gap-1 group"
+                            transition-all duration-200 text-sm font-medium"
                 >
-                  <category.icon className="w-4 h-4" />
-                  <span>{category.label}</span>
-                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${
-                    activeDropdown === category.id ? 'rotate-180' : ''
-                  }`} />
+                  {item.label}
                 </button>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {activeDropdown === category.id && (
-                    <MotionDiv
-                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                      onMouseEnter={() => setActiveDropdown(category.id)}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                      className="absolute top-full left-0 mt-2 min-w-48 bg-white dark:bg-gray-800 
-                                rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 
-                                backdrop-blur-sm overflow-hidden"
-                    >
-                      <div className="p-2">
-                        {category.items.map((item) => (
-                          <button
-                            key={item.href}
-                            onClick={() => scrollToSection(item.href)}
-                            className="w-full text-left px-4 py-3 rounded-md text-gray-600 dark:text-gray-300
-                                      hover:bg-gray-100 dark:hover:bg-gray-700 
-                                      hover:text-gray-900 dark:hover:text-white
-                                      transition-all duration-200 flex items-center gap-3"
-                          >
-                            {item.label}
-                          </button>
-                        ))}
-                      </div>
-                    </MotionDiv>
-                  )}
-                </AnimatePresence>
               </li>
             ))}
           </ul>
@@ -188,34 +104,22 @@ const Navigation = () => {
                     Menu
                   </h2>
                   
-                  {/* Mobile Menu Categories */}
-                  <div className="space-y-6">
-                    {menuCategories.map((category) => (
-                      <div key={category.id}>
-                        <div className="flex items-center gap-2 mb-3">
-                          <category.icon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                          <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
-                            {category.label}
-                          </h3>
-                        </div>
-                        <ul className="space-y-2 ml-7">
-                          {category.items.map((item) => (
-                            <li key={item.href}>
-                              <button
-                                onClick={() => scrollToSection(item.href)}
-                                className="w-full text-left px-3 py-2 rounded-md text-gray-600 dark:text-gray-300
-                                          hover:bg-gray-100 dark:hover:bg-gray-700 
-                                          hover:text-gray-900 dark:hover:text-white
-                                          transition-all duration-200 text-sm"
-                              >
-                                {item.label}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  {/* Mobile Menu Items */}
+                  <ul className="space-y-2">
+                    {menuItems.map((item) => (
+                      <li key={item.href}>
+                        <button
+                          onClick={() => scrollToSection(item.href)}
+                          className="w-full text-left px-4 py-3 rounded-md text-gray-600 dark:text-gray-300
+                                    hover:bg-gray-100 dark:hover:bg-gray-700 
+                                    hover:text-gray-900 dark:hover:text-white
+                                    transition-all duration-200 text-base font-medium"
+                        >
+                          {item.label}
+                        </button>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             </MotionDiv>

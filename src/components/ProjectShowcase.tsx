@@ -68,6 +68,22 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
     return '📊';
   };
 
+  // Helper function to encode image URLs with spaces
+  const encodeImageUrl = (url: string): string => {
+    try {
+      // Split the URL into parts
+      const parts = url.split('/');
+      // Encode only the filename (last part)
+      const filename = parts[parts.length - 1];
+      const encodedFilename = encodeURIComponent(filename);
+      // Reconstruct the URL
+      parts[parts.length - 1] = encodedFilename;
+      return parts.join('/');
+    } catch {
+      return url;
+    }
+  };
+
   return (
     <>
       {/* Category Filter */}
@@ -121,10 +137,11 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
               <div className="relative h-56 overflow-hidden bg-gray-50 dark:bg-gray-800 group-hover:opacity-90 transition-opacity duration-300">
                 {project.screenshots.length > 0 ? (
                   <Image
-                    src={project.screenshots[0].url}
+                    src={encodeImageUrl(project.screenshots[0].url)}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    unoptimized
                     onError={(e) => {
                       // Fallback to placeholder if image doesn't exist
                       e.currentTarget.src = `https://via.placeholder.com/400x300/6366f1/ffffff?text=${encodeURIComponent(project.title)}`;
@@ -156,26 +173,65 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
                     {project.title}
                   </h3>
+                  
+                  {/* Performance Metrics Visualization */}
+                  {project.performanceMetrics && project.performanceMetrics.length > 0 && (
+                    <div className="mb-3 space-y-2">
+                      {project.performanceMetrics.slice(0, 2).map((metric, idx) => {
+                        // Extract numeric value for visualization
+                        const numericValue = metric.value.match(/(\d+)/)?.[1];
+                        const percentage = numericValue ? Math.min(parseInt(numericValue), 100) : 0;
+                        const showBar = metric.value.includes('%') || metric.value.includes('+') || numericValue;
+                        
+                        return (
+                          <div key={idx} className="p-2.5 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+                            <div className="flex items-center justify-between mb-1.5">
+                              <div className="flex items-center gap-2">
+                                <span className="text-base">{metric.icon || '📊'}</span>
+                                <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
+                                  {metric.label}
+                                </span>
+                              </div>
+                              <span className="text-sm font-bold text-gray-900 dark:text-white">
+                                {metric.value}
+                              </span>
+                            </div>
+                            {showBar && (
+                              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
+                                <div 
+                                  className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-1000 ease-out"
+                                  style={{ width: `${percentage}%` }}
+                                />
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.slice(0, 3).map((tag, idx) => (
-                    <span 
-                      key={idx}
-                      className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {project.tags.length > 4 && (
-                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs">
-                      +{project.tags.length - 4}
-                    </span>
-                  )}
+                {/* Top Technologies */}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {project.technologies.slice(0, 4).map((tech, idx) => (
+                      <span 
+                        key={idx}
+                        className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs">
+                        +{project.technologies.length - 4}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {/* Actions */}
@@ -269,10 +325,11 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
                   <div className="mb-8">
                     <div className="relative h-96 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900 mb-4">
                       <Image
-                        src={selectedProject.screenshots[currentImageIndex].url}
+                        src={encodeImageUrl(selectedProject.screenshots[currentImageIndex].url)}
                         alt={selectedProject.screenshots[currentImageIndex].alt}
                         fill
                         className="object-contain"
+                        unoptimized
                         onError={(e) => {
                           e.currentTarget.src = `https://via.placeholder.com/800x600/6366f1/ffffff?text=${encodeURIComponent(selectedProject.screenshots[currentImageIndex].alt)}`;
                         }}
@@ -315,10 +372,11 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
                           }`}
                         >
                           <Image
-                            src={screenshot.url}
+                            src={encodeImageUrl(screenshot.url)}
                             alt={screenshot.alt}
                             fill
                             className="object-cover"
+                            unoptimized
                             onError={(e) => {
                               e.currentTarget.src = `https://via.placeholder.com/80x80/6366f1/ffffff?text=${idx + 1}`;
                             }}
@@ -326,6 +384,19 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
                         </button>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* Problem Statement */}
+                {selectedProject.problem && (
+                  <div className="mb-8 p-4 bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500 rounded-r-lg">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 flex items-center gap-2">
+                      <span className="text-orange-500">🎯</span>
+                      Problem Statement
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {selectedProject.problem}
+                    </p>
                   </div>
                 )}
 
@@ -417,6 +488,40 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
                     </ul>
                   </div>
                 </div>
+
+                {/* Code Snippets */}
+                {selectedProject.codeSnippets && selectedProject.codeSnippets.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                      <span className="text-lg">💻</span>
+                      Code Examples
+                    </h3>
+                    <div className="space-y-4">
+                      {selectedProject.codeSnippets.map((snippet, idx) => (
+                        <div key={idx} className="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-hidden border border-gray-700">
+                          <div className="bg-gray-800 dark:bg-gray-900 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs text-gray-400">{snippet.filename || `example.${snippet.language}`}</span>
+                              <span className="px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs">
+                                {snippet.language}
+                              </span>
+                            </div>
+                          </div>
+                          {snippet.description && (
+                            <div className="px-4 py-2 bg-gray-800/50 dark:bg-gray-900/50 border-b border-gray-700">
+                              <p className="text-sm text-gray-400">{snippet.description}</p>
+                            </div>
+                          )}
+                          <pre className="p-4 overflow-x-auto">
+                            <code className="text-sm text-gray-100 font-mono">
+                              {snippet.code}
+                            </code>
+                          </pre>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Impact */}
                 <div className="mb-8">

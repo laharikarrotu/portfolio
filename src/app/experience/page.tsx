@@ -11,11 +11,11 @@ export default function ExperiencePage() {
     location: "Remote",
     period: "May 2025 – Present",
     achievements: [
-      "Building SmartBuy eCommerce Platform with React frontend and FastAPI backend, featuring AI-powered product recommendations",
-      "Developing Auto Loan AI Plugin using AWS Textract OCR and voice assistants, reducing processing time by 40%",
-      "Implementing infrastructure automation with Terraform, cutting deployment cycles by 40%",
-      "Integrating AWS Lambda and Gemini API for intelligent automation and cost optimization",
-      "Designing scalable microservices architecture for high-performance applications"
+      "Built AI-powered virtual try-on platform using computer vision (OpenCV, TensorFlow) and 3D rendering (Three.js, WebGL) enabling real-time product visualization in customer spaces",
+      "Developed automated measurement portal with dimension calculation and product customization features for eCommerce integration",
+      "Implemented computer vision algorithms for window detection and room analysis achieving 90%+ accuracy in real-world scenarios",
+      "Deployed scalable cloud architecture on Microsoft Azure with serverless functions processing high-resolution images in real-time",
+      "Built full-stack application (React, TypeScript, FastAPI) with responsive design optimizing user engagement and conversion rates"
     ]
   },
   {
@@ -24,37 +24,37 @@ export default function ExperiencePage() {
     location: "Atlanta",
     period: "August 2024 – May 2025",
     achievements: [
-      "Developed Railway Predictive Maintenance system using TensorFlow, reducing equipment downtime by 30%",
-      "Created real-time monitoring dashboards with React for system analytics and alert management",
-      "Integrated LLM APIs for voice-powered fitness app recommendations and navigation",
-      "Built proprietary enterprise applications with advanced AI capabilities and computer vision",
-      "Implemented voice navigation systems using Google Cloud Speech and AI models"
+      "Developed voice-assisted navigation agent using Google Cloud Speech API and OpenAI, enabling hands-free product discovery and conversational user interaction",
+      "Built real-time ML system for predictive maintenance using TensorFlow LSTM models and Apache Spark processing sensor data streams",
+      "Created React monitoring dashboards with WebSocket connections for real-time equipment health visualization and alert management",
+      "Deployed ML models on AWS Lambda for serverless inference enabling scalable real-time predictions with low latency",
+      "Implemented end-to-end ML pipeline from data ingestion to model deployment with automated monitoring and alerting"
     ]
   },
   {
-    title: "Big Data Engineer",
+    title: "Big Data Engineer (Internship)",
     company: "Cognizant",
     location: "Hyderabad, India",
     period: "January 2022 – August 2022",
     achievements: [
-      "Built ETL pipelines processing 5TB+ monthly data using Apache Spark and Kafka",
-      "Reduced query latency by 30% through SQL/NoSQL database tuning and optimization",
-      "Developed Java and Python APIs supporting 15+ projects with scalable architecture",
-      "Implemented data quality frameworks and automated testing for production pipelines",
-      "Designed and optimized data warehouse solutions using AWS Redshift and S3"
+      "Built ETL pipelines (Apache Spark, Kafka) processing 5TB+ monthly data, improving data availability by 40%",
+      "Optimized database queries reducing query latency by 30% through indexing and query tuning",
+      "Developed REST APIs (Java, Python) supporting 15+ projects, handling 100K+ requests daily",
+      "Implemented automated data quality checks reducing data errors by 50% in production pipelines",
+      "Designed data warehouse architecture (AWS Redshift, S3) reducing query costs by 25%"
     ]
   },
   {
-    title: "Data Analyst",
+    title: "Data Analyst (Internship)",
     company: "EPAM Systems",
     location: "Hyderabad, India",
     period: "December 2020 – March 2021",
     achievements: [
-      "Reduced data processing time by 30% through development of Data Ingestion framework in Python",
-      "Configured AWS Data Pipeline for efficient data loading from S3 to Redshift",
-      "Utilized AWS EMR for large-scale data transformations between S3 and DynamoDB",
-      "Automated workflows using Apache Airflow and shell scripting for production execution",
-      "Developed Spark Python modules for machine learning and predictive analytics"
+      "Developed Python data ingestion framework reducing processing time by 30%, handling 1TB+ daily data",
+      "Configured AWS Data Pipeline (S3 to Redshift) improving data load efficiency by 35%",
+      "Built data transformation pipelines using AWS EMR processing 500GB+ datasets between S3 and DynamoDB",
+      "Automated data workflows with Apache Airflow reducing manual intervention by 80%",
+      "Developed Spark ML modules for predictive analytics, improving forecast accuracy by 20%"
     ]
   }
 ];

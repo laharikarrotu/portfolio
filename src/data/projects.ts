@@ -11,11 +11,19 @@ export interface PerformanceMetric {
   icon?: string;
 }
 
+export interface CodeSnippet {
+  language: string;
+  code: string;
+  description?: string;
+  filename?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   description: string;
   longDescription: string;
+  problem?: string; // Problem statement
   githubUrl: string;
   liveUrl?: string;
   status: 'Live' | 'Production' | 'Completed' | 'In Development';
@@ -27,6 +35,7 @@ export interface Project {
   challenges: string[];
   solutions: string[];
   impact: string[];
+  codeSnippets?: CodeSnippet[]; // Code examples
   year: number;
   category: 'Full-Stack' | 'AI/ML' | 'Data Engineering' | 'DevOps' | 'Mobile' | 'Other';
 }
@@ -35,8 +44,8 @@ export const projects: Project[] = [
   {
     id: 'smartbuy-v2',
     title: 'SmartBuy AI eCommerce Platform',
-    description: 'Next-generation eCommerce platform powered by advanced AI, delivering intelligent shopping experiences through real-time personalization and conversational commerce. Production system handling thousands of daily transactions.',
-    longDescription: 'A cutting-edge, production-grade eCommerce platform revolutionizing online shopping through advanced AI integration. Features an intelligent navigation assistant powered by large language models that provides context-aware, conversational shopping guidance. The platform leverages real-time AI to deliver hyper-personalized product recommendations, intelligent search with semantic understanding, and seamless user experiences that adapt to individual shopping patterns. Built with modern microservices architecture for enterprise-scale performance.',
+    description: 'Full-stack eCommerce platform with AI-powered navigation assistant and intelligent product recommendations. Features real-time inventory management, secure payment processing, and responsive design. Production deployment handling active user traffic.',
+    longDescription: 'A production-grade eCommerce platform built with React, Next.js, and FastAPI. Features an AI-powered navigation assistant using OpenAI API that helps users find products through conversational interface. Includes real-time inventory management, personalized product recommendations based on user behavior, advanced search functionality, and secure payment integration. Built with PostgreSQL for data persistence, deployed on Vercel with optimized performance and responsive design for all devices.',
     githubUrl: 'https://github.com/laharikarrotu/SmartBuy_v2',
     liveUrl: 'https://smart-buy-v2.vercel.app',
     status: 'Live',
@@ -45,14 +54,16 @@ export const projects: Project[] = [
     tags: ['React', 'TypeScript', 'AI', 'eCommerce', 'Navigation Assistant'],
     technologies: ['React', 'TypeScript', 'Next.js', 'FastAPI', 'Python', 'PostgreSQL', 'OpenAI API', 'Tailwind CSS', 'Vercel'],
     screenshots: [
-      { type: 'website', url: '/projects/smartbuy/homepage.png', alt: 'SmartBuy AI Homepage', caption: 'Modern eCommerce homepage with AI-powered navigation' },
-      { type: 'product', url: '/projects/smartbuy/ai-assistant.png', alt: 'AI Navigation Assistant', caption: 'AI-powered shopping assistant interface' }
+      { type: 'website', url: '/projects/smartbuy/21.png', alt: 'SmartBuy AI Homepage', caption: 'Modern eCommerce homepage with AI-powered navigation' },
+      { type: 'product', url: '/projects/smartbuy/22.png', alt: 'AI Navigation Assistant', caption: 'AI-powered shopping assistant interface' },
+      { type: 'product', url: '/projects/smartbuy/23.png', alt: 'Product Catalog', caption: 'Comprehensive product browsing experience' },
+      { type: 'dashboard', url: '/projects/smartbuy/24.png', alt: 'Admin Dashboard', caption: 'Real-time inventory and order management' }
     ],
     performanceMetrics: [
       { label: 'Page Load Time', value: '1.2s', icon: '⚡' },
-      { label: 'Lighthouse Score', value: '98', icon: '🏆' },
-      { label: 'User Engagement', value: '+40%', icon: '📈' },
-      { label: 'Conversion Rate', value: '+25%', icon: '💰' }
+      { label: 'Lighthouse Score', value: '95+', icon: '🏆' },
+      { label: 'AI Response Time', value: '<2s', icon: '🤖' },
+      { label: 'Uptime', value: '99%+', icon: '☁️' }
     ],
     keyFeatures: [
       'AI-powered navigation assistant for intelligent shopping guidance',
@@ -74,20 +85,70 @@ export const projects: Project[] = [
       'Optimized database queries for fast product retrieval'
     ],
     impact: [
-      'Production system serving thousands of daily users with 99.9% uptime',
-      'Maintained and evolved over multiple iterations based on real-world usage',
-      'Significant improvement in user navigation and discovery',
-      'Faster product discovery for users',
-      'Reduced bounce rates through better UX',
-      'Increased conversion rates through personalized recommendations',
-      'Built with long-term maintainability and scalability in mind'
+      'Production deployment with active user base and consistent uptime',
+      'Improved user navigation efficiency through AI-powered assistant, reducing search time',
+      'Enhanced product discovery with personalized recommendations based on user behavior',
+      'Optimized performance with sub-2 second page loads and high Lighthouse scores',
+      'Demonstrated full-stack expertise: React, TypeScript, FastAPI, PostgreSQL, and AI integration',
+      'Built scalable architecture that handles concurrent users and real-time inventory updates',
+      'Implemented secure payment processing and data management practices'
+    ],
+    codeSnippets: [
+      {
+        language: 'typescript',
+        filename: 'ai-assistant.tsx',
+        description: 'AI-powered navigation assistant component',
+        code: `// AI Assistant Component
+import { useState } from 'react';
+import { OpenAI } from 'openai';
+
+export const AIAssistant = () => {
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleQuery = async (userMessage: string) => {
+    setLoading(true);
+    const response = await fetch('/api/ai-chat', {
+      method: 'POST',
+      body: JSON.stringify({ message: userMessage }),
+    });
+    const data = await response.json();
+    setMessages([...messages, { role: 'user', content: userMessage }, data]);
+    setLoading(false);
+  };
+
+  return (
+    <div className="ai-assistant">
+      {/* AI chat interface */}
+    </div>
+  );
+};`
+      },
+      {
+        language: 'python',
+        filename: 'recommendations.py',
+        description: 'Product recommendation engine',
+        code: `# Product Recommendation Engine
+from fastapi import FastAPI
+from typing import List
+import numpy as np
+
+app = FastAPI()
+
+def get_recommendations(user_id: int, product_history: List[int]):
+    """Generate personalized product recommendations"""
+    # Collaborative filtering algorithm
+    similarity_scores = calculate_similarity(user_id, product_history)
+    recommendations = rank_products(similarity_scores)
+    return recommendations[:10]`
+      }
     ]
   },
   {
     id: 'ats-resume-app',
     title: 'ATS-Personalized Resume Generator',
-    description: 'AI-powered resume optimization engine using advanced NLP and machine learning. Analyzes job descriptions, extracts key requirements, and generates ATS-optimized resumes with 95%+ compatibility scores, significantly improving application success rates.',
-    longDescription: 'An intelligent resume generation system that combines cutting-edge natural language processing with machine learning to revolutionize job application success. The system uses advanced NLP algorithms to deeply analyze job descriptions, extract critical requirements, identify skill gaps, and generate highly personalized, ATS-optimized resumes. Features real-time compatibility scoring, intelligent keyword matching, and content optimization that maintains professional quality while maximizing ATS parsing success. Built with modern ML pipelines for continuous learning and improvement.',
+    description: 'AI-powered resume optimization tool that analyzes job descriptions using NLP and generates ATS-optimized resumes. Extracts key requirements, matches skills, and creates personalized resumes with high compatibility scores.',
+    longDescription: 'An intelligent resume generation system that uses natural language processing to analyze job descriptions and create optimized resumes. The system extracts keywords, requirements, and skills from job postings, matches them with candidate experience, and generates formatted resumes in DOCX format. Features real-time compatibility scoring, intelligent keyword matching, and content optimization. Built with Python, FastAPI for the backend, and React for the frontend. Includes ATS compatibility checking based on industry standards.',
     githubUrl: 'https://github.com/laharikarrotu/ats_resume_app',
     status: 'Completed',
     year: 2024,
@@ -95,16 +156,14 @@ export const projects: Project[] = [
     tags: ['Python', 'NLP', 'Machine Learning', 'AI', 'Full-Stack', 'Resume Parser', 'DOCX Generator'],
     technologies: ['Python', 'FastAPI', 'NLP Libraries', 'Machine Learning', 'React', 'TypeScript', 'DOCX Generation', 'PDF Processing'],
     screenshots: [
-      { type: 'product', url: '/projects/ats/resume-generator.png', alt: 'Resume Generator Interface', caption: 'ATS-optimized resume generation interface' },
-      { type: 'product', url: '/projects/ats/job-analysis.png', alt: 'Job Description Analysis', caption: 'NLP-powered job description analysis' },
-      { type: 'performance', url: '/projects/ats/ats-score.png', alt: 'ATS Compatibility Score', caption: 'ATS compatibility metrics' },
-      { type: 'code', url: '/projects/ats/nlp-processing.png', alt: 'NLP Processing', caption: 'Natural language processing implementation' }
+      { type: 'product', url: '/projects/ats/frst.png', alt: 'Resume Generator Interface', caption: 'ATS-optimized resume generation interface' },
+      { type: 'product', url: '/projects/ats/scnd.png', alt: 'Job Description Analysis', caption: 'NLP-powered job description analysis' }
     ],
     performanceMetrics: [
-      { label: 'ATS Compatibility Score', value: '95%+', icon: '🎯' },
       { label: 'Processing Time', value: '<3s', icon: '⚡' },
-      { label: 'Keyword Match Rate', value: '92%', icon: '📊' },
-      { label: 'Resume Quality Score', value: 'A+', icon: '⭐' }
+      { label: 'Keyword Match Rate', value: '85%+', icon: '🎯' },
+      { label: 'Resume Formats', value: 'DOCX, PDF', icon: '📄' },
+      { label: 'ATS Compatibility', value: 'High', icon: '✅' }
     ],
     keyFeatures: [
       'NLP-powered job description analysis and keyword extraction',
@@ -127,17 +186,46 @@ export const projects: Project[] = [
       'Developed flexible template system for various formats'
     ],
     impact: [
-      'Significant improvement in resume ATS compatibility',
-      'Reduced time spent on resume customization',
-      'Higher application success rates for users',
-      'Demonstrated expertise in NLP and ML applications'
+      'Improved resume ATS compatibility through intelligent keyword matching and formatting optimization',
+      'Reduced resume customization time from hours to minutes with automated generation',
+      'Achieved 85%+ keyword match rate between resumes and job descriptions',
+      'Demonstrated expertise in NLP, text processing, and document generation',
+      'Built scalable system handling multiple resume formats and job description variations',
+      'Created user-friendly interface with real-time feedback and compatibility scoring',
+      'Showcased ability to integrate AI/ML capabilities into practical applications'
+    ],
+    codeSnippets: [
+      {
+        language: 'python',
+        filename: 'nlp_analyzer.py',
+        description: 'NLP-based job description analysis',
+        code: `# Job Description NLP Analyzer
+import spacy
+from typing import Dict, List
+
+nlp = spacy.load("en_core_web_sm")
+
+def analyze_job_description(job_text: str) -> Dict:
+    """Extract key requirements from job description"""
+    doc = nlp(job_text)
+    skills = extract_skills(doc)
+    keywords = extract_keywords(doc)
+    requirements = extract_requirements(doc)
+    
+    return {
+        'skills': skills,
+        'keywords': keywords,
+        'requirements': requirements
+    }`
+      }
     ]
   },
   {
     id: 'blinds-boundaries',
     title: 'Blinds & Boundaries - Virtual Try-On Application',
-    description: 'Revolutionary AI-powered virtual try-on platform using advanced computer vision and 3D rendering. Transforms eCommerce by enabling customers to visualize products in their actual space with photorealistic accuracy, increasing engagement by 70%.',
-    longDescription: 'A cutting-edge virtual try-on application that represents the future of eCommerce visualization. Leverages state-of-the-art computer vision algorithms and advanced 3D rendering to enable customers to see products in their actual environment with photorealistic accuracy. Uses AI-powered window detection, room analysis, and intelligent lighting simulation to create immersive shopping experiences. Deployed on Microsoft Azure with serverless architecture for infinite scalability, processing thousands of high-resolution images in real-time.',
+    description: 'Virtual try-on application for window blinds using computer vision and 3D rendering. Enables customers to visualize products in their actual space with realistic lighting and perspective. Deployed on Azure with real-time image processing.',
+    longDescription: 'A web application that enables customers to visualize window blinds in their space using advanced computer vision and 3D rendering. Uses OpenCV and TensorFlow for window detection and room analysis, Three.js and WebGL for realistic 3D product visualization with proper lighting and shadows. Built with React and TypeScript on the frontend, FastAPI on the backend, and deployed on Azure Blob Storage and Azure Functions. Features responsive design, real-time image processing, and multiple product customization options.',
+    problem: 'Customers hesitate to purchase window treatments online due to uncertainty about how products will look in their space. High return rates and low conversion result from inability to visualize products before purchase.',
     githubUrl: 'https://github.com/laharikarrotu/Blinds-BoundariesOnline',
     liveUrl: 'https://blinds-boundaries-online.vercel.app',
     status: 'Live',
@@ -146,14 +234,15 @@ export const projects: Project[] = [
     tags: ['React', 'TypeScript', 'FastAPI', 'Azure', 'AI', 'Computer Vision'],
     technologies: ['React', 'TypeScript', 'FastAPI', 'Python', 'Azure Blob Storage', 'Azure Functions', 'OpenCV', 'TensorFlow', 'Three.js'],
     screenshots: [
-      { type: 'website', url: '/projects/blinds/homepage.png', alt: 'Blinds & Boundaries Homepage', caption: 'Professional landing page' },
-      { type: 'product', url: '/projects/blinds/virtual-tryon.png', alt: 'Virtual Try-On Interface', caption: 'Interactive virtual try-on experience' }
+      { type: 'website', url: '/projects/blinds/4.png', alt: 'Blinds & Boundaries Homepage', caption: 'Professional landing page' },
+      { type: 'product', url: '/projects/blinds/5.png', alt: 'Virtual Try-On Interface', caption: 'Interactive virtual try-on experience' },
+      { type: 'product', url: '/projects/blinds/6.png', alt: '3D Rendering', caption: 'Photorealistic 3D blind visualization' }
     ],
     performanceMetrics: [
-      { label: 'User Interactivity', value: '+70%', icon: '📊' },
-      { label: 'Processing Time', value: '2.5s', icon: '⚡' },
-      { label: 'Accuracy Rate', value: '94%', icon: '🎯' },
-      { label: 'Uptime', value: '99.9%', icon: '☁️' }
+      { label: 'Processing Time', value: '3-5s', icon: '⚡' },
+      { label: 'Window Detection', value: '90%+', icon: '🎯' },
+      { label: '3D Rendering', value: 'WebGL', icon: '🎨' },
+      { label: 'User Engagement', value: 'High', icon: '📊' }
     ],
     keyFeatures: [
       'AI-powered window detection and room analysis',
@@ -175,13 +264,14 @@ export const projects: Project[] = [
       'Implemented CDN caching for faster image delivery'
     ],
     impact: [
-      'Production deployment on Azure serving thousands of users',
-      '70% increase in user interactivity and engagement',
-      'System maintained and improved based on production metrics',
-      'Significant improvement in customer purchasing confidence',
-      'Reduced return rates through better product visualization',
-      'Enhanced user experience leading to higher conversion rates',
-      'Built with enterprise-grade reliability and scalability'
+      'Production deployment on Azure with reliable uptime and scalable architecture',
+      'Significantly improved user engagement through interactive 3D visualization feature',
+      'Enhanced customer purchasing confidence by allowing product visualization before purchase',
+      'Achieved 90%+ accuracy in window detection using computer vision algorithms',
+      'Demonstrated expertise in computer vision, 3D rendering, and cloud deployment',
+      'Built responsive application working seamlessly on mobile and desktop devices',
+      'Reduced product return rates by helping customers make informed decisions',
+      'Showcased ability to integrate complex technologies (CV, 3D graphics, cloud) into user-friendly applications'
     ]
   },
   {
@@ -196,10 +286,10 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'React', 'AI', 'Computer Vision', '3D Rendering'],
     technologies: ['TypeScript', 'React', 'Next.js', 'Three.js', 'WebGL', 'Computer Vision', 'Azure'],
     screenshots: [
-      { type: 'product', url: '/projects/blinds-pro/advanced-features.png', alt: 'Advanced Features', caption: 'Professional-grade visualization tools' },
-      { type: 'product', url: '/projects/blinds-pro/batch-processing.png', alt: 'Batch Processing', caption: 'Batch image processing interface' },
-      { type: 'performance', url: '/projects/blinds-pro/performance.png', alt: 'Performance Metrics', caption: 'System performance metrics' },
-      { type: 'code', url: '/projects/blinds-pro/code-sample.png', alt: 'Code Sample', caption: 'Advanced rendering implementation' }
+      { type: 'product', url: '/projects/blinds-pro/0.png', alt: 'Advanced Features', caption: 'Professional-grade visualization tools' },
+      { type: 'product', url: '/projects/blinds-pro/7.png', alt: 'Batch Processing', caption: 'Batch image processing interface' },
+      { type: 'performance', url: '/projects/blinds-pro/8.png', alt: 'Performance Metrics', caption: 'System performance metrics' },
+      { type: 'code', url: '/projects/blinds-pro/9.png', alt: 'Code Sample', caption: 'Advanced rendering implementation' }
     ],
     performanceMetrics: [
       { label: 'Processing Speed', value: '2.0s', icon: '⚡' },
@@ -234,25 +324,21 @@ export const projects: Project[] = [
   {
     id: 'railway-predictive',
     title: 'Railway Predictive Maintenance System',
-    description: 'Mission-critical real-time ML system preventing catastrophic equipment failures in railway infrastructure. Processes millions of sensor data points per second with 95% prediction accuracy, reducing maintenance costs by 30% and preventing unplanned downtime.',
-    longDescription: 'An enterprise-grade, mission-critical machine learning system that revolutionizes railway infrastructure maintenance through real-time predictive analytics. Processes high-volume sensor data streams (millions of data points per second) using advanced TensorFlow-based LSTM neural networks for anomaly detection. The system provides real-time alerts for potential equipment failures, enabling proactive maintenance that prevents catastrophic breakdowns. Features fault-tolerant, distributed architecture with automatic failover, ensuring 99.99% uptime for critical infrastructure monitoring.',
+    description: 'Real-time predictive maintenance system for railway equipment using machine learning. Processes sensor data streams with TensorFlow LSTM models to predict equipment failures, enabling proactive maintenance and reducing downtime.',
+    longDescription: 'A machine learning system for railway equipment maintenance that processes real-time sensor data to predict potential failures. Built with TensorFlow LSTM neural networks for time-series anomaly detection, Apache Spark for distributed data processing, and AWS Lambda for serverless ML inference. Features real-time monitoring dashboards built with React and WebSocket connections for live alerts. Includes comprehensive data preprocessing pipelines, model training infrastructure, and automated alerting system for operations teams.',
+    problem: 'Railway equipment failures cause unplanned downtime, safety risks, and high maintenance costs. Traditional reactive maintenance approaches fail to predict issues before catastrophic failures occur.',
     githubUrl: 'https://github.com/laharikarrotu/railway_predictive_frontend',
     status: 'Production',
     year: 2024,
     category: 'AI/ML',
     tags: ['Python', 'TensorFlow', 'ML', 'Real-time', 'Predictive Analytics'],
     technologies: ['Python', 'TensorFlow', 'Apache Spark', 'AWS Lambda', 'AWS S3', 'PostgreSQL', 'React', 'WebSocket'],
-    screenshots: [
-      { type: 'dashboard', url: '/projects/railway/dashboard.png', alt: 'Monitoring Dashboard', caption: 'Real-time monitoring dashboard' },
-      { type: 'performance', url: '/projects/railway/ml-metrics.png', alt: 'ML Model Performance', caption: 'Model accuracy and metrics' },
-      { type: 'architecture', url: '/projects/railway/architecture.png', alt: 'System Architecture', caption: 'End-to-end ML pipeline' },
-      { type: 'code', url: '/projects/railway/code-sample.png', alt: 'Code Sample', caption: 'TensorFlow implementation' }
-    ],
+    screenshots: [],
     performanceMetrics: [
-      { label: 'Prediction Accuracy', value: '95%', icon: '🎯' },
-      { label: 'Maintenance Cost Reduction', value: '30%', icon: '💰' },
-      { label: 'False Positive Rate', value: '<2%', icon: '📊' },
-      { label: 'Processing Latency', value: '<100ms', icon: '⚡' }
+      { label: 'Model Accuracy', value: '90%+', icon: '🎯' },
+      { label: 'Processing Latency', value: '<200ms', icon: '⚡' },
+      { label: 'Data Pipeline', value: 'Apache Spark', icon: '📊' },
+      { label: 'False Positive Rate', value: '<5%', icon: '✅' }
     ],
     keyFeatures: [
       'Real-time sensor data processing',
@@ -276,14 +362,14 @@ export const projects: Project[] = [
       'Optimized model architecture for faster inference'
     ],
     impact: [
-      'Mission-critical system maintaining 99.99% uptime for infrastructure monitoring',
-      '95% prediction accuracy reducing unplanned downtime',
-      '30% reduction in maintenance costs through predictive scheduling',
-      'Handles millions of sensor data points per second in production',
-      'Proven reliability through continuous operation and incident management',
-      'Significant improvement in equipment reliability',
-      'Enhanced safety through early failure detection',
-      'System designed for long-term operation with continuous model improvements'
+      'Achieved 90%+ prediction accuracy in identifying potential equipment failures before they occur',
+      'Enabled proactive maintenance scheduling, reducing unplanned downtime and maintenance costs',
+      'Built real-time data processing pipeline handling continuous sensor data streams',
+      'Created interactive monitoring dashboards providing actionable insights to operations teams',
+      'Demonstrated expertise in ML model deployment, time-series analysis, and LSTM neural networks',
+      'Implemented scalable architecture using Apache Spark and AWS Lambda for production workloads',
+      'Reduced false positive rate to under 5%, ensuring reliable and actionable alerts',
+      'Showcased ability to build end-to-end ML systems from data ingestion to real-time inference and visualization'
     ]
   },
   {
@@ -299,14 +385,15 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'AWS Textract', 'Voice AI', 'Lambda', 'OCR'],
     technologies: ['React', 'TypeScript', 'Python', 'FastAPI', 'AWS Textract', 'AWS Lambda', 'AWS S3', 'Amazon Polly', 'PostgreSQL'],
     screenshots: [
-      { type: 'website', url: '/projects/autoloan/homepage.png', alt: 'Auto Loan Processing Homepage', caption: 'Main landing page' },
-      { type: 'product', url: '/projects/autoloan/application-form.png', alt: 'Application Form', caption: 'User-friendly application interface' }
+      { type: 'website', url: '/projects/autoloan/1.png', alt: 'Auto Loan Processing Homepage', caption: 'Main landing page' },
+      { type: 'product', url: '/projects/autoloan/2.png', alt: 'Application Form', caption: 'User-friendly application interface' },
+      { type: 'dashboard', url: '/projects/autoloan/3.png', alt: 'Document Processing', caption: 'AWS Textract OCR document extraction' }
     ],
     performanceMetrics: [
-      { label: 'Processing Time Reduction', value: '40%', icon: '⚡' },
-      { label: 'OCR Accuracy', value: '96%', icon: '🎯' },
-      { label: 'Processing Speed', value: '45s', icon: '📊' },
-      { label: 'Error Rate Reduction', value: '65%', icon: '✅' }
+      { label: 'OCR Accuracy', value: '95%+', icon: '🎯' },
+      { label: 'Processing Time', value: '30-60s', icon: '⚡' },
+      { label: 'Document Types', value: 'PDF, Images', icon: '📄' },
+      { label: 'Error Reduction', value: '60%+', icon: '✅' }
     ],
     keyFeatures: [
       'Automated document extraction using AWS Textract',
@@ -330,10 +417,14 @@ export const projects: Project[] = [
       'Created automated workflow for document processing'
     ],
     impact: [
-      '40% reduction in loan processing time',
-      '65% reduction in manual data entry errors',
-      'Improved customer satisfaction through faster approvals',
-      'Significant cost savings through automation'
+      'Achieved 95%+ OCR accuracy using AWS Textract for automated document data extraction',
+      'Reduced manual data entry errors by 60%+ through automated processing workflow',
+      'Improved loan application processing efficiency with faster document review and data extraction',
+      'Demonstrated expertise in AWS services integration: Textract, Lambda, S3, and Polly',
+      'Built secure document handling system with proper data validation and storage practices',
+      'Created user-friendly interface for document upload and application status tracking',
+      'Enabled voice-powered customer support using Amazon Polly for enhanced user experience',
+      'Showcased ability to integrate multiple AWS services into cohesive business application'
     ]
   },
   {
@@ -348,10 +439,10 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'React', 'LLM APIs', 'Voice Navigation', 'AI'],
     technologies: ['React', 'TypeScript', 'Node.js', 'OpenAI API', 'Google Cloud Speech', 'MongoDB', 'Express.js'],
     screenshots: [
-      { type: 'product', url: '/projects/fitness/workout-screen.png', alt: 'Workout Interface', caption: 'Interactive workout screen' },
-      { type: 'product', url: '/projects/fitness/voice-assistant.png', alt: 'Voice Assistant', caption: 'Voice-powered navigation' },
-      { type: 'dashboard', url: '/projects/fitness/progress-dashboard.png', alt: 'Progress Dashboard', caption: 'User progress tracking' },
-      { type: 'performance', url: '/projects/fitness/performance.png', alt: 'App Performance', caption: 'Application performance metrics' }
+      { type: 'product', url: '/projects/fitness/11.png', alt: 'Workout Interface', caption: 'Interactive workout screen' },
+      { type: 'product', url: '/projects/fitness/12.png', alt: 'Voice Assistant', caption: 'Voice-powered navigation' },
+      { type: 'dashboard', url: '/projects/fitness/13.png', alt: 'Progress Dashboard', caption: 'User progress tracking' },
+      { type: 'performance', url: '/projects/fitness/14.png', alt: 'App Performance', caption: 'Application performance metrics' }
     ],
     performanceMetrics: [
       { label: 'User Retention', value: '78%', icon: '📈' },
@@ -397,10 +488,7 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'React', 'AI', 'Job Search', 'ML'],
     technologies: ['TypeScript', 'React', 'Next.js', 'Python', 'FastAPI', 'Machine Learning', 'NLP', 'Web Scraping'],
     screenshots: [
-      { type: 'product', url: '/projects/jobhunter/dashboard.png', alt: 'Job Search Dashboard', caption: 'Intelligent job matching interface' },
-      { type: 'product', url: '/projects/jobhunter/matching.png', alt: 'Job Matching', caption: 'AI-powered job matching results' },
-      { type: 'performance', url: '/projects/jobhunter/analytics.png', alt: 'Analytics Dashboard', caption: 'Application tracking and analytics' },
-      { type: 'code', url: '/projects/jobhunter/ml-model.png', alt: 'ML Model', caption: 'Machine learning matching algorithm' }
+      { type: 'product', url: '/projects/jobhunter/15.png', alt: 'Job Search Dashboard', caption: 'Intelligent job matching interface' }
     ],
     performanceMetrics: [
       { label: 'Match Accuracy', value: '88%', icon: '🎯' },
@@ -446,12 +534,7 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     tags: ['JavaScript', 'Real-time', 'Collaboration', 'AI', 'Node.js'],
     technologies: ['JavaScript', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'React', 'OpenAI API'],
-    screenshots: [
-      { type: 'product', url: '/projects/taskify/dashboard.png', alt: 'Task Dashboard', caption: 'Main task management interface' },
-      { type: 'product', url: '/projects/taskify/collaboration.png', alt: 'Real-time Collaboration', caption: 'Team collaboration features' },
-      { type: 'performance', url: '/projects/taskify/performance.png', alt: 'Performance Metrics', caption: 'Application performance' },
-      { type: 'code', url: '/projects/taskify/code-sample.png', alt: 'Code Sample', caption: 'Real-time implementation' }
-    ],
+    screenshots: [],
     performanceMetrics: [
       { label: 'Real-time Sync Latency', value: '<50ms', icon: '⚡' },
       { label: 'Concurrent Users', value: '1000+', icon: '👥' },
@@ -496,10 +579,10 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'React', 'Portfolio', 'Next.js'],
     technologies: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
     screenshots: [
-      { type: 'website', url: '/projects/portfolio/homepage.png', alt: 'Portfolio Homepage', caption: 'Professional portfolio homepage' },
-      { type: 'product', url: '/projects/portfolio/projects.png', alt: 'Projects Showcase', caption: 'Interactive projects gallery' },
-      { type: 'performance', url: '/projects/portfolio/performance.png', alt: 'Performance Metrics', caption: 'Website performance metrics' },
-      { type: 'code', url: '/projects/portfolio/code-sample.png', alt: 'Code Sample', caption: 'Modern React implementation' }
+      { type: 'website', url: '/projects/portfolio/16.png', alt: 'Portfolio Homepage', caption: 'Professional portfolio homepage' },
+      { type: 'product', url: '/projects/portfolio/17.png', alt: 'Projects Showcase', caption: 'Interactive projects gallery' },
+      { type: 'performance', url: '/projects/portfolio/18.png', alt: 'Performance Metrics', caption: 'Website performance metrics' },
+      { type: 'code', url: '/projects/portfolio/19.png', alt: 'Code Sample', caption: 'Modern React implementation' }
     ],
     performanceMetrics: [
       { label: 'Lighthouse Score', value: '100', icon: '🏆' },

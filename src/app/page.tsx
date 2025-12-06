@@ -11,7 +11,6 @@ import SectionHeader from '@/components/SectionHeader';
 import { MotionDiv } from '@/components/MotionDiv';
 import { RevealText, RevealParagraph, RevealHeading } from '@/components/RevealText';
 
-import VoiceAssistant from '@/components/VoiceAssistant';
 import DarkModeToggle from '@/components/DarkModeToggle';
 import EnhancedContactForm from '@/components/EnhancedContactForm';
 import ProjectShowcase from '@/components/ProjectShowcase';
@@ -58,9 +57,18 @@ const Home: React.FC = () => {
          { name: 'Hugging Face', icon: '🤗' }
        ],
     data: [
+      { name: 'Tableau', icon: '📊' },
+      { name: 'Power BI', icon: '📈' },
+      { name: 'SQL', icon: '🗄️' },
       { name: 'Pandas', icon: '🐼' },
-      { name: 'SQL', icon: '🗄️' }
-    ],
+      { name: 'Data Visualization', icon: '📉' },
+      { name: 'ETL Pipelines', icon: '🔄' }
+       ],
+            productivity: [
+      { name: 'Workflow Automation', icon: '⚙️' },
+      { name: 'Task Planning', icon: '📋' },
+      { name: 'Process Optimization', icon: '⚡' }
+       ],
             cloudDevOps: [
       { name: 'AWS', icon: '☁️' },
          { name: 'Azure', icon: '🔷' },
@@ -77,7 +85,6 @@ const Home: React.FC = () => {
   return (
     <main className="gradient-background min-h-screen text-gray-800 dark:text-gray-100 relative">
       <DarkModeToggle />
-      <VoiceAssistant />
       <Navigation />
       <AnimatedBackground />
       <ScrollProgress />
@@ -87,16 +94,15 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-6xl mx-auto">
             <div className="flex-1 text-center md:text-left">
               <RevealHeading delay={0.1} duration={0.8} className="text-6xl md:text-8xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
-                Hi, I&apos;m Lahari
+                Lahari Karrotu
               </RevealHeading>
               
               <RevealText delay={0.3} duration={0.8}>
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
-                  I&apos;m a{' '}
                   <TypeWriter 
                     texts={[
-                      'Software Engineer',
                       'Full Stack AI Engineer',
+                      'Software Engineer',
                       'Data Engineer',
                       'MLOps Specialist'
                     ]} 
@@ -105,7 +111,7 @@ const Home: React.FC = () => {
               </RevealText>
 
               <RevealParagraph 
-                text="Full Stack Software Engineer with 4+ years of experience building and maintaining production systems. I work with distributed systems, data engineering pipelines, and full-stack applications."
+                text="Full Stack Software Engineer specializing in AI/ML integration, data engineering, and cloud-native applications. Experienced in building scalable production systems with a focus on reliability, performance, and maintainability."
                 className="text-gray-600 dark:text-gray-400 mb-12 max-w-2xl text-lg leading-relaxed"
                 delay={0.5}
                 duration={1.0}
@@ -237,19 +243,19 @@ const Home: React.FC = () => {
 
         <section id="about" className="py-32">
           <SectionHeader 
-            title="About Me"
+            title="About"
             subtitle="Building reliable systems for production environments"
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-              text="I'm a Full Stack Software Engineer with 4+ years of experience building and maintaining production systems. My work includes data engineering pipelines, AI/ML systems, and full-stack web applications. I focus on building reliable, maintainable systems and have experience working with distributed systems, cloud infrastructure, and modern web technologies."
+                text="Full Stack Software Engineer with 4+ years of experience building and maintaining production systems. Expertise includes data engineering pipelines, AI/ML systems, and full-stack web applications. Focus on building reliable, maintainable systems with experience in distributed systems, cloud infrastructure, and modern web technologies."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I believe in writing clean, maintainable code and building systems that can evolve over time. I take ownership of systems from development through deployment and maintenance. I work well in team environments, contribute to code reviews, and focus on understanding problems before jumping to solutions. I'm committed to continuous learning and looking for opportunities where I can grow with the company and contribute to long-term success."
+              text="Committed to writing clean, maintainable code and building systems designed for long-term evolution. Take ownership of systems from development through deployment and maintenance. Effective in team environments, contribute to code reviews, and prioritize understanding problems before implementing solutions. Dedicated to continuous learning and seeking opportunities for professional growth and long-term contribution."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.5}
               duration={1.2}
@@ -258,10 +264,10 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="experience-section py-20 relative overflow-hidden">
+        <section id="experience" className="experience-section py-20 relative overflow-hidden">
                      <SectionHeader 
              title="Professional Journey" 
-             subtitle="Over 4 years of expertise in Full Stack AI Engineering and Cloud Solutions"
+             subtitle="Professional experience in Full Stack Development, AI/ML, and Cloud Solutions"
            />
           
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -283,15 +289,23 @@ const Home: React.FC = () => {
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Building and maintaining eCommerce platform with React and FastAPI</p>
+                          <p className="text-gray-700 dark:text-gray-300">Built AI-powered virtual try-on platform using computer vision (OpenCV, TensorFlow) and 3D rendering (Three.js, WebGL) enabling real-time product visualization in customer spaces</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Developing AI solutions with AWS services including Textract OCR</p>
+                          <p className="text-gray-700 dark:text-gray-300">Developed automated measurement portal with dimension calculation and product customization features for eCommerce integration</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Working on infrastructure automation with Terraform</p>
+                          <p className="text-gray-700 dark:text-gray-300">Implemented computer vision algorithms for window detection and room analysis achieving 90%+ accuracy in real-world scenarios</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Deployed scalable cloud architecture on Microsoft Azure with serverless functions processing high-resolution images in real-time</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Built full-stack application (React, TypeScript, FastAPI) with responsive design optimizing user engagement and conversion rates</p>
                         </div>
                       </div>
                     </div>
@@ -315,11 +329,23 @@ const Home: React.FC = () => {
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Developed railway predictive maintenance system using TensorFlow</p>
+                          <p className="text-gray-700 dark:text-gray-300">Developed voice-assisted navigation agent using Google Cloud Speech API and OpenAI, enabling hands-free product discovery and conversational user interaction</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Built real-time monitoring dashboards and voice navigation features</p>
+                          <p className="text-gray-700 dark:text-gray-300">Built real-time ML system for predictive maintenance using TensorFlow LSTM models and Apache Spark processing sensor data streams</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Created React monitoring dashboards with WebSocket connections for real-time equipment health visualization and alert management</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Deployed ML models on AWS Lambda for serverless inference enabling scalable real-time predictions with low latency</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Implemented end-to-end ML pipeline from data ingestion to model deployment with automated monitoring and alerting</p>
                         </div>
                       </div>
                     </div>
@@ -338,17 +364,29 @@ const Home: React.FC = () => {
                 >
                   <div className="flex-1 md:pr-12 mb-4 md:mb-0">
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Big Data Engineer</h3>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Big Data Engineer (Internship)</h3>
                       <p className="text-gray-600 dark:text-gray-400 mb-4">Cognizant, Hyderabad | January 2022 – August 2022</p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Built ETL pipelines processing 5TB+ monthly data</p>
+                          <p className="text-gray-700 dark:text-gray-300">Built ETL pipelines (Apache Spark, Kafka) processing 5TB+ monthly data, improving data availability by 40%</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Optimized queries and reduced latency by 30%</p>
+                          <p className="text-gray-700 dark:text-gray-300">Optimized database queries reducing query latency by 30% through indexing and query tuning</p>
                         </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Developed REST APIs (Java, Python) supporting 15+ projects, handling 100K+ requests daily</p>
+                      </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Implemented automated data quality checks reducing data errors by 50% in production pipelines</p>
+                    </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                          <p className="text-gray-700 dark:text-gray-300">Designed data warehouse architecture (AWS Redshift, S3) reducing query costs by 25%</p>
+                  </div>
                       </div>
                     </div>
                   </div>
@@ -366,17 +404,29 @@ const Home: React.FC = () => {
                  >
                    <div className="flex-1 md:pl-12 mb-4 md:mb-0">
                      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Data Analyst</h3>
+                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Data Analyst (Internship)</h3>
                        <p className="text-gray-600 dark:text-gray-400 mb-4">EPAM Systems, Hyderabad | December 2020 – March 2021</p>
                        <div className="space-y-2">
                          <div className="flex items-center gap-2">
                            <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Reduced data processing time by 30% through Python frameworks</p>
+                           <p className="text-gray-700 dark:text-gray-300">Developed Python data ingestion framework reducing processing time by 30%, handling 1TB+ daily data</p>
                          </div>
                          <div className="flex items-center gap-2">
                            <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Configured AWS Data Pipeline for S3 to Redshift loading</p>
+                           <p className="text-gray-700 dark:text-gray-300">Configured AWS Data Pipeline (S3 to Redshift) improving data load efficiency by 35%</p>
                          </div>
+                         <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                           <p className="text-gray-700 dark:text-gray-300">Built data transformation pipelines using AWS EMR processing 500GB+ datasets between S3 and DynamoDB</p>
+                       </div>
+                         <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                           <p className="text-gray-700 dark:text-gray-300">Automated data workflows with Apache Airflow reducing manual intervention by 80%</p>
+                     </div>
+                         <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
+                           <p className="text-gray-700 dark:text-gray-300">Developed Spark ML modules for predictive analytics, improving forecast accuracy by 20%</p>
+                   </div>
                        </div>
                      </div>
                    </div>
@@ -418,10 +468,45 @@ const Home: React.FC = () => {
         </section>
 
 
+        {/* GitHub Activity Section */}
+        <section className="github-section py-20" id="github">
+          <SectionHeader 
+            title="GitHub Activity" 
+            subtitle="Live commit activity and open source contributions"
+          />
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Commit Activity</h3>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium flex items-center gap-1">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                  Active
+                </span>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-hidden">
+                <img
+                  src={`https://github-readme-activity-graph.vercel.app/graph?username=laharikarrotu&theme=github-compact&area=true&hide_border=true&bg_color=transparent&color=000000&line=0366d6&point=24292e`}
+                  alt="GitHub Commit Activity Graph"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
+                Real-time commit activity over the past year
+              </p>
+            </MotionDiv>
+          </div>
+        </section>
+
         <section className="projects-section py-32 overflow-hidden" id="projects">
                      <SectionHeader 
-            title="Professional Projects Portfolio" 
-            subtitle="Production-grade applications demonstrating expertise in full-stack development, AI/ML integration, and cloud solutions. Each project includes detailed metrics, screenshots, and technical documentation."
+            title="Projects" 
+            subtitle="Production-grade applications demonstrating expertise in full-stack development, AI/ML integration, and cloud solutions"
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProjectShowcase projects={projects} />
@@ -430,12 +515,11 @@ const Home: React.FC = () => {
 
          <section className="contact-section py-32" id="contact">
            <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-             Let&apos;s Connect!
+             Contact
            </RevealHeading>
            <RevealText delay={0.3} duration={0.8}>
              <p className="mb-12 text-gray-600 text-center text-lg max-w-2xl mx-auto">
-               I&apos;m always interested in hearing about new opportunities, collaborating on projects, 
-               or discussing full-stack development and AI/ML integration challenges.
+               Open to discussing new opportunities, collaborative projects, and technical challenges in full-stack development and AI/ML integration.
              </p>
            </RevealText>
            
@@ -445,7 +529,7 @@ const Home: React.FC = () => {
            {/* Social Links */}
            <div className="mt-16">
              <RevealText delay={0.5} duration={0.8}>
-               <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700 dark:text-gray-300">Connect on Social Media</h3>
+               <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700 dark:text-gray-300">Professional Profiles</h3>
              </RevealText>
              <RevealText delay={0.7} duration={0.8}>
                <div className="flex justify-center gap-6 flex-wrap max-w-4xl mx-auto px-4">
@@ -494,7 +578,7 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="max-w-6xl mx-auto px-4"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
           <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -579,6 +663,30 @@ const Home: React.FC = () => {
                  </h3>
                  <div className="space-y-3">
                   {toolsConfig.data.map((tool, index) => (
+                     <div 
+                       key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                     >
+                       <span className="text-xl">{tool.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
+                     </div>
+                   ))}
+                 </div>
+               </MotionDiv>
+
+               <MotionDiv
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                transition={{ delay: 0.35 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl">⚙️</span>
+                  Productivity Tools
+                 </h3>
+                 <div className="space-y-3">
+                  {toolsConfig.productivity.map((tool, index) => (
                      <div 
                        key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
