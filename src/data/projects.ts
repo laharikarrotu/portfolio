@@ -145,11 +145,47 @@ def get_recommendations(user_id: int, product_history: List[int]):
     ]
   },
   {
+    id: 'scanx-ui-agent',
+    title: 'ScanX / ScanToActionAI',
+    description: 'UI agent that turns screenshots and specs into actionable workflows with guided UX.',
+    longDescription: 'Built a UI agent that ingests screenshots or requirement notes, extracts structure, and suggests next actions. Combines LLM orchestration with a FastAPI service and a TypeScript/Next.js front end.',
+    githubUrl: 'https://github.com/laharikarrotu/scanx',
+    liveUrl: 'https://scan-to-action-ai-scanx-s14g.vercel.app/',
+    status: 'Completed',
+    year: 2025,
+    category: 'AI/ML',
+    tags: ['LLM', 'UI Agent', 'Automation'],
+    technologies: ['Next.js', 'TypeScript', 'FastAPI', 'OpenAI API', 'LangChain', 'PostgreSQL'],
+    screenshots: [
+      { type: 'product', url: '/projects/scanx/1.png', alt: 'ScanX upload and action flow', caption: 'Upload screenshot + define action' },
+      { type: 'product', url: 'https://via.placeholder.com/400x300/111827/ffffff?text=ScanX+Overlay', alt: 'ScanX element detection overlay', caption: 'Element detection overlay (placeholder)' },
+      { type: 'dashboard', url: 'https://via.placeholder.com/400x300/0b1120/ffffff?text=Agent+Actions', alt: 'Agent action simulation', caption: 'Agent action simulation (placeholder)' }
+    ],
+    performanceMetrics: [
+      { label: 'Response Time', value: '~2s', icon: '⚡' }
+    ],
+    keyFeatures: [
+      'Screenshot and doc ingestion',
+      'LLM-driven action suggestions',
+      'Task cards with human-in-the-loop confirmations'
+    ],
+    challenges: [
+      'Keeping prompts consistent across varied inputs'
+    ],
+    solutions: [
+      'Template-based prompting with guardrails and retries'
+    ],
+    impact: [
+      'Reduces manual triage of UI requests by automating first-pass suggestions'
+    ]
+  },
+  {
     id: 'ats-resume-app',
     title: 'ATS-Personalized Resume Generator',
     description: 'AI-powered resume optimization tool that analyzes job descriptions using NLP and generates ATS-optimized resumes. Extracts key requirements, matches skills, and creates personalized resumes with high compatibility scores.',
     longDescription: 'An intelligent resume generation system that uses natural language processing to analyze job descriptions and create optimized resumes. The system extracts keywords, requirements, and skills from job postings, matches them with candidate experience, and generates formatted resumes in DOCX format. Features real-time compatibility scoring, intelligent keyword matching, and content optimization. Built with Python, FastAPI for the backend, and React for the frontend. Includes ATS compatibility checking based on industry standards.',
     githubUrl: 'https://github.com/laharikarrotu/ats_resume_app',
+    liveUrl: 'https://web-production-dc67.up.railway.app/',
     status: 'Completed',
     year: 2024,
     category: 'AI/ML',
@@ -280,6 +316,7 @@ def analyze_job_description(job_text: str) -> Dict:
     description: 'Enhanced version of the virtual try-on application with additional features for professional interior design and commercial applications.',
     longDescription: 'An advanced iteration of the virtual try-on platform with enhanced features for professional use cases. Includes batch processing capabilities, advanced customization options, and integration with design software for commercial applications.',
     githubUrl: 'https://github.com/laharikarrotu/blinds_pro',
+    liveUrl: 'https://v0-professional-blind-measurement.vercel.app/',
     status: 'Completed',
     year: 2024,
     category: 'AI/ML',
@@ -333,7 +370,9 @@ def analyze_job_description(job_text: str) -> Dict:
     category: 'AI/ML',
     tags: ['Python', 'TensorFlow', 'ML', 'Real-time', 'Predictive Analytics'],
     technologies: ['Python', 'TensorFlow', 'Apache Spark', 'AWS Lambda', 'AWS S3', 'PostgreSQL', 'React', 'WebSocket'],
-    screenshots: [],
+    screenshots: [
+      { type: 'dashboard', url: 'https://via.placeholder.com/400x300/0f172a/ffffff?text=Railway+Monitoring', alt: 'Railway monitoring dashboard', caption: 'Health monitoring dashboard (placeholder)' }
+    ],
     performanceMetrics: [
       { label: 'Model Accuracy', value: '90%+', icon: '🎯' },
       { label: 'Processing Latency', value: '<200ms', icon: '⚡' },
@@ -386,8 +425,8 @@ def analyze_job_description(job_text: str) -> Dict:
     technologies: ['React', 'TypeScript', 'Python', 'FastAPI', 'AWS Textract', 'AWS Lambda', 'AWS S3', 'Amazon Polly', 'PostgreSQL'],
     screenshots: [
       { type: 'website', url: '/projects/autoloan/1.png', alt: 'Auto Loan Processing Homepage', caption: 'Main landing page' },
-      { type: 'product', url: '/projects/autoloan/2.png', alt: 'Application Form', caption: 'User-friendly application interface' },
-      { type: 'dashboard', url: '/projects/autoloan/3.png', alt: 'Document Processing', caption: 'AWS Textract OCR document extraction' }
+      { type: 'product', url: '/projects/autoloan/2.png', alt: 'Loan Application Form', caption: 'Guided application flow' },
+      { type: 'dashboard', url: '/projects/autoloan/3.png', alt: 'Document Processing Dashboard', caption: 'Textract OCR extraction status' }
     ],
     performanceMetrics: [
       { label: 'OCR Accuracy', value: '95%+', icon: '🎯' },
@@ -433,6 +472,7 @@ def analyze_job_description(job_text: str) -> Dict:
     description: 'AI-driven fitness application with personalized recommendations, voice navigation, and intelligent workout planning using LLM APIs.',
     longDescription: 'A comprehensive fitness application that combines AI-powered workout recommendations with voice navigation capabilities. The app uses LLM APIs to provide personalized fitness plans, nutrition advice, and real-time coaching through voice interactions.',
     githubUrl: 'https://github.com/laharikarrotu/fitness-transformation-app',
+    liveUrl: 'https://fitness-transformation-app.vercel.app',
     status: 'Completed',
     year: 2024,
     category: 'Full-Stack',
@@ -482,6 +522,7 @@ def analyze_job_description(job_text: str) -> Dict:
     description: 'AI-powered job search and application platform that uses machine learning to match candidates with relevant opportunities and optimize application strategies.',
     longDescription: 'An intelligent job search platform that leverages AI and machine learning to help job seekers find the best opportunities. The system analyzes job postings, matches them with candidate profiles, provides application optimization suggestions, and tracks application status across multiple platforms.',
     githubUrl: 'https://github.com/laharikarrotu/ai-job-hunter',
+    liveUrl: 'https://ai-job-hunter-sooty.vercel.app/',
     status: 'Completed',
     year: 2024,
     category: 'Full-Stack',
@@ -534,7 +575,9 @@ def analyze_job_description(job_text: str) -> Dict:
     category: 'Full-Stack',
     tags: ['JavaScript', 'Real-time', 'Collaboration', 'AI', 'Node.js'],
     technologies: ['JavaScript', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'React', 'OpenAI API'],
-    screenshots: [],
+    screenshots: [
+      { type: 'dashboard', url: 'https://via.placeholder.com/400x300/0b1120/ffffff?text=Taskify+Board', alt: 'Taskify board view', caption: 'Board view (placeholder)' }
+    ],
     performanceMetrics: [
       { label: 'Real-time Sync Latency', value: '<50ms', icon: '⚡' },
       { label: 'Concurrent Users', value: '1000+', icon: '👥' },

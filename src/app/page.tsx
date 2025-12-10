@@ -6,7 +6,7 @@ import Navigation from '@/components/Navigation';
 import ScrollToTop from '@/components/ScrollToTop';
 import ScrollProgress from '@/components/ScrollProgress';
 import TypeWriter from '@/components/TypeWriter';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Star, Sparkles } from 'lucide-react';
 import SectionHeader from '@/components/SectionHeader';
 import { MotionDiv } from '@/components/MotionDiv';
 import { RevealText, RevealParagraph, RevealHeading } from '@/components/RevealText';
@@ -19,66 +19,49 @@ import { projects } from '@/data/projects';
 const Home: React.FC = () => {
   // Projects are now imported from @/data/projects
 
-  // Merged and deduplicated tools configuration
+  // Merged and deduplicated tools configuration (aligned to AI + full-stack + data systems)
     const toolsConfig = {
-      frontend: [
+    fullStack: [
         { name: 'React', icon: '⚛️' },
-        { name: 'TypeScript', icon: '📘' },
         { name: 'Next.js', icon: '▲' },
-      { name: 'JavaScript', icon: '🟨' },
-        { name: 'Tailwind CSS', icon: '🎨' },
-      { name: 'HTML/CSS', icon: '🌐' },
-        { name: 'Astro', icon: '⭐' }
-      ],
-            backend: [
-      { name: 'Python', icon: '🐍' },
-      { name: 'FastAPI', icon: '⚡' },
-         { name: 'Django', icon: '🎯' },
-      { name: 'Java', icon: '☕' },
-      { name: 'Spring Boot', icon: '🌱' },
+      { name: 'TypeScript', icon: '📘' },
          { name: 'Node.js', icon: '🟢' },
-         { name: 'REST APIs', icon: '🔗' },
-         { name: 'Microservices', icon: '🏗️' },
+      { name: 'FastAPI', icon: '⚡' },
+      { name: 'Python', icon: '🐍' },
          { name: 'PostgreSQL', icon: '🐘' },
          { name: 'MongoDB', icon: '🍃' },
-         { name: 'Cassandra', icon: '📊' }
-       ],
-            aiMl: [
-         { name: 'TensorFlow', icon: '🧠' },
-         { name: 'PyTorch', icon: '🔥' },
-         { name: 'Generative AI', icon: '🤖' },
-      { name: 'RAG Systems', icon: '🔍' },
+      { name: 'Redis', icon: '🧠' },
+      { name: 'REST & GraphQL APIs', icon: '🔗' }
+    ],
+    aiAgents: [
+      { name: 'LLMs & Agents', icon: '🤖' },
       { name: 'OpenAI API', icon: '✨' },
       { name: 'LangChain', icon: '⛓️' },
-         { name: 'MLOps', icon: '⚙️' },
+      { name: 'Vector DBs (Pinecone/FAISS)', icon: '📚' },
+      { name: 'Embeddings & RAG', icon: '🧭' },
+      { name: 'MLflow', icon: '🧪' },
+         { name: 'TensorFlow', icon: '🧠' },
+      { name: 'PyTorch', icon: '🔥' }
+    ],
+    dataPipelines: [
          { name: 'Apache Spark', icon: '⚡' },
-         { name: 'Apache Kafka', icon: '📊' },
-         { name: 'Apache Airflow', icon: '🌪️' },
-         { name: 'Hugging Face', icon: '🤗' }
-       ],
-    data: [
-      { name: 'Tableau', icon: '📊' },
-      { name: 'Power BI', icon: '📈' },
-      { name: 'SQL', icon: '🗄️' },
-      { name: 'Pandas', icon: '🐼' },
-      { name: 'Data Visualization', icon: '📉' },
-      { name: 'ETL Pipelines', icon: '🔄' }
-       ],
-            productivity: [
-      { name: 'Workflow Automation', icon: '⚙️' },
-      { name: 'Task Planning', icon: '📋' },
-      { name: 'Process Optimization', icon: '⚡' }
-       ],
-            cloudDevOps: [
-      { name: 'AWS', icon: '☁️' },
-         { name: 'Azure', icon: '🔷' },
-         { name: 'GCP', icon: '🌤️' },
+      { name: 'Kafka', icon: '📊' },
+      { name: 'Airflow', icon: '🌪️' },
+      { name: 'Snowflake', icon: '❄️' },
+      { name: 'SQL & Data Modeling', icon: '🗄️' },
+      { name: 'ETL/ELT Pipelines', icon: '🔄' },
+      { name: 'Data Quality & Observability', icon: '✅' },
+      { name: 'Tableau / Power BI', icon: '📈' }
+    ],
+    cloudInfra: [
+      { name: 'AWS (Lambda, S3, Glue)', icon: '☁️' },
+      { name: 'Azure (Functions, App Service)', icon: '🔷' },
          { name: 'Docker', icon: '🐳' },
          { name: 'Kubernetes', icon: '⎈' },
          { name: 'Terraform', icon: '🌍' },
       { name: 'CI/CD', icon: '🔄' },
-         { name: 'AWS Lambda', icon: 'λ' },
-         { name: 'AWS S3/Glue', icon: '💾' }
+      { name: 'Vercel', icon: '⚡' },
+      { name: 'Monitoring & Logging', icon: '📡' }
        ]
     };
 
@@ -93,26 +76,26 @@ const Home: React.FC = () => {
         <div className="hero-section min-h-screen flex flex-col justify-center items-center py-32">
           <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-6xl mx-auto">
             <div className="flex-1 text-center md:text-left">
-              <RevealHeading delay={0.1} duration={0.8} className="text-6xl md:text-8xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
-                Lahari Karrotu
+              <RevealHeading delay={0.1} duration={0.8} className="text-5xl md:text-7xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
+                Software Engineer – AI, Full-Stack & Data Systems
               </RevealHeading>
               
               <RevealText delay={0.3} duration={0.8}>
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   <TypeWriter 
                     texts={[
-                      'Full Stack AI Engineer',
-                      'Software Engineer',
-                      'Data Engineer',
-                      'MLOps Specialist'
+                      'AI & Full-Stack Engineer',
+                      'LLM / Voice Systems',
+                      'Distributed Data Pipelines',
+                      'Product-Focused Builder'
                     ]} 
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph 
-                text="Full Stack Software Engineer specializing in AI/ML integration, data engineering, and cloud-native applications. Experienced in building scalable production systems with a focus on reliability, performance, and maintainability."
-                className="text-gray-600 dark:text-gray-400 mb-12 max-w-2xl text-lg leading-relaxed"
+                text="I design and build AI-powered systems end-to-end — from LLM agents and voice assistants to full-stack apps and distributed data pipelines. My focus is shippable, reliable, and maintainable software that ties user experience to measurable impact."
+                className="text-gray-600 dark:text-gray-400 mb-12 max-w-3xl text-lg leading-relaxed"
                 delay={0.5}
                 duration={1.0}
                 stagger={0.1}
@@ -157,7 +140,7 @@ const Home: React.FC = () => {
                     <Linkedin className="w-5 h-5" />
                   </Link>
                   <Link
-                    href="mailto:laharikarrothu@gmail.com"
+                    href="mailto:laharikarrotu24@gmail.com"
                     className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
                              transition-all duration-200"
                   >
@@ -241,6 +224,35 @@ const Home: React.FC = () => {
           </div>
         </div>
 
+        {/* Highlight Reel */}
+        <section className="py-20">
+          <SectionHeader 
+            title="Highlight Reel"
+            subtitle="What I build in 5 seconds of scanning"
+          />
+          <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              'LLM Agents & Conversational Systems',
+              'Full-Stack AI Applications (Next.js + FastAPI)',
+              'Real-Time Voice Assistants',
+              'Distributed Data & Stream Processing Pipelines',
+              'Cloud-Native Deployments (Azure, AWS)',
+              'MLOps (MLflow, Docker, CI/CD, Terraform)',
+            ].map((item) => (
+              <MotionDiv
+                key={item}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <span className="mt-1 text-indigo-500"><Star className="w-5 h-5" /></span>
+                <span className="text-gray-800 dark:text-gray-200">{item}</span>
+              </MotionDiv>
+            ))}
+          </div>
+        </section>
+
         <section id="about" className="py-32">
           <SectionHeader 
             title="About"
@@ -248,14 +260,14 @@ const Home: React.FC = () => {
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-                text="Full Stack Software Engineer with 4+ years of experience building and maintaining production systems. Expertise includes data engineering pipelines, AI/ML systems, and full-stack web applications. Focus on building reliable, maintainable systems with experience in distributed systems, cloud infrastructure, and modern web technologies."
+                text="Hands-on experience across AI systems, full-stack applications, and data engineering. I build production services that connect LLM agents, voice interfaces, and web experiences to reliable data and cloud infrastructure."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="Committed to writing clean, maintainable code and building systems designed for long-term evolution. Take ownership of systems from development through deployment and maintenance. Effective in team environments, contribute to code reviews, and prioritize understanding problems before implementing solutions. Dedicated to continuous learning and seeking opportunities for professional growth and long-term contribution."
+              text="I prioritize clarity, maintainability, and measurable impact: clean APIs, observable pipelines, thoughtful UX, and deployments that are easy to operate. I take products from idea to shipped release, collaborating closely with stakeholders and teams."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.5}
               duration={1.2}
@@ -270,215 +282,83 @@ const Home: React.FC = () => {
              subtitle="Professional experience in Full Stack Development, AI/ML, and Cloud Solutions"
            />
           
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative">
-              <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 dark:bg-gray-700" />
-              
-              <div className="space-y-12">
-                {/* Current Role */}
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            {[
+              {
+                title: 'Software Engineer – AI & Data Systems',
+                company: 'Arkatech Solutions',
+                period: 'May 2025 – Present · Bay Area, CA',
+                bullets: [
+                  'Designed and implemented end-to-end AI and data systems using microservices, distributed storage, and event-driven patterns.',
+                  'Built LLM-powered automation and personalization workflows with embeddings, retrieval layers, and orchestration.'
+                ]
+              },
+              {
+                title: 'Software Engineer Intern – AI & Full-Stack Systems',
+                company: 'Anguliyam AI Solutions',
+                period: 'Jun 2024 – Apr 2025 · Remote',
+                bullets: [
+                  'Developed SmartBuy AI Assistant, Navigating Assistant, and a voice-enabled agent with LLMs and vector-based retrieval.',
+                  'Shipped full-stack features in React/Next.js and FastAPI/Node.js to support AI workflows and real-time interactions.'
+                ]
+              },
+              {
+                title: 'Data Engineer Intern – Cloud & Big Data',
+                company: 'Cognizant',
+                period: 'Jan 2022 – Aug 2022 · Bengaluru, India',
+                bullets: [
+                  'Built ETL/ELT pipelines with AWS Glue, Spark, and Redshift to support analytics workloads.',
+                  'Implemented data quality checks and monitoring to keep pipelines reliable.'
+                ]
+              },
+              {
+                title: 'Data Engineering Intern – Analytics Automation',
+                company: 'EPAM Systems',
+                period: 'Dec 2020 – Mar 2021 · Hyderabad, India',
+                bullets: [
+                  'Automated PySpark workflows on EMR with Airflow DAGs.',
+                  'Built dashboards for KPI monitoring and operational visibility.'
+                ]
+              }
+            ].map((role, idx) => (
                 <MotionDiv
-                  initial={{ opacity: 0, x: -100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                key={role.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="relative flex flex-col md:flex-row items-center md:justify-between"
-                >
-                  <div className="flex-1 md:pr-12 mb-4 md:mb-0">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Full Stack AI Engineer</h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">Arkatech Solutions | May 2025 – Present</p>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Built AI-powered virtual try-on platform using computer vision (OpenCV, TensorFlow) and 3D rendering (Three.js, WebGL) enabling real-time product visualization in customer spaces</p>
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="flex flex-col gap-1 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{role.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300">{role.company}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">{role.period}</p>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Developed automated measurement portal with dimension calculation and product customization features for eCommerce integration</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Implemented computer vision algorithms for window detection and room analysis achieving 90%+ accuracy in real-world scenarios</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Deployed scalable cloud architecture on Microsoft Azure with serverless functions processing high-resolution images in real-time</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Built full-stack application (React, TypeScript, FastAPI) with responsive design optimizing user engagement and conversion rates</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                    <span className="text-2xl text-white">🚀</span>
-                  </div>
+                <ul className="space-y-2">
+                  {role.bullets.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                      <span className="mt-1 text-indigo-500">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
                 </MotionDiv>
-
-                {/* Previous Role */}
-                <MotionDiv
-                  initial={{ opacity: 0, x: 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="relative flex flex-col md:flex-row-reverse items-center md:justify-between"
-                >
-                  <div className="flex-1 md:pl-12 mb-4 md:mb-0">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">AI/ML Full Stack Developer</h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">Anguliyam | August 2024 – May 2025</p>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Developed voice-assisted navigation agent using Google Cloud Speech API and OpenAI, enabling hands-free product discovery and conversational user interaction</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Built real-time ML system for predictive maintenance using TensorFlow LSTM models and Apache Spark processing sensor data streams</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Created React monitoring dashboards with WebSocket connections for real-time equipment health visualization and alert management</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Deployed ML models on AWS Lambda for serverless inference enabling scalable real-time predictions with low latency</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Implemented end-to-end ML pipeline from data ingestion to model deployment with automated monitoring and alerting</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                    <span className="text-2xl text-white">💼</span>
-                  </div>
-                </MotionDiv>
-
-                {/* Earlier Role */}
-                <MotionDiv
-                  initial={{ opacity: 0, x: -100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="relative flex flex-col md:flex-row items-center md:justify-between"
-                >
-                  <div className="flex-1 md:pr-12 mb-4 md:mb-0">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Big Data Engineer (Internship)</h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">Cognizant, Hyderabad | January 2022 – August 2022</p>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Built ETL pipelines (Apache Spark, Kafka) processing 5TB+ monthly data, improving data availability by 40%</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Optimized database queries reducing query latency by 30% through indexing and query tuning</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Developed REST APIs (Java, Python) supporting 15+ projects, handling 100K+ requests daily</p>
-                      </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Implemented automated data quality checks reducing data errors by 50% in production pipelines</p>
-                    </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                          <p className="text-gray-700 dark:text-gray-300">Designed data warehouse architecture (AWS Redshift, S3) reducing query costs by 25%</p>
-                  </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                    <span className="text-2xl text-white">📊</span>
-                  </div>
-                </MotionDiv>
-
-                                 {/* EPAM Role */}
-                 <MotionDiv
-                   initial={{ opacity: 0, x: 100 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   viewport={{ once: true }}
-                   className="relative flex flex-col md:flex-row-reverse items-center md:justify-between"
-                 >
-                   <div className="flex-1 md:pl-12 mb-4 md:mb-0">
-                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Data Analyst (Internship)</h3>
-                       <p className="text-gray-600 dark:text-gray-400 mb-4">EPAM Systems, Hyderabad | December 2020 – March 2021</p>
-                       <div className="space-y-2">
-                         <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Developed Python data ingestion framework reducing processing time by 30%, handling 1TB+ daily data</p>
-                         </div>
-                         <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Configured AWS Data Pipeline (S3 to Redshift) improving data load efficiency by 35%</p>
-                         </div>
-                         <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Built data transformation pipelines using AWS EMR processing 500GB+ datasets between S3 and DynamoDB</p>
-                       </div>
-                         <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Automated data workflows with Apache Airflow reducing manual intervention by 80%</p>
-                     </div>
-                         <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full" />
-                           <p className="text-gray-700 dark:text-gray-300">Developed Spark ML modules for predictive analytics, improving forecast accuracy by 20%</p>
-                   </div>
-                       </div>
-                     </div>
-                   </div>
-                   <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                     <span className="text-2xl text-white">📈</span>
-                   </div>
-                 </MotionDiv>
-
-                 {/* Education */}
-                 <MotionDiv
-                   initial={{ opacity: 0, x: -100 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   viewport={{ once: true }}
-                   className="relative flex flex-col md:flex-row items-center md:justify-between"
-                 >
-                  <div className="flex-1 md:pl-12 mb-4 md:mb-0">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Education</h3>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="font-semibold text-gray-800 dark:text-gray-200">MS in Computer Science</p>
-                          <p className="text-gray-600">Florida Institute of Technology | 2024</p>
-                          <p className="text-gray-700 dark:text-gray-300">Specialization: Big Data Analytics and Data Science</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold text-gray-800 dark:text-gray-200">BS in Computer Science</p>
-                          <p className="text-gray-600">KL University, India | 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-12 h-12 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                    <span className="text-2xl text-white">🎓</span>
-                  </div>
-                </MotionDiv>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
 
         {/* GitHub Activity Section */}
         <section className="github-section py-20" id="github">
-          <SectionHeader 
+                     <SectionHeader 
             title="GitHub Activity" 
             subtitle="Live commit activity and open source contributions"
           />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <MotionDiv
+          <MotionDiv
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
               className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
             >
               <div className="flex items-center justify-between mb-4">
@@ -486,8 +366,8 @@ const Home: React.FC = () => {
                 <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   Active
-                </span>
-              </div>
+                             </span>
+                         </div>
               <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-hidden">
                 <img
                   src={`https://github-readme-activity-graph.vercel.app/graph?username=laharikarrotu&theme=github-compact&area=true&hide_border=true&bg_color=transparent&color=000000&line=0366d6&point=24292e`}
@@ -495,23 +375,23 @@ const Home: React.FC = () => {
                   className="w-full h-auto"
                   loading="lazy"
                 />
-              </div>
+                       </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
                 Real-time commit activity over the past year
               </p>
-            </MotionDiv>
+          </MotionDiv>
           </div>
         </section>
 
         <section className="projects-section py-32 overflow-hidden" id="projects">
-                     <SectionHeader 
+           <SectionHeader 
             title="Projects" 
             subtitle="Production-grade applications demonstrating expertise in full-stack development, AI/ML integration, and cloud solutions"
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProjectShowcase projects={projects} />
-                         </div>
-        </section>
+             </div>
+         </section>
 
          <section className="contact-section py-32" id="contact">
            <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
@@ -554,7 +434,7 @@ const Home: React.FC = () => {
                  <span>GitHub</span>
                </Link>
                <Link 
-                 href="mailto:laharikarrothu@gmail.com" 
+                href="mailto:laharikarrotu24@gmail.com" 
                  className="group flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 px-8 py-4 rounded-xl hover:bg-white/70 dark:hover:bg-gray-700/70
                            transition-all duration-300 border border-gray-200 dark:border-gray-700
                            shadow-sm"
@@ -567,42 +447,235 @@ const Home: React.FC = () => {
            </div>
         </section>
 
-        <section className="tools-section py-32" id="skills">
+        {/* What I'm learning now */}
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">What I’m learning now</h3>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li>• Azure Functions + Durable orchestrations for AI workflows</li>
+                <li>• Evaluating LLM agents with guardrails and tracing</li>
+                <li>• Stream-processing patterns with Kafka + Flink</li>
+              </ul>
+                </div>
+                </div>
+        </section>
+
+        {/* Case Study */}
+        <section className="py-24 bg-gray-50 dark:bg-gray-900/40">
           <SectionHeader 
+            title="Case Study: SmartBuy AI"
+            subtitle="How I shipped an AI shopping assistant end-to-end"
+          />
+          <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2"><Sparkles className="w-5 h-5 text-indigo-500" /> Overview</h3>
+              <p className="text-gray-700 dark:text-gray-300">SmartBuy AI embeds a conversational assistant inside a full-stack eCommerce experience. It handles search, recommendations, and navigation with a lightweight vector index and FastAPI services.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Problem</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">Users struggled to find products quickly and dropped off after slow search or poor recommendations.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Solution</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">Conversational assistant + semantic search backed by FastAPI, embeddings, and cached intents for sub-3s responses.</p>
+              </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Tech Stack</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">Next.js, TypeScript, FastAPI, PostgreSQL, OpenAI API, Tailwind, Vercel</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">My Role</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">Architecture, API design, AI integration, frontend UX, deployment.</p>
+              </div>
+                </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Results</h4>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                  <li>• AI query responses in <span className="font-semibold text-indigo-500">&lt;3s</span> with cached intents</li>
+                  <li>• Faster product discovery via semantic search and voice/text navigation</li>
+                  <li>• Production-ready deployment with monitoring and uptime focus</li>
+                </ul>
+              </div>
+                </div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Architecture (high level)</h3>
+              <div className="grid gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  Client (Next.js) → API Gateway (FastAPI) → LLM Orchestrator (OpenAI, LangChain)
+              </div>
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  Vector Store (embeddings) for semantic search + intent caching
+                </div>
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  PostgreSQL for products/orders · Background jobs for sync/index updates
+                  </div>
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  Vercel + Azure/AWS services · Observability via logs/metrics
+                </div>
+              </div>
+              <div className="mt-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4">
+                <svg viewBox="0 0 520 220" role="img" aria-label="SmartBuy architecture diagram" className="w-full h-auto text-gray-800 dark:text-gray-200">
+                  <defs>
+                    <style>{'.box{fill:#eef2ff;stroke:#4f46e5;stroke-width:2;rx:8;ry:8}.text{font-family:Inter,system-ui,sans-serif;font-size:12px;fill:#111827}.arrow{stroke:#6b7280;stroke-width:2;marker-end:url(#arrowhead)}'}</style>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
+                    </marker>
+                  </defs>
+                  <rect className="box" x="20" y="40" width="120" height="40" />
+                  <text className="text" x="80" y="65" textAnchor="middle">Next.js UI</text>
+
+                  <rect className="box" x="200" y="40" width="120" height="40" />
+                  <text className="text" x="260" y="65" textAnchor="middle">FastAPI Gateway</text>
+
+                  <rect className="box" x="380" y="20" width="120" height="40" />
+                  <text className="text" x="440" y="45" textAnchor="middle">LLM (OpenAI)</text>
+
+                  <rect className="box" x="380" y="90" width="120" height="40" />
+                  <text className="text" x="440" y="115" textAnchor="middle">LangChain/RAG</text>
+
+                  <rect className="box" x="200" y="130" width="120" height="40" />
+                  <text className="text" x="260" y="155" textAnchor="middle">Vector Store</text>
+
+                  <rect className="box" x="20" y="130" width="120" height="40" />
+                  <text className="text" x="80" y="155" textAnchor="middle">PostgreSQL</text>
+
+                  <line className="arrow" x1="140" y1="60" x2="200" y2="60" />
+                  <line className="arrow" x1="320" y1="60" x2="380" y2="40" />
+                  <line className="arrow" x1="320" y1="60" x2="380" y2="110" />
+                  <line className="arrow" x1="260" y1="170" x2="260" y2="80" />
+                  <line className="arrow" x1="140" y1="150" x2="200" y2="150" />
+                </svg>
+                  </div>
+                  <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Screenshots to include</h4>
+                <ul className="space-y-1 text-gray-700 dark:text-gray-300 text-sm">
+                  <li>• Product search page</li>
+                  <li>• AI chat recommendations</li>
+                  <li>• Navigation assistant</li>
+                  <li>• Category browsing</li>
+                  </ul>
+                </div>
+              </div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Architecture: ScanX Agent Loop</h3>
+              <div className="grid gap-3 text-sm text-gray-700 dark:text-gray-300">
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  Frontend (Next.js) captures screenshots/specs → uploads to FastAPI
+            </div>
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  FastAPI routes to Orchestrator (LangChain + OpenAI) to parse layout and tasks
+                  </div>
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  Vector store (PostgreSQL/pgvector) for similarity + retrieval
+                </div>
+                <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
+                  Action planner emits task cards → returned to UI for human-in-the-loop confirmation
+                </div>
+              </div>
+              <div className="mt-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4">
+                <svg viewBox="0 0 520 240" role="img" aria-label="ScanX architecture diagram" className="w-full h-auto text-gray-800 dark:text-gray-200">
+                  <defs>
+                    <style>{'.box{fill:#eef2ff;stroke:#4f46e5;stroke-width:2;rx:8;ry:8}.text{font-family:Inter,system-ui,sans-serif;font-size:12px;fill:#111827}.arrow{stroke:#6b7280;stroke-width:2;marker-end:url(#arrowhead)}'}</style>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
+                    </marker>
+                  </defs>
+                  <rect className="box" x="30" y="40" width="120" height="40" />
+                  <text className="text" x="90" y="65" textAnchor="middle">Next.js UI</text>
+
+                  <rect className="box" x="200" y="40" width="120" height="40" />
+                  <text className="text" x="260" y="65" textAnchor="middle">FastAPI Ingest</text>
+
+                  <rect className="box" x="380" y="20" width="120" height="40" />
+                  <text className="text" x="440" y="45" textAnchor="middle">LLM Orchestrator</text>
+
+                  <rect className="box" x="380" y="90" width="120" height="40" />
+                  <text className="text" x="440" y="115" textAnchor="middle">Parser / Planner</text>
+
+                  <rect className="box" x="200" y="140" width="120" height="40" />
+                  <text className="text" x="260" y="165" textAnchor="middle">Vector Store</text>
+
+                  <rect className="box" x="30" y="140" width="120" height="40" />
+                  <text className="text" x="90" y="165" textAnchor="middle">Task Cards UI</text>
+
+                  <line className="arrow" x1="150" y1="60" x2="200" y2="60" />
+                  <line className="arrow" x1="320" y1="60" x2="380" y2="40" />
+                  <line className="arrow" x1="320" y1="60" x2="380" y2="110" />
+                  <line className="arrow" x1="260" y1="180" x2="260" y2="80" />
+                  <line className="arrow" x1="150" y1="160" x2="200" y2="160" />
+                  <line className="arrow" x1="90" y1="140" x2="90" y2="80" />
+                </svg>
+                  </div>
+                </div>
+                </div>
+        </section>
+
+        {/* Tech Stack Icons Row */}
+        <section className="py-24">
+          <SectionHeader 
+            title="Tech Stack"
+            subtitle="The tools I ship with"
+          />
+          <div className="max-w-5xl mx-auto px-4 space-y-4">
+            {[
+              { label: 'Languages', items: ['Python', 'TypeScript', 'SQL'] },
+              { label: 'Frontend', items: ['React', 'Next.js', 'Tailwind'] },
+              { label: 'Backend', items: ['FastAPI', 'Node.js'] },
+              { label: 'AI/ML', items: ['OpenAI', 'LangChain', 'TensorFlow', 'Embeddings'] },
+              { label: 'Cloud', items: ['Azure', 'AWS'] },
+              { label: 'Data', items: ['Spark', 'Airflow', 'Snowflake'] },
+            ].map((row) => (
+              <div key={row.label} className="flex flex-wrap items-center gap-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm px-4 py-3">
+                <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-300 w-28">{row.label}</span>
+                <div className="flex flex-wrap gap-2">
+                  {row.items.map((item) => (
+                    <span key={item} className="px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-600">
+                      {item}
+                    </span>
+                  ))}
+                  </div>
+                </div>
+            ))}
+                </div>
+        </section>
+
+        <section className="tools-section py-32" id="skills">
+                     <SectionHeader 
             title="Technical Expertise" 
             subtitle="Technologies and tools I work with"
-          />
+           />
           <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="max-w-6xl mx-auto px-4"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-          <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+                             <MotionDiv
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">⚛️</span>
-                  Frontend
-                </h3>
-                <div className="space-y-3">
-                  {toolsConfig.frontend.map((tool, index) => (
-                    <div 
-                      key={index}
+                  <span className="text-2xl">🧩</span>
+                  Full-Stack & Backend
+                 </h3>
+                 <div className="space-y-3">
+                  {toolsConfig.fullStack.map((tool, index) => (
+                     <div 
+                       key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <span className="text-xl">{tool.icon}</span>
+                     >
+                       <span className="text-xl">{tool.icon}</span>
                       <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                </div>
-                  ))}
-            </div>
-          </MotionDiv>
+                     </div>
+                   ))}
+                 </div>
+               </MotionDiv>
 
-                             <MotionDiv
+               <MotionDiv
                  initial={{ opacity: 0, y: 20 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
@@ -610,11 +683,11 @@ const Home: React.FC = () => {
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">🐍</span>
-                  Backend
+                  <span className="text-2xl">🤖</span>
+                  AI / ML & Agents
                  </h3>
                  <div className="space-y-3">
-                  {toolsConfig.backend.map((tool, index) => (
+                  {toolsConfig.aiAgents.map((tool, index) => (
                      <div 
                        key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -634,11 +707,11 @@ const Home: React.FC = () => {
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">🧠</span>
-                  AI/ML
+                  <span className="text-2xl">📡</span>
+                  Data Engineering & Pipelines
                  </h3>
                  <div className="space-y-3">
-                  {toolsConfig.aiMl.map((tool, index) => (
+                  {toolsConfig.dataPipelines.map((tool, index) => (
                      <div 
                        key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -656,61 +729,13 @@ const Home: React.FC = () => {
                  viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">📊</span>
-                  Data
-                 </h3>
-                 <div className="space-y-3">
-                  {toolsConfig.data.map((tool, index) => (
-                     <div 
-                       key={index}
-                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                     >
-                       <span className="text-xl">{tool.icon}</span>
-                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                     </div>
-                   ))}
-                 </div>
-               </MotionDiv>
-
-               <MotionDiv
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                transition={{ delay: 0.35 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">⚙️</span>
-                  Productivity Tools
-                 </h3>
-                 <div className="space-y-3">
-                  {toolsConfig.productivity.map((tool, index) => (
-                     <div 
-                       key={index}
-                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                     >
-                       <span className="text-xl">{tool.icon}</span>
-                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tool.name}</span>
-                     </div>
-                   ))}
-                 </div>
-               </MotionDiv>
-
-               <MotionDiv
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
                >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                    <span className="text-2xl">☁️</span>
-                   Cloud & DevOps
+                  Cloud & Infrastructure
                  </h3>
                  <div className="space-y-3">
-                   {toolsConfig.cloudDevOps.map((tool, index) => (
+                  {toolsConfig.cloudInfra.map((tool, index) => (
                      <div 
                        key={index}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -735,162 +760,114 @@ const Home: React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4"
           >
-            {/* AWS Certification with Credly Badge */}
+            {[
+              {
+                title: 'AWS Certified Solutions Architect – Associate',
+                issuer: 'Amazon Web Services',
+                icon: '☁️',
+                link: 'https://www.credly.com/badges/454b6f57-2586-48bd-a854-1317ee4a6fdd/public_url'
+              },
+              {
+                title: 'AWS Certified Cloud Practitioner',
+                issuer: 'Amazon Web Services',
+                icon: '🛠️'
+              },
+              {
+                title: 'Cisco Certified Network Associate (CCNA)',
+                issuer: 'Cisco Systems',
+                icon: '🌐',
+                link: 'https://www.youracclaim.com/badges/09bfbaf8-6538-4b48-a9ea-49b9bc39414a?source=linked_in_profile'
+              },
+              {
+                title: 'Machine Learning Specialization',
+                issuer: 'Coursera (Andrew Ng)',
+                icon: '📘'
+              },
+              {
+                title: 'HackerRank Problem Solving',
+                issuer: 'HackerRank',
+                icon: '🧩'
+              },
+              {
+                title: 'HackerRank SQL (Intermediate)',
+                issuer: 'HackerRank',
+                icon: '🗄️'
+              },
+              {
+                title: 'HackerRank Data Structures',
+                issuer: 'HackerRank',
+                icon: '🧱'
+              },
+              {
+                title: 'HackerRank Data Science',
+                issuer: 'HackerRank',
+                icon: '📊'
+              },
+              {
+                title: 'Big Data Specialization',
+                issuer: 'Undergraduate Program',
+                icon: '🛰️'
+              }
+            ].map((cert, idx) => (
             <MotionDiv
+                key={cert.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <Link 
-                href="https://www.credly.com/badges/454b6f57-2586-48bd-a854-1317ee4a6fdd/public_url"
-                target="_blank"
-                className="block bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group"
+                transition={{ delay: 0.08 * idx }}
               >
-                <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform">
-                  <span className="text-2xl text-white">☁️</span>
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group">
+                  <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl text-white">{cert.icon}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 transition-colors">AWS Certified Solutions Architect – Associate</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">Amazon Web Services</p>
-                <div className="mt-3 flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 text-sm">
-                  <span>View Credly Badge</span>
+                  {cert.link ? (
+                    <Link href={cert.link} target="_blank" className="block">
+                      <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 transition-colors group-hover:text-indigo-600">
+                        {cert.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{cert.issuer}</p>
+                      <div className="mt-3 flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 text-sm">
+                        <span>View Credential</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
-            </MotionDiv>
-
-            {/* CCNA Certification with Credly Badge */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link 
-                href="https://www.youracclaim.com/badges/09bfbaf8-6538-4b48-a9ea-49b9bc39414a?source=linked_in_profile"
-                target="_blank"
-                className="block bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group"
-              >
-                <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform">
-                  <span className="text-2xl text-white">🌐</span>
+                  ) : (
+                    <>
+                      <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">{cert.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{cert.issuer}</p>
+                    </>
+                  )}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 transition-colors">Cisco Certified Network Associate (CCNA)</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">Cisco Systems</p>
-                <div className="mt-3 flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 text-sm">
-                  <span>View Credly Badge</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
             </MotionDiv>
-
-            {/* ServiceNow Certification */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">⚙️</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">ServiceNow Certified Application Developer</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">ServiceNow</p>
-              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">Verified</div>
-            </MotionDiv>
-
-            {/* Oracle Certification */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">🗄️</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Oracle Database SQL Certified Associate</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">Oracle Corporation</p>
-              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">Verified</div>
-            </MotionDiv>
-
-            {/* Google Cloud ML Engineer */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">🤖</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Google Cloud Professional ML Engineer</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">Google Cloud</p>
-              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">In Progress</div>
-            </MotionDiv>
-
-            {/* Kubernetes Administrator */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">🚀</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Kubernetes Administrator (CKA)</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">Cloud Native Computing Foundation</p>
-              <div className="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">Planned</div>
-            </MotionDiv>
+            ))}
           </MotionDiv>
         </section>
 
 
-                 {/* Floating Action Buttons */}
-         <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
-           {/* Quick Contact Button */}
-           <Link
-             href="mailto:laharikarrothu@gmail.com"
-             className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 p-4 rounded-full shadow-sm
-                      hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 flex items-center gap-2 group"
-             title="Quick Contact"
-           >
-             <Mail className="w-5 h-5" />
-             <span className="hidden group-hover:block text-sm font-medium">Contact</span>
-           </Link>
-           
-           {/* Download Resume Button */}
-           <a
-             href="/Resume_LahariKarrotu.docx"
-             download="Lahari_Karrotu_Full_Stack_AI_Engineer_Resume.docx"
-             className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 p-4 rounded-full shadow-sm
-                      hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 flex items-center gap-2 group"
+        {/* Footer Contact */}
+        <footer className="bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800 py-10 mt-16">
+          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-gray-700 dark:text-gray-300 text-center md:text-left">
+              <p className="font-semibold">Let’s build something great.</p>
+                  </div>
+            <div className="flex flex-wrap justify-center md:justify-end gap-3">
+              <Link href="mailto:laharikarrotu24@gmail.com" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">Email</Link>
+              <Link href="https://www.linkedin.com/in/laharikarrotu/" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">LinkedIn</Link>
+              <Link href="https://github.com/laharikarrotu" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">GitHub</Link>
+              <a 
+                href="/LahariKarrotuResumeSDE-20251210063520.pdf" 
+                download="Lahari_Karrotu_Software_Engineer_AI_FullStack.pdf"
+                className="px-4 py-2 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium"
              target="_blank"
              rel="noopener noreferrer"
-             title="Download Resume"
-           >
-             <svg 
-               className="w-5 h-5" 
-               fill="none" 
-               stroke="currentColor" 
-               viewBox="0 0 24 24"
-             >
-               <path 
-                 strokeLinecap="round" 
-                 strokeLinejoin="round" 
-                 strokeWidth={2} 
-                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" 
-               />
-             </svg>
-             <span className="hidden group-hover:block text-sm font-medium">Resume</span>
+              >
+                Download Resume
            </a>
          </div>
+          </div>
+        </footer>
       </div>
     </main>
   );
