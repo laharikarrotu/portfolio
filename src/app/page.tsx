@@ -203,7 +203,7 @@ const Home: React.FC = () => {
                   </div>
                   
                 <Image
-                  src="https://avatars.githubusercontent.com/laharikarrotu"
+                  src="/profile.jpg"
                   alt="Lahari Karrotu"
                   width={400}
                   height={400}
