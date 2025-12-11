@@ -857,7 +857,7 @@ const Home: React.FC = () => {
               <Link href="https://www.linkedin.com/in/laharikarrotu/" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">LinkedIn</Link>
               <Link href="https://github.com/laharikarrotu" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">GitHub</Link>
               <a 
-                href="/LahariKarrotuResumeSDE-20251210063520.pdf" 
+                href="/projects/LahariKarrotuResumeSDE-20251211092311.pdf" 
                 download="Lahari_Karrotu_Software_Engineer_AI_FullStack.pdf"
                 className="px-4 py-2 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium"
              target="_blank"
