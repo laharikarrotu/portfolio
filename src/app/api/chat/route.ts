@@ -23,8 +23,6 @@ export async function POST(req: Request) {
     );
   }
 
-  console.log('GOOGLE_API_KEY:', process.env.GOOGLE_API_KEY);
-
   try {
     // Check rate limit
     const now = Date.now();
