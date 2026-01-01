@@ -12,15 +12,12 @@ export default function ConnectLayout({
 }) {
   return (
     <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
+      minHeight: '100vh',
+      width: '100%',
       backgroundColor: '#ffffff',
       color: '#000000',
       fontFamily: 'Inter, Helvetica, Arial, sans-serif',
-      zIndex: 9999
+      position: 'relative'
     }}>
       {children}
     </div>
