@@ -32,7 +32,7 @@ const Home: React.FC = () => {
          { name: 'MongoDB', icon: '🍃' },
       { name: 'Redis', icon: '🧠' },
       { name: 'REST & GraphQL APIs', icon: '🔗' }
-    ],
+       ],
     aiAgents: [
       { name: 'LLMs & Agents', icon: '🤖' },
       { name: 'OpenAI API', icon: '✨' },
@@ -657,7 +657,7 @@ const Home: React.FC = () => {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
+               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">🧩</span>
                   Full-Stack & Backend
@@ -681,7 +681,7 @@ const Home: React.FC = () => {
                  viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
+               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">🤖</span>
                   AI / ML & Agents
@@ -705,7 +705,7 @@ const Home: React.FC = () => {
                  viewport={{ once: true }}
                  transition={{ delay: 0.2 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
-              >
+               >
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">📡</span>
                   Data Engineering & Pipelines
@@ -817,7 +817,7 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
                 transition={{ delay: 0.08 * idx }}
-              >
+            >
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group">
                   <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl text-white">{cert.icon}</span>
@@ -856,7 +856,7 @@ const Home: React.FC = () => {
               <Link href="mailto:laharikarrotu24@gmail.com" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">Email</Link>
               <Link href="https://www.linkedin.com/in/laharikarrotu/" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">LinkedIn</Link>
               <Link href="https://github.com/laharikarrotu" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">GitHub</Link>
-              <a 
+           <a
                 href="/projects/LahariKarrotuResumeSDE-20251211092311.pdf" 
                 download="Lahari_Karrotu_Software_Engineer_AI_FullStack.pdf"
                 className="px-4 py-2 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium"

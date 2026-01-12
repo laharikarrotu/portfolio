@@ -9,12 +9,12 @@ const Navigation = () => {
 
   // Simplified menu structure - only existing sections
   const menuItems = [
-    { href: '#about', label: 'About' },
+        { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
-    { href: '#projects', label: 'Projects' },
+        { href: '#projects', label: 'Projects' },
     { href: '#github', label: 'GitHub' },
     { href: '#skills', label: 'Skills' },
-    { href: '#certifications', label: 'Certifications' },
+        { href: '#certifications', label: 'Certifications' },
     { href: '#contact', label: 'Contact' }
   ];
 
@@ -107,19 +107,19 @@ const Navigation = () => {
                   {/* Mobile Menu Items */}
                   <ul className="space-y-2">
                     {menuItems.map((item) => (
-                      <li key={item.href}>
-                        <button
-                          onClick={() => scrollToSection(item.href)}
+                            <li key={item.href}>
+                              <button
+                                onClick={() => scrollToSection(item.href)}
                           className="w-full text-left px-4 py-3 rounded-md text-gray-600 dark:text-gray-300
                                     hover:bg-gray-100 dark:hover:bg-gray-700 
                                     hover:text-gray-900 dark:hover:text-white
                                     transition-all duration-200 text-base font-medium"
-                        >
-                          {item.label}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
+                              >
+                                {item.label}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
                 </div>
               </div>
             </MotionDiv>

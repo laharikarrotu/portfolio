@@ -124,7 +124,7 @@ const AnimatedBackground = () => {
       />
       <div 
         className="absolute inset-0 hidden dark:block"
-        style={{
+            style={{
           background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.6) 0%, rgba(31, 41, 55, 0.4) 100%)',
         }}
       />
