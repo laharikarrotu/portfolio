@@ -10,10 +10,15 @@ export default function AboutPage() {
               About Me
             </h1>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              With over 3 years of expertise in Data Engineering and Data Warehousing, 
-              I specialize in delivering robust and scalable data solutions that drive 
-              business value. My journey in technology has been focused on building 
-              efficient data infrastructures and implementing innovative solutions.
+              Software Engineer focused on backend systems and production AI applications. 
+              I work on distributed services and LLM-powered systems that operate under 
+              real-world constraints—latency, failures, observability, and scale. My 
+              experience spans backend APIs, data pipelines, multimodal AI workflows, 
+              and full-stack integration.
+            </p>
+            <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              I'm interested in teams building reliable systems at scale, where correctness, 
+              maintainability, and engineering judgment matter as much as model performance.
             </p>
             
             <div className="space-y-4 transform transition-all duration-500 hover:translate-x-2">
@@ -22,13 +27,15 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-3 stagger-animation">
                 <div className="bg-white/50 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                  <h3 className="font-medium text-gray-900">Master of Science in Computer Science</h3>
-                  <p className="text-gray-600">Florida Institute of Technology, Florida | 2024</p>
+                  <h3 className="font-medium text-gray-900">Master's degree, Computer Science</h3>
+                  <p className="text-gray-600">Florida Institute of Technology | Aug 2022 - May 2024</p>
+                  <p className="text-gray-600">Grade: 3.6</p>
+                  <p className="text-gray-600 text-sm mt-2">Master's in Computer Science with a focus on systems, data engineering, and applied AI.</p>
                 </div>
                 <div className="bg-white/50 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                  <h3 className="font-medium text-gray-900">Bachelor of Science in Computer Science</h3>
-                  <p className="text-gray-600">KL University, India | 2022</p>
-                  <p className="text-gray-600">Specialization: Big Data Analytics and Data Science</p>
+                  <h3 className="font-medium text-gray-900">Bachelor's degree, Computer Science</h3>
+                  <p className="text-gray-600">KL University | Aug 2018 - May 2022</p>
+                  <p className="text-gray-600">Grade: 8.7</p>
                 </div>
               </div>
             </div>
@@ -39,10 +46,10 @@ export default function AboutPage() {
               </h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { title: 'Cloud Platforms', skills: 'AWS, Azure' },
-                  { title: 'Data Processing', skills: 'ETL, Data Pipelines' },
-                  { title: 'Programming', skills: 'Python, SQL, JavaScript' },
-                  { title: 'Big Data', skills: 'Spark, Hadoop, Kafka' }
+                  { title: 'Backend & Full-Stack', skills: 'React, Next.js, TypeScript, FastAPI, Node.js' },
+                  { title: 'AI / ML & Agents', skills: 'LLMs, OpenAI API, LangChain, Vector DBs, Embeddings' },
+                  { title: 'Data Engineering', skills: 'Apache Spark, Kafka, Airflow, Snowflake' },
+                  { title: 'Cloud & Infrastructure', skills: 'AWS, Azure, Docker, Kubernetes, Terraform' }
                 ].map((competency, index) => (
                   <div 
                     key={index}
@@ -74,10 +81,10 @@ export default function AboutPage() {
               </h2>
               <ul className="space-y-3 stagger-animation">
                 {[
-                  'Reduced data processing time by 30% through optimized pipelines',
-                  'Designed and implemented ETL pipelines using PySpark and AWS services',
-                  'Developed RESTful APIs with Python and FastAPI for secure data access',
-                  'Expertise in data visualization using Power BI and Tableau'
+                  'Built LLM-powered assistants with distributed inference and GPU orchestration (Ray, LangChain)',
+                  'Developed multimodal AI pipelines combining image embeddings, text, and vector DBs (Milvus, Pinecone)',
+                  'Implemented real-time monitoring, logging, and fault-tolerant pipelines for production AI workflows',
+                  'Integrated AI APIs into React/Flask apps for scalable, low-latency full-stack deployment'
                 ].map((highlight, index) => (
                   <li key={index} className="flex items-start transform transition-all duration-300 hover:translate-x-2">
                     <span className="inline-block w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 mr-3"></span>

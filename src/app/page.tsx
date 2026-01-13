@@ -76,26 +76,26 @@ const Home: React.FC = () => {
         <div className="hero-section min-h-screen flex flex-col justify-center items-center py-32">
           <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-6xl mx-auto">
             <div className="flex-1 text-center md:text-left">
-              <RevealHeading delay={0.1} duration={0.8} className="text-5xl md:text-7xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
-                Software Engineer – AI, Full-Stack & Data Systems
+              <RevealHeading delay={0.1} duration={0.8} className="text-4xl md:text-6xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
+                Software Engineer (Backend & AI Systems)
               </RevealHeading>
               
               <RevealText delay={0.3} duration={0.8}>
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   <TypeWriter 
                     texts={[
-                      'AI & Full-Stack Engineer',
-                      'LLM / Voice Systems',
-                      'Distributed Data Pipelines',
-                      'Product-Focused Builder'
+                      'Backend & AI Systems',
+                      'Distributed Systems',
+                      'Production LLM Applications',
+                      'Full Stack'
                     ]} 
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph 
-                text="I design and build AI-powered systems end-to-end — from LLM agents and voice assistants to full-stack apps and distributed data pipelines. My focus is shippable, reliable, and maintainable software that ties user experience to measurable impact."
-                className="text-gray-600 dark:text-gray-400 mb-12 max-w-3xl text-lg leading-relaxed"
+                text="Distributed Systems | Production LLM Applications | Full Stack"
+                className="text-gray-600 dark:text-gray-400 mb-12 max-w-3xl text-xl leading-relaxed"
                 delay={0.5}
                 duration={1.0}
                 stagger={0.1}
@@ -260,16 +260,23 @@ const Home: React.FC = () => {
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-                text="Hands-on experience across AI systems, full-stack applications, and data engineering. I build production services that connect LLM agents, voice interfaces, and web experiences to reliable data and cloud infrastructure."
+                text="Software Engineer focused on backend systems and production AI applications."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I prioritize clarity, maintainability, and measurable impact: clean APIs, observable pipelines, thoughtful UX, and deployments that are easy to operate. I take products from idea to shipped release, collaborating closely with stakeholders and teams."
-              className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
+              text="I work on distributed services and LLM-powered systems that operate under real-world constraints—latency, failures, observability, and scale. My experience spans backend APIs, data pipelines, multimodal AI workflows, and full-stack integration."
+              className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.5}
+              duration={1.2}
+              stagger={0.1}
+            />
+            <RevealParagraph 
+              text="I'm interested in teams building reliable systems at scale, where correctness, maintainability, and engineering judgment matter as much as model performance."
+              className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
+              delay={0.7}
               duration={1.2}
               stagger={0.1}
             />
@@ -285,39 +292,44 @@ const Home: React.FC = () => {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             {[
               {
-                title: 'Software Engineer – AI & Data Systems',
-                company: 'Arkatech Solutions',
-                period: 'May 2025 – Present · Bay Area, CA',
+                title: 'Full-Stack AI Engineer',
+                company: 'Arka Tech Solutions',
+                period: 'May 2025 - Present · Remote',
                 bullets: [
-                  'Designed and implemented end-to-end AI and data systems using microservices, distributed storage, and event-driven patterns.',
-                  'Built LLM-powered automation and personalization workflows with embeddings, retrieval layers, and orchestration.'
+                  'Built LLM-powered assistants with distributed inference and GPU orchestration (Ray, LangChain), processing 5K+ queries/day with <2s average latency.',
+                  'Developed multimodal AI pipelines combining image embeddings, text, and vector DBs (Milvus, Pinecone), handling 10K+ embeddings/day with 99.5% retrieval accuracy.',
+                  'Implemented real-time monitoring, logging, and fault-tolerant pipelines for production AI workflows, achieving 99.9% uptime and <100ms monitoring overhead.',
+                  'Integrated AI APIs into React/Flask apps for scalable, low-latency full-stack deployment, serving 1K+ concurrent users with sub-300ms API response times.'
                 ]
               },
               {
                 title: 'Software Engineer Intern – AI & Full-Stack Systems',
-                company: 'Anguliyam AI Solutions',
-                period: 'Jun 2024 – Apr 2025 · Remote',
+                company: 'Anguliyam',
+                period: 'Jun 2024 - Apr 2025 · Remote',
                 bullets: [
-                  'Developed SmartBuy AI Assistant, Navigating Assistant, and a voice-enabled agent with LLMs and vector-based retrieval.',
-                  'Shipped full-stack features in React/Next.js and FastAPI/Node.js to support AI workflows and real-time interactions.'
+                  'Deployed LLM-driven voice workflows for real-time interaction and automation, processing 2K+ voice queries/day with <3s end-to-end latency.',
+                  'Built agent orchestration frameworks enabling API chaining and tool integration, reducing manual workflow time by 60% through automation.',
+                  'Optimized preprocessing pipelines for embeddings, feature extraction, and retrieval efficiency, improving query throughput by 3x and reducing costs by 40%.'
                 ]
               },
               {
-                title: 'Data Engineer Intern – Cloud & Big Data',
+                title: 'Program Analyst Intern',
                 company: 'Cognizant',
-                period: 'Jan 2022 – Aug 2022 · Bengaluru, India',
+                period: 'Jan 2022 - Aug 2022 · Hyderabad, Telangana, India · Remote',
                 bullets: [
-                  'Built ETL/ELT pipelines with AWS Glue, Spark, and Redshift to support analytics workloads.',
-                  'Implemented data quality checks and monitoring to keep pipelines reliable.'
+                  'Supported large-scale ML workloads with ETL and preprocessing pipelines.',
+                  'Assisted in optimizing data flows and caching strategies to increase model throughput.',
+                  'Collaborated on NLP and structured data modules to improve downstream model performance.'
                 ]
               },
               {
-                title: 'Data Engineering Intern – Analytics Automation',
+                title: 'Software Engineer Intern',
                 company: 'EPAM Systems',
-                period: 'Dec 2020 – Mar 2021 · Hyderabad, India',
+                period: 'Dec 2020 - Mar 2021 · India · Hybrid',
                 bullets: [
-                  'Automated PySpark workflows on EMR with Airflow DAGs.',
-                  'Built dashboards for KPI monitoring and operational visibility.'
+                  'Developed automation scripts and tools to streamline ML workflows.',
+                  'Assisted in feature engineering and batch processing for analytics projects.',
+                  'Improved operational efficiency of reporting and data handling pipelines by 40%.'
                 ]
               }
             ].map((role, idx) => (
@@ -344,7 +356,7 @@ const Home: React.FC = () => {
                 </ul>
                 </MotionDiv>
             ))}
-          </div>
+                        </div>
         </section>
 
 
@@ -355,10 +367,10 @@ const Home: React.FC = () => {
             subtitle="Live commit activity and open source contributions"
           />
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MotionDiv
+                 <MotionDiv
               initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+                   viewport={{ once: true }}
               className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
             >
               <div className="flex items-center justify-between mb-4">
@@ -375,10 +387,132 @@ const Home: React.FC = () => {
                   className="w-full h-auto"
                   loading="lazy"
                 />
-                       </div>
+                         </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
                 Real-time commit activity over the past year
               </p>
+                 </MotionDiv>
+          </div>
+        </section>
+
+        {/* System Design Deep Dive Section */}
+        <section className="system-design-section py-20" id="system-design">
+                     <SectionHeader 
+            title="System Design" 
+            subtitle="Architecture, scalability, and distributed systems expertise"
+          />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg"
+            >
+              <div className="space-y-6">
+            <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    SmartBuy AI: Production E-Commerce Platform with AI Integration
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-6">
+                    A scalable full-stack eCommerce platform handling 10K+ daily active users with AI-powered navigation, 
+                    real-time inventory management, and sub-2s page load times.
+                  </p>
+          </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Architecture Overview</h4>
+                    <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Frontend:</strong> Next.js (SSR/SSG) with React, deployed on Vercel Edge Network for global CDN distribution</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Backend:</strong> FastAPI microservices with async/await, handling 1K+ concurrent requests</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Database:</strong> PostgreSQL with connection pooling, Redis cache layer (95% hit rate)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>AI Service:</strong> OpenAI API with request batching, response caching, and fallback mechanisms</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Vector Search:</strong> Pinecone for semantic product search with 50K+ product embeddings</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                <div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Scalability & Performance</h4>
+                    <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Load Handling:</strong> 10K+ daily active users, 500+ concurrent sessions, 99.9% uptime</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Response Times:</strong> API latency <300ms (p95), AI queries <2s, page loads <1.2s</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Caching Strategy:</strong> Multi-layer (CDN, Redis, in-memory) reducing DB load by 80%</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Database:</strong> Read replicas for scaling, connection pooling (max 100 connections), query optimization</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Monitoring:</strong> Real-time metrics (Prometheus), error tracking (Sentry), APM (New Relic)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  </div>
+
+                <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Key Design Decisions & Trade-offs</h4>
+                  <div className="space-y-3 text-sm">
+                <div>
+                      <p className="font-medium text-gray-900 dark:text-white">1. Microservices vs Monolith</p>
+                      <p className="text-gray-700 dark:text-gray-300">Chose FastAPI microservices for independent scaling of AI service vs. core eCommerce logic, accepting added complexity for better resource utilization.</p>
+                  </div>
+                <div>
+                      <p className="font-medium text-gray-900 dark:text-white">2. Vector DB Selection</p>
+                      <p className="text-gray-700 dark:text-gray-300">Pinecone over self-hosted (FAISS/Milvus) for managed scalability and lower ops overhead, trading cost for reliability.</p>
+                </div>
+                <div>
+                      <p className="font-medium text-gray-900 dark:text-white">3. Caching Strategy</p>
+                      <p className="text-gray-700 dark:text-gray-300">Multi-layer caching (CDN → Redis → DB) prioritized read performance, accepting eventual consistency for product data.</p>
+                </div>
+                <div>
+                      <p className="font-medium text-gray-900 dark:text-white">4. Failure Handling</p>
+                      <p className="text-gray-700 dark:text-gray-300">Circuit breakers for AI API, graceful degradation to keyword search, retry logic with exponential backoff, ensuring 99.9% availability even during AI service outages.</p>
+              </div>
+            </div>
+          </div>
+          
+                <div className="mt-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Scaling Strategy</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                      <p className="font-medium text-gray-900 dark:text-white mb-2">Horizontal Scaling</p>
+                      <p className="text-gray-700 dark:text-gray-300">FastAPI instances behind load balancer, auto-scaling based on CPU/memory (2-10 instances), stateless design for easy scaling.</p>
+                         </div>
+                    <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                      <p className="font-medium text-gray-900 dark:text-white mb-2">Database Scaling</p>
+                      <p className="text-gray-700 dark:text-gray-300">Read replicas for query distribution, connection pooling, query optimization, and planned sharding for 100K+ products.</p>
+                       </div>
+                    <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                      <p className="font-medium text-gray-900 dark:text-white mb-2">Cost Optimization</p>
+                      <p className="text-gray-700 dark:text-gray-300">AI request batching, response caching (60% cache hit rate), CDN for static assets, reducing infrastructure costs by 40%.</p>
+                    </div>
+                      </div>
+                    </div>
+            </div>
           </MotionDiv>
           </div>
         </section>
@@ -750,33 +884,78 @@ const Home: React.FC = () => {
           </MotionDiv>
         </section>
 
+        {/* Education Section */}
+        <section className="education-section py-20" id="education">
+          <SectionHeader 
+            title="Education" 
+            subtitle="Academic background in Computer Science"
+          />
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto px-4 space-y-6"
+          >
+            {[
+              {
+                degree: "Master's degree, Computer Science",
+                school: 'Florida Institute of Technology',
+                period: 'Aug 2022 - May 2024',
+                grade: 'Grade: 3.6',
+                description: "Master's in Computer Science with a focus on systems, data engineering, and applied AI."
+              },
+              {
+                degree: "Bachelor's degree, Computer Science",
+                school: 'KL University',
+                period: 'Aug 2018 - May 2022',
+                grade: 'Grade: 8.7',
+                description: ''
+              }
+            ].map((edu, idx) => (
+            <MotionDiv
+                key={edu.school}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
+              >
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{edu.degree}</h3>
+                  <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">{edu.school}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.period}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">{edu.grade}</p>
+                  {edu.description && (
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">{edu.description}</p>
+                  )}
+                </div>
+            </MotionDiv>
+            ))}
+            </MotionDiv>
+        </section>
+
         {/* Enhanced Certifications Section with Credly Badges */}
         <section className="certifications-section py-20" id="certifications">
           <SectionHeader 
             title="Certifications & Badges" 
             subtitle="Professional certifications and verified achievements"
           />
-          <MotionDiv
+            <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+              viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4"
           >
             {[
               {
-                title: 'AWS Certified Solutions Architect – Associate',
-                issuer: 'Amazon Web Services',
+                title: 'AWS Certified Solutions Architect',
+                issuer: 'Amazon · Issued May 2025',
                 icon: '☁️',
                 link: 'https://www.credly.com/badges/454b6f57-2586-48bd-a854-1317ee4a6fdd/public_url'
               },
               {
-                title: 'AWS Certified Cloud Practitioner',
-                issuer: 'Amazon Web Services',
-                icon: '🛠️'
-              },
-              {
-                title: 'Cisco Certified Network Associate (CCNA)',
-                issuer: 'Cisco Systems',
+                title: 'CCNA: Switching, Routing, and Wireless Essentials',
+                issuer: 'Cisco · Issued Aug 2020',
                 icon: '🌐',
                 link: 'https://www.youracclaim.com/badges/09bfbaf8-6538-4b48-a9ea-49b9bc39414a?source=linked_in_profile'
               },
@@ -821,7 +1000,7 @@ const Home: React.FC = () => {
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center transition-all duration-300 group">
                   <div className="w-16 h-16 bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl text-white">{cert.icon}</span>
-                </div>
+              </div>
                   {cert.link ? (
                     <Link href={cert.link} target="_blank" className="block">
                       <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 transition-colors group-hover:text-indigo-600">
@@ -831,7 +1010,7 @@ const Home: React.FC = () => {
                       <div className="mt-3 flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 text-sm">
                         <span>View Credential</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
+              </div>
               </Link>
                   ) : (
                     <>
@@ -839,12 +1018,174 @@ const Home: React.FC = () => {
                       <p className="text-gray-600 dark:text-gray-400 text-sm">{cert.issuer}</p>
                     </>
                   )}
-                </div>
+              </div>
             </MotionDiv>
             ))}
           </MotionDiv>
         </section>
 
+        {/* Technical Writing Section */}
+        <section className="writing-section py-20" id="writing">
+          <SectionHeader 
+            title="Technical Writing" 
+            subtitle="Articles and insights on AI, distributed systems, and software engineering"
+          />
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto px-4 space-y-4"
+          >
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+              <a 
+                href="https://medium.com/@laharikarrotu24/ai-in-2026-why-sovereignty-smaller-models-and-smarter-data-will-matter-more-than-bigger-gpus-8953fedd46b0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                      <span className="text-2xl text-white">📝</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      AI in 2026: Why Sovereignty, Smaller Models, and Smarter Data Will Matter More Than Bigger GPUs
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                      An exploration of the shifting AI landscape, focusing on model sovereignty, efficient smaller models, and data quality over raw compute power.
+                    </p>
+                    <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
+                      <span>Read on Medium</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+              <a 
+                href="https://medium.com/@laharikarrotu24/the-hidden-energy-cost-of-ai-how-llms-and-distributed-systems-consume-power-3e2d90b87306"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                      <span className="text-2xl text-white">📝</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      The Hidden Energy Cost of AI: How LLMs and Distributed Systems Consume Power
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                      An analysis of energy consumption patterns in large language models and distributed computing systems, exploring the environmental impact and optimization strategies.
+                    </p>
+                    <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
+                      <span>Read on Medium</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </MotionDiv>
+        </section>
+
+        {/* Technical Deep Dives Section */}
+        <section className="deep-dives-section py-20" id="deep-dives">
+          <SectionHeader 
+            title="Technical Deep Dives" 
+            subtitle="In-depth analysis of system design, performance optimization, and engineering decisions"
+          />
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto px-4 space-y-6"
+          >
+            {[
+              {
+                title: "Scaling FastAPI for High-Throughput AI Workloads",
+                category: "Backend Engineering",
+                description: "How I optimized FastAPI microservices to handle 1K+ concurrent requests with <300ms latency, implementing connection pooling, async/await patterns, and request batching for AI API calls.",
+                topics: ["Async Architecture", "Connection Pooling", "Request Batching", "Performance Optimization"],
+                metrics: "1K+ concurrent requests, <300ms p95 latency, 40% cost reduction"
+              },
+              {
+                title: "Vector Database Optimization for Semantic Search",
+                category: "AI/ML Systems",
+                description: "Deep dive into optimizing Pinecone vector search for 50K+ product embeddings, achieving 99.5% retrieval accuracy with <500ms query time through embedding compression and indexing strategies.",
+                topics: ["Vector Databases", "Embedding Optimization", "Semantic Search", "RAG Systems"],
+                metrics: "50K+ embeddings, 99.5% accuracy, <500ms query time"
+              },
+              {
+                title: "Building Fault-Tolerant LLM Pipelines",
+                category: "Distributed Systems",
+                description: "Designing resilient AI workflows with circuit breakers, graceful degradation, retry logic, and fallback mechanisms to maintain 99.9% uptime even during AI service outages.",
+                topics: ["Fault Tolerance", "Circuit Breakers", "Graceful Degradation", "Error Handling"],
+                metrics: "99.9% uptime, <100ms monitoring overhead, zero-downtime deployments"
+              },
+              {
+                title: "Multi-Layer Caching Strategy for E-Commerce",
+                category: "Performance Engineering",
+                description: "Implementing CDN → Redis → Database caching layers, achieving 95% cache hit rate and reducing database load by 80% while maintaining data consistency.",
+                topics: ["Caching Strategies", "CDN Optimization", "Redis", "Cache Invalidation"],
+                metrics: "95% cache hit rate, 80% DB load reduction, <1.2s page loads"
+              },
+              {
+                title: "Real-Time Monitoring for Production AI Systems",
+                category: "Observability",
+                description: "Building comprehensive monitoring with Prometheus, Sentry, and custom metrics for LLM pipelines, enabling real-time alerting and performance tracking with <100ms overhead.",
+                topics: ["Monitoring", "Observability", "Alerting", "Performance Tracking"],
+                metrics: "<100ms monitoring overhead, real-time alerting, 99.9% SLA"
+              }
+            ].map((dive, idx) => (
+              <MotionDiv
+                key={dive.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col md:flex-row md:items-start gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-full text-xs font-medium">
+                        {dive.category}
+                      </span>
+                  </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      {dive.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      {dive.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {dive.topics.map((topic, i) => (
+                        <span 
+                          key={i}
+                          className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs"
+                        >
+                          {topic}
+                        </span>
+                      ))}
+                </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <span className="text-indigo-600 dark:text-indigo-400 font-medium">Metrics:</span>
+                      <span className="text-gray-600 dark:text-gray-400">{dive.metrics}</span>
+              </div>
+              </div>
+            </div>
+              </MotionDiv>
+            ))}
+          </MotionDiv>
+        </section>
 
         {/* Footer Contact */}
         <footer className="bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800 py-10 mt-16">

@@ -11,10 +11,12 @@ const Navigation = () => {
   const menuItems = [
         { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
+    { href: '#system-design', label: 'System Design' },
         { href: '#projects', label: 'Projects' },
     { href: '#github', label: 'GitHub' },
     { href: '#skills', label: 'Skills' },
         { href: '#certifications', label: 'Certifications' },
+    { href: '#deep-dives', label: 'Deep Dives' },
     { href: '#contact', label: 'Contact' }
   ];
 
