@@ -44,8 +44,8 @@ export const projects: Project[] = [
   {
     id: 'smartbuy-v2',
     title: 'SmartBuy AI eCommerce Platform',
-    description: 'Production eCommerce platform serving 10K+ daily active users with AI-powered navigation, handling 1K+ concurrent requests with <300ms API latency. Features real-time inventory management, semantic search across 50K+ products, and 99.9% uptime.',
-    longDescription: 'A production-grade eCommerce platform built with React, Next.js, and FastAPI, serving 10K+ daily active users. Features an AI-powered navigation assistant using OpenAI API processing 5K+ queries/day with <2s response time. Includes real-time inventory management, personalized product recommendations, semantic search across 50K+ product embeddings with 99.5% retrieval accuracy, and secure payment integration. Built with PostgreSQL (read replicas), Redis caching (95% hit rate), deployed on Vercel Edge Network with 99.9% uptime and sub-1.2s page loads.',
+    description: 'Production eCommerce platform serving 10K+ daily active users with AI-powered navigation, handling 1K+ concurrent requests with &lt;300ms API latency. Features real-time inventory management, semantic search across 50K+ products, and 99.9% uptime.',
+    longDescription: 'A production-grade eCommerce platform built with React, Next.js, and FastAPI, serving 10K+ daily active users. Features an AI-powered navigation assistant using OpenAI API processing 5K+ queries/day with &lt;2s response time. Includes real-time inventory management, personalized product recommendations, semantic search across 50K+ product embeddings with 99.5% retrieval accuracy, and secure payment integration. Built with PostgreSQL (read replicas), Redis caching (95% hit rate), deployed on Vercel Edge Network with 99.9% uptime and sub-1.2s page loads.',
     githubUrl: 'https://github.com/laharikarrotu/SmartBuy_v2',
     liveUrl: 'https://smart-buy-v2.vercel.app',
     status: 'Live',
@@ -62,9 +62,9 @@ export const projects: Project[] = [
     performanceMetrics: [
       { label: 'Daily Active Users', value: '10K+', icon: '👥' },
       { label: 'Concurrent Requests', value: '1K+', icon: '⚡' },
-      { label: 'API Latency (p95)', value: '<300ms', icon: '🚀' },
-      { label: 'Page Load Time', value: '<1.2s', icon: '⚡' },
-      { label: 'AI Response Time', value: '<2s', icon: '🤖' },
+      { label: 'API Latency (p95)', value: '&lt;300ms', icon: '🚀' },
+      { label: 'Page Load Time', value: '&lt;1.2s', icon: '⚡' },
+      { label: 'AI Response Time', value: '&lt;2s', icon: '🤖' },
       { label: 'Uptime', value: '99.9%', icon: '☁️' },
       { label: 'Cache Hit Rate', value: '95%', icon: '💾' }
     ],
@@ -89,11 +89,11 @@ export const projects: Project[] = [
     ],
     impact: [
       'Production deployment serving 10K+ daily active users with 99.9% uptime',
-      'Scaled to handle 1K+ concurrent requests with <300ms API latency (p95)',
-      'AI assistant processes 5K+ queries/day with <2s response time, reducing search time by 60%',
+      'Scaled to handle 1K+ concurrent requests with &lt;300ms API latency (p95)',
+      'AI assistant processes 5K+ queries/day with &lt;2s response time, reducing search time by 60%',
       'Semantic search across 50K+ product embeddings with 99.5% retrieval accuracy',
       'Multi-layer caching (CDN → Redis → DB) achieving 95% hit rate, reducing DB load by 80%',
-      'Optimized performance: <1.2s page loads, 95+ Lighthouse score, 40% infrastructure cost reduction',
+      'Optimized performance: &lt;1.2s page loads, 95+ Lighthouse score, 40% infrastructure cost reduction',
       'Built scalable microservices architecture with horizontal scaling (2-10 instances), read replicas, and fault-tolerant design'
     ],
     codeSnippets: [
@@ -538,7 +538,7 @@ def analyze_job_description(job_text: str) -> Dict:
       { label: 'Match Accuracy', value: '88%', icon: '🎯' },
       { label: 'Job Discovery Rate', value: '+60%', icon: '📊' },
       { label: 'Application Success', value: '+35%', icon: '✅' },
-      { label: 'Processing Speed', value: '<2s', icon: '⚡' }
+      { label: 'Processing Speed', value: '&lt;2s', icon: '⚡' }
     ],
     keyFeatures: [
       'AI-powered job matching based on skills and experience',

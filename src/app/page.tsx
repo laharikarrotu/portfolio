@@ -296,7 +296,7 @@ const Home: React.FC = () => {
                 company: 'Arka Tech Solutions',
                 period: 'May 2025 - Present · Remote',
                 bullets: [
-                  'Built LLM-powered assistants with distributed inference and GPU orchestration (Ray, LangChain), processing 5K+ queries/day with <2s average latency.',
+                  'Built LLM-powered assistants with distributed inference and GPU orchestration (Ray, LangChain), processing 5K+ queries/day with &lt;2s average latency.',
                   'Developed multimodal AI pipelines combining image embeddings, text, and vector DBs (Milvus, Pinecone), handling 10K+ embeddings/day with 99.5% retrieval accuracy.',
                   'Implemented real-time monitoring, logging, and fault-tolerant pipelines for production AI workflows, achieving 99.9% uptime and <100ms monitoring overhead.',
                   'Integrated AI APIs into React/Flask apps for scalable, low-latency full-stack deployment, serving 1K+ concurrent users with sub-300ms API response times.'
@@ -455,7 +455,7 @@ const Home: React.FC = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
-                        <span><strong>Response Times:</strong> API latency <300ms (p95), AI queries <2s, page loads <1.2s</span>
+                        <span><strong>Response Times:</strong> API latency &lt;300ms (p95), AI queries &lt;2s, page loads &lt;1.2s</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
@@ -1112,16 +1112,16 @@ const Home: React.FC = () => {
               {
                 title: "Scaling FastAPI for High-Throughput AI Workloads",
                 category: "Backend Engineering",
-                description: "How I optimized FastAPI microservices to handle 1K+ concurrent requests with <300ms latency, implementing connection pooling, async/await patterns, and request batching for AI API calls.",
+                description: "How I optimized FastAPI microservices to handle 1K+ concurrent requests with &lt;300ms latency, implementing connection pooling, async/await patterns, and request batching for AI API calls.",
                 topics: ["Async Architecture", "Connection Pooling", "Request Batching", "Performance Optimization"],
-                metrics: "1K+ concurrent requests, <300ms p95 latency, 40% cost reduction"
+                metrics: "1K+ concurrent requests, &lt;300ms p95 latency, 40% cost reduction"
               },
               {
                 title: "Vector Database Optimization for Semantic Search",
                 category: "AI/ML Systems",
-                description: "Deep dive into optimizing Pinecone vector search for 50K+ product embeddings, achieving 99.5% retrieval accuracy with <500ms query time through embedding compression and indexing strategies.",
+                description: "Deep dive into optimizing Pinecone vector search for 50K+ product embeddings, achieving 99.5% retrieval accuracy with &lt;500ms query time through embedding compression and indexing strategies.",
                 topics: ["Vector Databases", "Embedding Optimization", "Semantic Search", "RAG Systems"],
-                metrics: "50K+ embeddings, 99.5% accuracy, <500ms query time"
+                metrics: "50K+ embeddings, 99.5% accuracy, &lt;500ms query time"
               },
               {
                 title: "Building Fault-Tolerant LLM Pipelines",
@@ -1135,7 +1135,7 @@ const Home: React.FC = () => {
                 category: "Performance Engineering",
                 description: "Implementing CDN → Redis → Database caching layers, achieving 95% cache hit rate and reducing database load by 80% while maintaining data consistency.",
                 topics: ["Caching Strategies", "CDN Optimization", "Redis", "Cache Invalidation"],
-                metrics: "95% cache hit rate, 80% DB load reduction, <1.2s page loads"
+                metrics: "95% cache hit rate, 80% DB load reduction, &lt;1.2s page loads"
               },
               {
                 title: "Real-Time Monitoring for Production AI Systems",
