@@ -703,15 +703,6 @@ const Home: React.FC = () => {
                   <line className="arrow" x1="140" y1="150" x2="200" y2="150" />
                 </svg>
                   </div>
-                  <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Screenshots to include</h4>
-                <ul className="space-y-1 text-gray-700 dark:text-gray-300 text-sm">
-                  <li>• Product search page</li>
-                  <li>• AI chat recommendations</li>
-                  <li>• Navigation assistant</li>
-                  <li>• Category browsing</li>
-                  </ul>
-                </div>
               </div>
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Architecture: ScanX Agent Loop</h3>
