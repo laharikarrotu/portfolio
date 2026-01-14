@@ -14,6 +14,7 @@ import { RevealText, RevealParagraph, RevealHeading } from '@/components/RevealT
 import DarkModeToggle from '@/components/DarkModeToggle';
 import EnhancedContactForm from '@/components/EnhancedContactForm';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import WorkflowOrchestration from '@/components/WorkflowOrchestration';
 import { projects } from '@/data/projects';
 
 const Home: React.FC = () => {
@@ -44,14 +45,15 @@ const Home: React.FC = () => {
       { name: 'PyTorch', icon: '🔥' }
     ],
     dataPipelines: [
-         { name: 'Apache Spark', icon: '⚡' },
+      { name: 'SQL (PostgreSQL, MySQL)', icon: '🗄️' },
+      { name: 'Apache Spark', icon: '⚡' },
       { name: 'Kafka', icon: '📊' },
-      { name: 'Airflow', icon: '🌪️' },
+      { name: 'Apache Airflow', icon: '🌪️' },
       { name: 'Snowflake', icon: '❄️' },
-      { name: 'SQL & Data Modeling', icon: '🗄️' },
+      { name: 'Data Modeling (Fact/Dimension)', icon: '📊' },
       { name: 'ETL/ELT Pipelines', icon: '🔄' },
-      { name: 'Data Quality & Observability', icon: '✅' },
-      { name: 'Tableau / Power BI', icon: '📈' }
+      { name: 'Data Quality & Validation', icon: '✅' },
+      { name: 'Data Lineage & Observability', icon: '🔍' }
     ],
     cloudInfra: [
       { name: 'AWS (Lambda, S3, Glue)', icon: '☁️' },
@@ -267,7 +269,7 @@ const Home: React.FC = () => {
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I work on distributed services and LLM-powered systems that operate under real-world constraints—latency, failures, observability, and scale. My experience spans backend APIs, data pipelines, multimodal AI workflows, and full-stack integration."
+              text="I work on distributed services and LLM-powered systems that operate under real-world constraints—latency, failures, observability, and scale. My experience spans backend APIs, ETL pipelines, data modeling (fact/dimension tables), SQL-first analytics, multimodal AI workflows, and full-stack integration."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.5}
               duration={1.2}
@@ -296,10 +298,12 @@ const Home: React.FC = () => {
                 company: 'Arka Tech Solutions',
                 period: 'May 2025 - Present · Remote',
                 bullets: [
+                  'Architected Python + SQL (PostgreSQL/MySQL) ETL and analytics pipelines processing 1,000+ structured records/day, supporting internal reporting and decision workflows.',
                   'Built LLM-powered assistants with distributed inference and GPU orchestration (Ray, LangChain), processing 5K+ queries/day with &lt;2s average latency.',
+                  'Designed fact and dimension tables to support analytics use cases, improving query performance for downstream dashboards by ~35%.',
                   'Developed multimodal AI pipelines combining image embeddings, text, and vector DBs (Milvus, Pinecone), handling 10K+ embeddings/day with 99.5% retrieval accuracy.',
-                  'Implemented real-time monitoring, logging, and fault-tolerant pipelines for production AI workflows, achieving 99.9% uptime and <100ms monitoring overhead.',
-                  'Integrated AI APIs into React/Flask apps for scalable, low-latency full-stack deployment, serving 1K+ concurrent users with sub-300ms API response times.'
+                  'Implemented data quality checks (schema validation, null detection, range checks) using Python, reducing downstream data issues by ~40%.',
+                  'Built REST APIs with Flask/FastAPI to expose AI capabilities and data analytics to frontend and product teams, ensuring 99.9% availability for business-critical processes.'
                 ]
               },
               {
@@ -307,9 +311,11 @@ const Home: React.FC = () => {
                 company: 'Anguliyam',
                 period: 'Jun 2024 - Apr 2025 · Remote',
                 bullets: [
-                  'Deployed LLM-driven voice workflows for real-time interaction and automation, processing 2K+ voice queries/day with <3s end-to-end latency.',
-                  'Built agent orchestration frameworks enabling API chaining and tool integration, reducing manual workflow time by 60% through automation.',
-                  'Optimized preprocessing pipelines for embeddings, feature extraction, and retrieval efficiency, improving query throughput by 3x and reducing costs by 40%.'
+                  'Built backend services to collect, transform, and expose structured datasets for analytics and AI-driven workflows using Python and SQL.',
+                  'Orchestrated and scheduled ETL workflows using Apache Airflow, enabling reliable daily data ingestion and transformation for analytics pipelines.',
+                  'Deployed LLM-driven voice workflows for real-time interaction and automation, processing 2K+ voice queries/day with &lt;3s end-to-end latency.',
+                  'Wrote SQL queries and Python data-processing scripts to analyze usage patterns, system performance, and workflow reliability.',
+                  'Refactored experimental pipelines into stable, reusable analytics components, improving reliability and maintainability by 30%.'
                 ]
               },
               {
@@ -317,9 +323,10 @@ const Home: React.FC = () => {
                 company: 'Cognizant',
                 period: 'Jan 2022 - Aug 2022 · Hyderabad, Telangana, India · Remote',
                 bullets: [
-                  'Supported large-scale ML workloads with ETL and preprocessing pipelines.',
-                  'Assisted in optimizing data flows and caching strategies to increase model throughput.',
-                  'Collaborated on NLP and structured data modules to improve downstream model performance.'
+                  'Built and maintained distributed ETL pipelines supporting analytics and machine-learning workloads on GB-scale datasets using Python and SQL.',
+                  'Authored complex SQL queries to support reporting, monitoring, and data validation use cases.',
+                  'Improved data reliability by introducing validation logic and job-level error handling, reducing downstream discrepancies by ~25%.',
+                  'Supported analytics teams by ensuring high data quality and ownership across multiple data sources.'
                 ]
               },
               {
@@ -395,6 +402,17 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* Real-Time Workflow Orchestration Section */}
+        <section className="workflow-section py-20" id="workflow">
+          <SectionHeader 
+            title="Real-Time Workflow Orchestration" 
+            subtitle="Live visualization of production AI pipelines and distributed system workflows"
+          />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <WorkflowOrchestration />
+          </div>
+        </section>
+
         {/* System Design Deep Dive Section */}
         <section className="system-design-section py-20" id="system-design">
                      <SectionHeader 
@@ -433,7 +451,11 @@ const Home: React.FC = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
-                        <span><strong>Database:</strong> PostgreSQL with connection pooling, Redis cache layer (95% hit rate)</span>
+                        <span><strong>Database:</strong> PostgreSQL with connection pooling, fact/dimension tables for analytics, Redis cache layer (95% hit rate)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-500 mt-1">•</span>
+                        <span><strong>Data Pipelines:</strong> Python + SQL ETL workflows with Airflow orchestration, data quality checks, and analytics-ready schemas</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
@@ -1140,9 +1162,16 @@ const Home: React.FC = () => {
               {
                 title: "Real-Time Monitoring for Production AI Systems",
                 category: "Observability",
-                description: "Building comprehensive monitoring with Prometheus, Sentry, and custom metrics for LLM pipelines, enabling real-time alerting and performance tracking with <100ms overhead.",
+                description: "Building comprehensive monitoring with Prometheus, Sentry, and custom metrics for LLM pipelines, enabling real-time alerting and performance tracking with &lt;100ms overhead.",
                 topics: ["Monitoring", "Observability", "Alerting", "Performance Tracking"],
-                metrics: "<100ms monitoring overhead, real-time alerting, 99.9% SLA"
+                metrics: "&lt;100ms monitoring overhead, real-time alerting, 99.9% SLA"
+              },
+              {
+                title: "ETL Pipeline Design for Analytics at Scale",
+                category: "Data Engineering",
+                description: "Architecting Python + SQL ETL pipelines processing 1,000+ structured records/day with data quality checks, fact/dimension table design, and Airflow orchestration, improving query performance by 35% and reducing data issues by 40%.",
+                topics: ["ETL Pipelines", "Data Modeling", "SQL Optimization", "Data Quality", "Airflow"],
+                metrics: "1,000+ records/day, 35% query improvement, 40% fewer data issues"
               }
             ].map((dive, idx) => (
               <MotionDiv
@@ -1198,7 +1227,7 @@ const Home: React.FC = () => {
               <Link href="https://www.linkedin.com/in/laharikarrotu/" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">LinkedIn</Link>
               <Link href="https://github.com/laharikarrotu" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">GitHub</Link>
            <a
-                href="/projects/LahariKarrotuResumeSDE-20251211092311.pdf" 
+                href="/projects/LahariKarrotuSE.pdf" 
                 download="Lahari_Karrotu_Software_Engineer_AI_FullStack.pdf"
                 className="px-4 py-2 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium"
              target="_blank"

@@ -108,8 +108,8 @@ export default function ConnectPage() {
           
           {/* Resume Download - Important for career events */}
           <a
-            href="/projects/LahariKarrotuResumeSDE-20251211092311.pdf"
-            download="Lahari_Karrotu_Resume.pdf"
+            href="/projects/LahariKarrotuSE.pdf"
+            download="Lahari_Karrotu_Software_Engineer_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{

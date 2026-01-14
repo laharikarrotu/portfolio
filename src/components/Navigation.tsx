@@ -11,6 +11,7 @@ const Navigation = () => {
   const menuItems = [
         { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
+    { href: '#workflow', label: 'Workflow' },
     { href: '#system-design', label: 'System Design' },
         { href: '#projects', label: 'Projects' },
     { href: '#github', label: 'GitHub' },
