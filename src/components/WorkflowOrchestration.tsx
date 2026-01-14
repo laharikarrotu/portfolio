@@ -59,7 +59,6 @@ const WorkflowOrchestration = () => {
     cacheHitRate: '95%'
   });
 
-  const animationRef = useRef<number>();
   const stepCycleRef = useRef(0);
 
   useEffect(() => {
@@ -116,9 +115,6 @@ const WorkflowOrchestration = () => {
 
     return () => {
       clearInterval(interval);
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
     };
   }, []);
 
