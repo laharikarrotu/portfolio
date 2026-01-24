@@ -79,44 +79,70 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-6xl mx-auto">
             <div className="flex-1 text-center md:text-left">
               <RevealHeading delay={0.1} duration={0.8} className="text-4xl md:text-6xl font-light mb-6 text-gray-900 dark:text-white tracking-tight">
-                Software Engineer (Backend & AI Systems)
+                Software Engineer
               </RevealHeading>
               
               <RevealText delay={0.3} duration={0.8}>
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   <TypeWriter 
                     texts={[
-                      'Backend & AI Systems',
-                      'Distributed Systems',
-                      'Production LLM Applications',
-                      'Full Stack'
+                      'Backend Services & APIs',
+                      'Data Pipelines & ETL',
+                      'AI-Enabled Applications',
+                      'Full Stack Development'
                     ]} 
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph 
-                text="Distributed Systems | Production LLM Applications | Full Stack"
-                className="text-gray-600 dark:text-gray-400 mb-12 max-w-3xl text-xl leading-relaxed"
+                text="Backend Services | Data Pipelines | AI-Enabled Applications"
+                className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl text-xl leading-relaxed"
                 delay={0.5}
                 duration={1.0}
                 stagger={0.1}
               />
+              
+              {/* Quick Summary for Recruiters */}
+              <RevealText delay={0.6} duration={0.8}>
+                <div className="mb-12 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-200 dark:border-indigo-800 max-w-3xl">
+                  <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-300 mb-2">📋 Quick Summary:</p>
+                  <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1 list-disc list-inside">
+                    <li>Built FastAPI services processing <strong>2,000+ daily requests</strong> (Arkatech)</li>
+                    <li>Optimized PostgreSQL queries: <strong>6s → 2s</strong> (67% improvement)</li>
+                    <li>Improved API success rate: <strong>87% → 98%</strong> (Anguliyam)</li>
+                    <li>Reduced ETL runtime: <strong>42min → 28min</strong> (33% faster, Cognizant)</li>
+                    <li>AI projects: <strong>85% accuracy</strong> (ScanX), <strong>88% detection</strong> (Blinds), <strong>82% F1 score</strong> (ATS Resume)</li>
+                  </ul>
+                </div>
+              </RevealText>
 
               <RevealText delay={0.7} duration={0.8}>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                  <a
+                    href="/projects/LahariKarrotuSE.pdf"
+                    download="Lahari_Karrotu_Software_Engineer_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 
+                             transition-all duration-200 text-sm font-semibold shadow-lg hover:shadow-xl
+                             flex items-center gap-2"
+                  >
+                    <span>📄</span>
+                    Download Resume
+                  </a>
                   <Link
                     href="#contact"
-                    className="px-6 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-md hover:bg-gray-800 dark:hover:bg-gray-100 
-                             transition-all duration-200 text-sm font-medium"
+                    className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-md hover:bg-gray-800 dark:hover:bg-gray-100 
+                             transition-all duration-200 text-sm font-semibold shadow-lg hover:shadow-xl"
                   >
                     Get in Touch
                   </Link>
                   <Link
                     href="#projects"
-                    className="px-6 py-2.5 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300
+                    className="px-6 py-3 bg-transparent border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300
                              rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 
-                             text-sm font-medium"
+                             text-sm font-semibold"
                   >
                     View Projects
                   </Link>
@@ -226,11 +252,62 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Highlight Reel */}
+        {/* Quick Stats - Real Impact Metrics (Skimmable) */}
+        <section className="py-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Impact at a Glance</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              {[
+                { label: 'API Requests/Day', value: '2,000+', icon: '⚡', source: 'Production System' },
+                { label: 'Load Time Improved', value: '67%', icon: '🚀', source: '6s → 2s' },
+                { label: 'API Success Rate', value: '98%', icon: '✅', source: '87% → 98%' },
+                { label: 'ETL Runtime Saved', value: '33%', icon: '📊', source: '42min → 28min' }
+              ].map((stat, idx) => (
+                <MotionDiv
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center hover:shadow-md transition-shadow"
+                >
+                  <div className="text-3xl mb-2">{stat.icon}</div>
+                  <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">{stat.value}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 mb-1 font-medium">{stat.label}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-500">{stat.source}</div>
+                </MotionDiv>
+              ))}
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { label: 'AI Accuracy', value: '85%', icon: '🎯', source: 'ScanX: 100+ interfaces' },
+                { label: 'Detection Rate', value: '88%', icon: '👁️', source: 'Blinds: 150 test images' },
+                { label: 'NLP Model F1', value: '82%', icon: '🧠', source: 'ATS: 500+ job posts' },
+                { label: 'Cache Speedup', value: '78%', icon: '💾', source: '4.1s → 0.9s' }
+              ].map((stat, idx) => (
+                <MotionDiv
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (idx + 4) * 0.1 }}
+                  className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm text-center hover:shadow-md transition-shadow"
+                >
+                  <div className="text-3xl mb-2">{stat.icon}</div>
+                  <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">{stat.value}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 mb-1 font-medium">{stat.label}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-500">{stat.source}</div>
+                </MotionDiv>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Highlight Reel - Quick Scan for Recruiters */}
         <section className="py-20">
           <SectionHeader 
-            title="Highlight Reel"
-            subtitle="What I build in 5 seconds of scanning"
+            title="What I Build"
+            subtitle="Quick scan: Full-stack AI systems, production APIs, and data pipelines"
           />
           <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -262,21 +339,21 @@ const Home: React.FC = () => {
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-                text="Software Engineer focused on backend systems and production AI applications."
+                text="Software Engineer with experience building and maintaining backend services, data pipelines, and AI-enabled applications in production. My work focuses on Python and FastAPI, with hands-on experience deploying and operating systems on AWS and Azure."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I work on distributed services and LLM-powered systems that operate under real-world constraints—latency, failures, observability, and scale. My experience spans backend APIs, ETL pipelines, data modeling (fact/dimension tables), SQL-first analytics, multimodal AI workflows, and full-stack integration."
+              text="I have worked on API design, database optimization, and AI/ML service integration, and I'm comfortable supporting applications through deployment, monitoring, and ongoing improvements."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.5}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I'm interested in teams building reliable systems at scale, where correctness, maintainability, and engineering judgment matter as much as model performance."
+              text="I prefer building systems that are reliable, maintainable, and designed with real-world constraints in mind."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.7}
               duration={1.2}
@@ -286,57 +363,55 @@ const Home: React.FC = () => {
         </section>
 
         <section id="experience" className="experience-section py-20 relative overflow-hidden">
-                     <SectionHeader 
-             title="Professional Journey" 
-             subtitle="Professional experience in Full Stack Development, AI/ML, and Cloud Solutions"
-           />
+          <SectionHeader 
+            title="Professional Experience" 
+            subtitle="Building production systems with measurable impact"
+          />
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             {[
               {
-                title: 'Full-Stack AI Engineer',
-                company: 'Arka Tech Solutions',
-                period: 'May 2025 - Present · Remote',
+                title: 'Software Engineer',
+                company: 'Arkatech Solutions',
+                period: 'May 2025 – Present',
                 bullets: [
-                  'Architected Python + SQL (PostgreSQL/MySQL) ETL and analytics pipelines processing 1,000+ structured records/day, supporting internal reporting and decision workflows.',
-                  'Built LLM-powered assistants with distributed inference and GPU orchestration (Ray, LangChain), processing 5K+ queries/day with &lt;2s average latency.',
-                  'Designed fact and dimension tables to support analytics use cases, improving query performance for downstream dashboards by ~35%.',
-                  'Developed multimodal AI pipelines combining image embeddings, text, and vector DBs (Milvus, Pinecone), handling 10K+ embeddings/day with 99.5% retrieval accuracy.',
-                  'Implemented data quality checks (schema validation, null detection, range checks) using Python, reducing downstream data issues by ~40%.',
-                  'Built REST APIs with Flask/FastAPI to expose AI capabilities and data analytics to frontend and product teams, ensuring 99.9% availability for business-critical processes.'
-                ]
-              },
-              {
-                title: 'Software Engineer Intern – AI & Full-Stack Systems',
-                company: 'Anguliyam',
-                period: 'Jun 2024 - Apr 2025 · Remote',
-                bullets: [
-                  'Built backend services to collect, transform, and expose structured datasets for analytics and AI-driven workflows using Python and SQL.',
-                  'Orchestrated and scheduled ETL workflows using Apache Airflow, enabling reliable daily data ingestion and transformation for analytics pipelines.',
-                  'Deployed LLM-driven voice workflows for real-time interaction and automation, processing 2K+ voice queries/day with &lt;3s end-to-end latency.',
-                  'Wrote SQL queries and Python data-processing scripts to analyze usage patterns, system performance, and workflow reliability.',
-                  'Refactored experimental pipelines into stable, reusable analytics components, improving reliability and maintainability by 30%.'
-                ]
-              },
-              {
-                title: 'Program Analyst Intern',
-                company: 'Cognizant',
-                period: 'Jan 2022 - Aug 2022 · Hyderabad, Telangana, India · Remote',
-                bullets: [
-                  'Built and maintained distributed ETL pipelines supporting analytics and machine-learning workloads on GB-scale datasets using Python and SQL.',
-                  'Authored complex SQL queries to support reporting, monitoring, and data validation use cases.',
-                  'Improved data reliability by introducing validation logic and job-level error handling, reducing downstream discrepancies by ~25%.',
-                  'Supported analytics teams by ensuring high data quality and ownership across multiple data sources.'
+                  'Built FastAPI services integrating OpenAI and Azure Vision APIs, processing 2,000+ daily requests for document extraction',
+                  'Optimized slow PostgreSQL queries by adding composite indexes—reduced dashboard load time from 6s to 2s',
+                  'Implemented error handling with exponential backoff for API rate limits and circuit breakers for service failures',
+                  'Deployed to Azure App Service with GitHub Actions CI/CD, configured Key Vault for secrets and Application Insights for monitoring'
                 ]
               },
               {
                 title: 'Software Engineer Intern',
-                company: 'EPAM Systems',
-                period: 'Dec 2020 - Mar 2021 · India · Hybrid',
+                company: 'Anguliyam AI Solutions',
+                period: 'Jun 2024 – May 2025',
                 bullets: [
-                  'Developed automation scripts and tools to streamline ML workflows.',
-                  'Assisted in feature engineering and batch processing for analytics projects.',
-                  'Improved operational efficiency of reporting and data handling pipelines by 40%.'
+                  'Developed voice navigation system with FastAPI backend integrated with Google Speech-to-Text API',
+                  'Added Redis caching layer to reduce API response time from 3s to 800ms under load',
+                  'Built JWT authentication with role-based access control for admin and standard users',
+                  'Fixed production bug where Azure Vision API calls failed silently—added retry logic improving success rate from 87% to 98%'
+                ]
+              },
+              {
+                title: 'Software Engineer Intern',
+                company: 'Cognizant Technology Solutions',
+                period: 'Jan 2022 – Aug 2022',
+                bullets: [
+                  'Worked on AWS Lambda functions processing S3 uploads, transforming CSV/JSON data with Pandas before DynamoDB loading',
+                  'Contributed to PySpark jobs on EMR processing 200-500GB daily logs with schema validation before Redshift loading',
+                  'Built Python ETL pipeline using SQLAlchemy—optimized batch size reducing runtime from 42min to 28min',
+                  'Debugged Spark job OutOfMemoryError by tuning executor memory and partition count with senior engineer guidance'
+                ]
+              },
+              {
+                title: 'Data Engineering Intern',
+                company: 'EPAM Systems',
+                period: 'Dec 2020 – Mar 2021',
+                bullets: [
+                  'Built Python ETL pipeline migrating 500K+ customer records from MySQL to PostgreSQL with data validation',
+                  'Optimized slow analytics query by adding composite index—reduced execution time from 8min to 2.5min',
+                  'Developed data quality checks using Pandas to catch nulls, duplicates, and integrity violations before loading',
+                  'Collaborated on star schema design and documented ETL workflows'
                 ]
               }
             ].map((role, idx) => (
@@ -348,16 +423,16 @@ const Home: React.FC = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
               >
-                <div className="flex flex-col gap-1 mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{role.title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300">{role.company}</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">{role.period}</p>
-                        </div>
-                <ul className="space-y-2">
+                <div className="flex flex-col gap-1 mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{role.title}</h3>
+                  <p className="text-lg font-semibold text-indigo-600 dark:text-indigo-400">{role.company}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">{role.period}</p>
+                </div>
+                <ul className="space-y-3">
                   {role.bullets.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                      <span className="mt-1 text-indigo-500">•</span>
-                      <span>{item}</span>
+                    <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                      <span className="mt-1.5 text-indigo-500 font-bold">▸</span>
+                      <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -432,8 +507,8 @@ const Home: React.FC = () => {
                     SmartBuy AI: Production E-Commerce Platform with AI Integration
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
-                    A scalable full-stack eCommerce platform handling 10K+ daily active users with AI-powered navigation, 
-                    real-time inventory management, and sub-2s page load times.
+                    A scalable full-stack eCommerce platform with AI-powered navigation, 
+                    real-time inventory management, and optimized performance.
                   </p>
           </div>
 
@@ -447,7 +522,7 @@ const Home: React.FC = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
-                        <span><strong>Backend:</strong> FastAPI microservices with async/await, handling 1K+ concurrent requests</span>
+                        <span><strong>Backend:</strong> FastAPI microservices with async/await for scalable request handling</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
@@ -473,7 +548,7 @@ const Home: React.FC = () => {
                     <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
-                        <span><strong>Load Handling:</strong> 10K+ daily active users, 500+ concurrent sessions, 99.9% uptime</span>
+                        <span><strong>Load Handling:</strong> Scalable architecture with horizontal scaling, connection pooling, and caching strategies</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-500 mt-1">•</span>
@@ -512,7 +587,7 @@ const Home: React.FC = () => {
                 </div>
                 <div>
                       <p className="font-medium text-gray-900 dark:text-white">4. Failure Handling</p>
-                      <p className="text-gray-700 dark:text-gray-300">Circuit breakers for AI API, graceful degradation to keyword search, retry logic with exponential backoff, ensuring 99.9% availability even during AI service outages.</p>
+                      <p className="text-gray-700 dark:text-gray-300">Circuit breakers for AI API, graceful degradation to keyword search, retry logic with exponential backoff for improved reliability during service outages.</p>
               </div>
             </div>
           </div>
@@ -539,6 +614,53 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* Why Hire Me Section - Recruiter Quick Read */}
+        <section className="py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader 
+              title="Why Hire Me" 
+              subtitle="Real impact, production systems, measurable results"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {[
+                {
+                  title: 'Production-Ready Code',
+                  description: 'Built FastAPI services processing 2,000+ daily requests. Experience with real-world constraints: latency, reliability, monitoring, and deployment on AWS/Azure.',
+                  icon: '🚀',
+                  color: 'from-blue-500 to-cyan-500'
+                },
+                {
+                  title: 'Full-Stack Expertise',
+                  description: 'Python/FastAPI backend, React/Next.js frontend, PostgreSQL/MongoDB, AWS/Azure cloud. End-to-end ownership from design to deployment with CI/CD pipelines.',
+                  icon: '⚡',
+                  color: 'from-purple-500 to-pink-500'
+                },
+                {
+                  title: 'Problem Solver',
+                  description: 'Optimized PostgreSQL queries reducing dashboard load time by 67% (6s→2s). Improved Azure Vision API success rate from 87% to 98%. Reduced ETL pipeline runtime by 33% (42min→28min).',
+                  icon: '🎯',
+                  color: 'from-indigo-500 to-purple-500'
+                }
+              ].map((item, idx) => (
+                <MotionDiv
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all"
+                >
+                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl mb-4`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                </MotionDiv>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="projects-section py-32 overflow-hidden" id="projects">
            <SectionHeader 
             title="Projects" 
@@ -549,15 +671,52 @@ const Home: React.FC = () => {
              </div>
          </section>
 
-         <section className="contact-section py-32" id="contact">
-           <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-             Contact
-           </RevealHeading>
-           <RevealText delay={0.3} duration={0.8}>
-             <p className="mb-12 text-gray-600 text-center text-lg max-w-2xl mx-auto">
-               Open to discussing new opportunities, collaborative projects, and technical challenges in full-stack development and AI/ML integration.
-             </p>
-           </RevealText>
+         <section className="contact-section py-32 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" id="contact">
+           <div className="max-w-4xl mx-auto px-4">
+             <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+               Let's Work Together
+             </RevealHeading>
+             <RevealText delay={0.3} duration={0.8}>
+               <p className="mb-8 text-gray-600 dark:text-gray-400 text-center text-lg max-w-2xl mx-auto">
+                 Open to new opportunities, collaborative projects, and technical challenges. Available for full-time roles in Software Engineering, Backend Development, and AI/ML Systems.
+               </p>
+             </RevealText>
+             
+             {/* Quick Contact CTA */}
+             <MotionDiv
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg mb-12"
+             >
+               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                 <a
+                   href="mailto:laharikarrotu24@gmail.com"
+                   className="px-8 py-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl flex items-center gap-2"
+                 >
+                   <Mail className="w-5 h-5" />
+                   Email Me
+                 </a>
+                 <a
+                   href="/projects/LahariKarrotuSE.pdf"
+                   download="Lahari_Karrotu_Software_Engineer_Resume.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl flex items-center gap-2"
+                 >
+                   <span>📄</span>
+                   Download Resume
+                 </a>
+                 <Link
+                   href="https://www.linkedin.com/in/laharikarrotu/"
+                   target="_blank"
+                   className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl flex items-center gap-2"
+                 >
+                   <Linkedin className="w-5 h-5" />
+                   Connect on LinkedIn
+                 </Link>
+               </div>
+             </MotionDiv>
            
            {/* Enhanced Contact Form */}
            <EnhancedContactForm />
@@ -601,6 +760,7 @@ const Home: React.FC = () => {
                </div>
              </RevealText>
            </div>
+          </div>
         </section>
 
         {/* What I'm learning now */}
@@ -766,12 +926,12 @@ const Home: React.FC = () => {
           />
           <div className="max-w-5xl mx-auto px-4 space-y-4">
             {[
-              { label: 'Languages', items: ['Python', 'TypeScript', 'SQL'] },
+              { label: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'SQL'] },
               { label: 'Frontend', items: ['React', 'Next.js', 'Tailwind'] },
-              { label: 'Backend', items: ['FastAPI', 'Node.js'] },
-              { label: 'AI/ML', items: ['OpenAI', 'LangChain', 'TensorFlow', 'Embeddings'] },
-              { label: 'Cloud', items: ['Azure', 'AWS'] },
-              { label: 'Data', items: ['Spark', 'Airflow', 'Snowflake'] },
+              { label: 'Backend', items: ['FastAPI', 'Node.js', 'Express.js', 'REST APIs'] },
+              { label: 'AI/ML', items: ['OpenAI API', 'LangChain', 'Azure Computer Vision', 'OpenCV'] },
+              { label: 'Cloud', items: ['AWS (Lambda, S3, EC2)', 'Azure (App Service, Blob Storage)', 'Docker', 'GitHub Actions'] },
+              { label: 'Data', items: ['Apache Spark', 'PySpark', 'ETL Pipelines', 'PostgreSQL', 'MongoDB', 'Redis'] },
             ].map((row) => (
               <div key={row.label} className="flex flex-wrap items-center gap-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm px-4 py-3">
                 <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-300 w-28">{row.label}</span>
@@ -911,17 +1071,17 @@ const Home: React.FC = () => {
           >
             {[
               {
-                degree: "Master's degree, Computer Science",
+                degree: "Master of Science in Computer Science",
                 school: 'Florida Institute of Technology',
-                period: 'Aug 2022 - May 2024',
-                grade: 'Grade: 3.6',
-                description: "Master's in Computer Science with a focus on systems, data engineering, and applied AI."
+                period: '2024',
+                grade: 'GPA: 3.5/4.0',
+                description: ''
               },
               {
-                degree: "Bachelor's degree, Computer Science",
+                degree: "Bachelor of Science in Computer Science",
                 school: 'KL University',
-                period: 'Aug 2018 - May 2022',
-                grade: 'Grade: 8.7',
+                period: '2022',
+                grade: '',
                 description: ''
               }
             ].map((edu, idx) => (
@@ -961,21 +1121,16 @@ const Home: React.FC = () => {
           >
             {[
               {
-                title: 'AWS Certified Solutions Architect',
-                issuer: 'Amazon · Issued May 2025',
+                title: 'AWS Certified Solutions Architect – Associate',
+                issuer: 'Amazon Web Services',
                 icon: '☁️',
                 link: 'https://www.credly.com/badges/454b6f57-2586-48bd-a854-1317ee4a6fdd/public_url'
               },
               {
                 title: 'CCNA: Switching, Routing, and Wireless Essentials',
-                issuer: 'Cisco · Issued Aug 2020',
+                issuer: 'Cisco',
                 icon: '🌐',
                 link: 'https://www.youracclaim.com/badges/09bfbaf8-6538-4b48-a9ea-49b9bc39414a?source=linked_in_profile'
-              },
-              {
-                title: 'Machine Learning Specialization',
-                issuer: 'Coursera (Andrew Ng)',
-                icon: '📘'
               },
               {
                 title: 'HackerRank Problem Solving',
@@ -1125,9 +1280,9 @@ const Home: React.FC = () => {
               {
                 title: "Scaling FastAPI for High-Throughput AI Workloads",
                 category: "Backend Engineering",
-                description: "How I optimized FastAPI microservices to handle 1K+ concurrent requests with &lt;300ms latency, implementing connection pooling, async/await patterns, and request batching for AI API calls.",
+                description: "How I optimized FastAPI microservices for scalable request handling, implementing connection pooling, async/await patterns, and request batching for AI API calls.",
                 topics: ["Async Architecture", "Connection Pooling", "Request Batching", "Performance Optimization"],
-                metrics: "1K+ concurrent requests, &lt;300ms p95 latency, 40% cost reduction"
+                metrics: "Optimized request handling, improved latency, cost-effective scaling"
               },
               {
                 title: "Vector Database Optimization for Semantic Search",
@@ -1139,9 +1294,9 @@ const Home: React.FC = () => {
               {
                 title: "Building Fault-Tolerant LLM Pipelines",
                 category: "Distributed Systems",
-                description: "Designing resilient AI workflows with circuit breakers, graceful degradation, retry logic, and fallback mechanisms to maintain 99.9% uptime even during AI service outages.",
+                description: "Designing resilient AI workflows with circuit breakers, graceful degradation, retry logic, and fallback mechanisms for improved reliability during AI service outages.",
                 topics: ["Fault Tolerance", "Circuit Breakers", "Graceful Degradation", "Error Handling"],
-                metrics: "99.9% uptime, <100ms monitoring overhead, zero-downtime deployments"
+                metrics: "Improved reliability, minimal monitoring overhead, robust error handling"
               },
               {
                 title: "Multi-Layer Caching Strategy for E-Commerce",
@@ -1155,7 +1310,7 @@ const Home: React.FC = () => {
                 category: "Observability",
                 description: "Building comprehensive monitoring with Prometheus, Sentry, and custom metrics for LLM pipelines, enabling real-time alerting and performance tracking with &lt;100ms overhead.",
                 topics: ["Monitoring", "Observability", "Alerting", "Performance Tracking"],
-                metrics: "&lt;100ms monitoring overhead, real-time alerting, 99.9% SLA"
+                metrics: "Minimal monitoring overhead, real-time alerting, improved system reliability"
               },
               {
                 title: "ETL Pipeline Design for Analytics at Scale",
@@ -1208,25 +1363,54 @@ const Home: React.FC = () => {
         </section>
 
         {/* Footer Contact */}
-        <footer className="bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800 py-10 mt-16">
-          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-gray-700 dark:text-gray-300 text-center md:text-left">
-              <p className="font-semibold">Let’s build something great.</p>
-                  </div>
-            <div className="flex flex-wrap justify-center md:justify-end gap-3">
-              <Link href="mailto:laharikarrotu24@gmail.com" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">Email</Link>
-              <Link href="https://www.linkedin.com/in/laharikarrotu/" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">LinkedIn</Link>
-              <Link href="https://github.com/laharikarrotu" target="_blank" className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-200">GitHub</Link>
-           <a
+        <footer className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-black dark:to-gray-900 text-white py-12 mt-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <h3 className="text-xl font-bold mb-4">Lahari Karrotu</h3>
+                <p className="text-gray-400 text-sm">Software Engineer specializing in backend services, data pipelines, and AI-enabled applications.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4">Quick Links</h4>
+                <div className="space-y-2">
+                  <Link href="#projects" className="block text-gray-400 hover:text-white text-sm transition-colors">Projects</Link>
+                  <Link href="#experience" className="block text-gray-400 hover:text-white text-sm transition-colors">Experience</Link>
+                  <Link href="#contact" className="block text-gray-400 hover:text-white text-sm transition-colors">Contact</Link>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4">Connect</h4>
+                <div className="space-y-2">
+                  <a href="mailto:laharikarrotu24@gmail.com" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    laharikarrotu24@gmail.com
+                  </a>
+                  <a href="https://www.linkedin.com/in/laharikarrotu/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2">
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                  <a href="https://github.com/laharikarrotu" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2">
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-gray-400 text-sm text-center md:text-left">
+                © {new Date().getFullYear()} Lahari Karrotu. All rights reserved.
+              </p>
+              <a
                 href="/projects/LahariKarrotuSE.pdf" 
-                download="Lahari_Karrotu_Software_Engineer_AI_FullStack.pdf"
-                className="px-4 py-2 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium"
-             target="_blank"
-             rel="noopener noreferrer"
+                download="Lahari_Karrotu_Software_Engineer_Resume.pdf"
+                className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
+                <span>📄</span>
                 Download Resume
-           </a>
-         </div>
+              </a>
+            </div>
           </div>
         </footer>
       </div>

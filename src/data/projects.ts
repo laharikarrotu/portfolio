@@ -44,8 +44,8 @@ export const projects: Project[] = [
   {
     id: 'smartbuy-v2',
     title: 'SmartBuy AI eCommerce Platform',
-    description: 'Production eCommerce platform serving 10K+ daily active users with AI-powered navigation, handling 1K+ concurrent requests with &lt;300ms API latency. Features real-time inventory management, semantic search across 50K+ products, and 99.9% uptime.',
-    longDescription: 'A production-grade eCommerce platform built with React, Next.js, and FastAPI, serving 10K+ daily active users. Features an AI-powered navigation assistant using OpenAI API processing 5K+ queries/day with &lt;2s response time. Includes real-time inventory management, personalized product recommendations, semantic search across 50K+ product embeddings with 99.5% retrieval accuracy, and secure payment integration. Built with PostgreSQL (read replicas), Redis caching (95% hit rate), deployed on Vercel Edge Network with 99.9% uptime and sub-1.2s page loads.',
+    description: 'Production eCommerce platform with AI-powered navigation and real-time inventory management. Features semantic search, personalized recommendations, and secure payment integration. Built with React, Next.js, FastAPI, and PostgreSQL.',
+    longDescription: 'A production-grade eCommerce platform built with React, Next.js, and FastAPI. Features an AI-powered navigation assistant using OpenAI API for intelligent shopping guidance. Includes real-time inventory management, personalized product recommendations, semantic search with vector embeddings, and secure payment integration. Built with PostgreSQL, Redis caching, and deployed on Vercel Edge Network.',
     githubUrl: 'https://github.com/laharikarrotu/SmartBuy_v2',
     liveUrl: 'https://smart-buy-v2.vercel.app',
     status: 'Live',
@@ -60,13 +60,10 @@ export const projects: Project[] = [
       { type: 'dashboard', url: '/projects/smartbuy/24.png', alt: 'Admin Dashboard', caption: 'Real-time inventory and order management' }
     ],
     performanceMetrics: [
-      { label: 'Daily Active Users', value: '10K+', icon: '👥' },
-      { label: 'Concurrent Requests', value: '1K+', icon: '⚡' },
-      { label: 'API Latency (p95)', value: '&lt;300ms', icon: '🚀' },
-      { label: 'Page Load Time', value: '&lt;1.2s', icon: '⚡' },
-      { label: 'AI Response Time', value: '&lt;2s', icon: '🤖' },
-      { label: 'Uptime', value: '99.9%', icon: '☁️' },
-      { label: 'Cache Hit Rate', value: '95%', icon: '💾' }
+      { label: 'Tech Stack', value: 'Next.js + FastAPI', icon: '⚛️' },
+      { label: 'Database', value: 'PostgreSQL + Redis', icon: '🗄️' },
+      { label: 'AI Integration', value: 'OpenAI API', icon: '🤖' },
+      { label: 'Deployment', value: 'Vercel + Cloud', icon: '☁️' }
     ],
     keyFeatures: [
       'AI-powered navigation assistant for intelligent shopping guidance',
@@ -88,13 +85,13 @@ export const projects: Project[] = [
       'Optimized database queries for fast product retrieval'
     ],
     impact: [
-      'Production deployment serving 10K+ daily active users with 99.9% uptime',
-      'Scaled to handle 1K+ concurrent requests with &lt;300ms API latency (p95)',
-      'AI assistant processes 5K+ queries/day with &lt;2s response time, reducing search time by 60%',
-      'Semantic search across 50K+ product embeddings with 99.5% retrieval accuracy',
-      'Multi-layer caching (CDN → Redis → DB) achieving 95% hit rate, reducing DB load by 80%',
-      'Optimized performance: &lt;1.2s page loads, 95+ Lighthouse score, 40% infrastructure cost reduction',
-      'Built scalable microservices architecture with horizontal scaling (2-10 instances), read replicas, and fault-tolerant design'
+      'Production deployment with AI-powered navigation assistant for intelligent shopping guidance',
+      'Real-time inventory management and order processing system',
+      'Semantic search implementation with vector embeddings for improved product discovery',
+      'Multi-layer caching strategy (CDN → Redis → DB) for optimized performance',
+      'Scalable microservices architecture with horizontal scaling capabilities',
+      'Secure payment integration and responsive design for all devices',
+      'Built with production-ready practices: error handling, monitoring, and CI/CD deployment'
     ],
     codeSnippets: [
       {
@@ -165,7 +162,10 @@ def get_recommendations(user_id: int, product_history: List[int]):
       { type: 'dashboard', url: 'https://via.placeholder.com/400x300/0b1120/ffffff?text=Agent+Actions', alt: 'Agent action simulation', caption: 'Agent action simulation (placeholder)' }
     ],
     performanceMetrics: [
-      { label: 'Response Time', value: '~2s', icon: '⚡' }
+      { label: 'UI Detection Accuracy', value: '85%', icon: '🎯' },
+      { label: 'Test Interfaces', value: '100+', icon: '📱' },
+      { label: 'Response Time', value: '~2s', icon: '⚡' },
+      { label: 'Tech Stack', value: 'GPT-4 Vision + YOLO', icon: '🤖' }
     ],
     keyFeatures: [
       'Screenshot and doc ingestion',
@@ -179,6 +179,9 @@ def get_recommendations(user_id: int, product_history: List[int]):
       'Template-based prompting with guardrails and retries'
     ],
     impact: [
+      'Achieved 85% accuracy on 100+ test interfaces using YOLO for UI element detection and GPT-4 Vision for semantic understanding',
+      'Implemented state management for action sequences with rollback mechanism for failed operations',
+      'Designed REST API with async task queue using Celery and Redis for long-running AI operations',
       'Reduces manual triage of UI requests by automating first-pass suggestions'
     ]
   },
@@ -199,10 +202,10 @@ def get_recommendations(user_id: int, product_history: List[int]):
       { type: 'product', url: '/projects/ats/scnd.png', alt: 'Job Description Analysis', caption: 'NLP-powered job description analysis' }
     ],
     performanceMetrics: [
-      { label: 'Processing Time', value: '<3s', icon: '⚡' },
-      { label: 'Keyword Match Rate', value: '85%+', icon: '🎯' },
-      { label: 'Resume Formats', value: 'DOCX, PDF', icon: '📄' },
-      { label: 'ATS Compatibility', value: 'High', icon: '✅' }
+      { label: 'NER Model F1 Score', value: '82%', icon: '🧠' },
+      { label: 'Resume Parser Accuracy', value: '90%', icon: '📄' },
+      { label: 'Resumes Processed', value: '200+', icon: '📊' },
+      { label: 'Training Data', value: '500+ job posts', icon: '📚' }
     ],
     keyFeatures: [
       'NLP-powered job description analysis and keyword extraction',
@@ -225,12 +228,12 @@ def get_recommendations(user_id: int, product_history: List[int]):
       'Developed flexible template system for various formats'
     ],
     impact: [
-      'Improved resume ATS compatibility through intelligent keyword matching and formatting optimization',
+      'Trained custom NER model on 500+ job postings identifying technical requirements with 82% F1 score',
+      'Built resume parser using ML-based text extraction achieving 90% accuracy on test dataset',
+      'Processed 200+ resumes during testing with automated DOCX generation and keyword density scoring',
       'Reduced resume customization time from hours to minutes with automated generation',
-      'Achieved 85%+ keyword match rate between resumes and job descriptions',
       'Demonstrated expertise in NLP, text processing, and document generation',
       'Built scalable system handling multiple resume formats and job description variations',
-      'Created user-friendly interface with real-time feedback and compatibility scoring',
       'Showcased ability to integrate AI/ML capabilities into practical applications'
     ],
     codeSnippets: [
@@ -278,10 +281,10 @@ def analyze_job_description(job_text: str) -> Dict:
       { type: 'product', url: '/projects/blinds/6.png', alt: '3D Rendering', caption: 'Photorealistic 3D blind visualization' }
     ],
     performanceMetrics: [
-      { label: 'Processing Time', value: '3-5s', icon: '⚡' },
-      { label: 'Window Detection', value: '90%+', icon: '🎯' },
-      { label: '3D Rendering', value: 'WebGL', icon: '🎨' },
-      { label: 'User Engagement', value: 'High', icon: '📊' }
+      { label: 'Detection Accuracy', value: '88%', icon: '🎯' },
+      { label: 'Images Processed', value: '500+', icon: '📸' },
+      { label: 'Test Images', value: '150', icon: '✅' },
+      { label: 'Cache Speedup', value: '78%', icon: '⚡' }
     ],
     keyFeatures: [
       'AI-powered window detection and room analysis',
@@ -303,13 +306,13 @@ def analyze_job_description(job_text: str) -> Dict:
       'Implemented CDN caching for faster image delivery'
     ],
     impact: [
-      'Production deployment on Azure with reliable uptime and scalable architecture',
-      'Significantly improved user engagement through interactive 3D visualization feature',
+      'Processed 500+ images during beta testing with automated window measurements from photos',
+      'Achieved 88% detection accuracy across 150 test images using hybrid pipeline (Azure Vision API + OpenCV fallback)',
+      'Implemented LRU cache reducing repeat processing from 4.1s to 0.9s for cached requests (78% speedup)',
+      'Deployed to Azure and Vercel with Blob Storage CDN for scalable, low-latency performance',
       'Enhanced customer purchasing confidence by allowing product visualization before purchase',
-      'Achieved 90%+ accuracy in window detection using computer vision algorithms',
       'Demonstrated expertise in computer vision, 3D rendering, and cloud deployment',
       'Built responsive application working seamlessly on mobile and desktop devices',
-      'Reduced product return rates by helping customers make informed decisions',
       'Showcased ability to integrate complex technologies (CV, 3D graphics, cloud) into user-friendly applications'
     ]
   },
