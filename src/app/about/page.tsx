@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 
 export default function AboutPage() {
   return (
@@ -63,14 +63,23 @@ export default function AboutPage() {
           </div>
 
           <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-              <Image
-                src="/workspace-placeholder.jpg"
-                alt="Workspace"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="transition-transform duration-500 hover:scale-110"
+            <div className="rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl bg-white p-4">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                GitHub Activity
+              </h3>
+              <img
+                src={`https://github-readme-activity-graph.vercel.app/graph?username=laharikarrotu&theme=github-compact&area=true&hide_border=true&bg_color=ffffff&color=000000&line=4f46e5&point=24292e`}
+                alt="GitHub Contribution Activity"
+                className="w-full h-auto rounded"
+                loading="lazy"
               />
+              <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                <span>12 public repositories</span>
+                <a href="https://github.com/laharikarrotu" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 font-medium">
+                  View on GitHub →
+                </a>
+              </div>
             </div>
 
             <div className="bg-gradient-to-br from-gray-50 to-blue-50/50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
