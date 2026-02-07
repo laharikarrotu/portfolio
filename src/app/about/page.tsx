@@ -10,15 +10,15 @@ export default function AboutPage() {
               About Me
             </h1>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Software Engineer at Oracle working on provider credentialing systems for Oracle Health.
-              I build REST APIs with Java Spring Boot, optimize database queries, and deploy 
-              microservices on Oracle Cloud Infrastructure. Previously interned at Adobe Creative Cloud 
-              (React/TypeScript) and Anguliyam AI Solutions (voice assistants, Azure).
+              Hey, I&apos;m Lahari. I&apos;m a software engineer currently at Oracle (contracted via Arkatech Solutions), 
+              where I build healthcare credentialing APIs with Java Spring Boot on Oracle Cloud. Before that, 
+              I worked at Adobe on the Creative Cloud web apps and at Anguliyam AI building voice assistants 
+              for visually impaired users.
             </p>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              I focus on writing production-ready code with proper error handling, monitoring, 
-              and automated testing. Comfortable working across the stack—from Spring Boot APIs 
-              and Oracle Database to React frontends and CI/CD pipelines.
+              Outside of work, I&apos;m constantly building — I have 12 public GitHub projects ranging from 
+              AI healthcare tools to computer vision apps to full eCommerce platforms. I like solving 
+              real problems with clean code and honest engineering.
             </p>
             
             <div className="space-y-4 transform transition-all duration-500 hover:translate-x-2">
@@ -79,10 +79,11 @@ export default function AboutPage() {
               </h2>
               <ul className="space-y-3 stagger-animation">
                 {[
-                  'Built REST APIs with Java Spring Boot processing HL7/FHIR messages for Oracle Health credentialing',
-                  'Optimized Oracle Database queries (6s→2s) and fixed production API failures (87%→98% success rate)',
-                  'Contributed to Adobe Creative Cloud React component library and improved page load by 33%',
-                  'Shipped voice assistant for visually impaired users deployed on Azure serving 200+ beta testers'
+                  '12 public GitHub projects — AI healthcare, computer vision, eCommerce, fitness, task management, and more',
+                  'Oracle: Healthcare APIs (Spring Boot, HL7/FHIR), DB optimization (6s→2s), API reliability (87%→98%)',
+                  'Adobe: React component library for Creative Cloud, page load optimization (4.2s→2.8s), Redux debugging',
+                  'Side projects: HealthScan (AI prescription analysis), Blinds & Boundaries (3D virtual try-on), SmartBuy AI (eCommerce)',
+                  'AWS Solutions Architect certified · MS Computer Science (Florida Tech)'
                 ].map((highlight, index) => (
                   <li key={index} className="flex items-start transform transition-all duration-300 hover:translate-x-2">
                     <span className="inline-block w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 mr-3"></span>

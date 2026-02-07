@@ -7,16 +7,14 @@ import Link from 'next/link';
 export default function ExperiencePage() {
   const experiences = [{
     title: "Software Engineer",
-    company: "Oracle",
+    company: "Oracle (via Arkatech Solutions)",
     location: "Remote",
     period: "May 2025 – Present",
     achievements: [
-      "Work on provider credentialing system for Oracle Health integrating with hospital EHR systems",
-      "Built REST API endpoints using Java Spring Boot processing HL7/FHIR messages for credential verification",
-      "Implemented OAuth2 authentication for secure data exchange with external healthcare providers",
-      "Debugged production issue where credential verification API was failing intermittently due to database connection timeouts—added retry logic with exponential backoff and connection pooling, improving success rate from 87% to 98% and reducing average verification turnaround from 48 hours to 4 hours",
-      "Optimized slow Oracle Database query loading provider dashboard analytics using EXPLAIN PLAN—added composite index on (provider_id, status, last_updated), dropping query execution time from 6s to 2s",
-      "Set up CI/CD pipeline with Jenkins deploying microservices to Oracle Cloud Infrastructure (OCI)—configured Liquibase database migration scripts, automated API testing, and Oracle APM monitoring"
+      "Building healthcare credentialing APIs with Java Spring Boot — processing HL7/FHIR messages for provider verification across hospital EHR systems",
+      "Fixed intermittent API failures caused by DB connection timeouts: added retry logic + connection pooling → success rate 87% → 98%, turnaround 48h → 4h",
+      "Optimized dashboard analytics query from 6s → 2s via EXPLAIN PLAN + composite index on (provider_id, status, last_updated)",
+      "Set up CI/CD with Jenkins on Oracle Cloud (OCI) — Liquibase migrations, automated API tests, APM monitoring"
     ]
   },
   {
@@ -25,10 +23,8 @@ export default function ExperiencePage() {
     location: "Atlanta",
     period: "June 2024 – May 2025",
     achievements: [
-      "Built and shipped VoiceNav Assistant (event-driven microservices) for visually impaired users—integrated Google Speech-to-Text + Porcupine wake-word detection",
-      "Deployed on Azure App Service serving 200+ beta testers",
-      "Reduced API response time from 3s to 800ms using Redis caching keyed by audio hash (65% hit rate)",
-      "Implemented JWT auth with role-based access control—bcrypt password hashing, httpOnly cookies to prevent XSS"
+      "Shipped VoiceNav Assistant for visually impaired users — event-driven microservices with Google Speech-to-Text + Porcupine wake-word detection, deployed on Azure serving 200+ beta testers",
+      "Cut API response time 3s → 800ms using Redis caching (65% hit rate) · JWT auth with role-based access"
     ]
   },
   {
@@ -37,11 +33,9 @@ export default function ExperiencePage() {
     location: "India",
     period: "January 2022 – August 2022",
     achievements: [
-      "Worked on Adobe Express web application fixing bugs and implementing new UI features using React + TypeScript",
-      "Refactored image loading components to use lazy loading with WebP format and fallbacks—reduced initial page load time from 4.2s to 2.8s",
-      "Contributed to internal React component library used across Creative Cloud web apps—built reusable color picker with keyboard navigation and ARIA labels for accessibility",
-      "Fixed Safari CSS rendering bugs in layer panel component",
-      "Debugged production issue where undo/redo functionality broke on text editing—traced through Redux state to find race condition in action dispatchers, wrote Jest unit tests increasing canvas test coverage from 65% to 82%"
+      "Adobe Express: React + TypeScript features, lazy loading with WebP → page load 4.2s → 2.8s",
+      "Built reusable components for the Creative Cloud component library — color picker with keyboard nav + ARIA labels",
+      "Traced a Redux race condition in undo/redo that nobody else could find, wrote Jest tests → coverage 65% → 82%"
     ]
   },
   {
@@ -50,9 +44,8 @@ export default function ExperiencePage() {
     location: "India",
     period: "December 2020 – March 2021",
     achievements: [
-      "Worked on backend services for e-commerce client migrating customer data from MySQL to PostgreSQL",
-      "Built Python ETL scripts with Pandas for data validation—caught 3,200 duplicate records before migration",
-      "Optimized slow analytics API endpoint by adding database index after profiling query execution plan with EXPLAIN ANALYZE"
+      "MySQL → PostgreSQL data migration for e-commerce client: built Python ETL scripts with Pandas, caught 3,200 duplicates pre-migration",
+      "Profiled slow analytics API with EXPLAIN ANALYZE and added the right index to fix it"
     ]
   }
 ];
@@ -75,7 +68,7 @@ export default function ExperiencePage() {
             Professional Experience
           </h1>
                      <p className="mt-4 text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-             A track record of delivering innovative full-stack and AI/ML solutions and driving operational efficiency
+             4 companies, real production systems, measurable impact
            </p>
         </div>
         
@@ -127,10 +120,10 @@ export default function ExperiencePage() {
         <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
           <div className="inline-block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                          <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-               Looking for a Software Engineer?
+               Want to work together?
              </h2>
              <p className="text-gray-600 mb-4">
-               Open to full-time roles in Software Engineering, Backend Development, and AI/ML Systems.
+               I&apos;m always open to interesting roles in Software Engineering, Backend, or AI/ML. Let&apos;s talk.
              </p>
                          <Link
                href="/#contact"

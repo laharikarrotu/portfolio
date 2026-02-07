@@ -25,7 +25,7 @@ const Home: React.FC = () => {
     fullStack: [
         { name: 'React', icon: '⚛️' },
         { name: 'Redux', icon: '🔄' },
-      { name: 'TypeScript', icon: '📘' },
+        { name: 'TypeScript', icon: '📘' },
          { name: 'Node.js', icon: '🟢' },
       { name: 'FastAPI', icon: '⚡' },
       { name: 'Spring Boot', icon: '🍃' },
@@ -81,34 +81,33 @@ const Home: React.FC = () => {
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   <TypeWriter 
                     texts={[
-                      'Oracle Health · Java Spring Boot',
-                      'React & TypeScript · Adobe Alumni',
-                      'AI/ML Applications & Voice Assistants',
-                      'Database Optimization & Cloud (OCI, Azure, AWS)'
+                      'I build things that work at scale.',
+                      'Healthcare APIs · AI Agents · Full-Stack Apps',
+                      'From Oracle DB queries to React component libraries.',
+                      '12 projects on GitHub. All shipped.'
                     ]} 
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph 
-                text="Java Spring Boot | React & TypeScript | Python & FastAPI | Oracle Cloud"
+                text="Software Engineer who ships production code at Oracle, built UI features at Adobe, and prototypes AI systems on weekends. San Francisco, CA."
                 className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl text-xl leading-relaxed"
                 delay={0.5}
                 duration={1.0}
                 stagger={0.1}
               />
-              
+
               {/* Quick Summary for Recruiters */}
               <RevealText delay={0.6} duration={0.8}>
                 <div className="mb-12 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-200 dark:border-indigo-800 max-w-3xl">
-                  <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-300 mb-2">📋 Quick Summary:</p>
+                  <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-300 mb-2">📋 The Short Version:</p>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1 list-disc list-inside">
-                    <li>Built REST APIs with Java Spring Boot processing <strong>HL7/FHIR messages</strong> at Oracle Health</li>
-                    <li>Optimized Oracle DB queries: <strong>6s → 2s</strong> via composite index (Oracle)</li>
-                    <li>Improved credential verification success rate: <strong>87% → 98%</strong>, turnaround <strong>48h → 4h</strong> (Oracle)</li>
-                    <li>Reduced API response time: <strong>3s → 800ms</strong> with Redis caching (Anguliyam)</li>
-                    <li>Cut page load time: <strong>4.2s → 2.8s</strong> with lazy loading + WebP (Adobe)</li>
-                    <li>AI projects: <strong>85% accuracy</strong> (ScanX), <strong>88% detection</strong> (Blinds), <strong>82% F1 score</strong> (ATS Resume)</li>
+                    <li><strong>Currently:</strong> Software Engineer at Oracle (via Arkatech Solutions) — healthcare credentialing APIs, Spring Boot, Oracle Cloud</li>
+                    <li><strong>Previously:</strong> Adobe Creative Cloud (React/TS), Anguliyam AI (voice assistants), EPAM Systems (data migration)</li>
+                    <li><strong>Side projects:</strong> 12 repos on GitHub — AI healthcare apps, computer vision, eCommerce, fitness, task management</li>
+                    <li><strong>Impact:</strong> 6s→2s query optimization, 87%→98% API reliability, 4.2s→2.8s page loads, 200+ beta testers</li>
+                    <li><strong>Education:</strong> MS Computer Science (Florida Tech) · AWS Solutions Architect certified</li>
                   </ul>
                 </div>
               </RevealText>
@@ -251,13 +250,14 @@ const Home: React.FC = () => {
         {/* Quick Stats - Real Impact Metrics (Skimmable) */}
         <section className="py-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Impact at a Glance</h2>
+            <h2 className="text-2xl font-bold text-center mb-3 text-gray-900 dark:text-white">What I Bring to the Table</h2>
+            <p className="text-center text-gray-500 dark:text-gray-400 mb-8 text-sm">Numbers from real work — not hypotheticals</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {[
-                { label: 'Query Optimization', value: '67%', icon: '🚀', source: '6s → 2s (Oracle DB)' },
-                { label: 'API Success Rate', value: '98%', icon: '✅', source: '87% → 98% (Oracle)' },
-                { label: 'Verification Speed', value: '12x', icon: '⚡', source: '48h → 4h turnaround' },
-                { label: 'Response Time Cut', value: '73%', icon: '📊', source: '3s → 800ms (Redis)' }
+                { label: 'GitHub Projects', value: '12', icon: '📦', source: 'All public, all shipped' },
+                { label: 'Production APIs', value: '3+', icon: '🔗', source: 'Spring Boot, FastAPI, Node' },
+                { label: 'Companies Shipped At', value: '4', icon: '🏢', source: 'Oracle, Adobe, Anguliyam, EPAM' },
+                { label: 'Query Speedup', value: '3x', icon: '🚀', source: '6s → 2s (Oracle DB)' }
               ].map((stat, idx) => (
                 <MotionDiv
                   key={stat.label}
@@ -276,10 +276,10 @@ const Home: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'Page Load Improved', value: '33%', icon: '🎨', source: '4.2s → 2.8s (Adobe)' },
-                { label: 'Test Coverage', value: '82%', icon: '🧪', source: '65% → 82% (Adobe)' },
-                { label: 'Beta Testers', value: '200+', icon: '👥', source: 'VoiceNav (Anguliyam)' },
-                { label: 'Data Cleaned', value: '3,200', icon: '🗃️', source: 'Duplicates caught (EPAM)' }
+                { label: 'API Reliability', value: '98%', icon: '✅', source: 'Fixed from 87% (Oracle)' },
+                { label: 'Response Time', value: '800ms', icon: '⚡', source: 'Down from 3s (Redis cache)' },
+                { label: 'Page Load', value: '2.8s', icon: '🎨', source: 'Down from 4.2s (Adobe)' },
+                { label: 'Beta Users Served', value: '200+', icon: '👥', source: 'VoiceNav Assistant' }
               ].map((stat, idx) => (
                 <MotionDiv
                   key={stat.label}
@@ -303,16 +303,16 @@ const Home: React.FC = () => {
         <section className="py-20">
           <SectionHeader 
             title="What I Build"
-            subtitle="Quick scan: Full-stack AI systems, production APIs, and data pipelines"
+            subtitle="A quick look at what keeps me busy"
           />
           <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              'Healthcare APIs & EHR Integrations (HL7/FHIR, Spring Boot)',
-              'Full-Stack Applications (React + FastAPI / Spring Boot)',
-              'AI-Powered Assistants & Voice Navigation Systems',
-              'Database Optimization & Query Performance Tuning',
-              'Cloud-Native Deployments (OCI, Azure, AWS)',
-              'CI/CD Pipelines & Automated Testing (Jenkins, Jest, Docker)',
+              'AI Healthcare Apps — prescription scanning, drug interaction checking, medical document processing',
+              'Full-Stack Platforms — eCommerce with AI assistants, task management, fitness tracking',
+              'Computer Vision Systems — window detection, virtual try-on, 3D overlay rendering',
+              'Voice Assistants — speech-to-text, wake-word detection, accessibility-first design',
+              'Production Backend APIs — Spring Boot, FastAPI, Redis caching, OAuth2, HL7/FHIR',
+              'Cloud & DevOps — Oracle Cloud, Azure, AWS, Jenkins CI/CD, Docker, Liquibase',
             ].map((item) => (
               <MotionDiv
                 key={item}
@@ -330,26 +330,26 @@ const Home: React.FC = () => {
 
         <section id="about" className="py-32">
           <SectionHeader 
-            title="About"
-            subtitle="Building reliable systems for production environments"
+            title="About Me"
+            subtitle="The person behind the commits"
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-                text="Software Engineer at Oracle working on provider credentialing systems for Oracle Health. I build REST APIs with Java Spring Boot, optimize Oracle Database queries, and set up CI/CD pipelines with Jenkins on Oracle Cloud Infrastructure."
+                text="I'm Lahari — a software engineer based in San Francisco who genuinely enjoys building things. Right now I'm at Oracle (contracted through Arkatech Solutions) working on healthcare credentialing APIs that hospitals actually depend on. Before that, I was at Adobe building React components that millions of Creative Cloud users interact with."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="Previously interned at Adobe Creative Cloud (React/TypeScript, Redux, component libraries) and Anguliyam AI Solutions (voice assistants, Redis caching, Azure deployments). Started my career at EPAM Systems building ETL pipelines for data migrations."
+              text="Outside of work, I build a lot. My GitHub has 12 public projects — everything from AI healthcare assistants that scan prescriptions, to computer vision apps that detect windows for virtual blind try-ons, to a full eCommerce platform with an AI shopping assistant. I don't just prototype — I ship to production with real users."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.5}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="MS in Computer Science from Florida Institute of Technology. I focus on writing production-ready code with proper error handling, monitoring, and automated testing."
+              text="I hold a Master's in Computer Science from Florida Institute of Technology and I'm AWS Solutions Architect certified. I care about clean code, honest engineering, and building software that solves real problems."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.7}
               duration={1.2}
@@ -359,23 +359,22 @@ const Home: React.FC = () => {
         </section>
 
         <section id="experience" className="experience-section py-20 relative overflow-hidden">
-          <SectionHeader 
-            title="Professional Experience" 
-            subtitle="Building production systems with measurable impact"
+                     <SectionHeader 
+            title="Where I've Worked" 
+            subtitle="Production code at 4 companies — here are the highlights"
           />
           
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             {[
               {
                 title: 'Software Engineer',
-                company: 'Oracle',
+                company: 'Oracle (via Arkatech Solutions)',
                 period: 'May 2025 – Present',
                 bullets: [
-                  'Work on provider credentialing system for Oracle Health integrating with hospital EHR systems—built REST API endpoints using Java Spring Boot processing HL7/FHIR messages for credential verification',
-                  'Implemented OAuth2 authentication for secure data exchange with external healthcare providers',
-                  'Debugged production issue where credential verification API was failing intermittently due to database connection timeouts—added retry logic with exponential backoff and connection pooling, improving success rate from 87% to 98% and reducing verification turnaround from 48 hours to 4 hours',
-                  'Optimized slow Oracle Database query for provider dashboard analytics using EXPLAIN PLAN—added composite index on (provider_id, status, last_updated), dropping query execution time from 6s to 2s',
-                  'Set up CI/CD pipeline with Jenkins deploying microservices to Oracle Cloud Infrastructure (OCI)—configured Liquibase database migrations, automated API testing, and Oracle APM monitoring'
+                  'Healthcare credentialing APIs (Java Spring Boot) — processing HL7/FHIR messages integrated with hospital EHR systems',
+                  'Fixed intermittent API failures: added retry logic + connection pooling → success rate 87% → 98%, verification turnaround 48h → 4h',
+                  'Optimized Oracle DB dashboard query from 6s → 2s using EXPLAIN PLAN + composite index',
+                  'CI/CD with Jenkins on Oracle Cloud (OCI) — Liquibase migrations, automated tests, APM monitoring'
                 ]
               },
               {
@@ -383,9 +382,8 @@ const Home: React.FC = () => {
                 company: 'Anguliyam AI Solutions',
                 period: 'Jun 2024 – May 2025',
                 bullets: [
-                  'Built and shipped VoiceNav Assistant (event-driven microservices) for visually impaired users—integrated Google Speech-to-Text + Porcupine wake-word detection, deployed on Azure App Service serving 200+ beta testers',
-                  'Reduced API response time from 3s to 800ms using Redis caching keyed by audio hash (65% hit rate)',
-                  'Implemented JWT auth with role-based access control—bcrypt password hashing, httpOnly cookies to prevent XSS'
+                  'Shipped VoiceNav Assistant for visually impaired users — Google Speech-to-Text + Porcupine wake-word, 200+ beta testers on Azure',
+                  'Cut API response time 3s → 800ms with Redis caching (65% hit rate) · JWT auth with role-based access'
                 ]
               },
               {
@@ -393,10 +391,9 @@ const Home: React.FC = () => {
                 company: 'Adobe Creative Cloud',
                 period: 'Jan 2022 – Aug 2022',
                 bullets: [
-                  'Worked on Adobe Express web application fixing bugs and implementing new UI features using React + TypeScript',
-                  'Refactored image loading components to use lazy loading with WebP format and fallbacks—reduced initial page load time from 4.2s to 2.8s',
-                  'Contributed to internal React component library used across Creative Cloud web apps—built reusable color picker with keyboard navigation and ARIA labels for accessibility',
-                  'Debugged production issue where undo/redo functionality broke on text editing—traced through Redux state to find race condition in action dispatchers, wrote Jest unit tests increasing canvas test coverage from 65% to 82%'
+                  'Adobe Express: React + TypeScript features, lazy loading with WebP → page load 4.2s → 2.8s',
+                  'Built reusable components for Creative Cloud web apps (color picker, ARIA-accessible, keyboard nav)',
+                  'Found Redux race condition in undo/redo, wrote Jest tests → coverage 65% → 82%'
                 ]
               },
               {
@@ -404,9 +401,8 @@ const Home: React.FC = () => {
                 company: 'EPAM Systems',
                 period: 'Dec 2020 – Mar 2021',
                 bullets: [
-                  'Worked on backend services for e-commerce client migrating customer data from MySQL to PostgreSQL',
-                  'Built Python ETL scripts with Pandas for data validation—caught 3,200 duplicate records before migration',
-                  'Optimized slow analytics API endpoint by adding database index after profiling query execution plan with EXPLAIN ANALYZE'
+                  'MySQL → PostgreSQL data migration: Python ETL scripts with Pandas, caught 3,200 duplicates pre-migration',
+                  'Profiled slow analytics endpoint with EXPLAIN ANALYZE, added index to fix it'
                 ]
               }
             ].map((role, idx) => (
@@ -422,7 +418,7 @@ const Home: React.FC = () => {
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{role.title}</h3>
                   <p className="text-lg font-semibold text-indigo-600 dark:text-indigo-400">{role.company}</p>
                   <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">{role.period}</p>
-                </div>
+                        </div>
                 <ul className="space-y-3">
                   {role.bullets.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
@@ -505,10 +501,10 @@ const Home: React.FC = () => {
                     A scalable full-stack eCommerce platform with AI-powered navigation, 
                     real-time inventory management, and optimized performance.
                   </p>
-          </div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+            <div>
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Architecture Overview</h4>
                     <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
                       <li className="flex items-start gap-2">
@@ -536,7 +532,7 @@ const Home: React.FC = () => {
                         <span><strong>Vector Search:</strong> Pinecone for semantic product search with 50K+ product embeddings</span>
                       </li>
                     </ul>
-                  </div>
+          </div>
 
                 <div>
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Scalability & Performance</h4>
@@ -571,11 +567,11 @@ const Home: React.FC = () => {
                 <div>
                       <p className="font-medium text-gray-900 dark:text-white">1. Microservices vs Monolith</p>
                       <p className="text-gray-700 dark:text-gray-300">Chose FastAPI microservices for independent scaling of AI service vs. core eCommerce logic, accepting added complexity for better resource utilization.</p>
-                  </div>
+                </div>
                 <div>
                       <p className="font-medium text-gray-900 dark:text-white">2. Vector DB Selection</p>
                       <p className="text-gray-700 dark:text-gray-300">Pinecone over self-hosted (FAISS/Milvus) for managed scalability and lower ops overhead, trading cost for reliability.</p>
-                </div>
+                  </div>
                 <div>
                       <p className="font-medium text-gray-900 dark:text-white">3. Caching Strategy</p>
                       <p className="text-gray-700 dark:text-gray-300">Multi-layer caching (CDN → Redis → DB) prioritized read performance, accepting eventual consistency for product data.</p>
@@ -583,9 +579,9 @@ const Home: React.FC = () => {
                 <div>
                       <p className="font-medium text-gray-900 dark:text-white">4. Failure Handling</p>
                       <p className="text-gray-700 dark:text-gray-300">Circuit breakers for AI API, graceful degradation to keyword search, retry logic with exponential backoff for improved reliability during service outages.</p>
-              </div>
-            </div>
-          </div>
+                  </div>
+                  </div>
+                </div>
           
                 <div className="mt-6">
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Scaling Strategy</h4>
@@ -593,18 +589,18 @@ const Home: React.FC = () => {
                     <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                       <p className="font-medium text-gray-900 dark:text-white mb-2">Horizontal Scaling</p>
                       <p className="text-gray-700 dark:text-gray-300">FastAPI instances behind load balancer, auto-scaling based on CPU/memory (2-10 instances), stateless design for easy scaling.</p>
-                         </div>
+                  </div>
                     <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                       <p className="font-medium text-gray-900 dark:text-white mb-2">Database Scaling</p>
                       <p className="text-gray-700 dark:text-gray-300">Read replicas for query distribution, connection pooling, query optimization, and planned sharding for 100K+ products.</p>
-                       </div>
+                  </div>
                     <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                       <p className="font-medium text-gray-900 dark:text-white mb-2">Cost Optimization</p>
                       <p className="text-gray-700 dark:text-gray-300">AI request batching, response caching (60% cache hit rate), CDN for static assets, reducing infrastructure costs by 40%.</p>
-                    </div>
-                      </div>
-                    </div>
+                </div>
+              </div>
             </div>
+          </div>
           </MotionDiv>
           </div>
         </section>
@@ -612,54 +608,54 @@ const Home: React.FC = () => {
         {/* Why Hire Me Section - Recruiter Quick Read */}
         <section className="py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
           <div className="max-w-5xl mx-auto px-4">
-            <SectionHeader 
-              title="Why Hire Me" 
-              subtitle="Real impact, production systems, measurable results"
+                     <SectionHeader 
+              title="Why Work With Me" 
+              subtitle="Here's what I think sets me apart"
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               {[
                 {
-                  title: 'Production-Ready Code',
-                  description: 'Building provider credentialing system at Oracle Health with Java Spring Boot, processing HL7/FHIR messages. Experience with CI/CD (Jenkins), database migrations (Liquibase), and Oracle APM monitoring.',
+                  title: 'I Ship Real Products',
+                  description: '12 GitHub projects — not tutorials, not boilerplate. HealthScan analyzes prescriptions with AI. SmartBuy runs a full eCommerce store with AI navigation. Blinds & Boundaries does real-time 3D rendering with computer vision.',
                   icon: '🚀',
                   color: 'from-blue-500 to-cyan-500'
                 },
                 {
-                  title: 'Full-Stack Expertise',
-                  description: 'Java/Spring Boot, Python/FastAPI, React/TypeScript. Oracle Cloud (OCI), Azure, AWS. PostgreSQL, Oracle Database, Redis. End-to-end ownership from design to deployment.',
-                  icon: '⚡',
+                  title: 'I Fix What\'s Broken',
+                  description: 'At Oracle: fixed API failures (87%→98%), optimized a 6-second query to 2 seconds. At Adobe: found a Redux race condition nobody else could trace. I debug production issues with patience and precision.',
+                  icon: '🔧',
                   color: 'from-purple-500 to-pink-500'
                 },
                 {
-                  title: 'Problem Solver',
-                  description: 'Optimized Oracle DB query from 6s→2s using EXPLAIN PLAN + composite index. Fixed intermittent API failures with retry logic (87%→98%). Reduced page load 4.2s→2.8s at Adobe with lazy loading.',
-                  icon: '🎯',
+                  title: 'I Learn Fast & Go Deep',
+                  description: 'Went from zero Spring Boot experience to shipping healthcare APIs at Oracle in weeks. Built voice assistants, computer vision systems, and AI agents across different stacks. I pick up whatever the problem needs.',
+                  icon: '🧠',
                   color: 'from-indigo-500 to-purple-500'
                 }
               ].map((item, idx) => (
-                <MotionDiv
+          <MotionDiv
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+            viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all"
                 >
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl mb-4`}>
                     {item.icon}
-                  </div>
+                         </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{item.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{item.description}</p>
                 </MotionDiv>
-              ))}
-            </div>
-          </div>
+                        ))}
+                      </div>
+                    </div>
         </section>
 
         <section className="projects-section py-32 overflow-hidden" id="projects">
            <SectionHeader 
             title="Projects" 
-            subtitle="Production-grade applications demonstrating expertise in full-stack development, AI/ML integration, and cloud solutions"
+            subtitle="12 GitHub repos — here are the ones I'm most proud of"
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProjectShowcase projects={projects} />
@@ -670,12 +666,12 @@ const Home: React.FC = () => {
            <div className="max-w-4xl mx-auto px-4">
              <RevealHeading delay={0.1} duration={1.0} className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
                Let's Work Together
-             </RevealHeading>
-             <RevealText delay={0.3} duration={0.8}>
+           </RevealHeading>
+           <RevealText delay={0.3} duration={0.8}>
                <p className="mb-8 text-gray-600 dark:text-gray-400 text-center text-lg max-w-2xl mx-auto">
-                 Open to new opportunities, collaborative projects, and technical challenges. Available for full-time roles in Software Engineering, Backend Development, and AI/ML Systems.
-               </p>
-             </RevealText>
+                 I&apos;m always open to interesting conversations — whether it&apos;s about a role, a collaboration, or just a cool technical problem. Let&apos;s chat.
+             </p>
+           </RevealText>
              
              {/* Quick Contact CTA */}
              <MotionDiv
@@ -755,18 +751,19 @@ const Home: React.FC = () => {
                </div>
              </RevealText>
            </div>
-          </div>
+           </div>
         </section>
 
         {/* What I'm learning now */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">What I&apos;m learning now</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">What I&apos;m Currently Into</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li>• Advanced Spring Boot patterns and microservice orchestration</li>
-                <li>• Oracle Cloud Infrastructure (OCI) services and architecture</li>
-                <li>• Healthcare interoperability standards (HL7/FHIR)</li>
+                <li>• Building AI agents that can actually do useful things (not just chatbots)</li>
+                <li>• Distributed systems design — event-driven architecture, message queues</li>
+                <li>• Healthcare tech — making HL7/FHIR less painful for everyone</li>
+                <li>• Open source contributions — looking for interesting projects to contribute to</li>
               </ul>
                 </div>
                 </div>
@@ -858,23 +855,23 @@ const Home: React.FC = () => {
                   <line className="arrow" x1="140" y1="150" x2="200" y2="150" />
                 </svg>
                   </div>
-              </div>
+                  </div>
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Architecture: ScanX Agent Loop</h3>
               <div className="grid gap-3 text-sm text-gray-700 dark:text-gray-300">
                 <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
                   Frontend (Next.js) captures screenshots/specs → uploads to FastAPI
-            </div>
+                </div>
                 <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
                   FastAPI routes to Orchestrator (LangChain + OpenAI) to parse layout and tasks
                   </div>
                 <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
                   Vector store (PostgreSQL/pgvector) for similarity + retrieval
-                </div>
+                  </div>
                 <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
                   Action planner emits task cards → returned to UI for human-in-the-loop confirmation
+                  </div>
                 </div>
-              </div>
               <div className="mt-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4">
                 <svg viewBox="0 0 520 240" role="img" aria-label="ScanX architecture diagram" className="w-full h-auto text-gray-800 dark:text-gray-200">
                   <defs>
@@ -917,7 +914,7 @@ const Home: React.FC = () => {
         <section className="py-24">
           <SectionHeader 
             title="Tech Stack"
-            subtitle="The tools I ship with"
+            subtitle="Tools I actually use — not just list on a resume"
           />
           <div className="max-w-5xl mx-auto px-4 space-y-4">
             {[
@@ -1160,8 +1157,8 @@ const Home: React.FC = () => {
         {/* Technical Writing Section */}
         <section className="writing-section py-20" id="writing">
           <SectionHeader 
-            title="Technical Writing" 
-            subtitle="Articles and insights on AI, distributed systems, and software engineering"
+            title="I Write Too" 
+            subtitle="Thoughts on AI, distributed systems, and what I'm learning"
           />
           <MotionDiv
             initial={{ opacity: 0 }}
@@ -1180,7 +1177,7 @@ const Home: React.FC = () => {
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                       <span className="text-2xl text-white">📝</span>
-                    </div>
+                  </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
@@ -1192,11 +1189,11 @@ const Home: React.FC = () => {
                     <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
                       <span>Read on Medium</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
                 </div>
+              </div>
+                  </div>
               </a>
-            </div>
+                  </div>
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
               <a 
@@ -1209,7 +1206,7 @@ const Home: React.FC = () => {
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                       <span className="text-2xl text-white">📝</span>
-                    </div>
+                </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
@@ -1221,19 +1218,19 @@ const Home: React.FC = () => {
                     <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
                       <span>Read on Medium</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
                 </div>
+              </div>
+                  </div>
               </a>
-            </div>
+                  </div>
           </MotionDiv>
         </section>
 
         {/* Technical Deep Dives Section */}
         <section className="deep-dives-section py-20" id="deep-dives">
           <SectionHeader 
-            title="Technical Deep Dives" 
-            subtitle="In-depth analysis of system design, performance optimization, and engineering decisions"
+            title="How I Think About Engineering" 
+            subtitle="Deep dives into the problems I've solved and the trade-offs I've made"
           />
           <MotionDiv
             initial={{ opacity: 0 }}
@@ -1299,7 +1296,7 @@ const Home: React.FC = () => {
                       <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-full text-xs font-medium">
                         {dive.category}
                       </span>
-                  </div>
+                </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {dive.title}
                     </h3>
@@ -1333,16 +1330,16 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div>
                 <h3 className="text-xl font-bold mb-4">Lahari Karrotu</h3>
-                <p className="text-gray-400 text-sm">Software Engineer specializing in backend services, data pipelines, and AI-enabled applications.</p>
-              </div>
-              <div>
+                <p className="text-gray-400 text-sm">Software Engineer at Oracle (via Arkatech Solutions). I build healthcare APIs by day and AI side projects by night. 12 public repos and counting.</p>
+                  </div>
+                  <div>
                 <h4 className="font-semibold mb-4">Quick Links</h4>
                 <div className="space-y-2">
                   <Link href="#projects" className="block text-gray-400 hover:text-white text-sm transition-colors">Projects</Link>
                   <Link href="#experience" className="block text-gray-400 hover:text-white text-sm transition-colors">Experience</Link>
                   <Link href="#contact" className="block text-gray-400 hover:text-white text-sm transition-colors">Contact</Link>
+                  </div>
                 </div>
-              </div>
               <div>
                 <h4 className="font-semibold mb-4">Connect</h4>
                 <div className="space-y-2">
@@ -1369,13 +1366,13 @@ const Home: React.FC = () => {
                 href="/projects/LahariKarrotuSE.pdf" 
                 download="Lahari_Karrotu_Software_Engineer_Resume.pdf"
                 className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-2"
-                target="_blank"
-                rel="noopener noreferrer"
+             target="_blank"
+             rel="noopener noreferrer"
               >
                 <span>📄</span>
                 Download Resume
-              </a>
-            </div>
+           </a>
+         </div>
           </div>
         </footer>
       </div>

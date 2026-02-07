@@ -149,7 +149,7 @@ def get_recommendations(user_id: int, product_history: List[int]):
     title: 'ScanX (HealthScan) — AI Healthcare Assistant',
     description: 'AI healthcare assistant for prescription analysis with 3-engine AI system: Vision Engine (Gemini Pro 1.5 + OCR), Planner Engine (LLM action planning), and Executor Engine (Playwright automation) with drug interaction checking via RxNav API.',
     longDescription: 'Built a 3-engine AI system for healthcare prescription analysis: Vision Engine (Gemini Pro 1.5 + OCR for prescription extraction), Planner Engine (LLM action planning), and Executor Engine (Playwright automation) processing medical documents with drug interaction checking via RxNav API. Deployed full-stack on Vercel with FastAPI + PostgreSQL + Redis + Celery task queues, implementing PII redaction + audit logging for healthcare compliance.',
-    githubUrl: 'https://github.com/laharikarrotu/scanx',
+    githubUrl: 'https://github.com/laharikarrotu/HealthScan',
     liveUrl: 'https://scan-to-action-ai-scanx-s14g.vercel.app/',
     status: 'Completed',
     year: 2025,
