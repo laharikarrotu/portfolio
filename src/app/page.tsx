@@ -24,46 +24,41 @@ const Home: React.FC = () => {
     const toolsConfig = {
     fullStack: [
         { name: 'React', icon: '⚛️' },
-        { name: 'Next.js', icon: '▲' },
+        { name: 'Redux', icon: '🔄' },
       { name: 'TypeScript', icon: '📘' },
          { name: 'Node.js', icon: '🟢' },
       { name: 'FastAPI', icon: '⚡' },
-      { name: 'Python', icon: '🐍' },
+      { name: 'Spring Boot', icon: '🍃' },
          { name: 'PostgreSQL', icon: '🐘' },
-         { name: 'MongoDB', icon: '🍃' },
+         { name: 'Oracle Database', icon: '🔴' },
       { name: 'Redis', icon: '🧠' },
-      { name: 'REST & GraphQL APIs', icon: '🔗' }
+      { name: 'REST APIs', icon: '🔗' }
        ],
     aiAgents: [
-      { name: 'LLMs & Agents', icon: '🤖' },
-      { name: 'OpenAI API', icon: '✨' },
+      { name: 'Gemini API', icon: '✨' },
+      { name: 'Azure Computer Vision', icon: '👁️' },
+      { name: 'OCR', icon: '📝' },
+      { name: 'OpenAI API', icon: '🤖' },
       { name: 'LangChain', icon: '⛓️' },
-      { name: 'Vector DBs (Pinecone/FAISS)', icon: '📚' },
-      { name: 'Embeddings & RAG', icon: '🧭' },
-      { name: 'MLflow', icon: '🧪' },
-         { name: 'TensorFlow', icon: '🧠' },
-      { name: 'PyTorch', icon: '🔥' }
+      { name: 'Google Speech-to-Text', icon: '🎙️' }
     ],
     dataPipelines: [
       { name: 'SQL (PostgreSQL, MySQL)', icon: '🗄️' },
-      { name: 'Apache Spark', icon: '⚡' },
-      { name: 'Kafka', icon: '📊' },
-      { name: 'Apache Airflow', icon: '🌪️' },
-      { name: 'Snowflake', icon: '❄️' },
-      { name: 'Data Modeling (Fact/Dimension)', icon: '📊' },
-      { name: 'ETL/ELT Pipelines', icon: '🔄' },
-      { name: 'Data Quality & Validation', icon: '✅' },
-      { name: 'Data Lineage & Observability', icon: '🔍' }
+      { name: 'Oracle Database', icon: '🔴' },
+      { name: 'ETL Pipelines (Python/Pandas)', icon: '🔄' },
+      { name: 'Data Validation', icon: '✅' },
+      { name: 'Liquibase Migrations', icon: '📋' },
+      { name: 'EXPLAIN PLAN / ANALYZE', icon: '🔍' }
     ],
     cloudInfra: [
-      { name: 'AWS (Lambda, S3, Glue)', icon: '☁️' },
-      { name: 'Azure (Functions, App Service)', icon: '🔷' },
+      { name: 'Oracle Cloud (OCI)', icon: '🔴' },
+      { name: 'AWS (Lambda, S3)', icon: '☁️' },
+      { name: 'Azure (App Service, Blob Storage)', icon: '🔷' },
          { name: 'Docker', icon: '🐳' },
-         { name: 'Kubernetes', icon: '⎈' },
-         { name: 'Terraform', icon: '🌍' },
-      { name: 'CI/CD', icon: '🔄' },
+      { name: 'Jenkins CI/CD', icon: '🔄' },
+      { name: 'Git', icon: '📁' },
       { name: 'Vercel', icon: '⚡' },
-      { name: 'Monitoring & Logging', icon: '📡' }
+      { name: 'Oracle APM', icon: '📡' }
        ]
     };
 
@@ -86,17 +81,17 @@ const Home: React.FC = () => {
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   <TypeWriter 
                     texts={[
-                      'Backend Services & APIs',
-                      'Data Pipelines & ETL',
-                      'AI-Enabled Applications',
-                      'Full Stack Development'
+                      'Oracle Health · Java Spring Boot',
+                      'React & TypeScript · Adobe Alumni',
+                      'AI/ML Applications & Voice Assistants',
+                      'Database Optimization & Cloud (OCI, Azure, AWS)'
                     ]} 
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph 
-                text="Backend Services | Data Pipelines | AI-Enabled Applications"
+                text="Java Spring Boot | React & TypeScript | Python & FastAPI | Oracle Cloud"
                 className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl text-xl leading-relaxed"
                 delay={0.5}
                 duration={1.0}
@@ -108,10 +103,11 @@ const Home: React.FC = () => {
                 <div className="mb-12 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-200 dark:border-indigo-800 max-w-3xl">
                   <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-300 mb-2">📋 Quick Summary:</p>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1 list-disc list-inside">
-                    <li>Built FastAPI services processing <strong>2,000+ daily requests</strong> (Arkatech)</li>
-                    <li>Optimized PostgreSQL queries: <strong>6s → 2s</strong> (67% improvement)</li>
-                    <li>Improved API success rate: <strong>87% → 98%</strong> (Anguliyam)</li>
-                    <li>Reduced ETL runtime: <strong>42min → 28min</strong> (33% faster, Cognizant)</li>
+                    <li>Built REST APIs with Java Spring Boot processing <strong>HL7/FHIR messages</strong> at Oracle Health</li>
+                    <li>Optimized Oracle DB queries: <strong>6s → 2s</strong> via composite index (Oracle)</li>
+                    <li>Improved credential verification success rate: <strong>87% → 98%</strong>, turnaround <strong>48h → 4h</strong> (Oracle)</li>
+                    <li>Reduced API response time: <strong>3s → 800ms</strong> with Redis caching (Anguliyam)</li>
+                    <li>Cut page load time: <strong>4.2s → 2.8s</strong> with lazy loading + WebP (Adobe)</li>
                     <li>AI projects: <strong>85% accuracy</strong> (ScanX), <strong>88% detection</strong> (Blinds), <strong>82% F1 score</strong> (ATS Resume)</li>
                   </ul>
                 </div>
@@ -258,10 +254,10 @@ const Home: React.FC = () => {
             <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Impact at a Glance</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {[
-                { label: 'API Requests/Day', value: '2,000+', icon: '⚡', source: 'Production System' },
-                { label: 'Load Time Improved', value: '67%', icon: '🚀', source: '6s → 2s' },
-                { label: 'API Success Rate', value: '98%', icon: '✅', source: '87% → 98%' },
-                { label: 'ETL Runtime Saved', value: '33%', icon: '📊', source: '42min → 28min' }
+                { label: 'Query Optimization', value: '67%', icon: '🚀', source: '6s → 2s (Oracle DB)' },
+                { label: 'API Success Rate', value: '98%', icon: '✅', source: '87% → 98% (Oracle)' },
+                { label: 'Verification Speed', value: '12x', icon: '⚡', source: '48h → 4h turnaround' },
+                { label: 'Response Time Cut', value: '73%', icon: '📊', source: '3s → 800ms (Redis)' }
               ].map((stat, idx) => (
                 <MotionDiv
                   key={stat.label}
@@ -280,10 +276,10 @@ const Home: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'AI Accuracy', value: '85%', icon: '🎯', source: 'ScanX: 100+ interfaces' },
-                { label: 'Detection Rate', value: '88%', icon: '👁️', source: 'Blinds: 150 test images' },
-                { label: 'NLP Model F1', value: '82%', icon: '🧠', source: 'ATS: 500+ job posts' },
-                { label: 'Cache Speedup', value: '78%', icon: '💾', source: '4.1s → 0.9s' }
+                { label: 'Page Load Improved', value: '33%', icon: '🎨', source: '4.2s → 2.8s (Adobe)' },
+                { label: 'Test Coverage', value: '82%', icon: '🧪', source: '65% → 82% (Adobe)' },
+                { label: 'Beta Testers', value: '200+', icon: '👥', source: 'VoiceNav (Anguliyam)' },
+                { label: 'Data Cleaned', value: '3,200', icon: '🗃️', source: 'Duplicates caught (EPAM)' }
               ].map((stat, idx) => (
                 <MotionDiv
                   key={stat.label}
@@ -311,12 +307,12 @@ const Home: React.FC = () => {
           />
           <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              'LLM Agents & Conversational Systems',
-              'Full-Stack AI Applications (Next.js + FastAPI)',
-              'Real-Time Voice Assistants',
-              'Distributed Data & Stream Processing Pipelines',
-              'Cloud-Native Deployments (Azure, AWS)',
-              'MLOps (MLflow, Docker, CI/CD, Terraform)',
+              'Healthcare APIs & EHR Integrations (HL7/FHIR, Spring Boot)',
+              'Full-Stack Applications (React + FastAPI / Spring Boot)',
+              'AI-Powered Assistants & Voice Navigation Systems',
+              'Database Optimization & Query Performance Tuning',
+              'Cloud-Native Deployments (OCI, Azure, AWS)',
+              'CI/CD Pipelines & Automated Testing (Jenkins, Jest, Docker)',
             ].map((item) => (
               <MotionDiv
                 key={item}
@@ -339,21 +335,21 @@ const Home: React.FC = () => {
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-                text="Software Engineer with experience building and maintaining backend services, data pipelines, and AI-enabled applications in production. My work focuses on Python and FastAPI, with hands-on experience deploying and operating systems on AWS and Azure."
+                text="Software Engineer at Oracle working on provider credentialing systems for Oracle Health. I build REST APIs with Java Spring Boot, optimize Oracle Database queries, and set up CI/CD pipelines with Jenkins on Oracle Cloud Infrastructure."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I have worked on API design, database optimization, and AI/ML service integration, and I'm comfortable supporting applications through deployment, monitoring, and ongoing improvements."
+              text="Previously interned at Adobe Creative Cloud (React/TypeScript, Redux, component libraries) and Anguliyam AI Solutions (voice assistants, Redis caching, Azure deployments). Started my career at EPAM Systems building ETL pipelines for data migrations."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.5}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I prefer building systems that are reliable, maintainable, and designed with real-world constraints in mind."
+              text="MS in Computer Science from Florida Institute of Technology. I focus on writing production-ready code with proper error handling, monitoring, and automated testing."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.7}
               duration={1.2}
@@ -372,13 +368,14 @@ const Home: React.FC = () => {
             {[
               {
                 title: 'Software Engineer',
-                company: 'Arkatech Solutions',
+                company: 'Oracle',
                 period: 'May 2025 – Present',
                 bullets: [
-                  'Built FastAPI services integrating OpenAI and Azure Vision APIs, processing 2,000+ daily requests for document extraction',
-                  'Optimized slow PostgreSQL queries by adding composite indexes—reduced dashboard load time from 6s to 2s',
-                  'Implemented error handling with exponential backoff for API rate limits and circuit breakers for service failures',
-                  'Deployed to Azure App Service with GitHub Actions CI/CD, configured Key Vault for secrets and Application Insights for monitoring'
+                  'Work on provider credentialing system for Oracle Health integrating with hospital EHR systems—built REST API endpoints using Java Spring Boot processing HL7/FHIR messages for credential verification',
+                  'Implemented OAuth2 authentication for secure data exchange with external healthcare providers',
+                  'Debugged production issue where credential verification API was failing intermittently due to database connection timeouts—added retry logic with exponential backoff and connection pooling, improving success rate from 87% to 98% and reducing verification turnaround from 48 hours to 4 hours',
+                  'Optimized slow Oracle Database query for provider dashboard analytics using EXPLAIN PLAN—added composite index on (provider_id, status, last_updated), dropping query execution time from 6s to 2s',
+                  'Set up CI/CD pipeline with Jenkins deploying microservices to Oracle Cloud Infrastructure (OCI)—configured Liquibase database migrations, automated API testing, and Oracle APM monitoring'
                 ]
               },
               {
@@ -386,32 +383,30 @@ const Home: React.FC = () => {
                 company: 'Anguliyam AI Solutions',
                 period: 'Jun 2024 – May 2025',
                 bullets: [
-                  'Developed voice navigation system with FastAPI backend integrated with Google Speech-to-Text API',
-                  'Added Redis caching layer to reduce API response time from 3s to 800ms under load',
-                  'Built JWT authentication with role-based access control for admin and standard users',
-                  'Fixed production bug where Azure Vision API calls failed silently—added retry logic improving success rate from 87% to 98%'
+                  'Built and shipped VoiceNav Assistant (event-driven microservices) for visually impaired users—integrated Google Speech-to-Text + Porcupine wake-word detection, deployed on Azure App Service serving 200+ beta testers',
+                  'Reduced API response time from 3s to 800ms using Redis caching keyed by audio hash (65% hit rate)',
+                  'Implemented JWT auth with role-based access control—bcrypt password hashing, httpOnly cookies to prevent XSS'
                 ]
               },
               {
                 title: 'Software Engineer Intern',
-                company: 'Cognizant Technology Solutions',
+                company: 'Adobe Creative Cloud',
                 period: 'Jan 2022 – Aug 2022',
                 bullets: [
-                  'Worked on AWS Lambda functions processing S3 uploads, transforming CSV/JSON data with Pandas before DynamoDB loading',
-                  'Contributed to PySpark jobs on EMR processing 200-500GB daily logs with schema validation before Redshift loading',
-                  'Built Python ETL pipeline using SQLAlchemy—optimized batch size reducing runtime from 42min to 28min',
-                  'Debugged Spark job OutOfMemoryError by tuning executor memory and partition count with senior engineer guidance'
+                  'Worked on Adobe Express web application fixing bugs and implementing new UI features using React + TypeScript',
+                  'Refactored image loading components to use lazy loading with WebP format and fallbacks—reduced initial page load time from 4.2s to 2.8s',
+                  'Contributed to internal React component library used across Creative Cloud web apps—built reusable color picker with keyboard navigation and ARIA labels for accessibility',
+                  'Debugged production issue where undo/redo functionality broke on text editing—traced through Redux state to find race condition in action dispatchers, wrote Jest unit tests increasing canvas test coverage from 65% to 82%'
                 ]
               },
               {
-                title: 'Data Engineering Intern',
+                title: 'Software Engineer Intern',
                 company: 'EPAM Systems',
                 period: 'Dec 2020 – Mar 2021',
                 bullets: [
-                  'Built Python ETL pipeline migrating 500K+ customer records from MySQL to PostgreSQL with data validation',
-                  'Optimized slow analytics query by adding composite index—reduced execution time from 8min to 2.5min',
-                  'Developed data quality checks using Pandas to catch nulls, duplicates, and integrity violations before loading',
-                  'Collaborated on star schema design and documented ETL workflows'
+                  'Worked on backend services for e-commerce client migrating customer data from MySQL to PostgreSQL',
+                  'Built Python ETL scripts with Pandas for data validation—caught 3,200 duplicate records before migration',
+                  'Optimized slow analytics API endpoint by adding database index after profiling query execution plan with EXPLAIN ANALYZE'
                 ]
               }
             ].map((role, idx) => (
@@ -625,19 +620,19 @@ const Home: React.FC = () => {
               {[
                 {
                   title: 'Production-Ready Code',
-                  description: 'Built FastAPI services processing 2,000+ daily requests. Experience with real-world constraints: latency, reliability, monitoring, and deployment on AWS/Azure.',
+                  description: 'Building provider credentialing system at Oracle Health with Java Spring Boot, processing HL7/FHIR messages. Experience with CI/CD (Jenkins), database migrations (Liquibase), and Oracle APM monitoring.',
                   icon: '🚀',
                   color: 'from-blue-500 to-cyan-500'
                 },
                 {
                   title: 'Full-Stack Expertise',
-                  description: 'Python/FastAPI backend, React/Next.js frontend, PostgreSQL/MongoDB, AWS/Azure cloud. End-to-end ownership from design to deployment with CI/CD pipelines.',
+                  description: 'Java/Spring Boot, Python/FastAPI, React/TypeScript. Oracle Cloud (OCI), Azure, AWS. PostgreSQL, Oracle Database, Redis. End-to-end ownership from design to deployment.',
                   icon: '⚡',
                   color: 'from-purple-500 to-pink-500'
                 },
                 {
                   title: 'Problem Solver',
-                  description: 'Optimized PostgreSQL queries reducing dashboard load time by 67% (6s→2s). Improved Azure Vision API success rate from 87% to 98%. Reduced ETL pipeline runtime by 33% (42min→28min).',
+                  description: 'Optimized Oracle DB query from 6s→2s using EXPLAIN PLAN + composite index. Fixed intermittent API failures with retry logic (87%→98%). Reduced page load 4.2s→2.8s at Adobe with lazy loading.',
                   icon: '🎯',
                   color: 'from-indigo-500 to-purple-500'
                 }
@@ -767,11 +762,11 @@ const Home: React.FC = () => {
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">What I’m learning now</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">What I&apos;m learning now</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li>• Azure Functions + Durable orchestrations for AI workflows</li>
-                <li>• Evaluating LLM agents with guardrails and tracing</li>
-                <li>• Stream-processing patterns with Kafka + Flink</li>
+                <li>• Advanced Spring Boot patterns and microservice orchestration</li>
+                <li>• Oracle Cloud Infrastructure (OCI) services and architecture</li>
+                <li>• Healthcare interoperability standards (HL7/FHIR)</li>
               </ul>
                 </div>
                 </div>
@@ -926,12 +921,13 @@ const Home: React.FC = () => {
           />
           <div className="max-w-5xl mx-auto px-4 space-y-4">
             {[
-              { label: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'SQL'] },
-              { label: 'Frontend', items: ['React', 'Next.js', 'Tailwind'] },
-              { label: 'Backend', items: ['FastAPI', 'Node.js', 'Express.js', 'REST APIs'] },
-              { label: 'AI/ML', items: ['OpenAI API', 'LangChain', 'Azure Computer Vision', 'OpenCV'] },
-              { label: 'Cloud', items: ['AWS (Lambda, S3, EC2)', 'Azure (App Service, Blob Storage)', 'Docker', 'GitHub Actions'] },
-              { label: 'Data', items: ['Apache Spark', 'PySpark', 'ETL Pipelines', 'PostgreSQL', 'MongoDB', 'Redis'] },
+              { label: 'Languages', items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'] },
+              { label: 'Frontend', items: ['React', 'Redux', 'HTML/CSS', 'Tailwind CSS'] },
+              { label: 'Backend', items: ['FastAPI', 'Spring Boot', 'Node.js', 'REST APIs'] },
+              { label: 'AI/ML', items: ['Gemini API', 'Azure Computer Vision', 'OCR'] },
+              { label: 'Cloud', items: ['Oracle Cloud (OCI)', 'Azure (App Service, Blob Storage)', 'AWS (Lambda, S3)', 'Docker'] },
+              { label: 'Databases', items: ['Oracle Database', 'PostgreSQL', 'Redis'] },
+              { label: 'Tools', items: ['Git', 'Jenkins', 'Docker', 'Jest', 'Liquibase'] },
             ].map((row) => (
               <div key={row.label} className="flex flex-wrap items-center gap-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm px-4 py-3">
                 <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-300 w-28">{row.label}</span>
@@ -1125,37 +1121,6 @@ const Home: React.FC = () => {
                 issuer: 'Amazon Web Services',
                 icon: '☁️',
                 link: 'https://www.credly.com/badges/454b6f57-2586-48bd-a854-1317ee4a6fdd/public_url'
-              },
-              {
-                title: 'CCNA: Switching, Routing, and Wireless Essentials',
-                issuer: 'Cisco',
-                icon: '🌐',
-                link: 'https://www.youracclaim.com/badges/09bfbaf8-6538-4b48-a9ea-49b9bc39414a?source=linked_in_profile'
-              },
-              {
-                title: 'HackerRank Problem Solving',
-                issuer: 'HackerRank',
-                icon: '🧩'
-              },
-              {
-                title: 'HackerRank SQL (Intermediate)',
-                issuer: 'HackerRank',
-                icon: '🗄️'
-              },
-              {
-                title: 'HackerRank Data Structures',
-                issuer: 'HackerRank',
-                icon: '🧱'
-              },
-              {
-                title: 'HackerRank Data Science',
-                issuer: 'HackerRank',
-                icon: '📊'
-              },
-              {
-                title: 'Big Data Specialization',
-                issuer: 'Undergraduate Program',
-                icon: '🛰️'
               }
             ].map((cert, idx) => (
             <MotionDiv

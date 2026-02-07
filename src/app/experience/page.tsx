@@ -6,55 +6,53 @@ import Link from 'next/link';
 
 export default function ExperiencePage() {
   const experiences = [{
-    title: "Full Stack AI Engineer",
-    company: "Arkatech Solutions",
+    title: "Software Engineer",
+    company: "Oracle",
     location: "Remote",
     period: "May 2025 – Present",
     achievements: [
-      "Built AI-powered virtual try-on platform using computer vision (OpenCV, TensorFlow) and 3D rendering (Three.js, WebGL) enabling real-time product visualization in customer spaces",
-      "Developed automated measurement portal with dimension calculation and product customization features for eCommerce integration",
-      "Implemented computer vision algorithms for window detection and room analysis achieving 90%+ accuracy in real-world scenarios",
-      "Deployed scalable cloud architecture on Microsoft Azure with serverless functions processing high-resolution images in real-time",
-      "Built full-stack application (React, TypeScript, FastAPI) with responsive design optimizing user engagement and conversion rates"
+      "Work on provider credentialing system for Oracle Health integrating with hospital EHR systems",
+      "Built REST API endpoints using Java Spring Boot processing HL7/FHIR messages for credential verification",
+      "Implemented OAuth2 authentication for secure data exchange with external healthcare providers",
+      "Debugged production issue where credential verification API was failing intermittently due to database connection timeouts—added retry logic with exponential backoff and connection pooling, improving success rate from 87% to 98% and reducing average verification turnaround from 48 hours to 4 hours",
+      "Optimized slow Oracle Database query loading provider dashboard analytics using EXPLAIN PLAN—added composite index on (provider_id, status, last_updated), dropping query execution time from 6s to 2s",
+      "Set up CI/CD pipeline with Jenkins deploying microservices to Oracle Cloud Infrastructure (OCI)—configured Liquibase database migration scripts, automated API testing, and Oracle APM monitoring"
     ]
   },
   {
-    title: "AI/ML Full Stack Developer",
-    company: "Anguliyam",
+    title: "Software Engineer Intern",
+    company: "Anguliyam AI Solutions",
     location: "Atlanta",
-    period: "August 2024 – May 2025",
+    period: "June 2024 – May 2025",
     achievements: [
-      "Developed voice-assisted navigation agent using Google Cloud Speech API and OpenAI, enabling hands-free product discovery and conversational user interaction",
-      "Built real-time ML system for predictive maintenance using TensorFlow LSTM models and Apache Spark processing sensor data streams",
-      "Created React monitoring dashboards with WebSocket connections for real-time equipment health visualization and alert management",
-      "Deployed ML models on AWS Lambda for serverless inference enabling scalable real-time predictions with low latency",
-      "Implemented end-to-end ML pipeline from data ingestion to model deployment with automated monitoring and alerting"
+      "Built and shipped VoiceNav Assistant (event-driven microservices) for visually impaired users—integrated Google Speech-to-Text + Porcupine wake-word detection",
+      "Deployed on Azure App Service serving 200+ beta testers",
+      "Reduced API response time from 3s to 800ms using Redis caching keyed by audio hash (65% hit rate)",
+      "Implemented JWT auth with role-based access control—bcrypt password hashing, httpOnly cookies to prevent XSS"
     ]
   },
   {
-    title: "Big Data Engineer (Internship)",
-    company: "Cognizant",
-    location: "Hyderabad, India",
+    title: "Software Engineer Intern",
+    company: "Adobe Creative Cloud",
+    location: "India",
     period: "January 2022 – August 2022",
     achievements: [
-      "Built ETL pipelines (Apache Spark, Kafka) processing 5TB+ monthly data, improving data availability by 40%",
-      "Optimized database queries reducing query latency by 30% through indexing and query tuning",
-      "Developed REST APIs (Java, Python) supporting 15+ projects, handling 100K+ requests daily",
-      "Implemented automated data quality checks reducing data errors by 50% in production pipelines",
-      "Designed data warehouse architecture (AWS Redshift, S3) reducing query costs by 25%"
+      "Worked on Adobe Express web application fixing bugs and implementing new UI features using React + TypeScript",
+      "Refactored image loading components to use lazy loading with WebP format and fallbacks—reduced initial page load time from 4.2s to 2.8s",
+      "Contributed to internal React component library used across Creative Cloud web apps—built reusable color picker with keyboard navigation and ARIA labels for accessibility",
+      "Fixed Safari CSS rendering bugs in layer panel component",
+      "Debugged production issue where undo/redo functionality broke on text editing—traced through Redux state to find race condition in action dispatchers, wrote Jest unit tests increasing canvas test coverage from 65% to 82%"
     ]
   },
   {
-    title: "Data Analyst (Internship)",
+    title: "Software Engineer Intern",
     company: "EPAM Systems",
-    location: "Hyderabad, India",
+    location: "India",
     period: "December 2020 – March 2021",
     achievements: [
-      "Developed Python data ingestion framework reducing processing time by 30%, handling 1TB+ daily data",
-      "Configured AWS Data Pipeline (S3 to Redshift) improving data load efficiency by 35%",
-      "Built data transformation pipelines using AWS EMR processing 500GB+ datasets between S3 and DynamoDB",
-      "Automated data workflows with Apache Airflow reducing manual intervention by 80%",
-      "Developed Spark ML modules for predictive analytics, improving forecast accuracy by 20%"
+      "Worked on backend services for e-commerce client migrating customer data from MySQL to PostgreSQL",
+      "Built Python ETL scripts with Pandas for data validation—caught 3,200 duplicate records before migration",
+      "Optimized slow analytics API endpoint by adding database index after profiling query execution plan with EXPLAIN ANALYZE"
     ]
   }
 ];
@@ -129,10 +127,10 @@ export default function ExperiencePage() {
         <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
           <div className="inline-block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                          <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-               Looking for a Full Stack AI Engineer?
+               Looking for a Software Engineer?
              </h2>
              <p className="text-gray-600 mb-4">
-               I&apos;m available for freelance projects and full-time opportunities in AI/ML and full-stack development.
+               Open to full-time roles in Software Engineering, Backend Development, and AI/ML Systems.
              </p>
                          <Link
                href="/#contact"
