@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
       },
       {
         transcript: "Show me your experience",
-        response: "I have 4 years of experience in software engineering. Currently, I'm a Full Stack AI Engineer at Arkatech Solutions, previously worked as an AI/ML Full Stack Developer at Anguliyam, and have experience at Cognizant and EPAM Systems. I'll navigate to my experience page for you.",
+        response: "I currently work at Oracle building production Java services and APIs on OCI. Previously, I worked on multi-agent and RAG systems at Anguliyam, frontend engineering at Adobe, and data engineering foundations at EPAM. I'll navigate to my experience page for you.",
         action: { type: 'navigate', target: '/experience' }
       },
       {
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       },
       {
         transcript: "Tell me about yourself",
-        response: "I'm a Full Stack AI Engineer with 4 years of experience building scalable, AI-powered applications. I specialize in data engineering, machine learning, and full-stack development. I love solving complex problems and creating innovative solutions that make a real impact.",
+        response: "I'm a software engineer focused on AI agent systems, backend APIs, and scalable full-stack applications. I work across Python, Java, and TypeScript, and I care about building reliable systems that hold up in production.",
         action: null
       },
       {

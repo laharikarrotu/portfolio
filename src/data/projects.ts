@@ -43,16 +43,16 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'smartbuy-v2',
-    title: 'SmartBuy AI eCommerce Platform',
-    description: 'Production eCommerce platform with AI-powered navigation and real-time inventory management. Features semantic search, personalized recommendations, and secure payment integration. Built with React, Next.js, FastAPI, and PostgreSQL.',
-    longDescription: 'A production-grade eCommerce platform built with React, Next.js, and FastAPI. Features an AI-powered navigation assistant using OpenAI API for intelligent shopping guidance. Includes real-time inventory management, personalized product recommendations, semantic search with vector embeddings, and secure payment integration. Built with PostgreSQL, Redis caching, and deployed on Vercel Edge Network.',
-    githubUrl: 'https://github.com/laharikarrotu/SmartBuy_v2',
+    title: 'SmartBuy v2 — Multimodal AI Shopping Agent',
+    description: 'A real multimodal shopping agent with persistent WebSocket connectivity to Gemini Multimodal Live API for simultaneous voice, webcam context, and two-way interaction.',
+    longDescription: 'SmartBuy v2 is a tool-calling AI agent system, not just a chatbot. It maintains a persistent WebSocket connection to Gemini Multimodal Live API and supports simultaneous voice input, webcam context, and continuous response streaming without page refresh. The agent executes structured tool calls to navigate shopping flows, build lists, and search products autonomously from user voice commands or visual context.',
+    githubUrl: 'https://github.com/laharikarrotu/smartbuy',
     liveUrl: 'https://smart-buy-v2.vercel.app',
     status: 'Live',
     year: 2024,
     category: 'Full-Stack',
-    tags: ['React', 'TypeScript', 'AI', 'eCommerce', 'Navigation Assistant'],
-    technologies: ['React', 'TypeScript', 'Next.js', 'FastAPI', 'Python', 'PostgreSQL', 'OpenAI API', 'Tailwind CSS', 'Vercel'],
+    tags: ['React', 'TypeScript', 'Gemini', 'Multimodal', 'WebSockets'],
+    technologies: ['React', 'TypeScript', 'Gemini Multimodal Live API', 'WebSockets', 'SCSS', 'GCP App Engine', 'Vercel'],
     screenshots: [
       { type: 'website', url: '/projects/smartbuy/21.png', alt: 'SmartBuy AI Homepage', caption: 'Modern eCommerce homepage with AI-powered navigation' },
       { type: 'product', url: '/projects/smartbuy/22.png', alt: 'AI Navigation Assistant', caption: 'AI-powered shopping assistant interface' },
@@ -60,38 +60,35 @@ export const projects: Project[] = [
       { type: 'dashboard', url: '/projects/smartbuy/24.png', alt: 'Admin Dashboard', caption: 'Real-time inventory and order management' }
     ],
     performanceMetrics: [
-      { label: 'Tech Stack', value: 'Next.js + FastAPI', icon: '⚛️' },
-      { label: 'Database', value: 'PostgreSQL + Redis', icon: '🗄️' },
-      { label: 'AI Integration', value: 'OpenAI API', icon: '🤖' },
-      { label: 'Deployment', value: 'Vercel + Cloud', icon: '☁️' }
+      { label: 'Interaction Mode', value: 'Voice + Webcam + Text', icon: '🎙️' },
+      { label: 'Runtime', value: 'Persistent WebSocket', icon: '🧵' },
+      { label: 'AI Engine', value: 'Gemini Multimodal Live', icon: '🤖' },
+      { label: 'Deployment', value: 'GCP + Vercel', icon: '☁️' }
     ],
     keyFeatures: [
-      'AI-powered navigation assistant for intelligent shopping guidance',
-      'Real-time inventory management and order processing',
-      'Advanced search with semantic understanding',
-      'Personalized product recommendations based on user behavior',
-      'Secure payment integration',
-      'Responsive design optimized for all devices'
+      'Persistent multimodal agent session with simultaneous voice and visual context',
+      'Structured function-calling loop for autonomous tool execution',
+      'Autonomous navigation and shopping-list construction from user intent',
+      'Continuous two-way conversation without refresh interruptions',
+      'Real-time product search guided by what the user says and shows',
+      'Cloud deployment for production-grade responsiveness'
     ],
     challenges: [
-      'Implementing efficient AI integration for real-time responses',
-      'Managing large-scale product catalog with fast search',
-      'Ensuring smooth user experience across devices'
+      'Maintaining low-latency multimodal streaming over long-lived connections',
+      'Designing safe and deterministic tool-call execution loops',
+      'Keeping interaction coherent across voice, vision, and text context'
     ],
     solutions: [
-      'Built optimized API endpoints for fast response times',
-      'Implemented caching layer for frequently accessed data',
-      'Used modern React patterns for optimal performance',
-      'Optimized database queries for fast product retrieval'
+      'Implemented resilient WebSocket session management and reconnection behavior',
+      'Used structured tool schemas for predictable agent actions',
+      'Split interaction and execution concerns for cleaner orchestration',
+      'Shipped responsive UI with low-friction input/output flow'
     ],
     impact: [
-      'Production deployment with AI-powered navigation assistant for intelligent shopping guidance',
-      'Real-time inventory management and order processing system',
-      'Semantic search implementation with vector embeddings for improved product discovery',
-      'Multi-layer caching strategy (CDN → Redis → DB) for optimized performance',
-      'Scalable microservices architecture with horizontal scaling capabilities',
-      'Secure payment integration and responsive design for all devices',
-      'Built with production-ready practices: error handling, monitoring, and CI/CD deployment'
+      'Built a true multimodal shopping agent with persistent live interaction',
+      'Implemented autonomous tool-call/response loop for task execution',
+      'Enabled voice-directed and screen-aware shopping workflows',
+      'Demonstrated end-to-end agent design from orchestration to UI delivery'
     ],
     codeSnippets: [
       {
@@ -147,25 +144,25 @@ def get_recommendations(user_id: int, product_history: List[int]):
   {
     id: 'scanx-healthscan',
     title: 'ScanX (HealthScan) — AI Healthcare Assistant',
-    description: 'AI healthcare assistant for prescription analysis with 3-engine AI system: Vision Engine (Gemini Pro 1.5 + OCR), Planner Engine (LLM action planning), and Executor Engine (Playwright automation) with drug interaction checking via RxNav API.',
-    longDescription: 'Built a 3-engine AI system for healthcare prescription analysis: Vision Engine (Gemini Pro 1.5 + OCR for prescription extraction), Planner Engine (LLM action planning), and Executor Engine (Playwright automation) processing medical documents with drug interaction checking via RxNav API. Deployed full-stack on Vercel with FastAPI + PostgreSQL + Redis + Celery task queues, implementing PII redaction + audit logging for healthcare compliance.',
-    githubUrl: 'https://github.com/laharikarrotu/HealthScan',
+    description: 'Agentic AI healthcare assistant with a 3-engine architecture for prescription extraction, action planning, and browser automation with interaction safety checks.',
+    longDescription: 'HealthScan uses a production-grade 3-engine architecture: Vision Engine (Gemini Pro 1.5 + GPT-4o + Tesseract OCR), Planner Engine for confidence-based action planning with LLM fallbacks, and Executor Engine for browser automation via Playwright. It includes RxNav/RxNorm-powered interaction checks, PII redaction, encrypted image storage, JWT auth, rate limiting, audit logging, and observability via Prometheus and Sentry.',
+    githubUrl: 'https://github.com/laharikarrotu/healthscan',
     liveUrl: 'https://scan-to-action-ai-scanx-s14g.vercel.app/',
     status: 'Completed',
     year: 2025,
     category: 'AI/ML',
     tags: ['AI', 'Healthcare', 'Gemini Pro', 'OCR', 'Automation'],
-    technologies: ['Next.js', 'TypeScript', 'FastAPI', 'Gemini Pro 1.5', 'OCR', 'Playwright', 'PostgreSQL', 'Redis', 'Celery'],
+    technologies: ['Next.js 15', 'TypeScript', 'FastAPI', 'React Native', 'Gemini Pro 1.5', 'GPT-4o', 'Tesseract OCR', 'Playwright', 'PostgreSQL', 'Redis', 'Celery'],
     screenshots: [
       { type: 'product', url: '/projects/scanx/1.png', alt: 'ScanX upload and action flow', caption: 'Upload screenshot + define action' },
       { type: 'product', url: 'https://via.placeholder.com/400x300/111827/ffffff?text=ScanX+Overlay', alt: 'ScanX element detection overlay', caption: 'Element detection overlay (placeholder)' },
       { type: 'dashboard', url: 'https://via.placeholder.com/400x300/0b1120/ffffff?text=Agent+Actions', alt: 'Agent action simulation', caption: 'Agent action simulation (placeholder)' }
     ],
     performanceMetrics: [
-      { label: 'UI Detection Accuracy', value: '85%', icon: '🎯' },
-      { label: 'Test Interfaces', value: '100+', icon: '📱' },
-      { label: 'Response Time', value: '~2s', icon: '⚡' },
-      { label: 'Tech Stack', value: 'GPT-4 Vision + YOLO', icon: '🤖' }
+      { label: 'Architecture', value: '3-Engine Agent System', icon: '🏗️' },
+      { label: 'Medication Safety', value: 'RxNav/RxNorm Checks', icon: '💊' },
+      { label: 'Security', value: 'PII Redaction + Audit Logs', icon: '🔒' },
+      { label: 'Observability', value: 'Prometheus + Sentry', icon: '📈' }
     ],
     keyFeatures: [
       'Screenshot and doc ingestion',
@@ -186,55 +183,50 @@ def get_recommendations(user_id: int, product_history: List[int]):
     ]
   },
   {
-    id: 'ats-resume-app',
-    title: 'ATS-Personalized Resume Generator',
-    description: 'AI-powered resume optimization tool that analyzes job descriptions using NLP and generates ATS-optimized resumes. Extracts key requirements, matches skills, and creates personalized resumes with high compatibility scores.',
-    longDescription: 'An intelligent resume generation system that uses natural language processing to analyze job descriptions and create optimized resumes. The system extracts keywords, requirements, and skills from job postings, matches them with candidate experience, and generates formatted resumes in DOCX format. Features real-time compatibility scoring, intelligent keyword matching, and content optimization. Built with Python, FastAPI for the backend, and React for the frontend. Includes ATS compatibility checking based on industry standards.',
-    githubUrl: 'https://github.com/laharikarrotu/ats_resume_app',
-    liveUrl: 'https://web-production-dc67.up.railway.app/',
+    id: 'ai-resume-tailor',
+    title: 'AI Resume Tailor — Full-Stack Job Application Platform',
+    description: 'A Vercel-only Next.js App Router platform that parses job descriptions with Claude AI, tailors resume DOCX output via XML manipulation, and logs applications to Google Sheets.',
+    longDescription: 'AI Resume Tailor is built as a serverless-first Next.js 14 app with all backend logic implemented in API routes. It parses job descriptions using Anthropic Claude, tailors DOCX resumes while preserving template formatting through jszip XML manipulation, and records applications into Google Sheets using a service account. The architecture is intentionally simple to ship quickly without maintaining a separate backend.',
+    githubUrl: 'https://github.com/laharikarrotu/resume-tailor',
     status: 'Completed',
-    year: 2024,
-    category: 'AI/ML',
-    tags: ['Python', 'NLP', 'Machine Learning', 'AI', 'Full-Stack', 'Resume Parser', 'DOCX Generator'],
-    technologies: ['Python', 'FastAPI', 'NLP Libraries', 'Machine Learning', 'React', 'TypeScript', 'DOCX Generation', 'PDF Processing'],
+    year: 2025,
+    category: 'Full-Stack',
+    tags: ['Next.js', 'TypeScript', 'Claude', 'Google Sheets API', 'DOCX'],
+    technologies: ['Next.js 14', 'TypeScript', 'Anthropic Claude API', 'Google Sheets API', 'jszip', 'Vercel'],
     screenshots: [
-      { type: 'product', url: '/projects/ats/frst.png', alt: 'Resume Generator Interface', caption: 'ATS-optimized resume generation interface' },
-      { type: 'product', url: '/projects/ats/scnd.png', alt: 'Job Description Analysis', caption: 'NLP-powered job description analysis' }
+      { type: 'product', url: '/projects/ats/frst.png', alt: 'Resume tailoring interface', caption: 'Job description parsing and tailored resume workflow' },
+      { type: 'product', url: '/projects/ats/scnd.png', alt: 'Application log panel', caption: 'Application tracking and output management' }
     ],
     performanceMetrics: [
-      { label: 'NER Model F1 Score', value: '82%', icon: '🧠' },
-      { label: 'Resume Parser Accuracy', value: '90%', icon: '📄' },
-      { label: 'Resumes Processed', value: '200+', icon: '📊' },
-      { label: 'Training Data', value: '500+ job posts', icon: '📚' }
+      { label: 'Architecture', value: 'Next.js API Routes Only', icon: '🧱' },
+      { label: 'Model', value: 'Anthropic Claude', icon: '🤖' },
+      { label: 'Output', value: 'DOCX Template Preservation', icon: '📄' },
+      { label: 'Tracking', value: 'Google Sheets Logging', icon: '📊' }
     ],
     keyFeatures: [
-      'NLP-powered job description analysis and keyword extraction',
-      'Automated resume customization based on job requirements',
-      'ATS-optimized formatting and structure',
-      'Real-time compatibility scoring and suggestions',
-      'Multiple resume format support (DOCX, PDF)',
-      'Intelligent content optimization for maximum impact'
+      'Job description parsing using Claude for role-aware tailoring',
+      'DOCX template-preserving edits through XML-level manipulation',
+      'All server logic implemented in Next.js API routes',
+      'Application logging and status tracking via Google Sheets',
+      'Single-platform Vercel deployment with minimal operational overhead',
+      'Fast iteration loop for application customizations'
     ],
     challenges: [
-      'Accurately parsing and understanding job descriptions',
-      'Ensuring ATS compatibility while maintaining readability',
-      'Generating personalized content that matches job requirements',
-      'Handling various resume formats and structures'
+      'Maintaining DOCX formatting fidelity while changing content',
+      'Keeping implementation serverless without a dedicated backend',
+      'Balancing tailoring quality with deterministic output behavior'
     ],
     solutions: [
-      'Implemented advanced NLP techniques for text analysis',
-      'Built ATS compatibility checker using industry standards',
-      'Created intelligent keyword matching algorithms',
-      'Developed flexible template system for various formats'
+      'Used structured prompt templates and schema-driven parsing',
+      'Manipulated zipped DOCX XML directly with jszip',
+      'Centralized server logic in API routes for low deployment friction',
+      'Integrated spreadsheet logging for lightweight workflow tracking'
     ],
     impact: [
-      'Trained custom NER model on 500+ job postings identifying technical requirements with 82% F1 score',
-      'Built resume parser using ML-based text extraction achieving 90% accuracy on test dataset',
-      'Processed 200+ resumes during testing with automated DOCX generation and keyword density scoring',
-      'Reduced resume customization time from hours to minutes with automated generation',
-      'Demonstrated expertise in NLP, text processing, and document generation',
-      'Built scalable system handling multiple resume formats and job description variations',
-      'Showcased ability to integrate AI/ML capabilities into practical applications'
+      'Shipped a full-stack resume tailoring workflow without maintaining separate backend infrastructure',
+      'Automated role-specific resume customization using Claude-based JD parsing',
+      'Preserved DOCX template structure while applying targeted content edits',
+      'Reduced manual application-prep effort via automated tailoring and logging'
     ],
     codeSnippets: [
       {
@@ -264,11 +256,11 @@ def analyze_job_description(job_text: str) -> Dict:
   },
   {
     id: 'blinds-boundaries',
-    title: 'Blinds & Boundaries - Virtual Try-On Application',
+    title: 'Blinds & Boundaries — AI Virtual Try-On Platform',
     description: 'Virtual try-on application for window blinds using computer vision and 3D rendering. Enables customers to visualize products in their actual space with realistic lighting and perspective. Deployed on Azure with real-time image processing.',
     longDescription: 'Built production app with hybrid AI detection (Azure Computer Vision → Gemini → OpenCV fallback) for window detection + 3D blind overlay with realistic shadows/lighting. Implemented elite architecture using Repository/Factory/Strategy patterns with LRU cache (O(1) operations), vectorized NumPy algorithms, deployed on Azure App Service + Vercel with Azure Blob Storage CDN.',
     problem: 'Customers hesitate to purchase window treatments online due to uncertainty about how products will look in their space. High return rates and low conversion result from inability to visualize products before purchase.',
-    githubUrl: 'https://github.com/laharikarrotu/Blinds-BoundariesOnline',
+    githubUrl: 'https://github.com/laharikarrotu/blinds-boundaries',
     liveUrl: 'https://blinds-boundaries-online.vercel.app',
     status: 'Live',
     year: 2024,

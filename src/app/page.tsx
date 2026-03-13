@@ -35,12 +35,12 @@ const Home: React.FC = () => {
       { name: 'REST APIs', icon: '🔗' }
        ],
     aiAgents: [
-      { name: 'Gemini API', icon: '✨' },
-      { name: 'Azure Computer Vision', icon: '👁️' },
-      { name: 'OCR', icon: '📝' },
-      { name: 'OpenAI API', icon: '🤖' },
+      { name: 'LangGraph', icon: '🧠' },
+      { name: 'CrewAI', icon: '🤝' },
       { name: 'LangChain', icon: '⛓️' },
-      { name: 'Google Speech-to-Text', icon: '🎙️' }
+      { name: 'RAG Pipelines', icon: '📚' },
+      { name: 'Gemini Pro / GPT-4o', icon: '✨' },
+      { name: 'Tesseract OCR', icon: '📝' }
     ],
     dataPipelines: [
       { name: 'SQL (PostgreSQL, MySQL)', icon: '🗄️' },
@@ -52,13 +52,14 @@ const Home: React.FC = () => {
     ],
     cloudInfra: [
       { name: 'Oracle Cloud (OCI)', icon: '🔴' },
-      { name: 'AWS (Lambda, S3)', icon: '☁️' },
+      { name: 'AWS (Lambda, EC2, S3, Bedrock)', icon: '☁️' },
+      { name: 'GCP', icon: '🌐' },
       { name: 'Azure (App Service, Blob Storage)', icon: '🔷' },
          { name: 'Docker', icon: '🐳' },
       { name: 'Jenkins CI/CD', icon: '🔄' },
-      { name: 'Git', icon: '📁' },
+      { name: 'GitHub Actions', icon: '🛠️' },
       { name: 'Vercel', icon: '⚡' },
-      { name: 'Oracle APM', icon: '📡' }
+      { name: 'Prometheus + Sentry', icon: '📡' }
        ]
     };
 
@@ -81,17 +82,17 @@ const Home: React.FC = () => {
                 <div className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 mb-12 font-light">
                   <TypeWriter 
                     texts={[
-                      'I build things that work at scale.',
-                      'Healthcare APIs · AI Agents · Full-Stack Apps',
-                      'From Oracle DB queries to React component libraries.',
-                      '12 projects on GitHub. All shipped.'
+                      'AI agents, backend APIs, and full-stack systems.',
+                      'Oracle services on OCI · Enterprise RAG pipelines',
+                      'From query plans and indexing to React UX and CI/CD.',
+                      'I ship reliable systems under real production constraints.'
                     ]} 
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph 
-                text="Software Engineer who ships production code at Oracle, built UI features at Adobe, and prototypes AI systems on weekends. San Francisco, CA."
+                text="Software Engineer at Oracle building production Java services on OCI. I design AI agent systems, backend APIs, and scalable full-stack applications across enterprise and startup environments."
                 className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl text-xl leading-relaxed"
                 delay={0.5}
                 duration={1.0}
@@ -103,11 +104,11 @@ const Home: React.FC = () => {
                 <div className="mb-12 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-200 dark:border-indigo-800 max-w-3xl">
                   <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-300 mb-2">📋 The Short Version:</p>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1 list-disc list-inside">
-                    <li><strong>Currently:</strong> Software Engineer at Oracle (via Arkatech Solutions) — healthcare credentialing APIs, Spring Boot, Oracle Cloud</li>
-                    <li><strong>Previously:</strong> Adobe Creative Cloud (React/TS), Anguliyam AI (voice assistants), EPAM Systems (data migration)</li>
-                    <li><strong>Side projects:</strong> 12 repos on GitHub — AI healthcare apps, computer vision, eCommerce, fitness, task management</li>
-                    <li><strong>Impact:</strong> 6s→2s query optimization, 87%→98% API reliability, 4.2s→2.8s page loads, 200+ beta testers</li>
-                    <li><strong>Education:</strong> MS Computer Science (Florida Tech) · AWS Solutions Architect certified</li>
+                    <li><strong>Currently:</strong> Software Engineer at Oracle building Java REST APIs on OCI for enterprise SaaS</li>
+                    <li><strong>Previously:</strong> Anguliyam (multi-agent systems, RAG), Adobe (React/TS), EPAM (data engineering)</li>
+                    <li><strong>Core Focus:</strong> Multi-agent orchestration, enterprise retrieval systems, and production backend reliability</li>
+                    <li><strong>Impact:</strong> 60%+ SQL response improvement, 70% lower manual processing, and 0%→91% test coverage growth</li>
+                    <li><strong>Stack:</strong> Python, Java, TypeScript · AWS, GCP, OCI · FastAPI, Spring Boot, Next.js</li>
                   </ul>
                 </div>
               </RevealText>
@@ -254,10 +255,10 @@ const Home: React.FC = () => {
             <p className="text-center text-gray-500 dark:text-gray-400 mb-8 text-sm">Numbers from real work — not hypotheticals</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {[
-                { label: 'GitHub Projects', value: '12', icon: '📦', source: 'All public, all shipped' },
-                { label: 'Production APIs', value: '3+', icon: '🔗', source: 'Spring Boot, FastAPI, Node' },
-                { label: 'Companies Shipped At', value: '4', icon: '🏢', source: 'Oracle, Adobe, Anguliyam, EPAM' },
-                { label: 'Query Speedup', value: '3x', icon: '🚀', source: '6s → 2s (Oracle DB)' }
+                { label: 'Core Repos Highlighted', value: '4', icon: '📦', source: 'HealthScan, SmartBuy, Resume Tailor, Blinds' },
+                { label: 'Agentic AI Projects', value: '3+', icon: '🤖', source: 'Orchestration, RAG, automation' },
+                { label: 'Companies Shipped At', value: '4', icon: '🏢', source: 'Oracle, Anguliyam, Adobe, EPAM' },
+                { label: 'DB Improvement', value: '60%+', icon: '🚀', source: 'Oracle DB 23ai response-time cut' }
               ].map((stat, idx) => (
                 <MotionDiv
                   key={stat.label}
@@ -276,10 +277,10 @@ const Home: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'API Reliability', value: '98%', icon: '✅', source: 'Fixed from 87% (Oracle)' },
-                { label: 'Response Time', value: '800ms', icon: '⚡', source: 'Down from 3s (Redis cache)' },
-                { label: 'Page Load', value: '2.8s', icon: '🎨', source: 'Down from 4.2s (Adobe)' },
-                { label: 'Beta Users Served', value: '200+', icon: '👥', source: 'VoiceNav Assistant' }
+                { label: 'Manual Work Reduced', value: '70%', icon: '✅', source: 'Agent workflows at Anguliyam' },
+                { label: 'RAG Relevance Lift', value: '+40%', icon: '⚡', source: 'Hybrid retrieval pipelines' },
+                { label: 'Coverage Increase', value: '91%', icon: '🎨', source: 'Adobe feature module tests' },
+                { label: 'Rollbacks', value: '0', icon: '👥', source: 'Oracle sprint delivery track record' }
               ].map((stat, idx) => (
                 <MotionDiv
                   key={stat.label}
@@ -335,21 +336,21 @@ const Home: React.FC = () => {
           />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <RevealParagraph 
-                text="I'm Lahari — a software engineer based in San Francisco who genuinely enjoys building things. Right now I'm at Oracle (contracted through Arkatech Solutions) working on healthcare credentialing APIs that hospitals actually depend on. Before that, I was at Adobe building React components that millions of Creative Cloud users interact with."
+              text="I'm Lahari — a software engineer based in San Francisco focused on AI agent systems, backend APIs, and scalable full-stack products. At Oracle, I build production Java services on OCI with reliability, performance, and compliance constraints in mind."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.3}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="Outside of work, I build a lot. My GitHub has 12 public projects — everything from AI healthcare assistants that scan prescriptions, to computer vision apps that detect windows for virtual blind try-ons, to a full eCommerce platform with an AI shopping assistant. I don't just prototype — I ship to production with real users."
+              text="Outside of work, I ship project-heavy systems: agentic healthcare workflows, enterprise-style RAG pipelines, multimodal shopping assistants, and practical AI tooling for job applications. I care about systems that hold up in production, not just demos."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
               delay={0.5}
               duration={1.2}
               stagger={0.1}
             />
             <RevealParagraph 
-              text="I hold a Master's in Computer Science from Florida Institute of Technology and I'm AWS Solutions Architect certified. I care about clean code, honest engineering, and building software that solves real problems."
+              text="I hold a Master's in Computer Science from Florida Tech and an AWS Solutions Architect certification. I like building clean, maintainable software that solves real business problems under real-world constraints."
               className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
               delay={0.7}
               duration={1.2}
@@ -368,32 +369,35 @@ const Home: React.FC = () => {
             {[
               {
                 title: 'Software Engineer',
-                company: 'Oracle (via Arkatech Solutions)',
+                company: 'Oracle',
                 period: 'May 2025 – Present',
                 bullets: [
-                  'Healthcare credentialing APIs (Java Spring Boot) — processing HL7/FHIR messages integrated with hospital EHR systems',
-                  'Fixed intermittent API failures: added retry logic + connection pooling → success rate 87% → 98%, verification turnaround 48h → 4h',
-                  'Optimized Oracle DB dashboard query from 6s → 2s using EXPLAIN PLAN + composite index',
-                  'CI/CD with Jenkins on Oracle Cloud (OCI) — Liquibase migrations, automated tests, APM monitoring'
+                  'Building Java REST APIs on OCI for enterprise SaaS clients in healthcare and finance with strict uptime/compliance requirements',
+                  'Resolved a critical Oracle DB 23ai query bottleneck under concurrent load — execution plan analysis + index strategy drove 60%+ response-time improvement',
+                  'Automated manual data-load workflow using Python on OCI, removing repeated weekly engineer intervention',
+                  'Maintaining Jenkins CI/CD quality gates with JUnit coverage and consistent zero-rollback sprint delivery'
                 ]
               },
               {
-                title: 'Software Engineer Intern',
-                company: 'Anguliyam AI Solutions',
-                period: 'Jun 2024 – May 2025',
+                title: 'Software Engineer — AI & Full-Stack Systems',
+                company: 'Anguliyam',
+                period: 'Jun 2024 – Apr 2025',
                 bullets: [
-                  'Shipped VoiceNav Assistant for visually impaired users — Google Speech-to-Text + Porcupine wake-word, 200+ beta testers on Azure',
-                  'Cut API response time 3s → 800ms with Redis caching (65% hit rate) · JWT auth with role-based access'
+                  'Designed and deployed multi-agent orchestration systems with LangGraph and CrewAI, reducing manual processing by 70%',
+                  'Built production RAG with hybrid retrieval (dense vector + keyword), improving answer relevance by 40% over baseline',
+                  'Implemented human-in-the-loop governance with approval gates and audit logging for sensitive enterprise workflows',
+                  'Integrated external tools, CRMs, and voice systems to trigger downstream actions beyond text-only responses'
                 ]
               },
               {
                 title: 'Software Engineer Intern',
-                company: 'Adobe Creative Cloud',
+                company: 'Adobe',
                 period: 'Jan 2022 – Aug 2022',
                 bullets: [
-                  'Adobe Express: React + TypeScript features, lazy loading with WebP → page load 4.2s → 2.8s',
-                  'Built reusable components for Creative Cloud web apps (color picker, ARIA-accessible, keyboard nav)',
-                  'Found Redux race condition in undo/redo, wrote Jest tests → coverage 65% → 82%'
+                  'Built React and TypeScript UI components for Adobe Experience Cloud, focusing on accessible and consistent interfaces',
+                  'Integrated Adobe Experience Platform APIs with graceful handling for partial data and API error states',
+                  'Added Jest + React Testing Library coverage, catching a regression and increasing module coverage from 0% to 91%',
+                  'Contributed to sprint design/code reviews and technical documentation in a 20+ engineer cross-functional setup'
                 ]
               },
               {
@@ -401,8 +405,9 @@ const Home: React.FC = () => {
                 company: 'EPAM Systems',
                 period: 'Dec 2020 – Mar 2021',
                 bullets: [
-                  'MySQL → PostgreSQL data migration: Python ETL scripts with Pandas, caught 3,200 duplicates pre-migration',
-                  'Profiled slow analytics endpoint with EXPLAIN ANALYZE, added index to fix it'
+                  'Built Python and Java ETL modules with tests and documentation for client-facing data engineering workflows',
+                  'Wrote SQL extraction/transformation/reporting queries powering downstream analytics and client financial reporting',
+                  'Delivered sprint commitments in a global Agile team using JIRA, Git branching, and peer-reviewed code practices'
                 ]
               }
             ].map((role, idx) => (
@@ -616,7 +621,7 @@ const Home: React.FC = () => {
               {[
                 {
                   title: 'I Ship Real Products',
-                  description: '12 GitHub projects — not tutorials, not boilerplate. HealthScan analyzes prescriptions with AI. SmartBuy runs a full eCommerce store with AI navigation. Blinds & Boundaries does real-time 3D rendering with computer vision.',
+                  description: 'I build complete systems, not isolated demos: HealthScan (agentic healthcare assistant), SmartBuy v2 (multimodal shopping agent), Blinds & Boundaries (AI try-on), and AI Resume Tailor (application workflow automation).',
                   icon: '🚀',
                   color: 'from-blue-500 to-cyan-500'
                 },
@@ -628,7 +633,7 @@ const Home: React.FC = () => {
                 },
                 {
                   title: 'I Learn Fast & Go Deep',
-                  description: 'Went from zero Spring Boot experience to shipping healthcare APIs at Oracle in weeks. Built voice assistants, computer vision systems, and AI agents across different stacks. I pick up whatever the problem needs.',
+                  description: 'I work across Java, Python, and TypeScript based on system needs. That range lets me move from DB performance debugging and CI/CD to agent orchestration and production UI delivery without handoff bottlenecks.',
                   icon: '🧠',
                   color: 'from-indigo-500 to-purple-500'
                 }
@@ -653,9 +658,9 @@ const Home: React.FC = () => {
         </section>
 
         <section className="projects-section py-32 overflow-hidden" id="projects">
-           <SectionHeader 
+          <SectionHeader 
             title="Projects" 
-            subtitle="12 GitHub repos — here are the ones I'm most proud of"
+            subtitle="Selected shipped projects with production-grade architecture"
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProjectShowcase projects={projects} />
@@ -918,13 +923,13 @@ const Home: React.FC = () => {
           />
           <div className="max-w-5xl mx-auto px-4 space-y-4">
             {[
-              { label: 'Languages', items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'] },
-              { label: 'Frontend', items: ['React', 'Redux', 'HTML/CSS', 'Tailwind CSS'] },
-              { label: 'Backend', items: ['FastAPI', 'Spring Boot', 'Node.js', 'REST APIs'] },
-              { label: 'AI/ML', items: ['Gemini API', 'Azure Computer Vision', 'OCR'] },
-              { label: 'Cloud', items: ['Oracle Cloud (OCI)', 'Azure (App Service, Blob Storage)', 'AWS (Lambda, S3)', 'Docker'] },
-              { label: 'Databases', items: ['Oracle Database', 'PostgreSQL', 'Redis'] },
-              { label: 'Tools', items: ['Git', 'Jenkins', 'Docker', 'Jest', 'Liquibase'] },
+              { label: 'Languages', items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'SQL'] },
+              { label: 'Frameworks', items: ['FastAPI', 'Spring Boot', 'React', 'Next.js', 'React Native', 'Node.js'] },
+              { label: 'AI/ML', items: ['LangGraph', 'CrewAI', 'LangChain', 'AWS Bedrock', 'OpenAI GPT-4o', 'Gemini Pro', 'RAG'] },
+              { label: 'Cloud', items: ['OCI', 'AWS', 'GCP', 'Azure App Service', 'Azure Blob Storage', 'Vercel'] },
+              { label: 'Databases', items: ['Oracle DB 23ai', 'PostgreSQL', 'Redis', 'MongoDB', 'Supabase'] },
+              { label: 'Observability', items: ['Prometheus', 'Sentry', 'Postman', 'Playwright'] },
+              { label: 'Tools', items: ['Docker', 'Jenkins', 'GitHub Actions', 'Git', 'JIRA', 'Agile/Scrum'] },
             ].map((row) => (
               <div key={row.label} className="flex flex-wrap items-center gap-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm px-4 py-3">
                 <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-300 w-28">{row.label}</span>
@@ -1066,15 +1071,15 @@ const Home: React.FC = () => {
               {
                 degree: "Master of Science in Computer Science",
                 school: 'Florida Institute of Technology',
-                period: '2024',
-                grade: 'GPA: 3.5/4.0',
+                period: 'Aug 2022 – May 2024',
+                grade: 'GPA: 3.6/4.0',
                 description: ''
               },
               {
                 degree: "Bachelor of Science in Computer Science",
                 school: 'KL University',
                 period: '2022',
-                grade: '',
+                grade: 'GPA: 3.8/4.0',
                 description: ''
               }
             ].map((edu, idx) => (
@@ -1330,7 +1335,7 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div>
                 <h3 className="text-xl font-bold mb-4">Lahari Karrotu</h3>
-                <p className="text-gray-400 text-sm">Software Engineer at Oracle (via Arkatech Solutions). I build healthcare APIs by day and AI side projects by night. 12 public repos and counting.</p>
+                <p className="text-gray-400 text-sm">Software Engineer at Oracle focused on AI agent systems, backend APIs, and production full-stack delivery.</p>
                   </div>
                   <div>
                 <h4 className="font-semibold mb-4">Quick Links</h4>

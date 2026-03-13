@@ -7,45 +7,49 @@ import Link from 'next/link';
 export default function ExperiencePage() {
   const experiences = [{
     title: "Software Engineer",
-    company: "Oracle (via Arkatech Solutions)",
+    company: "Oracle",
     location: "Remote",
     period: "May 2025 – Present",
     achievements: [
-      "Building healthcare credentialing APIs with Java Spring Boot — processing HL7/FHIR messages for provider verification across hospital EHR systems",
-      "Fixed intermittent API failures caused by DB connection timeouts: added retry logic + connection pooling → success rate 87% → 98%, turnaround 48h → 4h",
-      "Optimized dashboard analytics query from 6s → 2s via EXPLAIN PLAN + composite index on (provider_id, status, last_updated)",
-      "Set up CI/CD with Jenkins on Oracle Cloud (OCI) — Liquibase migrations, automated API tests, APM monitoring"
+      "Building Java REST APIs on Oracle Cloud Infrastructure for enterprise SaaS clients in healthcare and finance, handling high request volume under strict uptime and compliance SLAs",
+      "Resolved a production SQL bottleneck on Oracle DB 23ai under concurrent load by analyzing execution plans, restructuring queries, and adding a composite index, reducing response time by 60%+",
+      "Automated a manual data-load workflow with Python on OCI, eliminating recurring engineer intervention and reducing weekly operational overhead to near zero",
+      "Maintaining CI/CD quality gates in Jenkins, writing JUnit test coverage, and consistently shipping sprint work with zero rollbacks"
+    ]
+  },
+  {
+    title: "Software Engineer — AI & Full-Stack Systems",
+    company: "Anguliyam",
+    location: "Remote",
+    period: "Jun 2024 – Apr 2025",
+    achievements: [
+      "Designed and deployed multi-agent orchestration systems using LangGraph and CrewAI, cutting manual processing time by 70% for document-heavy workflows",
+      "Built production RAG pipelines with hybrid retrieval (dense vector + keyword search), improving answer relevance by 40% over baseline",
+      "Implemented human-in-the-loop governance with approval gates and audit logging for sensitive enterprise workflows",
+      "Integrated agents with external tools, CRMs, and voice infrastructure for document ingestion, downstream automation, and real-world task execution"
     ]
   },
   {
     title: "Software Engineer Intern",
-    company: "Anguliyam AI Solutions",
-    location: "Atlanta",
-    period: "June 2024 – May 2025",
+    company: "Adobe",
+    location: "Remote",
+    period: "Jan 2022 – Aug 2022",
     achievements: [
-      "Shipped VoiceNav Assistant for visually impaired users — event-driven microservices with Google Speech-to-Text + Porcupine wake-word detection, deployed on Azure serving 200+ beta testers",
-      "Cut API response time 3s → 800ms using Redis caching (65% hit rate) · JWT auth with role-based access"
-    ]
-  },
-  {
-    title: "Software Engineer Intern",
-    company: "Adobe Creative Cloud",
-    location: "India",
-    period: "January 2022 – August 2022",
-    achievements: [
-      "Adobe Express: React + TypeScript features, lazy loading with WebP → page load 4.2s → 2.8s",
-      "Built reusable components for the Creative Cloud component library — color picker with keyboard nav + ARIA labels",
-      "Traced a Redux race condition in undo/redo that nobody else could find, wrote Jest tests → coverage 65% → 82%"
+      "Built React and TypeScript UI components for Adobe Experience Cloud, delivering accessible interfaces in Adobe's design system",
+      "Integrated Adobe Experience Platform REST APIs into frontend components with graceful handling for partial failures and degraded data states",
+      "Wrote Jest and React Testing Library coverage for critical flows, catching a regression and lifting a module from 0% to 91% test coverage",
+      "Contributed to design and peer code reviews in 2-week Agile sprints, documenting decisions across a 20+ engineer team"
     ]
   },
   {
     title: "Software Engineer Intern",
     company: "EPAM Systems",
-    location: "India",
-    period: "December 2020 – March 2021",
+    location: "Hybrid",
+    period: "Dec 2020 – Mar 2021",
     achievements: [
-      "MySQL → PostgreSQL data migration for e-commerce client: built Python ETL scripts with Pandas, caught 3,200 duplicates pre-migration",
-      "Profiled slow analytics API with EXPLAIN ANALYZE and added the right index to fix it"
+      "Built Python and Java ETL modules for client-facing data engineering work with unit tests and documentation under EPAM engineering standards",
+      "Wrote SQL for extraction, transformation, and reporting to support downstream analytics and financial reporting",
+      "Delivered sprint work on schedule in a global team using JIRA, Git branching, standups, retrospectives, and peer review practices"
     ]
   }
 ];

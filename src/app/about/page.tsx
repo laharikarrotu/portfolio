@@ -10,15 +10,14 @@ export default function AboutPage() {
               About Me
             </h1>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Hey, I&apos;m Lahari. I&apos;m a software engineer currently at Oracle (contracted via Arkatech Solutions), 
-              where I build healthcare credentialing APIs with Java Spring Boot on Oracle Cloud. Before that, 
-              I worked at Adobe on the Creative Cloud web apps and at Anguliyam AI building voice assistants 
-              for visually impaired users.
+              Hey, I&apos;m Lahari. I&apos;m a software engineer currently at Oracle, where I build production Java
+              services and REST APIs on OCI for enterprise SaaS use cases. My day-to-day work spans backend
+              performance tuning, automation, and reliable delivery across fast sprint cycles.
             </p>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              Outside of work, I&apos;m constantly building — I have 12 public GitHub projects ranging from 
-              AI healthcare tools to computer vision apps to full eCommerce platforms. I like solving 
-              real problems with clean code and honest engineering.
+              Outside work, I build agentic AI systems and full-stack products end-to-end. My projects cover
+              multi-agent orchestration, production RAG pipelines, healthcare AI workflows, and multimodal
+              shopping assistants shipped with practical cloud infrastructure.
             </p>
             
             <div className="space-y-4 transform transition-all duration-500 hover:translate-x-2">
@@ -45,9 +44,9 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { title: 'Backend', skills: 'FastAPI, Spring Boot, Node.js, REST APIs' },
-                  { title: 'Frontend', skills: 'React, Redux, HTML/CSS, Tailwind CSS' },
-                  { title: 'Languages', skills: 'Python, Java, JavaScript, TypeScript, SQL' },
-                  { title: 'Cloud & Tools', skills: 'Oracle Cloud (OCI), Azure, AWS, Docker, Jenkins, Git' }
+                  { title: 'AI Systems', skills: 'LangGraph, CrewAI, LangChain, RAG, Vector Search' },
+                  { title: 'Languages', skills: 'Python, Java, TypeScript, JavaScript, SQL' },
+                  { title: 'Cloud & Infra', skills: 'OCI, AWS, GCP, Azure, Docker, Jenkins, GitHub Actions' }
                 ].map((competency, index) => (
                   <div 
                     key={index}
@@ -88,11 +87,11 @@ export default function AboutPage() {
               </h2>
               <ul className="space-y-3 stagger-animation">
                 {[
-                  '12 public GitHub projects — AI healthcare, computer vision, eCommerce, fitness, task management, and more',
-                  'Oracle: Healthcare APIs (Spring Boot, HL7/FHIR), DB optimization (6s→2s), API reliability (87%→98%)',
-                  'Adobe: React component library for Creative Cloud, page load optimization (4.2s→2.8s), Redux debugging',
-                  'Side projects: HealthScan (AI prescription analysis), Blinds & Boundaries (3D virtual try-on), SmartBuy AI (eCommerce)',
-                  'AWS Solutions Architect certified · MS Computer Science (Florida Tech)'
+                  'Oracle: production Java services on OCI, SQL optimization with 60%+ response-time reduction, and automated operational workflows',
+                  'Anguliyam: multi-agent orchestration with LangGraph/CrewAI and enterprise RAG systems with 40% relevance gains',
+                  'Adobe: React + TypeScript UI systems with API integrations and test coverage raised from 0% to 91%',
+                  'Projects: HealthScan, Blinds & Boundaries, AI Resume Tailor, and SmartBuy v2 multimodal shopping agent',
+                  'MS Computer Science (Florida Tech) · AWS Certified Solutions Architect'
                 ].map((highlight, index) => (
                   <li key={index} className="flex items-start transform transition-all duration-300 hover:translate-x-2">
                     <span className="inline-block w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 mr-3"></span>

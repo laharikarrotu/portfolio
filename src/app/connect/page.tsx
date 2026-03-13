@@ -34,7 +34,7 @@ export default function ConnectPage() {
           color: '#4a4a4a',
           letterSpacing: '-0.01em'
         }}>
-          AI / Full-Stack Engineer
+          Software Engineer
         </p>
         <p style={{
           fontSize: 'clamp(0.875rem, 2.5vw, 0.9375rem)',
@@ -43,7 +43,7 @@ export default function ConnectPage() {
           color: '#888888',
           lineHeight: 1.5
         }}>
-          4+ years • Production AI systems • LLM agents • Real-time ML pipelines
+          AI agent systems • Backend APIs • Scalable full-stack delivery
         </p>
 
         {/* One-line value statement */}
@@ -57,7 +57,7 @@ export default function ConnectPage() {
           marginLeft: 'auto',
           marginRight: 'auto'
         }}>
-          I build production-ready AI systems and agentic platforms that integrate into real workflows, with a focus on reliable backend services and maintainable full-stack solutions.
+          I build production systems at the intersection of AI and backend engineering, with experience across enterprise APIs, multi-agent workflows, and full-stack product delivery.
         </p>
 
         {/* Primary actions - Mobile-optimized, thumb-friendly */}
