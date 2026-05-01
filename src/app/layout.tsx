@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   title: 'Lahari Karrotu — Software Engineer · Backend & Healthcare Tech',
   description:
     'Lahari Karrotu — software engineer working on backend, FHIR, and AWS in healthcare, with side projects in multimodal AI. Writing, code, and systems that care about the messy middle.',
-  icons: {
-    icon: [{ url: '/projects/favicon.jpg', type: 'image/jpeg' }],
-    apple: '/projects/favicon.jpg',
-  },
 };
 
 export default function RootLayout({
