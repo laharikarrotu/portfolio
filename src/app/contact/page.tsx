@@ -1,6 +1,7 @@
 'use client';
 
 import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { GITHUB_URL } from '@/lib/site';
 
 export default function ContactPage() {
   return (
@@ -59,7 +60,7 @@ export default function ContactPage() {
               </h2>
               <div className="flex justify-center space-x-8">
                 <a
-                  href="https://github.com/laharikarrotu"
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center px-6 py-3 bg-white rounded-lg hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"

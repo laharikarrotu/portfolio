@@ -34,5 +34,5 @@ Target: Vercel (Next.js app router). Build command: `npm run build`. If a servic
 
 ## Contact
 Email: laharikarrotu24@gmail.com  
-GitHub: https://github.com/laharikarrotu  
+GitHub: https://github.com/KssmLahari  
 LinkedIn: https://www.linkedin.com/in/laharikarrotu/

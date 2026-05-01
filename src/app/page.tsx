@@ -16,6 +16,7 @@ import EnhancedContactForm from '@/components/EnhancedContactForm';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import WorkflowOrchestration from '@/components/WorkflowOrchestration';
 import { projects } from '@/data/projects';
+import { GITHUB_URL, GITHUB_USERNAME } from '@/lib/site';
 
 const Home: React.FC = () => {
   // Projects are now imported from @/data/projects
@@ -152,7 +153,7 @@ const Home: React.FC = () => {
               <RevealText delay={0.9} duration={0.8}>
                 <div className="flex gap-4 mt-12 justify-center md:justify-start">
                   <Link
-                    href="https://github.com/laharikarrotu"
+                    href={GITHUB_URL}
                     target="_blank"
                     className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
                              transition-all duration-200"
@@ -434,7 +435,7 @@ const Home: React.FC = () => {
                          </div>
               <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-hidden">
                 <img
-                  src={`https://github-readme-activity-graph.vercel.app/graph?username=laharikarrotu&theme=github-compact&area=true&hide_border=true&bg_color=transparent&color=000000&line=0366d6&point=24292e`}
+                  src={`https://github-readme-activity-graph.vercel.app/graph?username=${GITHUB_USERNAME}&theme=github-compact&area=true&hide_border=true&bg_color=transparent&color=000000&line=0366d6&point=24292e`}
                   alt="GitHub Commit Activity Graph"
                   className="w-full h-auto"
                   loading="lazy"
@@ -698,7 +699,7 @@ const Home: React.FC = () => {
                  <span>LinkedIn</span>
                </Link>
                <Link 
-                 href="https://github.com/laharikarrotu" 
+                 href={GITHUB_URL} 
                  className="group flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 px-8 py-4 rounded-xl hover:bg-white/70 dark:hover:bg-gray-700/70
                            transition-all duration-300 border border-gray-200 dark:border-gray-700
                            shadow-sm"
@@ -1331,7 +1332,7 @@ const Home: React.FC = () => {
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
                   </a>
-                  <a href="https://github.com/laharikarrotu" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2">
+                  <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2">
                     <Github className="w-4 h-4" />
                     GitHub
                   </a>

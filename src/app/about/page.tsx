@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { GITHUB_URL, GITHUB_USERNAME } from '@/lib/site';
+
 export default function AboutPage() {
   return (
     <div className="bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30 min-h-screen transition-all duration-500">
@@ -68,14 +70,14 @@ export default function AboutPage() {
                 GitHub Activity
               </h3>
               <img
-                src={`https://github-readme-activity-graph.vercel.app/graph?username=laharikarrotu&theme=github-compact&area=true&hide_border=true&bg_color=ffffff&color=000000&line=4f46e5&point=24292e`}
+                src={`https://github-readme-activity-graph.vercel.app/graph?username=${GITHUB_USERNAME}&theme=github-compact&area=true&hide_border=true&bg_color=ffffff&color=000000&line=4f46e5&point=24292e`}
                 alt="GitHub Contribution Activity"
                 className="w-full h-auto rounded"
                 loading="lazy"
               />
               <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
                 <span>Open source &amp; projects</span>
-                <a href="https://github.com/laharikarrotu" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 font-medium">
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 font-medium">
                   View on GitHub →
                 </a>
               </div>
