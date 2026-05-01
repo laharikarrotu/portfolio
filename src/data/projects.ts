@@ -143,9 +143,9 @@ def get_recommendations(user_id: int, product_history: List[int]):
   },
   {
     id: 'scanx-healthscan',
-    title: 'ScanX (HealthScan) — AI Healthcare Assistant',
-    description: 'Agentic AI healthcare assistant with a 3-engine architecture for prescription extraction, action planning, and browser automation with interaction safety checks.',
-    longDescription: 'HealthScan uses a production-grade 3-engine architecture: Vision Engine (Gemini Pro 1.5 + GPT-4o + Tesseract OCR), Planner Engine for confidence-based action planning with LLM fallbacks, and Executor Engine for browser automation via Playwright. It includes RxNav/RxNorm-powered interaction checks, PII redaction, encrypted image storage, JWT auth, rate limiting, audit logging, and observability via Prometheus and Sentry.',
+    title: 'HealthScan — AI Healthcare Assistant',
+    description: 'Multimodal assistant that reads prescription photos, extracts medications with vision LLMs, checks interactions via RxNorm, and returns diet and lifestyle guidance — JWT auth, PII scrubbing, and audit-minded API design.',
+    longDescription: 'HealthScan is a multimodal AI pipeline: vision models (Gemini Pro 1.5, GPT-4o) plus OCR for prescription images, RxNorm/RxNav for drug-interaction checks, and a three-layer flow (Vision → Planner → Executor) that normalizes outputs across providers. Built with FastAPI, Next.js, PostgreSQL, Playwright where needed, JWT auth, PII scrubbing, and audit logging oriented toward HIPAA-readiness.',
     githubUrl: 'https://github.com/laharikarrotu/healthscan',
     liveUrl: 'https://scan-to-action-ai-scanx-s14g.vercel.app/',
     status: 'Completed',

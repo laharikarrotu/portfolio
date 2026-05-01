@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
       },
       {
         transcript: "Show me your experience",
-        response: "I currently work at Oracle building production Java services and APIs on OCI. Previously, I worked on multi-agent and RAG systems at Anguliyam, frontend engineering at Adobe, and data engineering foundations at EPAM. I'll navigate to my experience page for you.",
+        response: "I work at Cigna on FHIR-backed healthcare APIs and AWS serverless infrastructure, with earlier experience as a software engineering intern at Zoho on production SaaS backends. I'll open my experience page for you.",
         action: { type: 'navigate', target: '/experience' }
       },
       {
@@ -37,12 +37,12 @@ export async function POST(request: NextRequest) {
       },
       {
         transcript: "Tell me about yourself",
-        response: "I'm a software engineer focused on AI agent systems, backend APIs, and scalable full-stack applications. I work across Python, Java, and TypeScript, and I care about building reliable systems that hold up in production.",
+        response: "I'm a software engineer focused on backend and cloud systems in healthcare — FHIR APIs, AWS, and HIPAA-aware design — plus AI side projects with vision and multimodal pipelines. I work across Java, Python, Golang, and TypeScript.",
         action: null
       },
       {
         transcript: "What certifications do you have",
-        response: "I hold several important certifications including AWS Certified Solutions Architect Associate and Cisco CCNA. These demonstrate my expertise in cloud architecture and networking. Let me show you my certifications section!",
+        response: "I'm AWS Certified Solutions Architect — Associate, ServiceNow Certified System Administrator, and Cisco CCNA certified. I can jump to the certifications section on the site.",
         action: { type: 'navigate', target: 'certifications' }
       }
     ];

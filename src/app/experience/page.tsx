@@ -5,51 +5,31 @@ import Link from 'next/link';
 
 
 export default function ExperiencePage() {
-  const experiences = [{
+  const experiences = [
+  {
     title: "Software Engineer",
-    company: "Oracle",
-    location: "Remote",
-    period: "May 2025 – Present",
+    company: "Cigna",
+    location: "United States",
+    period: "Aug 2024 – Present",
     achievements: [
-      "Building Java REST APIs on Oracle Cloud Infrastructure for enterprise SaaS clients in healthcare and finance, handling high request volume under strict uptime and compliance SLAs",
-      "Resolved a production SQL bottleneck on Oracle DB 23ai under concurrent load by analyzing execution plans, restructuring queries, and adding a composite index, reducing response time by 60%+",
-      "Automated a manual data-load workflow with Python on OCI, eliminating recurring engineer intervention and reducing weekly operational overhead to near zero",
-      "Maintaining CI/CD quality gates in Jenkins, writing JUnit test coverage, and consistently shipping sprint work with zero rollbacks"
+      "Own backend microservices and AWS infrastructure for member-facing healthcare APIs at scale — FHIR R4 REST APIs translating legacy claims and eligibility into HL7 resources for the mobile app, including serialization, bundle pagination, and versioned profiles",
+      "Built a Golang-based PII/PHI masking layer in API Gateway that redacts sensitive fields (SSNs, diagnosis codes, insurance IDs) before responses reach clients, aligned with HIPAA minimum-necessary practice",
+      "Design and operate serverless claims processing on AWS — Lambda sizing, DynamoDB access patterns, SQS dead-letter queues, API Gateway throttling — with Terraform and CloudFormation and least-privilege IAM across environments",
+      "Implement and maintain Pega BPM decision tables for adjudication and claim routing so business teams can update rules independently",
+      "Lead production incident triage with Splunk across Lambda, RDS, and API Gateway; diagnosed connection pool exhaustion and DynamoDB hot partitions, cutting member login 5xx rate from 3.2% to under 0.5% over two sprint cycles",
+      "Collaborate across product, compliance, and engineering in SAFe Agile delivery, including architecture reviews with a distributed team across time zones"
     ]
   },
   {
-    title: "Software Engineer — AI & Full-Stack Systems",
-    company: "Anguliyam",
-    location: "Remote",
-    period: "Jun 2024 – Apr 2025",
+    title: "Software Engineering Intern",
+    company: "Zoho",
+    location: "India",
+    period: "Aug 2021 – May 2022",
     achievements: [
-      "Designed and deployed multi-agent orchestration systems using LangGraph and CrewAI, cutting manual processing time by 70% for document-heavy workflows",
-      "Built production RAG pipelines with hybrid retrieval (dense vector + keyword search), improving answer relevance by 40% over baseline",
-      "Implemented human-in-the-loop governance with approval gates and audit logging for sensitive enterprise workflows",
-      "Integrated agents with external tools, CRMs, and voice infrastructure for document ingestion, downstream automation, and real-world task execution"
-    ]
-  },
-  {
-    title: "Software Engineer Intern",
-    company: "Adobe",
-    location: "Remote",
-    period: "Jan 2022 – Aug 2022",
-    achievements: [
-      "Built React and TypeScript UI components for Adobe Experience Cloud, delivering accessible interfaces in Adobe's design system",
-      "Integrated Adobe Experience Platform REST APIs into frontend components with graceful handling for partial failures and degraded data states",
-      "Wrote Jest and React Testing Library coverage for critical flows, catching a regression and lifting a module from 0% to 91% test coverage",
-      "Contributed to design and peer code reviews in 2-week Agile sprints, documenting decisions across a 20+ engineer team"
-    ]
-  },
-  {
-    title: "Software Engineer Intern",
-    company: "EPAM Systems",
-    location: "Hybrid",
-    period: "Dec 2020 – Mar 2021",
-    achievements: [
-      "Built Python and Java ETL modules for client-facing data engineering work with unit tests and documentation under EPAM engineering standards",
-      "Wrote SQL for extraction, transformation, and reporting to support downstream analytics and financial reporting",
-      "Delivered sprint work on schedule in a global team using JIRA, Git branching, standups, retrospectives, and peer review practices"
+      "Shipped backend features for a live J2EE SaaS product using layered MVC, from database through API, within Agile sprints",
+      "Designed a YAML-to-table JDBC data access layer replacing per-entity DAO boilerplate across 14 entities, standardizing CRUD and shortening feature delivery",
+      "Built authentication and session management: BCrypt (work factor 12), OTP-based 2FA via JavaMail with configurable SMTP TLS, and idle timeout expiry for a multi-tenant production product",
+      "Improved MySQL performance by removing N+1 patterns in high-traffic modules in favor of indexed JOINs — page loads dropped from about 4.8s to under 200ms on realistic data"
     ]
   }
 ];
@@ -72,7 +52,7 @@ export default function ExperiencePage() {
             Professional Experience
           </h1>
                      <p className="mt-4 text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-             4 companies, real production systems, measurable impact
+             Healthcare payer platforms and production SaaS — measurable reliability and performance wins
            </p>
         </div>
         

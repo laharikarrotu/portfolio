@@ -43,7 +43,7 @@ export default function ConnectPage() {
           color: '#888888',
           lineHeight: 1.5
         }}>
-          AI agent systems • Backend APIs • Scalable full-stack delivery
+          Backend & cloud systems • Healthcare tech • FHIR & AWS
         </p>
 
         {/* One-line value statement */}
@@ -57,7 +57,7 @@ export default function ConnectPage() {
           marginLeft: 'auto',
           marginRight: 'auto'
         }}>
-          I build production systems at the intersection of AI and backend engineering, with experience across enterprise APIs, multi-agent workflows, and full-stack product delivery.
+          I build production-grade, HIPAA-aware backends — FHIR APIs, AWS serverless, and data protection — and ship AI tools that combine vision models with solid system design.
         </p>
 
         {/* Primary actions - Mobile-optimized, thumb-friendly */}
@@ -72,7 +72,7 @@ export default function ConnectPage() {
         }}>
           {/* LinkedIn - Primary action for career events */}
           <a
-            href="https://www.linkedin.com/in/laharikarrotu/"
+            href="https://www.linkedin.com/in/karrotulahari/"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -108,8 +108,8 @@ export default function ConnectPage() {
           
           {/* Resume Download - Important for career events */}
           <a
-            href="/projects/LahariKarrotuSE.pdf"
-            download="Lahari_Karrotu_Software_Engineer_Resume.pdf"
+            href="/lahari-karrotu-resume.docx"
+            download="lahari-karrotu-resume.docx"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -188,16 +188,16 @@ export default function ConnectPage() {
           color: '#666666'
         }}>
           <a 
-            href="mailto:laharikarrotu24@gmail.com" 
-            style={{ 
-              color: '#000000', 
+            href="mailto:laharikarrotu@gmail.com"
+            style={{
+              color: '#000000',
               textDecoration: 'underline',
               transition: 'opacity 0.2s ease'
             }}
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            laharikarrotu24@gmail.com
+            laharikarrotu@gmail.com
           </a>
         </p>
       </div>

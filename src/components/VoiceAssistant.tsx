@@ -13,17 +13,17 @@ const VoiceAssistant = () => {
   const messages = [
     {
       title: "About Me",
-      text: "Hi! I'm Lahari Karrotu, a Software Engineer focused on backend systems and production AI applications. I work on distributed services and LLM-powered systems that operate under real-world constraints—latency, failures, observability, and scale. My experience spans backend APIs, data pipelines, multimodal AI workflows, and full-stack integration.",
+      text: "Hi! I'm Lahari Karrotu, a Software Engineer focused on backend and cloud systems in healthcare. At Cigna I work on FHIR APIs, AWS serverless infrastructure, and production reliability under HIPAA. I also build AI-powered side projects that combine vision models, APIs, and careful system design.",
       action: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "My Experience",
-      text: "I'm currently a Full-Stack AI Engineer at Arka Tech Solutions, where I build LLM-powered assistants with distributed inference and GPU orchestration. Previously at Anguliyam, I deployed LLM-driven voice workflows and built agent orchestration frameworks. I'm interested in teams building reliable systems at scale, where correctness, maintainability, and engineering judgment matter as much as model performance.",
+      text: "I'm a Software Engineer at Cigna, owning backend microservices and AWS infrastructure for member-facing healthcare APIs. Before that I was a Software Engineering Intern at Zoho, working on production J2EE SaaS, data access layers, authentication, and MySQL performance. I like teams that care about correctness, observability, and regulated data.",
       action: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "Technical Expertise",
-      text: "I bring expertise in React, Next.js, TypeScript, Python, FastAPI, Node.js, and distributed systems. I have strong experience building production LLM applications, multimodal AI pipelines with vector databases, real-time monitoring, and fault-tolerant systems. I hold AWS Certified Solutions Architect and Cisco CCNA certifications.",
+      text: "Technically I work across Java, Python, Golang, and TypeScript — Spring Boot, FastAPI, FHIR and HL7, AWS Lambda and DynamoDB, Terraform and CloudFormation, plus observability with Splunk and CloudWatch. I hold AWS Solutions Architect, ServiceNow Certified System Administrator, and Cisco CCNA certifications.",
       action: () => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
@@ -33,7 +33,7 @@ const VoiceAssistant = () => {
     },
     {
       title: "Let's Connect",
-      text: "I'm always excited to discuss new opportunities in software engineering, backend systems, and production AI applications. Whether you're looking for a Software Engineer with expertise in distributed systems and LLM applications, or want to explore AI integration possibilities, I'd love to hear from you. Feel free to reach out through my contact form or email me directly at laharikarrotu24@gmail.com. Let's build something amazing together!",
+      text: "I'm always happy to discuss backend, cloud, healthcare technology, and production AI. Reach me through the contact form or email at laharikarrotu@gmail.com.",
       action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
     }
   ];

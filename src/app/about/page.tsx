@@ -10,29 +10,29 @@ export default function AboutPage() {
               About Me
             </h1>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Hey, I&apos;m Lahari. I&apos;m a software engineer currently at Oracle, where I build production Java
-              services and REST APIs on OCI for enterprise SaaS use cases. My day-to-day work spans backend
-              performance tuning, automation, and reliable delivery across fast sprint cycles.
+              Hey, I&apos;m Lahari. I work at Cigna on the backend for member-facing healthcare APIs — FHIR-shaped
+              services, AWS serverless pieces, and the habits (incidents, reviews, policy) that keep regulated data
+              inside the lines. I am most engaged where the spec is fuzzy and the data is not: serialization quirks,
+              concurrency, infrastructure that only misbehaves under load.
             </p>
             <p className="text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              Outside work, I build agentic AI systems and full-stack products end-to-end. My projects cover
-              multi-agent orchestration, production RAG pipelines, healthcare AI workflows, and multimodal
-              shopping assistants shipped with practical cloud infrastructure.
+              On my own time I still build: vision and multimodal pipelines (HealthScan, Blinds &amp; Boundaries) where
+              the model is only as good as the API and error handling around it. That is the same standard I want at
+              work — integration, not hype.
             </p>
-            
+
             <div className="space-y-4 transform transition-all duration-500 hover:translate-x-2">
               <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
                 Education
               </h2>
               <div className="space-y-3 stagger-animation">
                 <div className="bg-white/50 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                  <h3 className="font-medium text-gray-900">Master&apos;s in Computer Science</h3>
-                  <p className="text-gray-600">Florida Institute of Technology, Melbourne, FL (2024)</p>
-                  <p className="text-gray-600 text-sm mt-2">Coursework: Machine Learning, Database Systems, Cloud Computing, Software Engineering, Algorithms & Data Structures</p>
+                  <h3 className="font-medium text-gray-900">M.S. Computer Science — Systems, Data Engineering &amp; Applied AI</h3>
+                  <p className="text-gray-600">Florida Institute of Technology · Aug 2022 – May 2024 · GPA 3.6 / 4.0</p>
                 </div>
                 <div className="bg-white/50 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                  <h3 className="font-medium text-gray-900">Bachelor&apos;s in Computer Science</h3>
-                  <p className="text-gray-600">KL University, India (2022)</p>
+                  <h3 className="font-medium text-gray-900">B.Tech Computer Science</h3>
+                  <p className="text-gray-600">KL University · Aug 2018 – May 2022 · 8.7 / 10</p>
                 </div>
               </div>
             </div>
@@ -43,18 +43,18 @@ export default function AboutPage() {
               </h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { title: 'Backend', skills: 'FastAPI, Spring Boot, Node.js, REST APIs' },
-                  { title: 'AI Systems', skills: 'LangGraph, CrewAI, LangChain, RAG, Vector Search' },
-                  { title: 'Languages', skills: 'Python, Java, TypeScript, JavaScript, SQL' },
-                  { title: 'Cloud & Infra', skills: 'OCI, AWS, GCP, Azure, Docker, Jenkins, GitHub Actions' }
+                  { title: 'Backend & APIs', skills: 'Java, Spring Boot, FastAPI, Golang, HAPI FHIR, REST' },
+                  { title: 'Healthcare & compliance', skills: 'FHIR / HL7, OAuth 2.0, OIDC, HIPAA-aware design' },
+                  { title: 'Languages', skills: 'Java, Python, Golang, TypeScript, SQL, JavaScript' },
+                  { title: 'Cloud & infra', skills: 'AWS (Lambda, DynamoDB, S3, RDS, SQS), Terraform, CloudFormation, Docker, Azure' }
                 ].map((competency, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="space-y-2 bg-white/60 backdrop-blur-sm p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-blue-50/50"
                     style={{ animationDelay: `${0.2 * index}s` }}
                   >
                     <h3 className="font-medium text-gray-900">{competency.title}</h3>
-                    <p className="text-gray-600">{competency.skills}</p>
+                    <p className="text-gray-600 text-sm">{competency.skills}</p>
                   </div>
                 ))}
               </div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 loading="lazy"
               />
               <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
-                <span>12 public repositories</span>
+                <span>Open source &amp; projects</span>
                 <a href="https://github.com/laharikarrotu" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 font-medium">
                   View on GitHub →
                 </a>
@@ -87,15 +87,14 @@ export default function AboutPage() {
               </h2>
               <ul className="space-y-3 stagger-animation">
                 {[
-                  'Oracle: production Java services on OCI, SQL optimization with 60%+ response-time reduction, and automated operational workflows',
-                  'Anguliyam: multi-agent orchestration with LangGraph/CrewAI and enterprise RAG systems with 40% relevance gains',
-                  'Adobe: React + TypeScript UI systems with API integrations and test coverage raised from 0% to 91%',
-                  'Projects: HealthScan, Blinds & Boundaries, AI Resume Tailor, and SmartBuy v2 multimodal shopping agent',
-                  'MS Computer Science (Florida Tech) · AWS Certified Solutions Architect'
+                  'Cigna: FHIR R4 APIs at member scale, Golang PHI masking in API Gateway, AWS serverless (Terraform/CloudFormation), Splunk-led incident triage — login 5xx from 3.2% to under 0.5%',
+                  'Zoho: JDBC DAL across 14 entities, auth + 2FA, MySQL optimization (~4.8s → <200ms page loads)',
+                  'Projects: HealthScan (multimodal healthcare assistant), Blinds & Boundaries (Azure CV + try-on), SmartBuy v2, AI Resume Tailor',
+                  'M.S. CS (Florida Tech) · AWS Solutions Architect · ServiceNow CSA · Cisco CCNA'
                 ].map((highlight, index) => (
                   <li key={index} className="flex items-start transform transition-all duration-300 hover:translate-x-2">
                     <span className="inline-block w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 mr-3"></span>
-                    <span className="text-gray-600">{highlight}</span>
+                    <span className="text-gray-600 text-sm leading-relaxed">{highlight}</span>
                   </li>
                 ))}
               </ul>

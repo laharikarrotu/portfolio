@@ -11,7 +11,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="mt-4 text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            I&apos;m interested in software engineering opportunities in backend systems, production AI applications, and full-stack development. Feel free to reach out through any of these channels.
+            I&apos;m interested in backend, cloud, and healthcare technology roles — plus teams shipping AI products with strong engineering discipline. Reach out through any of these channels.
           </p>
         </div>
 
@@ -22,11 +22,11 @@ export default function ContactPage() {
                 <Mail className="w-8 h-8 text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mr-6 animate-bounce-subtle" />
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Email</p>
-                  <a 
-                    href="mailto:laharikarrotu24@gmail.com"
+                  <a
+                    href="mailto:laharikarrotu@gmail.com"
                     className="text-lg text-gray-900 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:bg-clip-text transition-all duration-300"
                   >
-                    laharikarrotu24@gmail.com
+                    laharikarrotu@gmail.com
                   </a>
                 </div>
               </div>
@@ -35,11 +35,11 @@ export default function ContactPage() {
                 <Phone className="w-8 h-8 text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mr-6 animate-bounce-subtle" style={{ animationDelay: '0.1s' }} />
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Phone</p>
-                  <a 
-                    href="tel:321-367-9669"
+                  <a
+                    href="tel:904-590-2128"
                     className="text-lg text-gray-900 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:bg-clip-text transition-all duration-300"
                   >
-                    321-367-9669
+                    904-590-2128
                   </a>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 <MapPin className="w-8 h-8 text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mr-6 animate-bounce-subtle" style={{ animationDelay: '0.2s' }} />
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Location</p>
-                  <p className="text-lg text-gray-900">San Francisco Bay Area, CA</p>
+                  <p className="text-lg text-gray-900">United States</p>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   <span className="text-gray-900 group-hover:text-blue-600">GitHub</span>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/laharikarrotu/"
+                  href="https://www.linkedin.com/in/karrotulahari/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center px-6 py-3 bg-white rounded-lg hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
@@ -82,7 +82,7 @@ export default function ContactPage() {
 
           <div className="mt-12 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <p className="text-gray-600 hover:scale-105 transition-transform duration-300">
-              Looking forward to connecting with you and discussing potential opportunities in software engineering, AI systems, and full-stack development.
+              Looking forward to connecting about backend, cloud, healthcare tech, and production AI work.
             </p>
           </div>
         </div>

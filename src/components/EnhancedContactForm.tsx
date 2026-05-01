@@ -268,11 +268,11 @@ const EnhancedContactForm = () => {
         <div className="mt-8 pt-6 border-t border-gray-200 text-center">
           <p className="text-sm text-gray-600">
             Or email me directly at{' '}
-                         <a 
-               href="mailto:laharikarrothu@gmail.com" 
+                         <a
+               href="mailto:laharikarrotu@gmail.com"
                className="text-purple-600 hover:text-purple-700 font-medium"
              >
-               laharikarrothu@gmail.com
+               laharikarrotu@gmail.com
              </a>
           </p>
         </div>
